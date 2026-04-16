@@ -6,7 +6,7 @@
 <title>TecSystem Brasil – Vagas Técnicas 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--azul:#0a1628;--azul2:#0d2144;--laranja:#f97316;--cinza:#94a3b8;--branco:#f1f5f9;--card:#0f1e35;--borda:#1e3a5f;--verde:#25d366}
+:root{--azul:#0a1628;--azul2:#0d2144;--laranja:#f97316;--cinza:#94a3b8;--branco:#f1f5f9;--card:#0f1e35;--borda:#1e3a5f}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--azul);color:var(--branco);font-family:'Barlow',sans-serif}
 header{background:var(--azul2);border-bottom:2px solid var(--laranja);padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between}
@@ -22,7 +22,7 @@ header{background:var(--azul2);border-bottom:2px solid var(--laranja);padding:0 
 .filters{padding:14px 20px;background:var(--azul2);border-bottom:1px solid var(--borda);display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
 .filter-btn{flex-shrink:0;background:transparent;border:1px solid var(--borda);color:var(--cinza);font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:7px 14px;border-radius:6px;cursor:pointer;transition:all 0.2s;white-space:nowrap}
 .filter-btn:hover,.filter-btn.active{background:var(--laranja);border-color:var(--laranja);color:white}
-.sel{background:var(--azul);border:1px solid var(--borda);color:var(--branco);font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:7px 14px;border-radius:6px;cursor:pointer;flex-shrink:0;max-width:200px}
+.sel{background:var(--azul);border:1px solid var(--borda);color:var(--branco);font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:7px 14px;border-radius:6px;cursor:pointer;flex-shrink:0;max-width:220px}
 .content{padding:20px 16px;max-width:800px;margin:0 auto}
 .update-bar{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--cinza);margin-bottom:16px;display:flex;align-items:center;gap:8px}
 .dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
@@ -40,14 +40,13 @@ header{background:var(--azul2);border-bottom:2px solid var(--laranja);padding:0 
 .b-au{background:rgba(249,115,22,0.2);color:#fb923c;border:1px solid rgba(249,115,22,0.3)}
 .b-qu{background:rgba(168,85,247,0.2);color:#c084fc;border:1px solid rgba(168,85,247,0.3)}
 .b-se{background:rgba(20,184,166,0.2);color:#2dd4bf;border:1px solid rgba(20,184,166,0.3)}
+.beneficios{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.benef-tag{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);color:var(--cinza);font-size:10px;padding:2px 8px;border-radius:4px}
 .card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--borda)}
 .fonte{font-size:11px;color:var(--cinza)}
 .btn{background:var(--laranja);color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:6px;text-decoration:none}
-.btn-wpp{background:var(--verde);color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:6px;text-decoration:none}
-
-/* CALCULADORA */
-.calc-btn{background:var(--laranja);color:white;border:none;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px;padding:10px 20px;border-radius:8px;cursor:pointer;margin-bottom:20px;width:100%}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;padding:16px}
+.calc-btn{background:var(--laranja);color:white;border:none;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;padding:12px 20px;border-radius:8px;cursor:pointer;margin-bottom:20px;width:100%}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center;padding:16px}
 .modal.open{display:flex}
 .modal-box{background:var(--azul2);border:1px solid var(--borda);border-radius:12px;padding:24px;width:100%;max-width:400px}
 .modal-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--laranja);margin-bottom:16px}
@@ -56,11 +55,12 @@ header{background:var(--azul2);border-bottom:2px solid var(--laranja);padding:0 
 .input-group input{width:100%;background:var(--azul);border:1px solid var(--borda);color:var(--branco);font-family:'Barlow',sans-serif;font-size:15px;padding:10px 14px;border-radius:8px}
 .calc-result{background:var(--azul);border:1px solid var(--borda);border-radius:8px;padding:14px;margin-top:16px}
 .calc-line{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;color:var(--cinza)}
-.calc-line.total{color:var(--branco);font-weight:700;font-size:15px;border-top:1px solid var(--borda);padding-top:10px;margin-top:4px}
-.calc-line.destaque{color:#4ade80;font-weight:700;font-size:16px}
-.btn-calc{background:var(--laranja);color:white;border:none;font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;padding:10px;border-radius:8px;cursor:pointer;width:100%;margin-top:12px}
+.calc-line.destaque{color:#4ade80;font-weight:700;font-size:16px;border-top:1px solid var(--borda);padding-top:10px;margin-top:4px}
 .btn-fechar{background:transparent;color:var(--cinza);border:1px solid var(--borda);font-family:'Barlow',sans-serif;font-size:13px;padding:8px;border-radius:8px;cursor:pointer;width:100%;margin-top:8px}
-
+.sem-vagas{text-align:center;padding:48px 24px;color:var(--cinza)}
+.sem-vagas-icon{font-size:48px;margin-bottom:16px}
+.sem-vagas-titulo{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--branco);margin-bottom:8px;letter-spacing:1px}
+.sem-vagas-texto{font-size:14px;line-height:1.6}
 footer{text-align:center;padding:28px;color:var(--cinza);font-size:12px;border-top:1px solid var(--borda);margin-top:28px}
 footer strong{color:var(--laranja)}
 </style>
@@ -68,19 +68,17 @@ footer strong{color:var(--laranja)}
 <body>
 <header>
   <div class="logo">Tec<span>System</span> Brasil</div>
-  <span style="font-size:11px;color:var(--cinza)">16/04/2026 às 18:28</span>
+  <span id="horario" style="font-size:11px;color:var(--cinza)"></span>
 </header>
-
 <div class="hero">
   <h1>Vagas para <span>Técnicos</span></h1>
   <p>90+ especialidades · Elétrica · Mecânica · Automação · Qualidade · Segurança</p>
   <div class="stats">
-    <div class="stat"><div class="stat-num" id="contador">97</div><div class="stat-label">Vagas 2026</div></div>
+    <div class="stat"><div class="stat-num" id="contador">98</div><div class="stat-label">Vagas 2026</div></div>
     <div class="stat"><div class="stat-num">90+</div><div class="stat-label">Especialidades</div></div>
     <div class="stat"><div class="stat-num">BR</div><div class="stat-label">Todo Brasil</div></div>
   </div>
 </div>
-
 <div class="filters">
   <button class="filter-btn active" onclick="filtrarArea('todas',this)">Todas</button>
   <button class="filter-btn" onclick="filtrarArea('eletrica',this)">⚡ Elétrica</button>
@@ -89,18 +87,15 @@ footer strong{color:var(--laranja)}
   <button class="filter-btn" onclick="filtrarArea('qualidade',this)">📊 Qualidade</button>
   <button class="filter-btn" onclick="filtrarArea('seguranca',this)">🦺 Segurança</button>
   <select class="sel" onchange="filtrarEstado(this.value)"><option value="todos">🌎 Todos os estados</option><option value="BR">BR — BR</option></select>
-  <select class="sel" onchange="filtrarEsp(this.value)"><option value="todas">🔧 Todas as especialidades</option><option value="técnico em cnc">Técnico Em Cnc</option><option value="técnico em hvac">Técnico Em Hvac</option><option value="técnico em pcm">Técnico Em Pcm</option><option value="técnico em plc">Técnico Em Plc</option><option value="técnico em scada">Técnico Em Scada</option><option value="técnico em alimentos">Técnico Em Alimentos</option><option value="técnico em análise de óleo">Técnico Em Análise De Óleo</option><option value="técnico em ar comprimido">Técnico Em Ar Comprimido</option><option value="técnico em assistência técnica industrial">Técnico Em Assistência Técnica Industrial</option><option value="técnico em automação industrial">Técnico Em Automação Industrial</option><option value="técnico em automação predial">Técnico Em Automação Predial</option><option value="técnico em biotecnologia industrial">Técnico Em Biotecnologia Industrial</option><option value="técnico em bombas industriais">Técnico Em Bombas Industriais</option><option value="técnico em borracha">Técnico Em Borracha</option><option value="técnico em caldeiraria">Técnico Em Caldeiraria</option><option value="técnico em caldeiras">Técnico Em Caldeiras</option><option value="técnico em cerâmica">Técnico Em Cerâmica</option><option value="técnico em climatização">Técnico Em Climatização</option><option value="técnico em comando elétrico">Técnico Em Comando Elétrico</option><option value="técnico em combustão industrial">Técnico Em Combustão Industrial</option><option value="técnico em comissionamento">Técnico Em Comissionamento</option><option value="técnico em confiabilidade industrial">Técnico Em Confiabilidade Industrial</option><option value="técnico em controle de qualidade">Técnico Em Controle De Qualidade</option><option value="técnico em cosméticos">Técnico Em Cosméticos</option><option value="técnico em efluentes industriais">Técnico Em Efluentes Industriais</option><option value="técnico em eletrotécnica">Técnico Em Eletrotécnica</option><option value="técnico em eletrônica industrial">Técnico Em Eletrônica Industrial</option><option value="técnico em elétrica industrial">Técnico Em Elétrica Industrial</option><option value="técnico em embalagens">Técnico Em Embalagens</option><option value="técnico em energia">Técnico Em Energia</option><option value="técnico em ensaios não destrutivos">Técnico Em Ensaios Não Destrutivos</option><option value="técnico em farmacêutica">Técnico Em Farmacêutica</option><option value="técnico em ferramentaria">Técnico Em Ferramentaria</option><option value="técnico em fornos industriais">Técnico Em Fornos Industriais</option><option value="técnico em geradores">Técnico Em Geradores</option><option value="técnico em gás industrial">Técnico Em Gás Industrial</option><option value="técnico em hidráulica industrial">Técnico Em Hidráulica Industrial</option><option value="técnico em inspeção de qualidade">Técnico Em Inspeção De Qualidade</option><option value="técnico em instalações industriais">Técnico Em Instalações Industriais</option><option value="técnico em instrumentação industrial">Técnico Em Instrumentação Industrial</option><option value="técnico em laboratório industrial">Técnico Em Laboratório Industrial</option><option value="técnico em laticínios">Técnico Em Laticínios</option><option value="técnico em logística industrial">Técnico Em Logística Industrial</option><option value="técnico em lubrificação industrial">Técnico Em Lubrificação Industrial</option><option value="técnico em manutenção corretiva">Técnico Em Manutenção Corretiva</option><option value="técnico em manutenção de compressores">Técnico Em Manutenção De Compressores</option><option value="técnico em manutenção eletromecânica">Técnico Em Manutenção Eletromecânica</option><option value="técnico em manutenção elétrica">Técnico Em Manutenção Elétrica</option><option value="técnico em manutenção industrial">Técnico Em Manutenção Industrial</option><option value="técnico em manutenção mecânica">Técnico Em Manutenção Mecânica</option><option value="técnico em manutenção preditiva">Técnico Em Manutenção Preditiva</option><option value="técnico em manutenção preventiva">Técnico Em Manutenção Preventiva</option><option value="técnico em mecatrônica">Técnico Em Mecatrônica</option><option value="técnico em mecânica industrial">Técnico Em Mecânica Industrial</option><option value="técnico em meio ambiente">Técnico Em Meio Ambiente</option><option value="técnico em metalurgia">Técnico Em Metalurgia</option><option value="técnico em metrologia">Técnico Em Metrologia</option><option value="técnico em mineração">Técnico Em Mineração</option><option value="técnico em moldes e matrizes">Técnico Em Moldes E Matrizes</option><option value="técnico em montagem industrial">Técnico Em Montagem Industrial</option><option value="técnico em motores elétricos">Técnico Em Motores Elétricos</option><option value="técnico em operação de máquinas">Técnico Em Operação De Máquinas</option><option value="técnico em painéis elétricos">Técnico Em Painéis Elétricos</option><option value="técnico em papel e celulose">Técnico Em Papel E Celulose</option><option value="técnico em petroquímica">Técnico Em Petroquímica</option><option value="técnico em planejamento de manutenção">Técnico Em Planejamento De Manutenção</option><option value="técnico em plástico">Técnico Em Plástico</option><option value="técnico em pneumática">Técnico Em Pneumática</option><option value="técnico em processos industriais">Técnico Em Processos Industriais</option><option value="técnico em produção industrial">Técnico Em Produção Industrial</option><option value="técnico em química industrial">Técnico Em Química Industrial</option><option value="técnico em redes industriais">Técnico Em Redes Industriais</option><option value="técnico em refrigeração industrial">Técnico Em Refrigeração Industrial</option><option value="técnico em robótica industrial">Técnico Em Robótica Industrial</option><option value="técnico em saneamento industrial">Técnico Em Saneamento Industrial</option><option value="técnico em segurança do trabalho">Técnico Em Segurança Do Trabalho</option><option value="técnico em siderurgia">Técnico Em Siderurgia</option><option value="técnico em soldagem">Técnico Em Soldagem</option><option value="técnico em subestações">Técnico Em Subestações</option><option value="técnico em telecomunicações industriais">Técnico Em Telecomunicações Industriais</option><option value="técnico em torres de resfriamento">Técnico Em Torres De Resfriamento</option><option value="técnico em tratamento de água">Técnico Em Tratamento De Água</option><option value="técnico em tubulação industrial">Técnico Em Tubulação Industrial</option><option value="técnico em têxtil">Técnico Em Têxtil</option><option value="técnico em usinagem">Técnico Em Usinagem</option><option value="técnico em utilidades industriais">Técnico Em Utilidades Industriais</option><option value="técnico em vapor e utilidades">Técnico Em Vapor E Utilidades</option><option value="técnico em vibração">Técnico Em Vibração</option><option value="técnico em válvulas industriais">Técnico Em Válvulas Industriais</option></select>
+  <select class="sel" onchange="filtrarEsp(this.value)">
+    <option value="todas">🔧 Todas as especialidades</option>
+    <option value="cnc">Cnc</option><option value="hvac">Hvac</option><option value="pcm">Pcm</option><option value="plc">Plc</option><option value="scada">Scada</option><option value="alimentos">Alimentos</option><option value="análise de óleo">Análise De Óleo</option><option value="ar comprimido">Ar Comprimido</option><option value="assistência técnica industrial">Assistência Técnica Industrial</option><option value="automação industrial">Automação Industrial</option><option value="automação predial">Automação Predial</option><option value="biotecnologia industrial">Biotecnologia Industrial</option><option value="bombas industriais">Bombas Industriais</option><option value="borracha">Borracha</option><option value="caldeiraria">Caldeiraria</option><option value="caldeiras">Caldeiras</option><option value="cerâmica">Cerâmica</option><option value="climatização">Climatização</option><option value="comando elétrico">Comando Elétrico</option><option value="combustão industrial">Combustão Industrial</option><option value="comissionamento">Comissionamento</option><option value="confiabilidade industrial">Confiabilidade Industrial</option><option value="controle de qualidade">Controle De Qualidade</option><option value="cosméticos">Cosméticos</option><option value="efluentes industriais">Efluentes Industriais</option><option value="eletrotécnica">Eletrotécnica</option><option value="eletrônica industrial">Eletrônica Industrial</option><option value="elétrica industrial">Elétrica Industrial</option><option value="embalagens">Embalagens</option><option value="energia">Energia</option><option value="ensaios não destrutivos">Ensaios Não Destrutivos</option><option value="farmacêutica">Farmacêutica</option><option value="ferramentaria">Ferramentaria</option><option value="fornos industriais">Fornos Industriais</option><option value="geradores">Geradores</option><option value="gás industrial">Gás Industrial</option><option value="hidráulica industrial">Hidráulica Industrial</option><option value="inspeção de qualidade">Inspeção De Qualidade</option><option value="instalações industriais">Instalações Industriais</option><option value="instrumentação industrial">Instrumentação Industrial</option><option value="laboratório industrial">Laboratório Industrial</option><option value="laticínios">Laticínios</option><option value="logística industrial">Logística Industrial</option><option value="lubrificação industrial">Lubrificação Industrial</option><option value="manutenção corretiva">Manutenção Corretiva</option><option value="manutenção de compressores">Manutenção De Compressores</option><option value="manutenção eletromecânica">Manutenção Eletromecânica</option><option value="manutenção elétrica">Manutenção Elétrica</option><option value="manutenção industrial">Manutenção Industrial</option><option value="manutenção mecânica">Manutenção Mecânica</option><option value="manutenção preditiva">Manutenção Preditiva</option><option value="manutenção preventiva">Manutenção Preventiva</option><option value="mecatrônica">Mecatrônica</option><option value="mecânica industrial">Mecânica Industrial</option><option value="meio ambiente">Meio Ambiente</option><option value="metalurgia">Metalurgia</option><option value="metrologia">Metrologia</option><option value="mineração">Mineração</option><option value="montagem industrial">Montagem Industrial</option><option value="motores elétricos">Motores Elétricos</option><option value="operação de máquinas">Operação De Máquinas</option><option value="painéis elétricos">Painéis Elétricos</option><option value="papel e celulose">Papel E Celulose</option><option value="petroquímica">Petroquímica</option><option value="planejamento de manutenção">Planejamento De Manutenção</option><option value="plástico">Plástico</option><option value="pneumática">Pneumática</option><option value="processos industriais">Processos Industriais</option><option value="produção industrial">Produção Industrial</option><option value="química industrial">Química Industrial</option><option value="redes industriais">Redes Industriais</option><option value="refrigeração industrial">Refrigeração Industrial</option><option value="robótica industrial">Robótica Industrial</option><option value="saneamento industrial">Saneamento Industrial</option><option value="segurança do trabalho">Segurança Do Trabalho</option><option value="siderurgia">Siderurgia</option><option value="soldagem">Soldagem</option><option value="subestações">Subestações</option><option value="telecomunicações industriais">Telecomunicações Industriais</option><option value="torres de resfriamento">Torres De Resfriamento</option><option value="tratamento de água">Tratamento De Água</option><option value="tubulação industrial">Tubulação Industrial</option><option value="têxtil">Têxtil</option><option value="usinagem">Usinagem</option><option value="utilidades industriais">Utilidades Industriais</option><option value="vapor e utilidades">Vapor E Utilidades</option><option value="vibração">Vibração</option><option value="válvulas industriais">Válvulas Industriais</option>
+  </select>
 </div>
-
 <div class="content">
-  <div class="update-bar"><div class="dot"></div>Apenas vagas de 2026 · Atualizado automaticamente</div>
-
-  <button class="calc-btn" onclick="document.getElementById('modal').classList.add('open')">
-    🧮 CALCULADORA DE SALÁRIO LÍQUIDO
-  </button>
-
-  <div class="grid" id="grid">
-    <a class="card" href="https://www.vagas.com.br/vagas/v2801368/tecnico-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+  <div class="update-bar"><div class="dot"></div>Apenas vagas de 2026 · Atualizado automaticamente · 16/04/2026 às 19:03</div>
+  <button class="calc-btn" onclick="document.getElementById('modal').classList.add('open')">🧮 CALCULADORA DE SALÁRIO LÍQUIDO</button>
+  <div class="grid" id="grid"><a class="card" href="https://www.vagas.com.br/vagas/v2801368/tecnico-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicomanutençãoelétrica">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoManutençãoElétrica</div>
@@ -108,15 +103,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoManuten%C3%A7%C3%A3oEl%C3%A9trica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801368/tecnico-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2796786/tecnico-de-manutencao-eletrica-jr" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2796786/tecnico-de-manutencao-eletrica-jr" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicodemanutençãoelétricajr">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeManutençãoElétricaJr</div>
@@ -124,15 +117,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeManuten%C3%A7%C3%A3oEl%C3%A9tricaJr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2796786/tecnico-de-manutencao-eletrica-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2805598/tecnico-de-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2805598/tecnico-de-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicodemanutençãoeletrica">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeManutençãoEletrica</div>
@@ -140,15 +131,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeManuten%C3%A7%C3%A3oEletrica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805598/tecnico-de-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2804509/mecanico-de-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2804509/mecanico-de-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutenção">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">MecânicodeManutenção</div>
@@ -156,15 +145,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804509/mecanico-de-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2805028/mecanico-de-manutencao-i" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2805028/mecanico-de-manutencao-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutençãoi">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">MecânicodeManutençãoI</div>
@@ -172,15 +159,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3oI%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805028/mecanico-de-manutencao-i%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2807082/mecanico-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2807082/mecanico-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicomanutenção">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">MecânicoManutenção</div>
@@ -188,15 +173,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicoManuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807082/mecanico-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2786807/tecnico-de-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2786807/tecnico-de-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode manutenção">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicode Manutenção</div>
@@ -204,15 +187,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Manuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2786807/tecnico-de-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2802756/tecnico-a-de-reparos-junior" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2802756/tecnico-a-de-reparos-junior" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnico(a) de reparos júnior">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnico(a) de Reparos Júnior</div>
@@ -220,15 +201,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnico%28a%29%20de%20Reparos%20J%C3%BAnior%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802756/tecnico-a-de-reparos-junior%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2808311/estagio-tecnico" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2808311/estagio-tecnico" target="_blank" data-area="mecanica" data-estado="BR" data-esp="estágiotécnico">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">EstágioTécnico</div>
@@ -236,15 +215,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEst%C3%A1gioT%C3%A9cnico%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808311/estagio-tecnico%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2808318/assistente-tecnico-i" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2808318/assistente-tecnico-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="assistentetécnicoi">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">AssistenteTécnicoI</div>
@@ -252,15 +229,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAssistenteT%C3%A9cnicoI%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808318/assistente-tecnico-i%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2807872/tecnica-automacao-especializada-ii-automacao-industrial-usina-vaga-afirmativa-para-mulheres" target="_blank" data-estado="BR" data-area="automacao" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2807872/tecnica-automacao-especializada-ii-automacao-industrial-usina-vaga-afirmativa-para-mulheres" target="_blank" data-area="automacao" data-estado="BR" data-esp="técnicaautomaçãoespecializada ii -automaçãoindustrial- usina - vaga afirmativa p">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicaAutomaçãoEspecializada II -AutomaçãoIndustrial- Usina - Vaga Afirmativa p</div>
@@ -268,15 +243,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-au">AUTOMAÇÃO</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicaAutoma%C3%A7%C3%A3oEspecializada%20II%20-Automa%C3%A7%C3%A3oIndustrial-%20Usina%20-%20Vaga%20Afirmativa%20p%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807872/tecnica-automacao-especializada-ii-automacao-industrial-usina-vaga-afirmativa-para-mulheres%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2807149/tecnico-em-manutencao-industrial" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2807149/tecnico-em-manutencao-industrial" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoem manutençãoindustrial">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicoem ManutençãoIndustrial</div>
@@ -284,15 +257,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoem%20Manuten%C3%A7%C3%A3oIndustrial%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807149/tecnico-em-manutencao-industrial%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2804836/engenheiro-de-automacao" target="_blank" data-estado="BR" data-area="automacao" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2804836/engenheiro-de-automacao" target="_blank" data-area="automacao" data-estado="BR" data-esp="engenheiro deautomação">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Engenheiro deAutomação</div>
@@ -300,15 +271,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-au">AUTOMAÇÃO</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEngenheiro%20deAutoma%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804836/engenheiro-de-automacao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2806756/engenheiro-de-automacao-pl-027227" target="_blank" data-estado="BR" data-area="automacao" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2806756/engenheiro-de-automacao-pl-027227" target="_blank" data-area="automacao" data-estado="BR" data-esp="engenheiro deautomaçãopl (027227)">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Engenheiro deAutomaçãoPl (027227)</div>
@@ -316,15 +285,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-au">AUTOMAÇÃO</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEngenheiro%20deAutoma%C3%A7%C3%A3oPl%20%28027227%29%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2806756/engenheiro-de-automacao-pl-027227%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2793349/tecnico-eletromecanico-automacao-e-manutencao-mecanica-manutencao" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2793349/tecnico-eletromecanico-automacao-e-manutencao-mecanica-manutencao" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicoeletromecânico,automaçãoe manutenção mecânica | manutenção">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoEletromecânico,Automaçãoe Manutenção Mecânica | Manutenção</div>
@@ -332,15 +299,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoEletromec%C3%A2nico%2CAutoma%C3%A7%C3%A3oe%20Manuten%C3%A7%C3%A3o%20Mec%C3%A2nica%20%7C%20Manuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2793349/tecnico-eletromecanico-automacao-e-manutencao-mecanica-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2807000/tecnico-de-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2807000/tecnico-de-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicodemanutençãoelétrica">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeManutençãoElétrica</div>
@@ -348,15 +313,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeManuten%C3%A7%C3%A3oEl%C3%A9trica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807000/tecnico-de-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2806439/tecnico-de-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2806439/tecnico-de-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicodemanutençãoeletrica">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeManutençãoEletrica</div>
@@ -364,15 +327,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeManuten%C3%A7%C3%A3oEletrica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2806439/tecnico-de-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2807518/tecnico-de-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2807518/tecnico-de-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicodemanutençãoeletrica">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeManutençãoEletrica</div>
@@ -380,15 +341,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeManuten%C3%A7%C3%A3oEletrica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807518/tecnico-de-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2807107/tecnico-a-de-manutencao-eletrica-jr-apiai-sp" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2807107/tecnico-a-de-manutencao-eletrica-jr-apiai-sp" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnico(a) demanutençãoelétricajr - apiaí / sp">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnico(a) deManutençãoElétricaJr - Apiaí / SP</div>
@@ -396,15 +355,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnico%28a%29%20deManuten%C3%A7%C3%A3oEl%C3%A9tricaJr%20-%20Apia%C3%AD%20/%20SP%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807107/tecnico-a-de-manutencao-eletrica-jr-apiai-sp%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2799986/estagio-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2799986/estagio-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="estágiomanutenção-elétrica">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">EstágioManutenção-Elétrica</div>
@@ -412,15 +369,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEst%C3%A1gioManuten%C3%A7%C3%A3o-El%C3%A9trica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2799986/estagio-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2804745/coordenador-de-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2804745/coordenador-de-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="coordenador demanutençãoelétrica">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Coordenador deManutençãoElétrica</div>
@@ -428,15 +383,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ACoordenador%20deManuten%C3%A7%C3%A3oEl%C3%A9trica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804745/coordenador-de-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2804828/tecnico-de-manutencao-eletrica-i-pedro-leopoldo-mg" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2804828/tecnico-de-manutencao-eletrica-i-pedro-leopoldo-mg" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicodemanutençãoelétricai | pedro leopoldo/mg">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeManutençãoElétricaI | Pedro Leopoldo/MG</div>
@@ -444,15 +397,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeManuten%C3%A7%C3%A3oEl%C3%A9tricaI%20%7C%20Pedro%20Leopoldo/MG%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804828/tecnico-de-manutencao-eletrica-i-pedro-leopoldo-mg%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2803433/mecanico-de-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2803433/mecanico-de-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutenção">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">MecânicodeManutenção</div>
@@ -460,15 +411,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2803433/mecanico-de-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2804261/mecanico-de-manutencao-i" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2804261/mecanico-de-manutencao-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutençãoi">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">MecânicodeManutençãoI</div>
@@ -476,15 +425,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3oI%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804261/mecanico-de-manutencao-i%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2802397/mecanico-de-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2802397/mecanico-de-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutenção">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">MecânicodeManutenção</div>
@@ -492,15 +439,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802397/mecanico-de-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2807925/mecanico-de-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2807925/mecanico-de-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutenção">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">MecânicodeManutenção</div>
@@ -508,15 +453,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807925/mecanico-de-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2785570/mecanico-de-manutencao-jr" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2785570/mecanico-de-manutencao-jr" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutençãojr">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">MecânicodeManutençãoJr</div>
@@ -524,15 +467,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3oJr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2785570/mecanico-de-manutencao-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2798805/mecanico-de-manutencao-jr" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2798805/mecanico-de-manutencao-jr" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutençãojr">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">MecânicodeManutençãoJr</div>
@@ -540,15 +481,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3oJr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2798805/mecanico-de-manutencao-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2808313/estagio-tecnico" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2808313/estagio-tecnico" target="_blank" data-area="mecanica" data-estado="BR" data-esp="estágiotécnico">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">EstágioTécnico</div>
@@ -556,15 +495,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEst%C3%A1gioT%C3%A9cnico%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808313/estagio-tecnico%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2794010/tecnico-em-eletronica" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2794010/tecnico-em-eletronica" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoem eletrônica">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicoem Eletrônica</div>
@@ -572,15 +509,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoem%20Eletr%C3%B4nica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2794010/tecnico-em-eletronica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2807813/tecnico-eletronica" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2807813/tecnico-eletronica" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoeletrônica">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoEletrônica</div>
@@ -588,15 +523,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoEletr%C3%B4nica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807813/tecnico-eletronica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2794014/tecnico-em-eletronica" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2794014/tecnico-em-eletronica" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoem eletrônica">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicoem Eletrônica</div>
@@ -604,15 +537,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoem%20Eletr%C3%B4nica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2794014/tecnico-em-eletronica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2803355/tecnico-industrial-i" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2803355/tecnico-industrial-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoindustrial i">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoIndustrial I</div>
@@ -620,15 +551,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoIndustrial%20I%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2803355/tecnico-industrial-i%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2801702/tecnico-de-manutencao-jr" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2801702/tecnico-de-manutencao-jr" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode manutenção jr">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicode Manutenção Jr</div>
@@ -636,15 +565,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Manuten%C3%A7%C3%A3o%20Jr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801702/tecnico-de-manutencao-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2796079/analista-de-automacao-e-controle-jr" target="_blank" data-estado="BR" data-area="automacao" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2796079/analista-de-automacao-e-controle-jr" target="_blank" data-area="automacao" data-estado="BR" data-esp="analista deautomaçãoe controle jr">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Analista deAutomaçãoe Controle Jr</div>
@@ -652,15 +579,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-au">AUTOMAÇÃO</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAnalista%20deAutoma%C3%A7%C3%A3oe%20Controle%20Jr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2796079/analista-de-automacao-e-controle-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2808300/analista-de-projetos-industriais-sr" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2808300/analista-de-projetos-industriais-sr" target="_blank" data-area="mecanica" data-estado="BR" data-esp="analista de projetos industriais sr">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Analista de Projetos Industriais Sr</div>
@@ -668,15 +593,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAnalista%20de%20Projetos%20Industriais%20Sr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808300/analista-de-projetos-industriais-sr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2808335/especialista-processos-industriais" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2808335/especialista-processos-industriais" target="_blank" data-area="mecanica" data-estado="BR" data-esp="especialista processos industriais">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Especialista Processos Industriais</div>
@@ -684,15 +607,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEspecialista%20Processos%20Industriais%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808335/especialista-processos-industriais%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2799163/analista-de-produtos-clp-e-redes-industriais" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2799163/analista-de-produtos-clp-e-redes-industriais" target="_blank" data-area="mecanica" data-estado="BR" data-esp="analista de produtos (clp e redes industriais)">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Analista de Produtos (CLP e Redes Industriais)</div>
@@ -700,15 +621,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAnalista%20de%20Produtos%20%28CLP%20e%20Redes%20Industriais%29%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2799163/analista-de-produtos-clp-e-redes-industriais%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2800505/estagio-em-engenharia-de-manutencao-industrial" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2800505/estagio-em-engenharia-de-manutencao-industrial" target="_blank" data-area="mecanica" data-estado="BR" data-esp="estágio em engenharia de manutençãoindustrial">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Estágio em Engenharia de ManutençãoIndustrial</div>
@@ -716,15 +635,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEst%C3%A1gio%20em%20Engenharia%20de%20Manuten%C3%A7%C3%A3oIndustrial%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2800505/estagio-em-engenharia-de-manutencao-industrial%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2805576/eletricista-instrumentista-ii" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2805576/eletricista-instrumentista-ii" target="_blank" data-area="eletrica" data-estado="BR" data-esp="eletricistainstrumentistaii">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">EletricistaInstrumentistaII</div>
@@ -732,15 +649,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEletricistaInstrumentistaII%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805576/eletricista-instrumentista-ii%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2807954/eletricista-instrumentista-ii" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2807954/eletricista-instrumentista-ii" target="_blank" data-area="eletrica" data-estado="BR" data-esp="eletricistainstrumentistaii">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">EletricistaInstrumentistaII</div>
@@ -748,15 +663,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEletricistaInstrumentistaII%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807954/eletricista-instrumentista-ii%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2799789/eletricista-instrumentista-iii" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2799789/eletricista-instrumentista-iii" target="_blank" data-area="eletrica" data-estado="BR" data-esp="eletricistainstrumentistaiii">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">EletricistaInstrumentistaIII</div>
@@ -764,15 +677,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEletricistaInstrumentistaIII%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2799789/eletricista-instrumentista-iii%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2793995/coordenador-de-automacao-e-instrumentacao" target="_blank" data-estado="BR" data-area="automacao" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2793995/coordenador-de-automacao-e-instrumentacao" target="_blank" data-area="automacao" data-estado="BR" data-esp="coordenador de automação einstrumentação">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Coordenador de Automação eInstrumentação</div>
@@ -780,15 +691,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-au">AUTOMAÇÃO</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ACoordenador%20de%20Automa%C3%A7%C3%A3o%20eInstrumenta%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2793995/coordenador-de-automacao-e-instrumentacao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2806752/supervisor-de-eletrica-e-instrumentacao-vaga-extensiva-para-pessoas-com-deficiencia" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2806752/supervisor-de-eletrica-e-instrumentacao-vaga-extensiva-para-pessoas-com-deficiencia" target="_blank" data-area="eletrica" data-estado="BR" data-esp="supervisor de elétrica einstrumentação(vaga extensiva para pessoas com deficiênc">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Supervisor de Elétrica eInstrumentação(VAGA Extensiva para Pessoas com Deficiênc</div>
@@ -796,15 +705,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ASupervisor%20de%20El%C3%A9trica%20eInstrumenta%C3%A7%C3%A3o%28VAGA%20Extensiva%20para%20Pessoas%20com%20Defici%C3%AAnc%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2806752/supervisor-de-eletrica-e-instrumentacao-vaga-extensiva-para-pessoas-com-deficiencia%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2801801/responsavel-tecnico-rt" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2801801/responsavel-tecnico-rt" target="_blank" data-area="mecanica" data-estado="BR" data-esp="responsáveltécnico(rt)">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">ResponsávelTécnico(Rt)</div>
@@ -812,15 +719,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ARespons%C3%A1velT%C3%A9cnico%28Rt%29%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801801/responsavel-tecnico-rt%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2804202/tecnico-de-engenharia-ii-b" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2804202/tecnico-de-engenharia-ii-b" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode engenharia ii b">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicode Engenharia II B</div>
@@ -828,15 +733,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Engenharia%20II%20B%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804202/tecnico-de-engenharia-ii-b%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2793430/tecnico-de-laboratorio" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2793430/tecnico-de-laboratorio" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode laboratório">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicode Laboratório</div>
@@ -844,15 +747,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Laborat%C3%B3rio%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2793430/tecnico-de-laboratorio%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2802037/tecnico-mecanico" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2802037/tecnico-mecanico" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicomecânico">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoMecânico</div>
@@ -860,15 +761,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoMec%C3%A2nico%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802037/tecnico-mecanico%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2806629/tecnico-mecanico-v-027071" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2806629/tecnico-mecanico-v-027071" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicomecânico (v.027071)">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoMecânico (V.027071)</div>
@@ -876,15 +775,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoMec%C3%A2nico%20%28V.027071%29%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2806629/tecnico-mecanico-v-027071%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2801783/tecnico-a-de-eletronica-108492" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2801783/tecnico-a-de-eletronica-108492" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnico(a) de eletrônica - 108492">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnico(a) de Eletrônica - 108492</div>
@@ -892,15 +789,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnico%28a%29%20de%20Eletr%C3%B4nica%20-%20108492%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801783/tecnico-a-de-eletronica-108492%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2805817/tecnico-em-radiofrequencia-jr" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2805817/tecnico-em-radiofrequencia-jr" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoem radiofrequência jr">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicoem Radiofrequência Jr</div>
@@ -908,15 +803,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoem%20Radiofrequ%C3%AAncia%20Jr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805817/tecnico-em-radiofrequencia-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2790657/mecanico-industrial-comodoro-mt" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2790657/mecanico-industrial-comodoro-mt" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânico industrial | comodoro/mt">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Mecânico Industrial | Comodoro/MT</div>
@@ -924,15 +817,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nico%20Industrial%20%7C%20Comodoro/MT%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2790657/mecanico-industrial-comodoro-mt%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2803944/soldador-especializado" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2803944/soldador-especializado" target="_blank" data-area="mecanica" data-estado="BR" data-esp="soldador especializado">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Soldador Especializado</div>
@@ -940,15 +831,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ASoldador%20Especializado%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2803944/soldador-especializado%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2802451/eletromecanico" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2802451/eletromecanico" target="_blank" data-area="eletrica" data-estado="BR" data-esp="eletromecânico">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Eletromecânico</div>
@@ -956,15 +845,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-el">ELÉTRICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEletromec%C3%A2nico%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802451/eletromecanico%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2794166/montador-de-blindagem" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2794166/montador-de-blindagem" target="_blank" data-area="mecanica" data-estado="BR" data-esp="montador de blindagem">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Montador de Blindagem</div>
@@ -972,15 +859,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMontador%20de%20Blindagem%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2794166/montador-de-blindagem%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2807476/coordenador-de-caldeiraria" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em caldeiraria">
+<a class="card" href="https://www.vagas.com.br/vagas/v2807476/coordenador-de-caldeiraria" target="_blank" data-area="mecanica" data-estado="BR" data-esp="coordenador decaldeiraria">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Coordenador deCaldeiraria</div>
@@ -988,15 +873,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ACoordenador%20deCaldeiraria%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807476/coordenador-de-caldeiraria%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2791471/operador-utilidades-iii-caldeira" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2791471/operador-utilidades-iii-caldeira" target="_blank" data-area="mecanica" data-estado="BR" data-esp="operador utilidades iii-caldeira">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Operador Utilidades III-Caldeira</div>
@@ -1004,15 +887,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AOperador%20Utilidades%20III-Caldeira%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2791471/operador-utilidades-iii-caldeira%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2805523/supervisor-a-de-producao-moagem-candeias-ba" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2805523/supervisor-a-de-producao-moagem-candeias-ba" target="_blank" data-area="mecanica" data-estado="BR" data-esp="supervisor(a) de produção - moagem | candeias/ba">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Supervisor(a) de Produção - Moagem | Candeias/BA</div>
@@ -1020,15 +901,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ASupervisor%28a%29%20de%20Produ%C3%A7%C3%A3o%20-%20Moagem%20%7C%20Candeias/BA%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805523/supervisor-a-de-producao-moagem-candeias-ba%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2805875/tecnico-de-campo-i" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2805875/tecnico-de-campo-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode campo i">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicode Campo I</div>
@@ -1036,15 +915,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Campo%20I%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805875/tecnico-de-campo-i%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2805718/tecnico-a-de-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em manutenção de compressores">
+<a class="card" href="https://www.vagas.com.br/vagas/v2805718/tecnico-a-de-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnico(a) de manutenção">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnico(a) de Manutenção</div>
@@ -1052,15 +929,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnico%28a%29%20de%20Manuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805718/tecnico-a-de-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2807469/tecnico-de-qualidade-mecanica" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2807469/tecnico-de-qualidade-mecanica" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode qualidade mecânica">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicode Qualidade Mecânica</div>
@@ -1068,15 +943,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Qualidade%20Mec%C3%A2nica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807469/tecnico-de-qualidade-mecanica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2802132/analista-de-campo" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2802132/analista-de-campo" target="_blank" data-area="mecanica" data-estado="BR" data-esp="analista de campo">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Analista de Campo</div>
@@ -1084,15 +957,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAnalista%20de%20Campo%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802132/analista-de-campo%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2804627/analista-de-campo" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2804627/analista-de-campo" target="_blank" data-area="mecanica" data-estado="BR" data-esp="analista de campo">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Analista de Campo</div>
@@ -1100,15 +971,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAnalista%20de%20Campo%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804627/analista-de-campo%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2784571/tecnico-de-seguranca-do-trabalho-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2784571/tecnico-de-seguranca-do-trabalho-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho|segurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeSegurançadoTrabalho|SegurançadoTrabalho</div>
@@ -1116,15 +985,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeSeguran%C3%A7adoTrabalho%7CSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2784571/tecnico-de-seguranca-do-trabalho-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2795571/tecnico-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2795571/tecnico-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicosegurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoSegurançadoTrabalho</div>
@@ -1132,15 +999,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2795571/tecnico-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2802724/tecnico-de-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2802724/tecnico-de-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeSegurançadoTrabalho</div>
@@ -1148,15 +1013,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802724/tecnico-de-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2802890/tecnico-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2802890/tecnico-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicosegurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoSegurançadoTrabalho</div>
@@ -1164,15 +1027,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802890/tecnico-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2803222/tecnico-de-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2803222/tecnico-de-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeSegurançadoTrabalho</div>
@@ -1180,15 +1041,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2803222/tecnico-de-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2797110/tecnico-de-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2797110/tecnico-de-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeSegurançadoTrabalho</div>
@@ -1196,15 +1055,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2797110/tecnico-de-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2801006/tecnico-em-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2801006/tecnico-em-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicoemsegurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoemSegurançadoTrabalho</div>
@@ -1212,15 +1069,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoemSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801006/tecnico-em-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2800735/tecnico-de-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2800735/tecnico-de-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeSegurançadoTrabalho</div>
@@ -1228,15 +1083,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2800735/tecnico-de-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2800057/tecnico-a-de-qualidade" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2800057/tecnico-a-de-qualidade" target="_blank" data-area="qualidade" data-estado="BR" data-esp="técnico(a) dequalidade">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnico(a) deQualidade</div>
@@ -1244,15 +1097,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-qu">QUALIDADE</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnico%28a%29%20deQualidade%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2800057/tecnico-a-de-qualidade%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2803380/tecnico-qualidade" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2803380/tecnico-qualidade" target="_blank" data-area="qualidade" data-estado="BR" data-esp="técnicoqualidade">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoQualidade</div>
@@ -1260,15 +1111,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-qu">QUALIDADE</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoQualidade%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2803380/tecnico-qualidade%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2808211/tecnico-qualidade-pleno" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2808211/tecnico-qualidade-pleno" target="_blank" data-area="qualidade" data-estado="BR" data-esp="técnicoqualidadepleno">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoQualidadePleno</div>
@@ -1276,15 +1125,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-qu">QUALIDADE</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoQualidadePleno%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808211/tecnico-qualidade-pleno%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2807249/tecnico-de-qualidade-m-f-indaiatuba-sp" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2807249/tecnico-de-qualidade-m-f-indaiatuba-sp" target="_blank" data-area="qualidade" data-estado="BR" data-esp="técnicodequalidade(m/f) - indaiatuba/sp">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeQualidade(m/F) - Indaiatuba/SP</div>
@@ -1292,15 +1139,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-qu">QUALIDADE</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeQualidade%28m/F%29%20-%20Indaiatuba/SP%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807249/tecnico-de-qualidade-m-f-indaiatuba-sp%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2802686/analista-de-qualidade-qualidade-balbino" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2802686/analista-de-qualidade-qualidade-balbino" target="_blank" data-area="qualidade" data-estado="BR" data-esp="analista dequalidade-qualidade- balbino">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Analista deQualidade-Qualidade- Balbino</div>
@@ -1308,15 +1153,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-qu">QUALIDADE</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAnalista%20deQualidade-Qualidade-%20Balbino%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802686/analista-de-qualidade-qualidade-balbino%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2807295/enfermeiro-a-qualidade-qualidade-dedicada-balbino" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2807295/enfermeiro-a-qualidade-qualidade-dedicada-balbino" target="_blank" data-area="qualidade" data-estado="BR" data-esp="enfermeiro(a)qualidade-qualidadededicada - balbino">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Enfermeiro(a)Qualidade-QualidadeDedicada - Balbino</div>
@@ -1324,15 +1167,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-qu">QUALIDADE</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEnfermeiro%28a%29Qualidade-QualidadeDedicada%20-%20Balbino%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807295/enfermeiro-a-qualidade-qualidade-dedicada-balbino%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2801975/monitor-da-qualidade" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2801975/monitor-da-qualidade" target="_blank" data-area="qualidade" data-estado="BR" data-esp="monitor daqualidade">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Monitor daQualidade</div>
@@ -1340,15 +1181,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-qu">QUALIDADE</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMonitor%20daQualidade%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801975/monitor-da-qualidade%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2802830/tecnico-de-refrigeracao-comercial-pleno" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2802830/tecnico-de-refrigeracao-comercial-pleno" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoderefrigeraçãocomercial pleno">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeRefrigeraçãoComercial Pleno</div>
@@ -1356,15 +1195,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeRefrigera%C3%A7%C3%A3oComercial%20Pleno%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802830/tecnico-de-refrigeracao-comercial-pleno%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2796058/mecanico-de-refrigeracao-jr" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2796058/mecanico-de-refrigeracao-jr" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânico derefrigeraçãojr">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Mecânico deRefrigeraçãoJr</div>
@@ -1372,15 +1209,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nico%20deRefrigera%C3%A7%C3%A3oJr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2796058/mecanico-de-refrigeracao-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2805099/mecanico-de-refrigeracao-vrf" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2805099/mecanico-de-refrigeracao-vrf" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânico derefrigeração- vrf">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Mecânico deRefrigeração- Vrf</div>
@@ -1388,15 +1223,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nico%20deRefrigera%C3%A7%C3%A3o-%20Vrf%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805099/mecanico-de-refrigeracao-vrf%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2806488/artifice-especializado-i-refrigeracao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2806488/artifice-especializado-i-refrigeracao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="artífice especializado i -refrigeração">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Artífice Especializado I -Refrigeração</div>
@@ -1404,15 +1237,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AArt%C3%ADfice%20Especializado%20I%20-Refrigera%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2806488/artifice-especializado-i-refrigeracao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2805330/tecnico-de-manutencao-refrigeracao-climatizacao-manutencao-predial-hospital-sao-rafael" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em climatização">
+<a class="card" href="https://www.vagas.com.br/vagas/v2805330/tecnico-de-manutencao-refrigeracao-climatizacao-manutencao-predial-hospital-sao-rafael" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode manutenção (refrigeração/climatização) - manutenção predial - hospital">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicode Manutenção (refrigeração/Climatização) - Manutenção Predial - Hospital</div>
@@ -1420,15 +1251,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Manuten%C3%A7%C3%A3o%20%28refrigera%C3%A7%C3%A3o/Climatiza%C3%A7%C3%A3o%29%20-%20Manuten%C3%A7%C3%A3o%20Predial%20-%20Hospital%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805330/tecnico-de-manutencao-refrigeracao-climatizacao-manutencao-predial-hospital-sao-rafael%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2797769/tecnico-de-manutencao-refrigeracao-manutencao-predial-hospital-sao-luiz-itaim" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em manutenção de compressores">
+<a class="card" href="https://www.vagas.com.br/vagas/v2797769/tecnico-de-manutencao-refrigeracao-manutencao-predial-hospital-sao-luiz-itaim" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode manutenção -refrigeração- manutenção predial - hospital são luiz itaim">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicode Manutenção -Refrigeração- Manutenção Predial - Hospital São Luiz Itaim</div>
@@ -1436,15 +1265,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Manuten%C3%A7%C3%A3o%20-Refrigera%C3%A7%C3%A3o-%20Manuten%C3%A7%C3%A3o%20Predial%20-%20Hospital%20S%C3%A3o%20Luiz%20Itaim%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2797769/tecnico-de-manutencao-refrigeracao-manutencao-predial-hospital-sao-luiz-itaim%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2802384/tecnico-de-manutencao-refrigeracao-climatizacao-manutencao-predial-hospital-sao-rafael" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em climatização">
+<a class="card" href="https://www.vagas.com.br/vagas/v2802384/tecnico-de-manutencao-refrigeracao-climatizacao-manutencao-predial-hospital-sao-rafael" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode manutenção (refrigeração/climatização) - manutenção predial - hospital">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicode Manutenção (refrigeração/Climatização) - Manutenção Predial - Hospital</div>
@@ -1452,15 +1279,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Manuten%C3%A7%C3%A3o%20%28refrigera%C3%A7%C3%A3o/Climatiza%C3%A7%C3%A3o%29%20-%20Manuten%C3%A7%C3%A3o%20Predial%20-%20Hospital%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802384/tecnico-de-manutencao-refrigeracao-climatizacao-manutencao-predial-hospital-sao-rafael%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2791904/mecanico-de-refrigeracao-manutencao-predial-copa-d-or" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em manutenção de compressores">
+<a class="card" href="https://www.vagas.com.br/vagas/v2791904/mecanico-de-refrigeracao-manutencao-predial-copa-d-or" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânico derefrigeração– manutenção predial - copa d'or">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Mecânico deRefrigeração– Manutenção Predial - Copa D'Or</div>
@@ -1468,15 +1293,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nico%20deRefrigera%C3%A7%C3%A3o%E2%80%93%20Manuten%C3%A7%C3%A3o%20Predial%20-%20Copa%20D%27Or%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2791904/mecanico-de-refrigeracao-manutencao-predial-copa-d-or%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2801191/tecnico-em-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2801191/tecnico-em-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicoemsegurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoemSegurançadoTrabalho</div>
@@ -1484,15 +1307,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoemSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801191/tecnico-em-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2802239/tecnico-em-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2802239/tecnico-em-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicoemsegurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoemSegurançadoTrabalho</div>
@@ -1500,15 +1321,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoemSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802239/tecnico-em-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2804516/tecnico-em-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2804516/tecnico-em-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicoemsegurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoemSegurançadoTrabalho</div>
@@ -1516,15 +1335,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoemSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804516/tecnico-em-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2804522/tecnico-a-de-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2804522/tecnico-a-de-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnico(a) desegurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnico(a) deSegurançadoTrabalho</div>
@@ -1532,15 +1349,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnico%28a%29%20deSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804522/tecnico-a-de-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2787836/tecnico-de-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2787836/tecnico-de-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeSegurançadoTrabalho</div>
@@ -1548,15 +1363,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2787836/tecnico-de-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2800359/tecnico-em-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2800359/tecnico-em-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicoemsegurançadotrabalho">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoemSegurançadoTrabalho</div>
@@ -1564,15 +1377,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoemSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2800359/tecnico-em-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2808446/tecnico-de-manutencao-mecanica-i" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em manutenção mecânica">
+<a class="card" href="https://www.vagas.com.br/vagas/v2808446/tecnico-de-manutencao-mecanica-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicodemanutençãomecânicai">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeManutençãoMecânicaI</div>
@@ -1580,15 +1391,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeManuten%C3%A7%C3%A3oMec%C3%A2nicaI%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808446/tecnico-de-manutencao-mecanica-i%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2808479/tecnico-manutencao-mecanica-i" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em manutenção mecânica">
+<a class="card" href="https://www.vagas.com.br/vagas/v2808479/tecnico-manutencao-mecanica-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicomanutençãomecânicai">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicoManutençãoMecânicaI</div>
@@ -1596,15 +1405,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoManuten%C3%A7%C3%A3oMec%C3%A2nicaI%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808479/tecnico-manutencao-mecanica-i%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2808399/trainee-manutencao-industrial" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em manutenção industrial">
+<a class="card" href="https://www.vagas.com.br/vagas/v2808399/trainee-manutencao-industrial" target="_blank" data-area="mecanica" data-estado="BR" data-esp="trainee manutençãoindustrial">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Trainee ManutençãoIndustrial</div>
@@ -1612,15 +1419,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-me">MECÂNICA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ATrainee%20Manuten%C3%A7%C3%A3oIndustrial%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808399/trainee-manutencao-industrial%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2808503/tecnico-de-controle-de-qualidade" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico em controle de qualidade">
+<a class="card" href="https://www.vagas.com.br/vagas/v2808503/tecnico-de-controle-de-qualidade" target="_blank" data-area="qualidade" data-estado="BR" data-esp="técnicode controle dequalidade">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">Técnicode Controle deQualidade</div>
@@ -1628,15 +1433,13 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-qu">QUALIDADE</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Controle%20deQualidade%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808503/tecnico-de-controle-de-qualidade%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
-<a class="card" href="https://www.vagas.com.br/vagas/v2788646/tecnico-de-seguranca-do-trabalho-026733" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<a class="card" href="https://www.vagas.com.br/vagas/v2788646/tecnico-de-seguranca-do-trabalho-026733" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho(026733)">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">TécnicodeSegurançadoTrabalho(026733)</div>
@@ -1644,115 +1447,79 @@ footer strong{color:var(--laranja)}
   </div>
   <div class="badge b-se">SEGURANÇA</div>
 </div>
+
 <div class="card-footer">
   <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeSeguran%C3%A7adoTrabalho%28026733%29%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2788646/tecnico-de-seguranca-do-trabalho-026733%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2801042/tecnico-de-planejamento-de-obras-montagem-eletromecanica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicode planejamento de obras – montagem eletromecânica">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicode Planejamento de Obras – Montagem Eletromecânica</div>
+    <div class="empresa">Empresa · Brasil</div>
   </div>
+  <div class="badge b-el">ELÉTRICA</div>
 </div>
 
-<!-- MODAL CALCULADORA -->
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div class="btn">VER VAGA →</div>
+</div>
+</a></div>
+  <div id="sem-vagas" style="display:none" class="sem-vagas">
+    <div class="sem-vagas-icon">🔍</div>
+    <div class="sem-vagas-titulo">Nenhuma vaga encontrada</div>
+    <div class="sem-vagas-texto">
+      Não encontramos vagas para o filtro selecionado no momento.<br><br>
+      <strong>O que você pode fazer:</strong><br>
+      • Selecione outra especialidade ou estado<br>
+      • Volte mais tarde — o robô atualiza 5x por dia<br>
+      • Clique em <strong>"Todas"</strong> para ver todas as vagas disponíveis
+    </div>
+  </div>
+</div>
 <div class="modal" id="modal">
   <div class="modal-box">
     <div class="modal-title">💰 Calculadora de Salário</div>
-    <div class="input-group">
-      <label>Salário Bruto (R$)</label>
-      <input type="number" id="salario" placeholder="Ex: 3500" oninput="calcular()">
-    </div>
-    <div class="input-group">
-      <label>Dependentes para IR</label>
-      <input type="number" id="dependentes" placeholder="0" value="0" oninput="calcular()">
-    </div>
+    <div class="input-group"><label>Salário Bruto (R$)</label><input type="number" id="salario" placeholder="Ex: 3500" oninput="calcular()"></div>
+    <div class="input-group"><label>Número de dependentes (para IR)</label><input type="number" id="dependentes" placeholder="0" value="0" oninput="calcular()"></div>
     <div class="calc-result" id="resultado" style="display:none">
       <div class="calc-line"><span>Salário Bruto</span><span id="r-bruto"></span></div>
-      <div class="calc-line"><span>INSS</span><span id="r-inss" style="color:#f87171"></span></div>
-      <div class="calc-line"><span>IRRF</span><span id="r-ir" style="color:#f87171"></span></div>
+      <div class="calc-line"><span>(-) INSS</span><span id="r-inss" style="color:#f87171"></span></div>
+      <div class="calc-line"><span>(-) IRRF</span><span id="r-ir" style="color:#f87171"></span></div>
       <div class="calc-line destaque"><span>💵 Salário Líquido</span><span id="r-liquido"></span></div>
-      <div class="calc-line" style="margin-top:8px"><span>FGTS (depósito)</span><span id="r-fgts" style="color:#4ade80"></span></div>
+      <div class="calc-line" style="margin-top:8px;font-size:11px"><span>FGTS depositado pelo empregador</span><span id="r-fgts" style="color:#4ade80"></span></div>
     </div>
-    <button class="btn-fechar" onclick="document.getElementById('modal').classList.remove('open')">Fechar</button>
+    <button class="btn-fechar" onclick="document.getElementById('modal').classList.remove('open')">✕ Fechar</button>
   </div>
 </div>
-
 <footer>
-  <strong>TecSystem Brasil</strong> · 90+ especialidades técnicas · Apenas vagas de 2026<br>
+  <strong>TecSystem Brasil</strong> · 90+ especialidades · Apenas vagas de 2026<br>
   <span style="font-size:11px">Links redirecionam para os sites originais das vagas</span>
 </footer>
-
 <script>
-  let areaAtiva = 'todas', estadoAtivo = 'todos', espAtiva = 'todas';
-
-  function filtrarArea(area, btn) {
-    areaAtiva = area;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    aplicar();
-  }
-  function filtrarEstado(v) { estadoAtivo = v; aplicar(); }
-  function filtrarEsp(v) { espAtiva = v; aplicar(); }
-
-  function aplicar() {
-    let n = 0;
-    document.querySelectorAll('#grid .card').forEach(c => {
-      const ok = (areaAtiva === 'todas' || c.dataset.area === areaAtiva) &&
-                 (estadoAtivo === 'todos' || c.dataset.estado === estadoAtivo) &&
-                 (espAtiva === 'todas' || c.dataset.esp.includes(espAtiva));
-      c.style.display = ok ? 'block' : 'none';
-      if (ok) n++;
-    });
-    document.getElementById('contador').textContent = n;
-  }
-
-  // CALCULADORA INSS 2026
-  function calcularINSS(bruto) {
-    const faixas = [
-      [1518.00, 0.075], [2793.88, 0.09], [4190.83, 0.12], [8157.41, 0.14]
-    ];
-    let inss = 0, anterior = 0;
-    for (const [teto, aliq] of faixas) {
-      if (bruto <= teto) { inss += (bruto - anterior) * aliq; break; }
-      inss += (teto - anterior) * aliq;
-      anterior = teto;
-      if (bruto > 8157.41) { inss = 908.86; break; }
-    }
-    return Math.min(inss, 908.86);
-  }
-
-  function calcularIR(base, dependentes) {
-    const deducaoDep = dependentes * 189.59;
-    const baseCalculo = base - deducaoDep;
-    const faixas = [
-      [2259.20, 0, 0], [2826.65, 0.075, 169.44], [3751.05, 0.15, 381.44],
-      [4664.68, 0.225, 662.77], [Infinity, 0.275, 896.00]
-    ];
-    for (const [teto, aliq, deducao] of faixas) {
-      if (baseCalculo <= teto) return Math.max(0, baseCalculo * aliq - deducao);
-    }
-    return 0;
-  }
-
-  function fmt(v) { return 'R$ ' + v.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
-
-  function calcular() {
-    const bruto = parseFloat(document.getElementById('salario').value) || 0;
-    const dep = parseInt(document.getElementById('dependentes').value) || 0;
-    if (bruto <= 0) { document.getElementById('resultado').style.display = 'none'; return; }
-    const inss = calcularINSS(bruto);
-    const baseIR = bruto - inss;
-    const ir = calcularIR(baseIR, dep);
-    const liquido = bruto - inss - ir;
-    const fgts = bruto * 0.08;
-    document.getElementById('r-bruto').textContent = fmt(bruto);
-    document.getElementById('r-inss').textContent = '- ' + fmt(inss);
-    document.getElementById('r-ir').textContent = '- ' + fmt(ir);
-    document.getElementById('r-liquido').textContent = fmt(liquido);
-    document.getElementById('r-fgts').textContent = '+ ' + fmt(fgts);
-    document.getElementById('resultado').style.display = 'block';
-  }
+function atualizarHorario(){const a=new Date();document.getElementById('horario').textContent=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}).format(a);}
+atualizarHorario();setInterval(atualizarHorario,60000);
+let areaAtiva='todas',estadoAtivo='todos',espAtiva='todas';
+function filtrarArea(a,b){areaAtiva=a;document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');aplicar();}
+function filtrarEstado(v){estadoAtivo=v;aplicar();}
+function filtrarEsp(v){espAtiva=v;aplicar();}
+function aplicar(){
+  let n=0;
+  document.querySelectorAll('#grid .card').forEach(c=>{
+    const ok=(areaAtiva==='todas'||c.dataset.area===areaAtiva)&&(estadoAtivo==='todos'||c.dataset.estado===estadoAtivo)&&(espAtiva==='todas'||c.dataset.esp.includes(espAtiva));
+    c.style.display=ok?'block':'none';
+    if(ok)n++;
+  });
+  document.getElementById('contador').textContent=n;
+  document.getElementById('sem-vagas').style.display=n===0?'block':'none';
+  document.getElementById('grid').style.display=n===0?'none':'flex';
+}
+function calcularINSS(b){const f=[[1518.00,0.075],[2793.88,0.09],[4190.83,0.12],[8157.41,0.14]];let i=0,a=0;for(const[t,q]of f){if(b<=t){i+=(b-a)*q;break;}i+=(t-a)*q;a=t;}return Math.min(i,908.86);}
+function calcularIR(b,d){const x=b-d*189.59;const f=[[2259.20,0,0],[2826.65,0.075,169.44],[3751.05,0.15,381.44],[4664.68,0.225,662.77],[Infinity,0.275,896.00]];for(const[t,a,e]of f){if(x<=t)return Math.max(0,x*a-e);}return 0;}
+function fmt(v){return'R$ '+v.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
+function calcular(){const b=parseFloat(document.getElementById('salario').value)||0;const d=parseInt(document.getElementById('dependentes').value)||0;if(b<=0){document.getElementById('resultado').style.display='none';return;}const i=calcularINSS(b);const r=calcularIR(b-i,d);const l=b-i-r;document.getElementById('r-bruto').textContent=fmt(b);document.getElementById('r-inss').textContent='- '+fmt(i);document.getElementById('r-ir').textContent='- '+fmt(r);document.getElementById('r-liquido').textContent=fmt(l);document.getElementById('r-fgts').textContent='+ '+fmt(b*0.08);document.getElementById('resultado').style.display='block';}
 </script>
 </body>
 </html>
