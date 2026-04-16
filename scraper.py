@@ -698,7 +698,8 @@ function calcularINSS(b){{const f=[[1518.00,0.075],[2793.88,0.09],[4190.83,0.12]
 function calcularIR(b,d){{const x=b-d*189.59;const f=[[2259.20,0,0],[2826.65,0.075,169.44],[3751.05,0.15,381.44],[4664.68,0.225,662.77],[Infinity,0.275,896.00]];for(const[t,a,e]of f){{if(x<=t)return Math.max(0,x*a-e);}}return 0;}}
 function fmt(v){{return'R$ '+v.toFixed(2).replace('.',',').replace(/\B(?=(\d{{3}})+(?!\d))/g,'.');}}
 function calcular(){{const b=parseFloat(document.getElementById('salario').value)||0;const d=parseInt(document.getElementById('dependentes').value)||0;if(b<=0){{document.getElementById('resultado').style.display='none';return;}}const i=calcularINSS(b);const r=calcularIR(b-i,d);const l=b-i-r;document.getElementById('r-bruto').textContent=fmt(b);document.getElementById('r-inss').textContent='- '+fmt(i);document.getElementById('r-ir').textContent='- '+fmt(r);document.getElementById('r-liquido').textContent=fmt(l);document.getElementById('r-fgts').textContent='+ '+fmt(b*0.08);document.getElementById('resultado').style.display='block';}}
-</script>
+</script> 
+<script data-goatcounter="https://tecsystembrasil.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>"""
 
