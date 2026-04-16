@@ -42,11 +42,12 @@ header{background:var(--azul2);border-bottom:2px solid var(--laranja);padding:0 
 .b-se{background:rgba(20,184,166,0.2);color:#2dd4bf;border:1px solid rgba(20,184,166,0.3)}
 .card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--borda)}
 .fonte{font-size:11px;color:var(--cinza)}
-.btns{display:flex;gap:6px}
-.btn{background:var(--laranja);color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:6px;text-decoration:none;white-space:nowrap}
-.btn-wpp{background:var(--verde);color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:6px;text-decoration:none;white-space:nowrap}
-.calc-btn{background:var(--laranja);color:white;border:none;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;padding:12px 20px;border-radius:8px;cursor:pointer;margin-bottom:20px;width:100%}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center;padding:16px}
+.btn{background:var(--laranja);color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:6px;text-decoration:none}
+.btn-wpp{background:var(--verde);color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:6px;text-decoration:none}
+
+/* CALCULADORA */
+.calc-btn{background:var(--laranja);color:white;border:none;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px;padding:10px 20px;border-radius:8px;cursor:pointer;margin-bottom:20px;width:100%}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;padding:16px}
 .modal.open{display:flex}
 .modal-box{background:var(--azul2);border:1px solid var(--borda);border-radius:12px;padding:24px;width:100%;max-width:400px}
 .modal-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--laranja);margin-bottom:16px}
@@ -55,8 +56,11 @@ header{background:var(--azul2);border-bottom:2px solid var(--laranja);padding:0 
 .input-group input{width:100%;background:var(--azul);border:1px solid var(--borda);color:var(--branco);font-family:'Barlow',sans-serif;font-size:15px;padding:10px 14px;border-radius:8px}
 .calc-result{background:var(--azul);border:1px solid var(--borda);border-radius:8px;padding:14px;margin-top:16px}
 .calc-line{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;color:var(--cinza)}
-.calc-line.destaque{color:#4ade80;font-weight:700;font-size:16px;border-top:1px solid var(--borda);padding-top:10px;margin-top:4px}
+.calc-line.total{color:var(--branco);font-weight:700;font-size:15px;border-top:1px solid var(--borda);padding-top:10px;margin-top:4px}
+.calc-line.destaque{color:#4ade80;font-weight:700;font-size:16px}
+.btn-calc{background:var(--laranja);color:white;border:none;font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;padding:10px;border-radius:8px;cursor:pointer;width:100%;margin-top:12px}
 .btn-fechar{background:transparent;color:var(--cinza);border:1px solid var(--borda);font-family:'Barlow',sans-serif;font-size:13px;padding:8px;border-radius:8px;cursor:pointer;width:100%;margin-top:8px}
+
 footer{text-align:center;padding:28px;color:var(--cinza);font-size:12px;border-top:1px solid var(--borda);margin-top:28px}
 footer strong{color:var(--laranja)}
 </style>
@@ -64,17 +68,19 @@ footer strong{color:var(--laranja)}
 <body>
 <header>
   <div class="logo">Tec<span>System</span> Brasil</div>
-  <span id="horario" style="font-size:11px;color:var(--cinza)"></span>
+  <span style="font-size:11px;color:var(--cinza)">16/04/2026 às 11:41</span>
 </header>
+
 <div class="hero">
   <h1>Vagas para <span>Técnicos</span></h1>
   <p>90+ especialidades · Elétrica · Mecânica · Automação · Qualidade · Segurança</p>
   <div class="stats">
-    <div class="stat"><div class="stat-num" id="contador">10</div><div class="stat-label">Vagas 2026</div></div>
+    <div class="stat"><div class="stat-num" id="contador">92</div><div class="stat-label">Vagas 2026</div></div>
     <div class="stat"><div class="stat-num">90+</div><div class="stat-label">Especialidades</div></div>
     <div class="stat"><div class="stat-num">BR</div><div class="stat-label">Todo Brasil</div></div>
   </div>
 </div>
+
 <div class="filters">
   <button class="filter-btn active" onclick="filtrarArea('todas',this)">Todas</button>
   <button class="filter-btn" onclick="filtrarArea('eletrica',this)">⚡ Elétrica</button>
@@ -82,161 +88,1591 @@ footer strong{color:var(--laranja)}
   <button class="filter-btn" onclick="filtrarArea('automacao',this)">🤖 Automação</button>
   <button class="filter-btn" onclick="filtrarArea('qualidade',this)">📊 Qualidade</button>
   <button class="filter-btn" onclick="filtrarArea('seguranca',this)">🦺 Segurança</button>
-  <select class="sel" onchange="filtrarEstado(this.value)">
-    <option value="todos">🌎 Todos os estados</option>
-    <option value="SP">SP — São Paulo</option>
-    <option value="RJ">RJ — Rio de Janeiro</option>
-    <option value="MG">MG — Minas Gerais</option>
-    <option value="RS">RS — Rio Grande do Sul</option>
-    <option value="PR">PR — Paraná</option>
-    <option value="SC">SC — Santa Catarina</option>
-    <option value="BA">BA — Bahia</option>
-    <option value="PE">PE — Pernambuco</option>
-    <option value="CE">CE — Ceará</option>
-    <option value="GO">GO — Goiás</option>
-    <option value="MT">MT — Mato Grosso</option>
-    <option value="PA">PA — Pará</option>
-    <option value="AM">AM — Amazonas</option>
-    <option value="ES">ES — Espírito Santo</option>
-    <option value="MA">MA — Maranhão</option>
-    <option value="DF">DF — Distrito Federal</option>
-    <option value="RN">RN — Rio Grande do Norte</option>
-    <option value="PB">PB — Paraíba</option>
-    <option value="AL">AL — Alagoas</option>
-    <option value="SE">SE — Sergipe</option>
-    <option value="RO">RO — Rondônia</option>
-    <option value="TO">TO — Tocantins</option>
-    <option value="AC">AC — Acre</option>
-    <option value="AP">AP — Amapá</option>
-    <option value="RR">RR — Roraima</option>
-  </select>
-  <select class="sel" onchange="filtrarEsp(this.value)">
-    <option value="todas">🔧 Todas as especialidades</option>
-    <option value="refrigeração">Técnico em Refrigeração Industrial</option>
-    <option value="elétrica industrial">Técnico em Elétrica Industrial</option>
-    <option value="eletrotécnica">Técnico em Eletrotécnica</option>
-    <option value="eletrônica">Técnico em Eletrônica Industrial</option>
-    <option value="automação">Técnico em Automação Industrial</option>
-    <option value="mecatrônica">Técnico em Mecatrônica</option>
-    <option value="mecânica industrial">Técnico em Mecânica Industrial</option>
-    <option value="manutenção industrial">Técnico em Manutenção Industrial</option>
-    <option value="manutenção mecânica">Técnico em Manutenção Mecânica</option>
-    <option value="manutenção elétrica">Técnico em Manutenção Elétrica</option>
-    <option value="eletromecânica">Técnico em Manutenção Eletromecânica</option>
-    <option value="instrumentação">Técnico em Instrumentação Industrial</option>
-    <option value="processos">Técnico em Processos Industriais</option>
-    <option value="química">Técnico em Química Industrial</option>
-    <option value="petroquímica">Técnico em Petroquímica</option>
-    <option value="metalurgia">Técnico em Metalurgia</option>
-    <option value="soldagem">Técnico em Soldagem</option>
-    <option value="caldeiraria">Técnico em Caldeiraria</option>
-    <option value="tubulação">Técnico em Tubulação Industrial</option>
-    <option value="hidráulica">Técnico em Hidráulica Industrial</option>
-    <option value="pneumática">Técnico em Pneumática</option>
-    <option value="caldeiras">Técnico em Caldeiras</option>
-    <option value="hvac">Técnico em HVAC</option>
-    <option value="climatização">Técnico em Climatização</option>
-    <option value="painéis elétricos">Técnico em Painéis Elétricos</option>
-    <option value="plc">Técnico em PLC</option>
-    <option value="scada">Técnico em SCADA</option>
-    <option value="robótica">Técnico em Robótica Industrial</option>
-    <option value="cnc">Técnico em CNC</option>
-    <option value="usinagem">Técnico em Usinagem</option>
-    <option value="qualidade">Técnico em Controle de Qualidade</option>
-    <option value="inspeção">Técnico em Inspeção de Qualidade</option>
-    <option value="metrologia">Técnico em Metrologia</option>
-    <option value="segurança">Técnico em Segurança do Trabalho</option>
-    <option value="meio ambiente">Técnico em Meio Ambiente</option>
-    <option value="preditiva">Técnico em Manutenção Preditiva</option>
-    <option value="vibração">Técnico em Vibração</option>
-    <option value="lubrificação">Técnico em Lubrificação Industrial</option>
-    <option value="motores">Técnico em Motores Elétricos</option>
-    <option value="geradores">Técnico em Geradores</option>
-    <option value="subestações">Técnico em Subestações</option>
-    <option value="compressores">Técnico em Compressores</option>
-    <option value="bombas">Técnico em Bombas Industriais</option>
-    <option value="pcm">Técnico em PCM</option>
-    <option value="confiabilidade">Técnico em Confiabilidade Industrial</option>
-    <option value="mineração">Técnico em Mineração</option>
-    <option value="siderurgia">Técnico em Siderurgia</option>
-    <option value="alimentos">Técnico em Alimentos</option>
-    <option value="farmacêutica">Técnico em Farmacêutica</option>
-  </select>
+  <select class="sel" onchange="filtrarEstado(this.value)"><option value="todos">🌎 Todos os estados</option><option value="BR">BR — BR</option></select>
+  <select class="sel" onchange="filtrarEsp(this.value)"><option value="todas">🔧 Todas as especialidades</option><option value="técnico em cnc">Técnico Em Cnc</option><option value="técnico em hvac">Técnico Em Hvac</option><option value="técnico em pcm">Técnico Em Pcm</option><option value="técnico em plc">Técnico Em Plc</option><option value="técnico em scada">Técnico Em Scada</option><option value="técnico em alimentos">Técnico Em Alimentos</option><option value="técnico em análise de óleo">Técnico Em Análise De Óleo</option><option value="técnico em ar comprimido">Técnico Em Ar Comprimido</option><option value="técnico em assistência técnica industrial">Técnico Em Assistência Técnica Industrial</option><option value="técnico em automação industrial">Técnico Em Automação Industrial</option><option value="técnico em automação predial">Técnico Em Automação Predial</option><option value="técnico em biotecnologia industrial">Técnico Em Biotecnologia Industrial</option><option value="técnico em bombas industriais">Técnico Em Bombas Industriais</option><option value="técnico em borracha">Técnico Em Borracha</option><option value="técnico em caldeiraria">Técnico Em Caldeiraria</option><option value="técnico em caldeiras">Técnico Em Caldeiras</option><option value="técnico em cerâmica">Técnico Em Cerâmica</option><option value="técnico em climatização">Técnico Em Climatização</option><option value="técnico em comando elétrico">Técnico Em Comando Elétrico</option><option value="técnico em combustão industrial">Técnico Em Combustão Industrial</option><option value="técnico em comissionamento">Técnico Em Comissionamento</option><option value="técnico em confiabilidade industrial">Técnico Em Confiabilidade Industrial</option><option value="técnico em controle de qualidade">Técnico Em Controle De Qualidade</option><option value="técnico em cosméticos">Técnico Em Cosméticos</option><option value="técnico em efluentes industriais">Técnico Em Efluentes Industriais</option><option value="técnico em eletrotécnica">Técnico Em Eletrotécnica</option><option value="técnico em eletrônica industrial">Técnico Em Eletrônica Industrial</option><option value="técnico em elétrica industrial">Técnico Em Elétrica Industrial</option><option value="técnico em embalagens">Técnico Em Embalagens</option><option value="técnico em energia">Técnico Em Energia</option><option value="técnico em ensaios não destrutivos">Técnico Em Ensaios Não Destrutivos</option><option value="técnico em farmacêutica">Técnico Em Farmacêutica</option><option value="técnico em ferramentaria">Técnico Em Ferramentaria</option><option value="técnico em fornos industriais">Técnico Em Fornos Industriais</option><option value="técnico em geradores">Técnico Em Geradores</option><option value="técnico em gás industrial">Técnico Em Gás Industrial</option><option value="técnico em hidráulica industrial">Técnico Em Hidráulica Industrial</option><option value="técnico em inspeção de qualidade">Técnico Em Inspeção De Qualidade</option><option value="técnico em instalações industriais">Técnico Em Instalações Industriais</option><option value="técnico em instrumentação industrial">Técnico Em Instrumentação Industrial</option><option value="técnico em laboratório industrial">Técnico Em Laboratório Industrial</option><option value="técnico em laticínios">Técnico Em Laticínios</option><option value="técnico em logística industrial">Técnico Em Logística Industrial</option><option value="técnico em lubrificação industrial">Técnico Em Lubrificação Industrial</option><option value="técnico em manutenção corretiva">Técnico Em Manutenção Corretiva</option><option value="técnico em manutenção de compressores">Técnico Em Manutenção De Compressores</option><option value="técnico em manutenção eletromecânica">Técnico Em Manutenção Eletromecânica</option><option value="técnico em manutenção elétrica">Técnico Em Manutenção Elétrica</option><option value="técnico em manutenção industrial">Técnico Em Manutenção Industrial</option><option value="técnico em manutenção mecânica">Técnico Em Manutenção Mecânica</option><option value="técnico em manutenção preditiva">Técnico Em Manutenção Preditiva</option><option value="técnico em manutenção preventiva">Técnico Em Manutenção Preventiva</option><option value="técnico em mecatrônica">Técnico Em Mecatrônica</option><option value="técnico em mecânica industrial">Técnico Em Mecânica Industrial</option><option value="técnico em meio ambiente">Técnico Em Meio Ambiente</option><option value="técnico em metalurgia">Técnico Em Metalurgia</option><option value="técnico em metrologia">Técnico Em Metrologia</option><option value="técnico em mineração">Técnico Em Mineração</option><option value="técnico em moldes e matrizes">Técnico Em Moldes E Matrizes</option><option value="técnico em montagem industrial">Técnico Em Montagem Industrial</option><option value="técnico em motores elétricos">Técnico Em Motores Elétricos</option><option value="técnico em operação de máquinas">Técnico Em Operação De Máquinas</option><option value="técnico em painéis elétricos">Técnico Em Painéis Elétricos</option><option value="técnico em papel e celulose">Técnico Em Papel E Celulose</option><option value="técnico em petroquímica">Técnico Em Petroquímica</option><option value="técnico em planejamento de manutenção">Técnico Em Planejamento De Manutenção</option><option value="técnico em plástico">Técnico Em Plástico</option><option value="técnico em pneumática">Técnico Em Pneumática</option><option value="técnico em processos industriais">Técnico Em Processos Industriais</option><option value="técnico em produção industrial">Técnico Em Produção Industrial</option><option value="técnico em química industrial">Técnico Em Química Industrial</option><option value="técnico em redes industriais">Técnico Em Redes Industriais</option><option value="técnico em refrigeração industrial">Técnico Em Refrigeração Industrial</option><option value="técnico em robótica industrial">Técnico Em Robótica Industrial</option><option value="técnico em saneamento industrial">Técnico Em Saneamento Industrial</option><option value="técnico em segurança do trabalho">Técnico Em Segurança Do Trabalho</option><option value="técnico em siderurgia">Técnico Em Siderurgia</option><option value="técnico em soldagem">Técnico Em Soldagem</option><option value="técnico em subestações">Técnico Em Subestações</option><option value="técnico em telecomunicações industriais">Técnico Em Telecomunicações Industriais</option><option value="técnico em torres de resfriamento">Técnico Em Torres De Resfriamento</option><option value="técnico em tratamento de água">Técnico Em Tratamento De Água</option><option value="técnico em tubulação industrial">Técnico Em Tubulação Industrial</option><option value="técnico em têxtil">Técnico Em Têxtil</option><option value="técnico em usinagem">Técnico Em Usinagem</option><option value="técnico em utilidades industriais">Técnico Em Utilidades Industriais</option><option value="técnico em vapor e utilidades">Técnico Em Vapor E Utilidades</option><option value="técnico em vibração">Técnico Em Vibração</option><option value="técnico em válvulas industriais">Técnico Em Válvulas Industriais</option></select>
 </div>
+
 <div class="content">
-  <div class="update-bar"><div class="dot"></div>Apenas vagas de 2026 · Atualizado automaticamente todo dia</div>
-  <button class="calc-btn" onclick="document.getElementById('modal').classList.add('open')">🧮 CALCULADORA DE SALÁRIO LÍQUIDO</button>
+  <div class="update-bar"><div class="dot"></div>Apenas vagas de 2026 · Atualizado automaticamente</div>
+
+  <button class="calc-btn" onclick="document.getElementById('modal').classList.add('open')">
+    🧮 CALCULADORA DE SALÁRIO LÍQUIDO
+  </button>
+
   <div class="grid" id="grid">
-    <a class="card" href="https://mills.gupy.io/job/eyJqb2JJZCI6MTA5NDI1NjksInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=gupy_portal" target="_blank" data-area="mecanica" data-estado="RJ" data-esp="manutenção mecânica eletromecânica">
-      <div class="card-top"><div class="card-info"><div class="titulo">Técnico de Manutenção II</div><div class="empresa">Mills · Rio de Janeiro, RJ</div></div><div class="badge b-me">MECÂNICA</div></div>
-      <div class="card-footer"><div class="fonte">🔗 gupy.io · 16/04/2026</div><div class="btns"><a class="btn-wpp" href="https://wa.me/?text=🔧 Técnico de Manutenção II - Mills · RJ" target="_blank" onclick="event.stopPropagation()">📲 WhatsApp</a><div class="btn">VER →</div></div></div>
-    </a>
-    <a class="card" href="https://cotesa.gupy.io/jobs/11105051?jobBoardSource=gupy_public_page" target="_blank" data-area="eletrica" data-estado="MG" data-esp="manutenção elétrica eletromecânica">
-      <div class="card-top"><div class="card-info"><div class="titulo">Técnico(a) de Manutenção de SE II</div><div class="empresa">Cotesa · Curvelo, MG</div></div><div class="badge b-el">ELÉTRICA</div></div>
-      <div class="card-footer"><div class="fonte">🔗 gupy.io · 16/04/2026</div><div class="btns"><a class="btn-wpp" href="https://wa.me/?text=🔧 Técnico Manutenção Elétrica - Cotesa · MG" target="_blank" onclick="event.stopPropagation()">📲 WhatsApp</a><div class="btn">VER →</div></div></div>
-    </a>
-    <a class="card" href="https://bydbrasil.gupy.io/jobs/8777059?jobBoardSource=gupy_public_page" target="_blank" data-area="automacao" data-estado="BA" data-esp="automação plc scada robótica">
-      <div class="card-top"><div class="card-info"><div class="titulo">Técnico de Manutenção de Sistemas Automatizados</div><div class="empresa">BYD Brasil · Camaçari, BA</div></div><div class="badge b-au">AUTOMAÇÃO</div></div>
-      <div class="card-footer"><div class="fonte">🔗 gupy.io · 16/04/2026</div><div class="btns"><a class="btn-wpp" href="https://wa.me/?text=🔧 Técnico Automação - BYD · BA" target="_blank" onclick="event.stopPropagation()">📲 WhatsApp</a><div class="btn">VER →</div></div></div>
-    </a>
-    <a class="card" href="https://aegea.gupy.io/jobs/8822232?jobBoardSource=gupy_public_page" target="_blank" data-area="mecanica" data-estado="BR" data-esp="eletromecânica manutenção mecânica bombas">
-      <div class="card-top"><div class="card-info"><div class="titulo">Técnico em Eletromecânica</div><div class="empresa">Aegea Saneamento · Todo Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
-      <div class="card-footer"><div class="fonte">🔗 gupy.io · 16/04/2026</div><div class="btns"><a class="btn-wpp" href="https://wa.me/?text=🔧 Técnico Eletromecânica - Aegea" target="_blank" onclick="event.stopPropagation()">📲 WhatsApp</a><div class="btn">VER →</div></div></div>
-    </a>
-    <a class="card" href="https://mi.gupy.io/jobs/8812455?jobBoardSource=gupy_public_page" target="_blank" data-area="eletrica" data-estado="RJ" data-esp="elétrica industrial eletrotécnica">
-      <div class="card-top"><div class="card-info"><div class="titulo">Auxiliar Técnico em Eletrotécnica</div><div class="empresa">MI Electric Brasil · Rio de Janeiro, RJ</div></div><div class="badge b-el">ELÉTRICA</div></div>
-      <div class="card-footer"><div class="fonte">🔗 gupy.io · 16/04/2026</div><div class="btns"><a class="btn-wpp" href="https://wa.me/?text=🔧 Técnico Eletrotécnica - MI Electric · RJ" target="_blank" onclick="event.stopPropagation()">📲 WhatsApp</a><div class="btn">VER →</div></div></div>
-    </a>
-    <a class="card" href="https://cimed.gupy.io/jobs/6922961?jobBoardSource=gupy_public_page" target="_blank" data-area="eletrica" data-estado="MG" data-esp="eletrônica manutenção elétrica plc">
-      <div class="card-top"><div class="card-info"><div class="titulo">Técnico Eletroeletrônica II</div><div class="empresa">Cimed · Pouso Alegre, MG</div></div><div class="badge b-el">ELÉTRICA</div></div>
-      <div class="card-footer"><div class="fonte">🔗 gupy.io · 16/04/2026</div><div class="btns"><a class="btn-wpp" href="https://wa.me/?text=🔧 Técnico Eletroeletrônica - Cimed · MG" target="_blank" onclick="event.stopPropagation()">📲 WhatsApp</a><div class="btn">VER →</div></div></div>
-    </a>
-    <a class="card" href="https://wegestagio.gupy.io/jobs/10229621?jobBoardSource=gupy_public_page" target="_blank" data-area="automacao" data-estado="SC" data-esp="automação eletromecânica mecatrônica">
-      <div class="card-top"><div class="card-info"><div class="titulo">Estágio Técnico 2026 — Automação/Eletromecânica</div><div class="empresa">WEG · Jaraguá do Sul, SC</div></div><div class="badge b-au">AUTOMAÇÃO</div></div>
-      <div class="card-footer"><div class="fonte">🔗 gupy.io · 16/04/2026</div><div class="btns"><a class="btn-wpp" href="https://wa.me/?text=🔧 Estágio Técnico 2026 - WEG · SC" target="_blank" onclick="event.stopPropagation()">📲 WhatsApp</a><div class="btn">VER →</div></div></div>
-    </a>
-    <a class="card" href="https://conti.gupy.io/jobs/3139889?jobBoardSource=gupy_public_page" target="_blank" data-area="automacao" data-estado="SP" data-esp="automação plc manutenção elétrica">
-      <div class="card-top"><div class="card-info"><div class="titulo">Técnico de Manutenção Elétrica/Automação</div><div class="empresa">Continental · São Paulo, SP</div></div><div class="badge b-au">AUTOMAÇÃO</div></div>
-      <div class="card-footer"><div class="fonte">🔗 gupy.io · 16/04/2026</div><div class="btns"><a class="btn-wpp" href="https://wa.me/?text=🔧 Técnico Automação - Continental · SP" target="_blank" onclick="event.stopPropagation()">📲 WhatsApp</a><div class="btn">VER →</div></div></div>
-    </a>
-    <a class="card" href="https://riovagas.com.br/riovagas/mecanico-de-manutencao-industria-ate-r-3-50000-queimados/" target="_blank" data-area="mecanica" data-estado="RJ" data-esp="manutenção mecânica mecatrônica">
-      <div class="card-top"><div class="card-info"><div class="titulo">Mecânico de Manutenção – Indústria</div><div class="empresa">Indústria Plástica · Queimados, RJ</div></div><div class="badge b-me">MECÂNICA</div></div>
-      <div class="card-footer"><div class="fonte">🔗 riovagas.com.br · 16/04/2026</div><div class="btns"><a class="btn-wpp" href="https://wa.me/?text=🔧 Mecânico Manutenção · Queimados RJ · Até R$ 3.500" target="_blank" onclick="event.stopPropagation()">📲 WhatsApp</a><div class="btn">VER →</div></div></div>
-    </a>
-    <a class="card" href="https://blog.grancursosonline.com.br/concurso-petrobras/" target="_blank" data-area="eletrica" data-estado="BR" data-esp="manutenção elétrica mecânica instrumentação">
-      <div class="card-top"><div class="card-info"><div class="titulo">Concurso Petrobras – Técnicos de Manutenção</div><div class="empresa">Petrobras · Todo Brasil · ~1.100 vagas</div></div><div class="badge b-el">CONCURSO</div></div>
-      <div class="card-footer"><div class="fonte">🔗 grancursosonline.com.br · 2026</div><div class="btns"><a class="btn-wpp" href="https://wa.me/?text=🔧 Concurso Petrobras 2026 · 1.100 vagas" target="_blank" onclick="event.stopPropagation()">📲 WhatsApp</a><div class="btn">VER →</div></div></div>
-    </a>
+    <a class="card" href="https://www.vagas.com.br/vagas/v2801368/tecnico-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoManutençãoElétrica</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoManuten%C3%A7%C3%A3oEl%C3%A9trica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801368/tecnico-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
   </div>
 </div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2796786/tecnico-de-manutencao-eletrica-jr" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeManutençãoElétricaJr</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeManuten%C3%A7%C3%A3oEl%C3%A9tricaJr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2796786/tecnico-de-manutencao-eletrica-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2805598/tecnico-de-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeManutençãoEletrica</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeManuten%C3%A7%C3%A3oEletrica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805598/tecnico-de-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2804509/mecanico-de-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">MecânicodeManutenção</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804509/mecanico-de-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2805028/mecanico-de-manutencao-i" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">MecânicodeManutençãoI</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3oI%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805028/mecanico-de-manutencao-i%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2807082/mecanico-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">MecânicoManutenção</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicoManuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807082/mecanico-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2786807/tecnico-de-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicode Manutenção</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Manuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2786807/tecnico-de-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2802756/tecnico-a-de-reparos-junior" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnico(a) de Reparos Júnior</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnico%28a%29%20de%20Reparos%20J%C3%BAnior%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802756/tecnico-a-de-reparos-junior%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2808311/estagio-tecnico" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">EstágioTécnico</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEst%C3%A1gioT%C3%A9cnico%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808311/estagio-tecnico%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2808318/assistente-tecnico-i" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">AssistenteTécnicoI</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAssistenteT%C3%A9cnicoI%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808318/assistente-tecnico-i%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2807872/tecnica-automacao-especializada-ii-automacao-industrial-usina-vaga-afirmativa-para-mulheres" target="_blank" data-estado="BR" data-area="automacao" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicaAutomaçãoEspecializada II -AutomaçãoIndustrial- Usina - Vaga Afirmativa p</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-au">AUTOMAÇÃO</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicaAutoma%C3%A7%C3%A3oEspecializada%20II%20-Automa%C3%A7%C3%A3oIndustrial-%20Usina%20-%20Vaga%20Afirmativa%20p%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807872/tecnica-automacao-especializada-ii-automacao-industrial-usina-vaga-afirmativa-para-mulheres%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2807149/tecnico-em-manutencao-industrial" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicoem ManutençãoIndustrial</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoem%20Manuten%C3%A7%C3%A3oIndustrial%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807149/tecnico-em-manutencao-industrial%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2804836/engenheiro-de-automacao" target="_blank" data-estado="BR" data-area="automacao" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Engenheiro deAutomação</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-au">AUTOMAÇÃO</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEngenheiro%20deAutoma%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804836/engenheiro-de-automacao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2806756/engenheiro-de-automacao-pl-027227" target="_blank" data-estado="BR" data-area="automacao" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Engenheiro deAutomaçãoPl (027227)</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-au">AUTOMAÇÃO</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEngenheiro%20deAutoma%C3%A7%C3%A3oPl%20%28027227%29%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2806756/engenheiro-de-automacao-pl-027227%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2793349/tecnico-eletromecanico-automacao-e-manutencao-mecanica-manutencao" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoEletromecânico,Automaçãoe Manutenção Mecânica | Manutenção</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoEletromec%C3%A2nico%2CAutoma%C3%A7%C3%A3oe%20Manuten%C3%A7%C3%A3o%20Mec%C3%A2nica%20%7C%20Manuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2793349/tecnico-eletromecanico-automacao-e-manutencao-mecanica-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2807000/tecnico-de-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeManutençãoElétrica</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeManuten%C3%A7%C3%A3oEl%C3%A9trica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807000/tecnico-de-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2806439/tecnico-de-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeManutençãoEletrica</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeManuten%C3%A7%C3%A3oEletrica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2806439/tecnico-de-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2807518/tecnico-de-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeManutençãoEletrica</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeManuten%C3%A7%C3%A3oEletrica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807518/tecnico-de-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2807107/tecnico-a-de-manutencao-eletrica-jr-apiai-sp" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnico(a) deManutençãoElétricaJr - Apiaí / SP</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnico%28a%29%20deManuten%C3%A7%C3%A3oEl%C3%A9tricaJr%20-%20Apia%C3%AD%20/%20SP%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807107/tecnico-a-de-manutencao-eletrica-jr-apiai-sp%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2799986/estagio-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">EstágioManutenção-Elétrica</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEst%C3%A1gioManuten%C3%A7%C3%A3o-El%C3%A9trica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2799986/estagio-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2804745/coordenador-de-manutencao-eletrica" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Coordenador deManutençãoElétrica</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ACoordenador%20deManuten%C3%A7%C3%A3oEl%C3%A9trica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804745/coordenador-de-manutencao-eletrica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2804828/tecnico-de-manutencao-eletrica-i-pedro-leopoldo-mg" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeManutençãoElétricaI | Pedro Leopoldo/MG</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeManuten%C3%A7%C3%A3oEl%C3%A9tricaI%20%7C%20Pedro%20Leopoldo/MG%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804828/tecnico-de-manutencao-eletrica-i-pedro-leopoldo-mg%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2803433/mecanico-de-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">MecânicodeManutenção</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2803433/mecanico-de-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2804261/mecanico-de-manutencao-i" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">MecânicodeManutençãoI</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3oI%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804261/mecanico-de-manutencao-i%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2802397/mecanico-de-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">MecânicodeManutenção</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802397/mecanico-de-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2807925/mecanico-de-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">MecânicodeManutenção</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807925/mecanico-de-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2785570/mecanico-de-manutencao-jr" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">MecânicodeManutençãoJr</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3oJr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2785570/mecanico-de-manutencao-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2798805/mecanico-de-manutencao-jr" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">MecânicodeManutençãoJr</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nicodeManuten%C3%A7%C3%A3oJr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2798805/mecanico-de-manutencao-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2808313/estagio-tecnico" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">EstágioTécnico</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEst%C3%A1gioT%C3%A9cnico%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808313/estagio-tecnico%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2794010/tecnico-em-eletronica" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicoem Eletrônica</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoem%20Eletr%C3%B4nica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2794010/tecnico-em-eletronica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2807813/tecnico-eletronica" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoEletrônica</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoEletr%C3%B4nica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807813/tecnico-eletronica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2794014/tecnico-em-eletronica" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicoem Eletrônica</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoem%20Eletr%C3%B4nica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2794014/tecnico-em-eletronica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2803355/tecnico-industrial-i" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoIndustrial I</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoIndustrial%20I%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2803355/tecnico-industrial-i%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2801702/tecnico-de-manutencao-jr" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicode Manutenção Jr</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Manuten%C3%A7%C3%A3o%20Jr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801702/tecnico-de-manutencao-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2796079/analista-de-automacao-e-controle-jr" target="_blank" data-estado="BR" data-area="automacao" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Analista deAutomaçãoe Controle Jr</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-au">AUTOMAÇÃO</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAnalista%20deAutoma%C3%A7%C3%A3oe%20Controle%20Jr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2796079/analista-de-automacao-e-controle-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2808300/analista-de-projetos-industriais-sr" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Analista de Projetos Industriais Sr</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAnalista%20de%20Projetos%20Industriais%20Sr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808300/analista-de-projetos-industriais-sr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2808335/especialista-processos-industriais" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Especialista Processos Industriais</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEspecialista%20Processos%20Industriais%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808335/especialista-processos-industriais%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2799163/analista-de-produtos-clp-e-redes-industriais" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Analista de Produtos (CLP e Redes Industriais)</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAnalista%20de%20Produtos%20%28CLP%20e%20Redes%20Industriais%29%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2799163/analista-de-produtos-clp-e-redes-industriais%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2800505/estagio-em-engenharia-de-manutencao-industrial" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Estágio em Engenharia de ManutençãoIndustrial</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEst%C3%A1gio%20em%20Engenharia%20de%20Manuten%C3%A7%C3%A3oIndustrial%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2800505/estagio-em-engenharia-de-manutencao-industrial%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2805576/eletricista-instrumentista-ii" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">EletricistaInstrumentistaII</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEletricistaInstrumentistaII%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805576/eletricista-instrumentista-ii%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2807954/eletricista-instrumentista-ii" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">EletricistaInstrumentistaII</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEletricistaInstrumentistaII%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807954/eletricista-instrumentista-ii%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2799789/eletricista-instrumentista-iii" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">EletricistaInstrumentistaIII</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEletricistaInstrumentistaIII%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2799789/eletricista-instrumentista-iii%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2793995/coordenador-de-automacao-e-instrumentacao" target="_blank" data-estado="BR" data-area="automacao" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Coordenador de Automação eInstrumentação</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-au">AUTOMAÇÃO</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ACoordenador%20de%20Automa%C3%A7%C3%A3o%20eInstrumenta%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2793995/coordenador-de-automacao-e-instrumentacao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2806752/supervisor-de-eletrica-e-instrumentacao-vaga-extensiva-para-pessoas-com-deficiencia" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Supervisor de Elétrica eInstrumentação(VAGA Extensiva para Pessoas com Deficiênc</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ASupervisor%20de%20El%C3%A9trica%20eInstrumenta%C3%A7%C3%A3o%28VAGA%20Extensiva%20para%20Pessoas%20com%20Defici%C3%AAnc%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2806752/supervisor-de-eletrica-e-instrumentacao-vaga-extensiva-para-pessoas-com-deficiencia%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2801801/responsavel-tecnico-rt" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">ResponsávelTécnico(Rt)</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ARespons%C3%A1velT%C3%A9cnico%28Rt%29%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801801/responsavel-tecnico-rt%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2804202/tecnico-de-engenharia-ii-b" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicode Engenharia II B</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Engenharia%20II%20B%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804202/tecnico-de-engenharia-ii-b%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2793430/tecnico-de-laboratorio" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicode Laboratório</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Laborat%C3%B3rio%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2793430/tecnico-de-laboratorio%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2802037/tecnico-mecanico" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoMecânico</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoMec%C3%A2nico%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802037/tecnico-mecanico%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2806629/tecnico-mecanico-v-027071" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoMecânico (V.027071)</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoMec%C3%A2nico%20%28V.027071%29%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2806629/tecnico-mecanico-v-027071%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2801783/tecnico-a-de-eletronica-108492" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnico(a) de Eletrônica - 108492</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnico%28a%29%20de%20Eletr%C3%B4nica%20-%20108492%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801783/tecnico-a-de-eletronica-108492%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2805817/tecnico-em-radiofrequencia-jr" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicoem Radiofrequência Jr</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoem%20Radiofrequ%C3%AAncia%20Jr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805817/tecnico-em-radiofrequencia-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2790657/mecanico-industrial-comodoro-mt" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Mecânico Industrial | Comodoro/MT</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nico%20Industrial%20%7C%20Comodoro/MT%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2790657/mecanico-industrial-comodoro-mt%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2803944/soldador-especializado" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Soldador Especializado</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ASoldador%20Especializado%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2803944/soldador-especializado%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2802451/eletromecanico" target="_blank" data-estado="BR" data-area="eletrica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Eletromecânico</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-el">ELÉTRICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEletromec%C3%A2nico%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802451/eletromecanico%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2794166/montador-de-blindagem" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Montador de Blindagem</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMontador%20de%20Blindagem%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2794166/montador-de-blindagem%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2807476/coordenador-de-caldeiraria" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em caldeiraria">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Coordenador deCaldeiraria</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ACoordenador%20deCaldeiraria%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807476/coordenador-de-caldeiraria%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2791471/operador-utilidades-iii-caldeira" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Operador Utilidades III-Caldeira</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AOperador%20Utilidades%20III-Caldeira%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2791471/operador-utilidades-iii-caldeira%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2805523/supervisor-a-de-producao-moagem-candeias-ba" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Supervisor(a) de Produção - Moagem | Candeias/BA</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2ASupervisor%28a%29%20de%20Produ%C3%A7%C3%A3o%20-%20Moagem%20%7C%20Candeias/BA%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805523/supervisor-a-de-producao-moagem-candeias-ba%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2805875/tecnico-de-campo-i" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicode Campo I</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Campo%20I%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805875/tecnico-de-campo-i%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2805718/tecnico-a-de-manutencao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em manutenção de compressores">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnico(a) de Manutenção</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnico%28a%29%20de%20Manuten%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805718/tecnico-a-de-manutencao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2807469/tecnico-de-qualidade-mecanica" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicode Qualidade Mecânica</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Qualidade%20Mec%C3%A2nica%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807469/tecnico-de-qualidade-mecanica%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2802132/analista-de-campo" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Analista de Campo</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAnalista%20de%20Campo%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802132/analista-de-campo%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2804627/analista-de-campo" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Analista de Campo</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAnalista%20de%20Campo%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804627/analista-de-campo%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2784571/tecnico-de-seguranca-do-trabalho-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeSegurançadoTrabalho|SegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeSeguran%C3%A7adoTrabalho%7CSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2784571/tecnico-de-seguranca-do-trabalho-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2795571/tecnico-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoSegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2795571/tecnico-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2802724/tecnico-de-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeSegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802724/tecnico-de-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2802890/tecnico-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoSegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802890/tecnico-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2803222/tecnico-de-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeSegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2803222/tecnico-de-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2797110/tecnico-de-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeSegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2797110/tecnico-de-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2801006/tecnico-em-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoemSegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoemSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801006/tecnico-em-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2800735/tecnico-de-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeSegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2800735/tecnico-de-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2800057/tecnico-a-de-qualidade" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnico(a) deQualidade</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-qu">QUALIDADE</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnico%28a%29%20deQualidade%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2800057/tecnico-a-de-qualidade%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2803380/tecnico-qualidade" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoQualidade</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-qu">QUALIDADE</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoQualidade%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2803380/tecnico-qualidade%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2808211/tecnico-qualidade-pleno" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoQualidadePleno</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-qu">QUALIDADE</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoQualidadePleno%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2808211/tecnico-qualidade-pleno%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2807249/tecnico-de-qualidade-m-f-indaiatuba-sp" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeQualidade(m/F) - Indaiatuba/SP</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-qu">QUALIDADE</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeQualidade%28m/F%29%20-%20Indaiatuba/SP%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807249/tecnico-de-qualidade-m-f-indaiatuba-sp%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2802686/analista-de-qualidade-qualidade-balbino" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Analista deQualidade-Qualidade- Balbino</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-qu">QUALIDADE</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AAnalista%20deQualidade-Qualidade-%20Balbino%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802686/analista-de-qualidade-qualidade-balbino%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2807295/enfermeiro-a-qualidade-qualidade-dedicada-balbino" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Enfermeiro(a)Qualidade-QualidadeDedicada - Balbino</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-qu">QUALIDADE</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AEnfermeiro%28a%29Qualidade-QualidadeDedicada%20-%20Balbino%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2807295/enfermeiro-a-qualidade-qualidade-dedicada-balbino%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2801975/monitor-da-qualidade" target="_blank" data-estado="BR" data-area="qualidade" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Monitor daQualidade</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-qu">QUALIDADE</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMonitor%20daQualidade%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801975/monitor-da-qualidade%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2802830/tecnico-de-refrigeracao-comercial-pleno" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeRefrigeraçãoComercial Pleno</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeRefrigera%C3%A7%C3%A3oComercial%20Pleno%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802830/tecnico-de-refrigeracao-comercial-pleno%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2796058/mecanico-de-refrigeracao-jr" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Mecânico deRefrigeraçãoJr</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nico%20deRefrigera%C3%A7%C3%A3oJr%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2796058/mecanico-de-refrigeracao-jr%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2805099/mecanico-de-refrigeracao-vrf" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Mecânico deRefrigeração- Vrf</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nico%20deRefrigera%C3%A7%C3%A3o-%20Vrf%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805099/mecanico-de-refrigeracao-vrf%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2806488/artifice-especializado-i-refrigeracao" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico industrial">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Artífice Especializado I -Refrigeração</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AArt%C3%ADfice%20Especializado%20I%20-Refrigera%C3%A7%C3%A3o%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2806488/artifice-especializado-i-refrigeracao%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2805330/tecnico-de-manutencao-refrigeracao-climatizacao-manutencao-predial-hospital-sao-rafael" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em climatização">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicode Manutenção (refrigeração/Climatização) - Manutenção Predial - Hospital</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Manuten%C3%A7%C3%A3o%20%28refrigera%C3%A7%C3%A3o/Climatiza%C3%A7%C3%A3o%29%20-%20Manuten%C3%A7%C3%A3o%20Predial%20-%20Hospital%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2805330/tecnico-de-manutencao-refrigeracao-climatizacao-manutencao-predial-hospital-sao-rafael%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2797769/tecnico-de-manutencao-refrigeracao-manutencao-predial-hospital-sao-luiz-itaim" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em manutenção de compressores">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicode Manutenção -Refrigeração- Manutenção Predial - Hospital São Luiz Itaim</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Manuten%C3%A7%C3%A3o%20-Refrigera%C3%A7%C3%A3o-%20Manuten%C3%A7%C3%A3o%20Predial%20-%20Hospital%20S%C3%A3o%20Luiz%20Itaim%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2797769/tecnico-de-manutencao-refrigeracao-manutencao-predial-hospital-sao-luiz-itaim%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2802384/tecnico-de-manutencao-refrigeracao-climatizacao-manutencao-predial-hospital-sao-rafael" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em climatização">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnicode Manutenção (refrigeração/Climatização) - Manutenção Predial - Hospital</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicode%20Manuten%C3%A7%C3%A3o%20%28refrigera%C3%A7%C3%A3o/Climatiza%C3%A7%C3%A3o%29%20-%20Manuten%C3%A7%C3%A3o%20Predial%20-%20Hospital%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802384/tecnico-de-manutencao-refrigeracao-climatizacao-manutencao-predial-hospital-sao-rafael%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2791904/mecanico-de-refrigeracao-manutencao-predial-copa-d-or" target="_blank" data-estado="BR" data-area="mecanica" data-esp="técnico em manutenção de compressores">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Mecânico deRefrigeração– Manutenção Predial - Copa D'Or</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-me">MECÂNICA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AMec%C3%A2nico%20deRefrigera%C3%A7%C3%A3o%E2%80%93%20Manuten%C3%A7%C3%A3o%20Predial%20-%20Copa%20D%27Or%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2791904/mecanico-de-refrigeracao-manutencao-predial-copa-d-or%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2801191/tecnico-em-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoemSegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoemSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2801191/tecnico-em-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2802239/tecnico-em-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoemSegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoemSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2802239/tecnico-em-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2804516/tecnico-em-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoemSegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoemSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804516/tecnico-em-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2804522/tecnico-a-de-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">Técnico(a) deSegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnico%28a%29%20deSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2804522/tecnico-a-de-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2787836/tecnico-de-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicodeSegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicodeSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2787836/tecnico-de-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+<a class="card" href="https://www.vagas.com.br/vagas/v2800359/tecnico-em-seguranca-do-trabalho" target="_blank" data-estado="BR" data-area="seguranca" data-esp="técnico em segurança do trabalho">
+<div class="card-top">
+  <div class="card-info">
+    <div class="titulo">TécnicoemSegurançadoTrabalho</div>
+    <div class="empresa">Empresa · Brasil</div>
+  </div>
+  <div class="badge b-se">SEGURANÇA</div>
+</div>
+<div class="card-footer">
+  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
+  <div style="display:flex;gap:8px">
+    <a class="btn-wpp" href="https://wa.me/?text=%F0%9F%94%A7%20%2AT%C3%A9cnicoemSeguran%C3%A7adoTrabalho%2A%0A%F0%9F%8F%AD%20Empresa%0A%F0%9F%93%8D%20Brasil%0A%F0%9F%91%89%20https%3A//www.vagas.com.br/vagas/v2800359/tecnico-em-seguranca-do-trabalho%0A%0A_Via%20TecSystem%20Brasil_" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
+    <div class="btn">VER →</div>
+  </div>
+</div>
+</a>
+  </div>
+</div>
+
+<!-- MODAL CALCULADORA -->
 <div class="modal" id="modal">
   <div class="modal-box">
     <div class="modal-title">💰 Calculadora de Salário</div>
-    <div class="input-group"><label>Salário Bruto (R$)</label><input type="number" id="salario" placeholder="Ex: 3500" oninput="calcular()"></div>
-    <div class="input-group"><label>Número de dependentes (para IR)</label><input type="number" id="dependentes" placeholder="0" value="0" oninput="calcular()"></div>
+    <div class="input-group">
+      <label>Salário Bruto (R$)</label>
+      <input type="number" id="salario" placeholder="Ex: 3500" oninput="calcular()">
+    </div>
+    <div class="input-group">
+      <label>Dependentes para IR</label>
+      <input type="number" id="dependentes" placeholder="0" value="0" oninput="calcular()">
+    </div>
     <div class="calc-result" id="resultado" style="display:none">
       <div class="calc-line"><span>Salário Bruto</span><span id="r-bruto"></span></div>
-      <div class="calc-line"><span>(-) INSS</span><span id="r-inss" style="color:#f87171"></span></div>
-      <div class="calc-line"><span>(-) IRRF</span><span id="r-ir" style="color:#f87171"></span></div>
+      <div class="calc-line"><span>INSS</span><span id="r-inss" style="color:#f87171"></span></div>
+      <div class="calc-line"><span>IRRF</span><span id="r-ir" style="color:#f87171"></span></div>
       <div class="calc-line destaque"><span>💵 Salário Líquido</span><span id="r-liquido"></span></div>
-      <div class="calc-line" style="margin-top:8px;color:var(--cinza);font-size:11px"><span>FGTS depositado pelo empregador</span><span id="r-fgts" style="color:#4ade80"></span></div>
+      <div class="calc-line" style="margin-top:8px"><span>FGTS (depósito)</span><span id="r-fgts" style="color:#4ade80"></span></div>
     </div>
-    <button class="btn-fechar" onclick="document.getElementById('modal').classList.remove('open')">✕ Fechar</button>
+    <button class="btn-fechar" onclick="document.getElementById('modal').classList.remove('open')">Fechar</button>
   </div>
 </div>
-<footer><strong>TecSystem Brasil</strong> · 90+ especialidades técnicas · Apenas vagas de 2026<br><span style="font-size:11px">Links redirecionam para os sites originais das vagas</span></footer>
+
+<footer>
+  <strong>TecSystem Brasil</strong> · 90+ especialidades técnicas · Apenas vagas de 2026<br>
+  <span style="font-size:11px">Links redirecionam para os sites originais das vagas</span>
+</footer>
+
 <script>
-function atualizarHorario(){const a=new Date();document.getElementById('horario').textContent=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}).format(a);}
-atualizarHorario();setInterval(atualizarHorario,60000);
-let areaAtiva='todas',estadoAtivo='todos',espAtiva='todas';
-function filtrarArea(a,b){areaAtiva=a;document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');aplicar();}
-function filtrarEstado(v){estadoAtivo=v;aplicar();}
-function filtrarEsp(v){espAtiva=v;aplicar();}
-function aplicar(){let n=0;document.querySelectorAll('#grid .card').forEach(c=>{const ok=(areaAtiva==='todas'||c.dataset.area===areaAtiva)&&(estadoAtivo==='todos'||c.dataset.estado===estadoAtivo)&&(espAtiva==='todas'||c.dataset.esp.includes(espAtiva));c.style.display=ok?'block':'none';if(ok)n++;});document.getElementById('contador').textContent=n;}
-function calcularINSS(b){const f=[[1518.00,0.075],[2793.88,0.09],[4190.83,0.12],[8157.41,0.14]];let i=0,a=0;for(const[t,q]of f){if(b<=t){i+=(b-a)*q;break;}i+=(t-a)*q;a=t;}return Math.min(i,908.86);}
-function calcularIR(b,d){const x=b-d*189.59;const f=[[2259.20,0,0],[2826.65,0.075,169.44],[3751.05,0.15,381.44],[4664.68,0.225,662.77],[Infinity,0.275,896.00]];for(const[t,a,e]of f){if(x<=t)return Math.max(0,x*a-e);}return 0;}
-function fmt(v){return'R$ '+v.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
-function calcular(){const b=parseFloat(document.getElementById('salario').value)||0;const d=parseInt(document.getElementById('dependentes').value)||0;if(b<=0){document.getElementById('resultado').style.display='none';return;}const i=calcularINSS(b);const r=calcularIR(b-i,d);const l=b-i-r;document.getElementById('r-bruto').textContent=fmt(b);document.getElementById('r-inss').textContent='- '+fmt(i);document.getElementById('r-ir').textContent='- '+fmt(r);document.getElementById('r-liquido').textContent=fmt(l);document.getElementById('r-fgts').textContent='+ '+fmt(b*0.08);document.getElementById('resultado').style.display='block';}
+  let areaAtiva = 'todas', estadoAtivo = 'todos', espAtiva = 'todas';
+
+  function filtrarArea(area, btn) {
+    areaAtiva = area;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    aplicar();
+  }
+  function filtrarEstado(v) { estadoAtivo = v; aplicar(); }
+  function filtrarEsp(v) { espAtiva = v; aplicar(); }
+
+  function aplicar() {
+    let n = 0;
+    document.querySelectorAll('#grid .card').forEach(c => {
+      const ok = (areaAtiva === 'todas' || c.dataset.area === areaAtiva) &&
+                 (estadoAtivo === 'todos' || c.dataset.estado === estadoAtivo) &&
+                 (espAtiva === 'todas' || c.dataset.esp.includes(espAtiva));
+      c.style.display = ok ? 'block' : 'none';
+      if (ok) n++;
+    });
+    document.getElementById('contador').textContent = n;
+  }
+
+  // CALCULADORA INSS 2026
+  function calcularINSS(bruto) {
+    const faixas = [
+      [1518.00, 0.075], [2793.88, 0.09], [4190.83, 0.12], [8157.41, 0.14]
+    ];
+    let inss = 0, anterior = 0;
+    for (const [teto, aliq] of faixas) {
+      if (bruto <= teto) { inss += (bruto - anterior) * aliq; break; }
+      inss += (teto - anterior) * aliq;
+      anterior = teto;
+      if (bruto > 8157.41) { inss = 908.86; break; }
+    }
+    return Math.min(inss, 908.86);
+  }
+
+  function calcularIR(base, dependentes) {
+    const deducaoDep = dependentes * 189.59;
+    const baseCalculo = base - deducaoDep;
+    const faixas = [
+      [2259.20, 0, 0], [2826.65, 0.075, 169.44], [3751.05, 0.15, 381.44],
+      [4664.68, 0.225, 662.77], [Infinity, 0.275, 896.00]
+    ];
+    for (const [teto, aliq, deducao] of faixas) {
+      if (baseCalculo <= teto) return Math.max(0, baseCalculo * aliq - deducao);
+    }
+    return 0;
+  }
+
+  function fmt(v) { return 'R$ ' + v.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+
+  function calcular() {
+    const bruto = parseFloat(document.getElementById('salario').value) || 0;
+    const dep = parseInt(document.getElementById('dependentes').value) || 0;
+    if (bruto <= 0) { document.getElementById('resultado').style.display = 'none'; return; }
+    const inss = calcularINSS(bruto);
+    const baseIR = bruto - inss;
+    const ir = calcularIR(baseIR, dep);
+    const liquido = bruto - inss - ir;
+    const fgts = bruto * 0.08;
+    document.getElementById('r-bruto').textContent = fmt(bruto);
+    document.getElementById('r-inss').textContent = '- ' + fmt(inss);
+    document.getElementById('r-ir').textContent = '- ' + fmt(ir);
+    document.getElementById('r-liquido').textContent = fmt(liquido);
+    document.getElementById('r-fgts').textContent = '+ ' + fmt(fgts);
+    document.getElementById('resultado').style.display = 'block';
+  }
 </script>
 </body>
 </html>
