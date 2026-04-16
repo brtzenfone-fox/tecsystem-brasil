@@ -35,4 +35,4 @@ jobs:
           git config user.email "bot@tecsystem.com"
           git add -f index.html vagas_cache.json
           git diff --staged --quiet || git commit -m "🤖 $(date +'%d/%m/%Y %H:%M')"
-          git push --force-with-lease origin main
+          git push --force origin main
