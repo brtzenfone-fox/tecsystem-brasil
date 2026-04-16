@@ -9,15 +9,21 @@ on:
     - cron: '0 1 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   scraper:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
       - name: Baixar repositório
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Configurar Python
         uses: actions/setup-python@v5
@@ -25,8 +31,7 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar dependências
-        run: |
-          pip install requests beautifulsoup4 googlesearch-python
+        run: pip install requests beautifulsoup4 googlesearch-python
 
       - name: Rodar o robô
         run: python scraper.py
@@ -35,7 +40,8 @@ jobs:
         run: |
           git config user.name "TecSystem Bot"
           git config user.email "bot@tecsystem.com"
-          git pull --rebase
+          git fetch origin main
+          git reset --hard origin/main
           git add index.html vagas_cache.json
           git diff --staged --quiet || git commit -m "🤖 Vagas atualizadas $(date +'%d/%m/%Y %H:%M')"
-          git push
+          git push origin main
