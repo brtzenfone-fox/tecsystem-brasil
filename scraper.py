@@ -1,11 +1,13 @@
 """
-TecSystem Brasil - Robô de Vagas v4
+TecSystem Brasil - Robô de Vagas v5
 =====================================
 - 90+ tipos de técnicos industriais
+- Extrai benefícios das vagas do Gupy
 - Filtro por especialidade, estado e área
 - Calculadora de salário líquido
 - Filtra só vagas de 2026
 - Remove vagas encerradas automaticamente
+- Mensagem amigável quando não há vagas
 """
 
 import requests
@@ -13,13 +15,12 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import time
 import json
+import re
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
     "Accept-Language": "pt-BR,pt;q=0.9",
 }
-
-# ─── TODOS OS TIPOS DE TÉCNICOS ───────────────────────────────────────────────
 
 TECNICOS = [
     "técnico em refrigeração industrial",
@@ -57,7 +58,6 @@ TECNICOS = [
     "técnico em CNC",
     "técnico em usinagem",
     "técnico em ferramentaria",
-    "técnico em moldes e matrizes",
     "técnico em produção industrial",
     "técnico em controle de qualidade",
     "técnico em inspeção de qualidade",
@@ -113,7 +113,23 @@ TECNICOS = [
     "técnico em confiabilidade industrial",
 ]
 
-# Palavras que descartam a vaga
+# Palavras-chave de benefícios para detectar
+PALAVRAS_BENEFICIOS = [
+    "vale transporte", "vale refeição", "vale alimentação",
+    "plano médico", "plano de saúde", "assistência médica",
+    "plano odontológico", "assistência odontológica",
+    "seguro de vida", "previdência privada",
+    "participação nos lucros", "plr", "ppr",
+    "gympass", "total pass", "academia",
+    "home office", "trabalho remoto", "híbrido",
+    "clt", "pj", "cnpj",
+    "13º salário", "férias",
+    "fgts", "inss",
+    "auxílio creche", "auxílio educação", "bolsa estudo",
+    "convênio médico", "convênio odontológico",
+    "cesta básica", "ticket",
+]
+
 PALAVRAS_DESCARTAR = [
     "banco de talentos", "banco de talento",
     "encerrad", "finalizad", "expirad", "inativ", "cancelad",
@@ -136,26 +152,71 @@ ESTADOS = {
 }
 
 
-# ─── DETECÇÃO DE ESPECIALIDADE ────────────────────────────────────────────────
+# ─── EXTRAÇÃO DE BENEFÍCIOS ───────────────────────────────────────────────────
 
-def detectar_especialidade(titulo):
-    titulo_lower = titulo.lower()
-    for tec in TECNICOS:
-        palavras = tec.replace("técnico em ", "").split()
-        if all(p in titulo_lower for p in palavras[:2]):
-            return tec.title()
-    return "Técnico Industrial"
+def extrair_beneficios_gupy(job_id, company_slug):
+    """Tenta extrair benefícios da API do Gupy."""
+    try:
+        url = f"https://{company_slug}.gupy.io/api/v1/jobs/{job_id}"
+        resp = requests.get(url, headers=HEADERS, timeout=10)
+        if resp.status_code != 200:
+            return []
+        data = resp.json()
+        beneficios = []
 
+        # Tenta pegar benefícios direto da API
+        benefits_field = data.get("benefits", []) or data.get("beneficios", [])
+        if benefits_field and isinstance(benefits_field, list):
+            for b in benefits_field[:6]:
+                if isinstance(b, dict):
+                    nome = b.get("name", "") or b.get("nome", "")
+                    if nome:
+                        beneficios.append(nome[:30])
+                elif isinstance(b, str):
+                    beneficios.append(b[:30])
+            if beneficios:
+                return beneficios
+
+        # Se não achou na API, tenta extrair do texto da vaga
+        descricao = data.get("description", "") or data.get("descricao", "")
+        if descricao:
+            texto_lower = descricao.lower()
+            for palavra in PALAVRAS_BENEFICIOS:
+                if palavra in texto_lower:
+                    beneficios.append(palavra.title())
+            return beneficios[:6]
+
+    except Exception as e:
+        pass
+    return []
+
+
+def extrair_beneficios_pagina(url):
+    """Extrai benefícios de uma página de vaga genérica."""
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=10)
+        if resp.status_code != 200:
+            return []
+        soup = BeautifulSoup(resp.text, "html.parser")
+        texto = soup.get_text().lower()
+        beneficios = []
+        for palavra in PALAVRAS_BENEFICIOS:
+            if palavra in texto:
+                beneficios.append(palavra.title())
+        return beneficios[:6]
+    except:
+        return []
+
+
+# ─── UTILITÁRIOS ──────────────────────────────────────────────────────────────
 
 def detectar_area(texto):
     texto = texto.lower()
-    if any(p in texto for p in ["elétric", "eletric", "eletrom", "painel", "subestac", "motor"]):
+    if any(p in texto for p in ["elétric", "eletric", "eletrom", "painel", "subestac", "motor", "gerador"]):
         return "eletrica"
-    if any(p in texto for p in ["mecatrôn", "mecatron", "plc", "scada", "robotic", "automac", "automaç"]):
+    if any(p in texto for p in ["mecatrôn", "mecatron", "plc", "scada", "robotic", "automac", "automaç", "cnc"]):
         return "automacao"
-    if any(p in texto for p in ["mecânic", "mecanic", "hidraul", "pneumat", "compressor", "bomba"]):
-        return "mecanica"
-    if any(p in texto for p in ["qualidad", "inspeç", "metrolog", "ensaio", "end"]):
+    if any(p in texto for p in ["qualidad", "inspeç", "metrolog", "ensaio", "end", "calibr"]):
         return "qualidade"
     if any(p in texto for p in ["seguranç", "meio ambient", "saneam"]):
         return "seguranca"
@@ -178,13 +239,12 @@ def titulo_valido(titulo):
     return True
 
 
-# ─── BUSCAS ───────────────────────────────────────────────────────────────────
+# ─── FONTES ───────────────────────────────────────────────────────────────────
 
 def buscar_gupy():
     vagas = []
     print("🔍 Buscando no Gupy...")
-    # Busca apenas os primeiros 20 termos para não sobrecarregar
-    for termo in TECNICOS[:20]:
+    for termo in TECNICOS[:25]:
         try:
             url = f"https://portal.api.gupy.io/api/v1/jobs?jobName={requests.utils.quote(termo)}&limit=5"
             resp = requests.get(url, headers=HEADERS, timeout=15)
@@ -200,6 +260,23 @@ def buscar_gupy():
                 if not titulo_valido(titulo):
                     continue
                 local = f"{job.get('city', 'Brasil')}, {job.get('state', '')}"
+
+                # Tenta extrair benefícios
+                beneficios = []
+                try:
+                    job_url = job.get("jobUrl", "")
+                    benefits_raw = job.get("benefits", [])
+                    if benefits_raw:
+                        for b in benefits_raw[:6]:
+                            if isinstance(b, dict):
+                                nome = b.get("name", "")
+                                if nome:
+                                    beneficios.append(nome[:30])
+                            elif isinstance(b, str):
+                                beneficios.append(b[:30])
+                except:
+                    pass
+
                 vagas.append({
                     "titulo": titulo,
                     "empresa": job.get("careerPageName", "Empresa")[:50],
@@ -209,7 +286,7 @@ def buscar_gupy():
                     "fonte": "gupy.io",
                     "data": datetime.now().strftime("%d/%m/%Y"),
                     "area": detectar_area(titulo),
-                    "especialidade": detectar_especialidade(titulo),
+                    "beneficios": beneficios,
                 })
             time.sleep(1.0)
         except Exception as e:
@@ -251,6 +328,19 @@ def buscar_vagas_com_br():
                     continue
                 local = local_el.get_text(strip=True)[:40] if local_el else "Brasil"
                 link = "https://www.vagas.com.br" + titulo_el.get("href", "")
+
+                # Tenta extrair benefícios da listagem
+                beneficios = []
+                try:
+                    benef_el = card.find(class_=lambda c: c and "beneficio" in c.lower())
+                    if benef_el:
+                        for b in benef_el.find_all("span")[:6]:
+                            texto_b = b.get_text(strip=True)
+                            if texto_b:
+                                beneficios.append(texto_b[:30])
+                except:
+                    pass
+
                 vagas.append({
                     "titulo": titulo,
                     "empresa": empresa_el.get_text(strip=True)[:50] if empresa_el else "Empresa",
@@ -260,7 +350,7 @@ def buscar_vagas_com_br():
                     "fonte": "vagas.com.br",
                     "data": datetime.now().strftime("%d/%m/%Y"),
                     "area": detectar_area(titulo),
-                    "especialidade": detectar_especialidade(titulo),
+                    "beneficios": beneficios,
                 })
             time.sleep(1.5)
         except Exception as e:
@@ -303,7 +393,7 @@ def buscar_infojobs():
                     "fonte": "infojobs.com.br",
                     "data": datetime.now().strftime("%d/%m/%Y"),
                     "area": detectar_area(titulo),
-                    "especialidade": detectar_especialidade(titulo),
+                    "beneficios": [],
                 })
             time.sleep(1.5)
         except Exception as e:
@@ -326,12 +416,14 @@ def verificar_cache(vagas_cache):
                 print(f"  ❌ Removida: {vaga['titulo'][:40]}")
                 continue
             texto = resp.text.lower()
-            removida = any(p in texto for p in ["vaga encerrada", "job expired", "não está mais disponível", "vaga inativa"])
-            if removida:
+            if any(p in texto for p in ["vaga encerrada", "job expired", "não está mais disponível"]):
                 print(f"  ❌ Encerrada: {vaga['titulo'][:40]}")
                 continue
         except:
             pass
+        # Garante que o campo beneficios existe
+        if "beneficios" not in vaga:
+            vaga["beneficios"] = []
         vagas_ativas.append(vaga)
         time.sleep(0.3)
     print(f"  ✅ {len(vagas_ativas)} vagas ativas")
@@ -359,22 +451,67 @@ def carregar_cache():
 # ─── GERADOR HTML ─────────────────────────────────────────────────────────────
 
 CORES = {
-    "eletrica":   ("b-el", "ELÉTRICA"),
-    "mecanica":   ("b-me", "MECÂNICA"),
-    "automacao":  ("b-au", "AUTOMAÇÃO"),
-    "qualidade":  ("b-qu", "QUALIDADE"),
-    "seguranca":  ("b-se", "SEGURANÇA"),
+    "eletrica":  ("b-el", "ELÉTRICA"),
+    "mecanica":  ("b-me", "MECÂNICA"),
+    "automacao": ("b-au", "AUTOMAÇÃO"),
+    "qualidade": ("b-qu", "QUALIDADE"),
+    "seguranca": ("b-se", "SEGURANÇA"),
 }
+
+ICONES_BENEFICIOS = {
+    "vale transporte": "🚌",
+    "vale refeição": "🍽️",
+    "vale alimentação": "🛒",
+    "plano médico": "🏥",
+    "plano de saúde": "🏥",
+    "assistência médica": "🏥",
+    "convênio médico": "🏥",
+    "plano odontológico": "🦷",
+    "assistência odontológica": "🦷",
+    "convênio odontológico": "🦷",
+    "seguro de vida": "🛡️",
+    "previdência privada": "💰",
+    "participação nos lucros": "💵",
+    "plr": "💵",
+    "gympass": "💪",
+    "total pass": "💪",
+    "academia": "💪",
+    "home office": "🏠",
+    "trabalho remoto": "🏠",
+    "híbrido": "🔄",
+    "cesta básica": "🧺",
+    "auxílio educação": "📚",
+    "bolsa estudo": "📚",
+}
+
+
+def icone_beneficio(b):
+    b_lower = b.lower()
+    for chave, icone in ICONES_BENEFICIOS.items():
+        if chave in b_lower:
+            return icone
+    return "✅"
+
+
+def gerar_beneficios_html(beneficios):
+    if not beneficios:
+        return ""
+    tags = ""
+    for b in beneficios[:5]:
+        icone = icone_beneficio(b)
+        tags += f'<span class="benef-tag">{icone} {b}</span>'
+    return f'<div class="beneficios">{tags}</div>'
 
 
 def gerar_card(v):
     area = v.get("area", "mecanica")
     cls, label = CORES.get(area, CORES["mecanica"])
     estado = v.get("estado", "BR")
-    esp = v.get("especialidade", "Técnico Industrial")
-    txt_wpp = f"🔧 *{v['titulo']}*\n🏭 {v['empresa']}\n📍 {v['local']}\n👉 {v['url']}\n\n_Via TecSystem Brasil_"
-    wpp_url = f"https://wa.me/?text={requests.utils.quote(txt_wpp)}"
-    return f"""<a class="card" href="{v['url']}" target="_blank" data-estado="{estado}" data-area="{area}" data-esp="{esp.lower()}">
+    esp = v.get("titulo", "").lower()
+    beneficios = v.get("beneficios", [])
+    beneficios_html = gerar_beneficios_html(beneficios)
+
+    return f"""<a class="card" href="{v['url']}" target="_blank" data-area="{area}" data-estado="{estado}" data-esp="{esp}">
 <div class="card-top">
   <div class="card-info">
     <div class="titulo">{v['titulo']}</div>
@@ -382,12 +519,10 @@ def gerar_card(v):
   </div>
   <div class="badge {cls}">{label}</div>
 </div>
+{beneficios_html}
 <div class="card-footer">
   <div class="fonte">🔗 {v['fonte']} · {v['data']}</div>
-  <div style="display:flex;gap:8px">
-    <a class="btn-wpp" href="{wpp_url}" target="_blank" onclick="event.stopPropagation()">📲 Whatsapp</a>
-    <div class="btn">VER →</div>
-  </div>
+  <div class="btn">VER VAGA →</div>
 </div>
 </a>"""
 
@@ -400,20 +535,17 @@ def gerar_opcoes_estados(vagas):
     return opts
 
 
-def gerar_opcoes_especialidades():
-    opts = '<option value="todas">🔧 Todas as especialidades</option>'
-    for tec in sorted(TECNICOS):
-        label = tec.title()
-        opts += f'<option value="{label.lower()}">{label}</option>'
-    return opts
-
-
 def gerar_html(vagas):
     agora = datetime.now().strftime("%d/%m/%Y às %H:%M")
     cards = "\n".join(gerar_card(v) for v in vagas)
     total = len(vagas)
     opts_estados = gerar_opcoes_estados(vagas)
-    opts_esp = gerar_opcoes_especialidades()
+
+    tecnicos_options = ""
+    for tec in sorted(TECNICOS):
+        label = tec.replace("técnico em ", "").title()
+        value = tec.replace("técnico em ", "").lower()
+        tecnicos_options += f'<option value="{value}">{label}</option>'
 
     return f"""<!DOCTYPE html>
 <html lang="pt-BR">
@@ -423,7 +555,7 @@ def gerar_html(vagas):
 <title>TecSystem Brasil – Vagas Técnicas 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{{--azul:#0a1628;--azul2:#0d2144;--laranja:#f97316;--cinza:#94a3b8;--branco:#f1f5f9;--card:#0f1e35;--borda:#1e3a5f;--verde:#25d366}}
+:root{{--azul:#0a1628;--azul2:#0d2144;--laranja:#f97316;--cinza:#94a3b8;--branco:#f1f5f9;--card:#0f1e35;--borda:#1e3a5f}}
 *{{margin:0;padding:0;box-sizing:border-box}}
 body{{background:var(--azul);color:var(--branco);font-family:'Barlow',sans-serif}}
 header{{background:var(--azul2);border-bottom:2px solid var(--laranja);padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between}}
@@ -439,7 +571,7 @@ header{{background:var(--azul2);border-bottom:2px solid var(--laranja);padding:0
 .filters{{padding:14px 20px;background:var(--azul2);border-bottom:1px solid var(--borda);display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}}
 .filter-btn{{flex-shrink:0;background:transparent;border:1px solid var(--borda);color:var(--cinza);font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:7px 14px;border-radius:6px;cursor:pointer;transition:all 0.2s;white-space:nowrap}}
 .filter-btn:hover,.filter-btn.active{{background:var(--laranja);border-color:var(--laranja);color:white}}
-.sel{{background:var(--azul);border:1px solid var(--borda);color:var(--branco);font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:7px 14px;border-radius:6px;cursor:pointer;flex-shrink:0;max-width:200px}}
+.sel{{background:var(--azul);border:1px solid var(--borda);color:var(--branco);font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:7px 14px;border-radius:6px;cursor:pointer;flex-shrink:0;max-width:220px}}
 .content{{padding:20px 16px;max-width:800px;margin:0 auto}}
 .update-bar{{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--cinza);margin-bottom:16px;display:flex;align-items:center;gap:8px}}
 .dot{{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}}
@@ -457,14 +589,13 @@ header{{background:var(--azul2);border-bottom:2px solid var(--laranja);padding:0
 .b-au{{background:rgba(249,115,22,0.2);color:#fb923c;border:1px solid rgba(249,115,22,0.3)}}
 .b-qu{{background:rgba(168,85,247,0.2);color:#c084fc;border:1px solid rgba(168,85,247,0.3)}}
 .b-se{{background:rgba(20,184,166,0.2);color:#2dd4bf;border:1px solid rgba(20,184,166,0.3)}}
+.beneficios{{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}}
+.benef-tag{{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);color:var(--cinza);font-size:10px;padding:2px 8px;border-radius:4px}}
 .card-footer{{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--borda)}}
 .fonte{{font-size:11px;color:var(--cinza)}}
 .btn{{background:var(--laranja);color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:6px;text-decoration:none}}
-.btn-wpp{{background:var(--verde);color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:6px;text-decoration:none}}
-
-/* CALCULADORA */
-.calc-btn{{background:var(--laranja);color:white;border:none;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px;padding:10px 20px;border-radius:8px;cursor:pointer;margin-bottom:20px;width:100%}}
-.modal{{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;padding:16px}}
+.calc-btn{{background:var(--laranja);color:white;border:none;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;padding:12px 20px;border-radius:8px;cursor:pointer;margin-bottom:20px;width:100%}}
+.modal{{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center;padding:16px}}
 .modal.open{{display:flex}}
 .modal-box{{background:var(--azul2);border:1px solid var(--borda);border-radius:12px;padding:24px;width:100%;max-width:400px}}
 .modal-title{{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--laranja);margin-bottom:16px}}
@@ -473,11 +604,12 @@ header{{background:var(--azul2);border-bottom:2px solid var(--laranja);padding:0
 .input-group input{{width:100%;background:var(--azul);border:1px solid var(--borda);color:var(--branco);font-family:'Barlow',sans-serif;font-size:15px;padding:10px 14px;border-radius:8px}}
 .calc-result{{background:var(--azul);border:1px solid var(--borda);border-radius:8px;padding:14px;margin-top:16px}}
 .calc-line{{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;color:var(--cinza)}}
-.calc-line.total{{color:var(--branco);font-weight:700;font-size:15px;border-top:1px solid var(--borda);padding-top:10px;margin-top:4px}}
-.calc-line.destaque{{color:#4ade80;font-weight:700;font-size:16px}}
-.btn-calc{{background:var(--laranja);color:white;border:none;font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;padding:10px;border-radius:8px;cursor:pointer;width:100%;margin-top:12px}}
+.calc-line.destaque{{color:#4ade80;font-weight:700;font-size:16px;border-top:1px solid var(--borda);padding-top:10px;margin-top:4px}}
 .btn-fechar{{background:transparent;color:var(--cinza);border:1px solid var(--borda);font-family:'Barlow',sans-serif;font-size:13px;padding:8px;border-radius:8px;cursor:pointer;width:100%;margin-top:8px}}
-
+.sem-vagas{{text-align:center;padding:48px 24px;color:var(--cinza)}}
+.sem-vagas-icon{{font-size:48px;margin-bottom:16px}}
+.sem-vagas-titulo{{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--branco);margin-bottom:8px;letter-spacing:1px}}
+.sem-vagas-texto{{font-size:14px;line-height:1.6}}
 footer{{text-align:center;padding:28px;color:var(--cinza);font-size:12px;border-top:1px solid var(--borda);margin-top:28px}}
 footer strong{{color:var(--laranja)}}
 </style>
@@ -485,9 +617,8 @@ footer strong{{color:var(--laranja)}}
 <body>
 <header>
   <div class="logo">Tec<span>System</span> Brasil</div>
-  <span style="font-size:11px;color:var(--cinza)">{agora}</span>
+  <span id="horario" style="font-size:11px;color:var(--cinza)"></span>
 </header>
-
 <div class="hero">
   <h1>Vagas para <span>Técnicos</span></h1>
   <p>90+ especialidades · Elétrica · Mecânica · Automação · Qualidade · Segurança</p>
@@ -497,7 +628,6 @@ footer strong{{color:var(--laranja)}}
     <div class="stat"><div class="stat-num">BR</div><div class="stat-label">Todo Brasil</div></div>
   </div>
 </div>
-
 <div class="filters">
   <button class="filter-btn active" onclick="filtrarArea('todas',this)">Todas</button>
   <button class="filter-btn" onclick="filtrarArea('eletrica',this)">⚡ Elétrica</button>
@@ -506,129 +636,75 @@ footer strong{{color:var(--laranja)}}
   <button class="filter-btn" onclick="filtrarArea('qualidade',this)">📊 Qualidade</button>
   <button class="filter-btn" onclick="filtrarArea('seguranca',this)">🦺 Segurança</button>
   <select class="sel" onchange="filtrarEstado(this.value)">{opts_estados}</select>
-  <select class="sel" onchange="filtrarEsp(this.value)">{opts_esp}</select>
+  <select class="sel" onchange="filtrarEsp(this.value)">
+    <option value="todas">🔧 Todas as especialidades</option>
+    {tecnicos_options}
+  </select>
 </div>
-
 <div class="content">
-  <div class="update-bar"><div class="dot"></div>Apenas vagas de 2026 · Atualizado automaticamente</div>
-
-  <button class="calc-btn" onclick="document.getElementById('modal').classList.add('open')">
-    🧮 CALCULADORA DE SALÁRIO LÍQUIDO
-  </button>
-
-  <div class="grid" id="grid">
-    {cards if cards else '<p style="color:var(--cinza);text-align:center;padding:32px">Nenhuma vaga encontrada agora.</p>'}
+  <div class="update-bar"><div class="dot"></div>Apenas vagas de 2026 · Atualizado automaticamente · {agora}</div>
+  <button class="calc-btn" onclick="document.getElementById('modal').classList.add('open')">🧮 CALCULADORA DE SALÁRIO LÍQUIDO</button>
+  <div class="grid" id="grid">{cards}</div>
+  <div id="sem-vagas" style="display:none" class="sem-vagas">
+    <div class="sem-vagas-icon">🔍</div>
+    <div class="sem-vagas-titulo">Nenhuma vaga encontrada</div>
+    <div class="sem-vagas-texto">
+      Não encontramos vagas para o filtro selecionado no momento.<br><br>
+      <strong>O que você pode fazer:</strong><br>
+      • Selecione outra especialidade ou estado<br>
+      • Volte mais tarde — o robô atualiza 5x por dia<br>
+      • Clique em <strong>"Todas"</strong> para ver todas as vagas disponíveis
+    </div>
   </div>
 </div>
-
-<!-- MODAL CALCULADORA -->
 <div class="modal" id="modal">
   <div class="modal-box">
     <div class="modal-title">💰 Calculadora de Salário</div>
-    <div class="input-group">
-      <label>Salário Bruto (R$)</label>
-      <input type="number" id="salario" placeholder="Ex: 3500" oninput="calcular()">
-    </div>
-    <div class="input-group">
-      <label>Dependentes para IR</label>
-      <input type="number" id="dependentes" placeholder="0" value="0" oninput="calcular()">
-    </div>
+    <div class="input-group"><label>Salário Bruto (R$)</label><input type="number" id="salario" placeholder="Ex: 3500" oninput="calcular()"></div>
+    <div class="input-group"><label>Número de dependentes (para IR)</label><input type="number" id="dependentes" placeholder="0" value="0" oninput="calcular()"></div>
     <div class="calc-result" id="resultado" style="display:none">
       <div class="calc-line"><span>Salário Bruto</span><span id="r-bruto"></span></div>
-      <div class="calc-line"><span>INSS</span><span id="r-inss" style="color:#f87171"></span></div>
-      <div class="calc-line"><span>IRRF</span><span id="r-ir" style="color:#f87171"></span></div>
+      <div class="calc-line"><span>(-) INSS</span><span id="r-inss" style="color:#f87171"></span></div>
+      <div class="calc-line"><span>(-) IRRF</span><span id="r-ir" style="color:#f87171"></span></div>
       <div class="calc-line destaque"><span>💵 Salário Líquido</span><span id="r-liquido"></span></div>
-      <div class="calc-line" style="margin-top:8px"><span>FGTS (depósito)</span><span id="r-fgts" style="color:#4ade80"></span></div>
+      <div class="calc-line" style="margin-top:8px;font-size:11px"><span>FGTS depositado pelo empregador</span><span id="r-fgts" style="color:#4ade80"></span></div>
     </div>
-    <button class="btn-fechar" onclick="document.getElementById('modal').classList.remove('open')">Fechar</button>
+    <button class="btn-fechar" onclick="document.getElementById('modal').classList.remove('open')">✕ Fechar</button>
   </div>
 </div>
-
 <footer>
-  <strong>TecSystem Brasil</strong> · 90+ especialidades técnicas · Apenas vagas de 2026<br>
+  <strong>TecSystem Brasil</strong> · 90+ especialidades · Apenas vagas de 2026<br>
   <span style="font-size:11px">Links redirecionam para os sites originais das vagas</span>
 </footer>
-
 <script>
-  let areaAtiva = 'todas', estadoAtivo = 'todos', espAtiva = 'todas';
-
-  function filtrarArea(area, btn) {{
-    areaAtiva = area;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    aplicar();
-  }}
-  function filtrarEstado(v) {{ estadoAtivo = v; aplicar(); }}
-  function filtrarEsp(v) {{ espAtiva = v; aplicar(); }}
-
-  function aplicar() {{
-    let n = 0;
-    document.querySelectorAll('#grid .card').forEach(c => {{
-      const ok = (areaAtiva === 'todas' || c.dataset.area === areaAtiva) &&
-                 (estadoAtivo === 'todos' || c.dataset.estado === estadoAtivo) &&
-                 (espAtiva === 'todas' || c.dataset.esp.includes(espAtiva));
-      c.style.display = ok ? 'block' : 'none';
-      if (ok) n++;
-    }});
-    document.getElementById('contador').textContent = n;
-  }}
-
-  // CALCULADORA INSS 2026
-  function calcularINSS(bruto) {{
-    const faixas = [
-      [1518.00, 0.075], [2793.88, 0.09], [4190.83, 0.12], [8157.41, 0.14]
-    ];
-    let inss = 0, anterior = 0;
-    for (const [teto, aliq] of faixas) {{
-      if (bruto <= teto) {{ inss += (bruto - anterior) * aliq; break; }}
-      inss += (teto - anterior) * aliq;
-      anterior = teto;
-      if (bruto > 8157.41) {{ inss = 908.86; break; }}
-    }}
-    return Math.min(inss, 908.86);
-  }}
-
-  function calcularIR(base, dependentes) {{
-    const deducaoDep = dependentes * 189.59;
-    const baseCalculo = base - deducaoDep;
-    const faixas = [
-      [2259.20, 0, 0], [2826.65, 0.075, 169.44], [3751.05, 0.15, 381.44],
-      [4664.68, 0.225, 662.77], [Infinity, 0.275, 896.00]
-    ];
-    for (const [teto, aliq, deducao] of faixas) {{
-      if (baseCalculo <= teto) return Math.max(0, baseCalculo * aliq - deducao);
-    }}
-    return 0;
-  }}
-
-  function fmt(v) {{ return 'R$ ' + v.toFixed(2).replace('.', ',').replace(/\B(?=(\d{{3}})+(?!\d))/g, '.'); }}
-
-  function calcular() {{
-    const bruto = parseFloat(document.getElementById('salario').value) || 0;
-    const dep = parseInt(document.getElementById('dependentes').value) || 0;
-    if (bruto <= 0) {{ document.getElementById('resultado').style.display = 'none'; return; }}
-    const inss = calcularINSS(bruto);
-    const baseIR = bruto - inss;
-    const ir = calcularIR(baseIR, dep);
-    const liquido = bruto - inss - ir;
-    const fgts = bruto * 0.08;
-    document.getElementById('r-bruto').textContent = fmt(bruto);
-    document.getElementById('r-inss').textContent = '- ' + fmt(inss);
-    document.getElementById('r-ir').textContent = '- ' + fmt(ir);
-    document.getElementById('r-liquido').textContent = fmt(liquido);
-    document.getElementById('r-fgts').textContent = '+ ' + fmt(fgts);
-    document.getElementById('resultado').style.display = 'block';
-  }}
+function atualizarHorario(){{const a=new Date();document.getElementById('horario').textContent=new Intl.DateTimeFormat('pt-BR',{{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}}).format(a);}}
+atualizarHorario();setInterval(atualizarHorario,60000);
+let areaAtiva='todas',estadoAtivo='todos',espAtiva='todas';
+function filtrarArea(a,b){{areaAtiva=a;document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');aplicar();}}
+function filtrarEstado(v){{estadoAtivo=v;aplicar();}}
+function filtrarEsp(v){{espAtiva=v;aplicar();}}
+function aplicar(){{
+  let n=0;
+  document.querySelectorAll('#grid .card').forEach(c=>{{
+    const ok=(areaAtiva==='todas'||c.dataset.area===areaAtiva)&&(estadoAtivo==='todos'||c.dataset.estado===estadoAtivo)&&(espAtiva==='todas'||c.dataset.esp.includes(espAtiva));
+    c.style.display=ok?'block':'none';
+    if(ok)n++;
+  }});
+  document.getElementById('contador').textContent=n;
+  document.getElementById('sem-vagas').style.display=n===0?'block':'none';
+  document.getElementById('grid').style.display=n===0?'none':'flex';
+}}
+function calcularINSS(b){{const f=[[1518.00,0.075],[2793.88,0.09],[4190.83,0.12],[8157.41,0.14]];let i=0,a=0;for(const[t,q]of f){{if(b<=t){{i+=(b-a)*q;break;}}i+=(t-a)*q;a=t;}}return Math.min(i,908.86);}}
+function calcularIR(b,d){{const x=b-d*189.59;const f=[[2259.20,0,0],[2826.65,0.075,169.44],[3751.05,0.15,381.44],[4664.68,0.225,662.77],[Infinity,0.275,896.00]];for(const[t,a,e]of f){{if(x<=t)return Math.max(0,x*a-e);}}return 0;}}
+function fmt(v){{return'R$ '+v.toFixed(2).replace('.',',').replace(/\B(?=(\d{{3}})+(?!\d))/g,'.');}}
+function calcular(){{const b=parseFloat(document.getElementById('salario').value)||0;const d=parseInt(document.getElementById('dependentes').value)||0;if(b<=0){{document.getElementById('resultado').style.display='none';return;}}const i=calcularINSS(b);const r=calcularIR(b-i,d);const l=b-i-r;document.getElementById('r-bruto').textContent=fmt(b);document.getElementById('r-inss').textContent='- '+fmt(i);document.getElementById('r-ir').textContent='- '+fmt(r);document.getElementById('r-liquido').textContent=fmt(l);document.getElementById('r-fgts').textContent='+ '+fmt(b*0.08);document.getElementById('resultado').style.display='block';}}
 </script>
 </body>
 </html>"""
 
 
-# ─── PRINCIPAL ────────────────────────────────────────────────────────────────
-
 def main():
-    hora = datetime.now().hour
-    print(f"\n🤖 TecSystem Brasil v4 — {datetime.now().strftime('%d/%m/%Y %H:%M')}")
+    print(f"\n🤖 TecSystem Brasil v5 — {datetime.now().strftime('%d/%m/%Y %H:%M')}")
     print("=" * 50)
 
     cache = carregar_cache()
