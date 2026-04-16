@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TecSystem Brasil</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#0a1628;--azul2:#0d2144;--laranja:#f97316;--cinza:#94a3b8;--branco:#f1f5f9;--card:#0f1e35;--borda:#1e3a5f}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--azul);color:var(--branco);font-family:'Barlow',sans-serif}
+header{background:var(--azul2);border-bottom:2px solid var(--laranja);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px}
+.logo span{color:var(--laranja)}
+.hero{background:linear-gradient(135deg,var(--azul2),#061020);padding:40px 24px;text-align:center}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:3px;margin-bottom:8px}
+.hero h1 span{color:var(--laranja)}
+.hero p{color:var(--cinza);font-size:14px;margin-bottom:24px}
+.stats{display:flex;justify-content:center;gap:32px}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--laranja)}
+.stat-label{font-size:11px;color:var(--cinza);text-transform:uppercase;letter-spacing:1px}
+.content{padding:24px 16px;max-width:800px;margin:0 auto}
+.update-bar{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:8px;padding:10px 16px;font-size:12px;color:var(--cinza);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.grid{display:flex;flex-direction:column;gap:12px}
+.card{background:var(--card);border:1px solid var(--borda);border-radius:10px;padding:18px;text-decoration:none;display:block;transition:all 0.2s}
+.card:hover{border-color:var(--laranja);background:#122040}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
+.card-info{flex:1}
+.titulo{font-size:16px;font-weight:700;color:var(--branco);margin-bottom:3px}
+.empresa{font-size:13px;color:var(--cinza)}
+.badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.b-el{background:rgba(59,130,246,0.2);color:#60a5fa;border:1px solid rgba(59,130,246,0.3)}
+.b-me{background:rgba(34,197,94,0.2);color:#4ade80;border:1px solid rgba(34,197,94,0.3)}
+.b-mx{background:rgba(168,85,247,0.2);color:#c084fc;border:1px solid rgba(168,85,247,0.3)}
+.b-au{background:rgba(249,115,22,0.2);color:#fb923c;border:1px solid rgba(249,115,22,0.3)}
+.b-co{background:rgba(20,184,166,0.2);color:#2dd4bf;border:1px solid rgba(20,184,166,0.3)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{background:rgba(255,255,255,0.05);border:1px solid var(--borda);color:var(--cinza);font-size:11px;padding:3px 9px;border-radius:4px}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid var(--borda)}
+.fonte{font-size:11px;color:var(--cinza)}
+.btn{background:var(--laranja);color:white;font-size:12px;font-weight:700;padding:6px 14px;border-radius:6px}
+footer{text-align:center;padding:32px;color:var(--cinza);font-size:12px;border-top:1px solid var(--borda);margin-top:32px}
+footer strong{color:var(--laranja)}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">Tec<span>System</span> Brasil</div>
+<span style="font-size:11px;color:var(--cinza)">Vagas Técnicas</span>
+</header>
+<div class="hero">
+<h1>Vagas para <span>Técnicos</span></h1>
+<p>Elétrica · Mecânica · Mecatrônica · Automação · Instrumentação</p>
+<div class="stats">
+<div class="stat"><div class="stat-num">7</div><div class="stat-label">Vagas</div></div>
+<div class="stat"><div class="stat-num">BR</div><div class="stat-label">Todo Brasil</div></div>
+</div>
+</div>
+<div class="content">
+<div class="update-bar"><div class="dot"></div>Vagas atualizadas em abril/2026</div>
+<div class="grid">
+<a class="card" href="https://www.mining.com/jobs/441132903-mecanica-o-especializada-o-pronto-atendimento-manutencao-vaga-preferencial-para-mulheres" target="_blank">
+<div class="card-top"><div class="card-info"><div class="titulo">Mecânico(a) Especializado – Manutenção</div><div class="empresa">Vale · Vitória, ES</div></div><div class="badge b-me">MECÂNICA</div></div>
+<div class="tags"><span class="tag">CLT</span><span class="tag">Turno Noturno</span><span class="tag">Escala 2x2</span></div>
+<div class="card-footer"><div class="fonte">🔗 mining.com</div><div class="btn">VER VAGA →</div></div>
+</a>
+<a class="card" href="https://www.mining.com/jobs/375409369-tecnica-o-especializado-manutencao-ii-vaga-preferencial-para-mulheres-manutencao-eletrica-via-umida-usina-salobo-vale-metais-basicos" target="_blank">
+<div class="card-top"><div class="card-info"><div class="titulo">Técnico(a) Especializado – Manutenção Elétrica</div><div class="empresa">Vale Metais Básicos · Marabá, PA</div></div><div class="badge b-el">ELÉTRICA</div></div>
+<div class="tags"><span class="tag">CLT</span><span class="tag">Diurno 3x3</span><span class="tag">SAP PM</span></div>
+<div class="card-footer"><div class="fonte">🔗 mining.com</div><div class="btn">VER VAGA →</div></div>
+</a>
+<a class="card" href="https://riovagas.com.br/riovagas/mecanico-de-manutencao-industria-ate-r-3-50000-queimados/" target="_blank">
+<div class="card-top"><div class="card-info"><div class="titulo">Mecânico de Manutenção – Indústria</div><div class="empresa">Indústria Plástica · Queimados, RJ</div></div><div class="badge b-me">MECÂNICA</div></div>
+<div class="tags"><span class="tag">Até R$ 3.500</span><span class="tag">CLT</span><span class="tag">Conv. Médico</span></div>
+<div class="card-footer"><div class="fonte">🔗 riovagas.com.br</div><div class="btn">VER VAGA →</div></div>
+</a>
+<a class="card" href="https://riovagas.com.br/riovagas/tecnico-manutencao-mecanica-i-empresa-portuaria-pretensao-salarial-caju-2-vagas/" target="_blank">
+<div class="card-top"><div class="card-info"><div class="titulo">Técnico Manutenção Mecânica – Porto</div><div class="empresa">Empresa Portuária · Caju, RJ</div></div><div class="badge b-mx">MECATRÔNICA</div></div>
+<div class="tags"><span class="tag">CLT</span><span class="tag">SAP</span><span class="tag">NR33/NR35</span><span class="tag">2 vagas</span></div>
+<div class="card-footer"><div class="fonte">🔗 riovagas.com.br</div><div class="btn">VER VAGA →</div></div>
+</a>
+<a class="card" href="https://geessa.gupy.io/job/eyJqb2JJZCI6MTEwODEwMTIsInNvdXJjZSI6Imd1cHlfcG9ydGFsIn0=?jobBoardSource=share_link" target="_blank">
+<div class="card-top"><div class="card-info"><div class="titulo">Mecânico – Manutenção Preventiva e Corretiva</div><div class="empresa">GEES S/A · São Luís, MA</div></div><div class="badge b-me">MECÂNICA</div></div>
+<div class="tags"><span class="tag">Até 31/05/2026</span><span class="tag">CLT</span></div>
+<div class="card-footer"><div class="fonte">🔗 gupy.io</div><div class="btn">VER VAGA →</div></div>
+</a>
+<a class="card" href="https://trabalheconosco.vagas.com.br/amaggi/oportunidade/trainee-manutencao-e-automacao-industrial/2802469" target="_blank">
+<div class="card-top"><div class="card-info"><div class="titulo">Trainee Manutenção e Automação Industrial</div><div class="empresa">AMAGGI · Lucas do Rio Verde, MT</div></div><div class="badge b-au">AUTOMAÇÃO</div></div>
+<div class="tags"><span class="tag">Trainee</span><span class="tag">Início ago/2026</span></div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br</div><div class="btn">VER VAGA →</div></div>
+</a>
+<a class="card" href="https://blog.grancursosonline.com.br/concurso-petrobras/" target="_blank">
+<div class="card-top"><div class="card-info"><div class="titulo">Concurso Petrobras – Técnicos de Manutenção</div><div class="empresa">Petrobras · Todo Brasil · ~1.100 vagas</div></div><div class="badge b-co">CONCURSO</div></div>
+<div class="tags"><span class="tag">Elétrica</span><span class="tag">Mecânica</span><span class="tag">Instrumentação</span></div>
+<div class="card-footer"><div class="fonte">🔗 grancursosonline.com.br</div><div class="btn">VER EDITAL →</div></div>
+</a>
+</div>
+</div>
+<footer><strong>TecSystem Brasil</strong> · Agregador de vagas técnicas<br><span style="font-size:11px">Links redirecionam para os sites originais</span></footer>
+</body>
+</html>
