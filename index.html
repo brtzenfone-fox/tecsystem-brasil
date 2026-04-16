@@ -45,21 +45,28 @@ header{background:var(--azul2);border-bottom:2px solid var(--laranja);padding:0 
 .card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--borda)}
 .fonte{font-size:11px;color:var(--cinza)}
 .btn{background:var(--laranja);color:white;font-size:11px;font-weight:700;padding:5px 12px;border-radius:6px;text-decoration:none}
-.calc-btn{background:var(--laranja);color:white;border:none;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;padding:12px 20px;border-radius:8px;cursor:pointer;margin-bottom:20px;width:100%}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center;padding:16px}
+.calc-section{margin-bottom:20px}
+.calc-section-titulo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;color:var(--branco);margin-bottom:12px}
+.calc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.calc-card-btn{background:var(--card);border:1px solid var(--borda);border-radius:10px;padding:14px;cursor:pointer;transition:all 0.2s;text-align:center;color:var(--branco)}
+.calc-card-btn:hover{border-color:var(--laranja);background:#122040}
+.calc-card-icon{font-size:24px;margin-bottom:6px}
+.calc-card-nome{font-family:'Barlow',sans-serif;font-size:13px;font-weight:700;color:var(--branco);margin-bottom:2px}
+.calc-card-desc{font-size:11px;color:var(--cinza)}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center;padding:16px;overflow-y:auto}
 .modal.open{display:flex}
-.modal-box{background:var(--azul2);border:1px solid var(--borda);border-radius:12px;padding:24px;width:100%;max-width:400px}
-.modal-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--laranja);margin-bottom:16px}
+.modal-box{background:var(--azul2);border:1px solid var(--borda);border-radius:12px;padding:24px;width:100%;max-width:400px;margin:auto}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--laranja);margin-bottom:16px}
 .input-group{margin-bottom:14px}
 .input-group label{font-size:12px;color:var(--cinza);display:block;margin-bottom:6px;font-weight:600}
-.input-group input{width:100%;background:var(--azul);border:1px solid var(--borda);color:var(--branco);font-family:'Barlow',sans-serif;font-size:15px;padding:10px 14px;border-radius:8px}
+.input-group input,.input-group select{width:100%;background:var(--azul);border:1px solid var(--borda);color:var(--branco);font-family:'Barlow',sans-serif;font-size:14px;padding:10px 14px;border-radius:8px}
 .calc-result{background:var(--azul);border:1px solid var(--borda);border-radius:8px;padding:14px;margin-top:16px}
 .calc-line{display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;color:var(--cinza)}
-.calc-line.destaque{color:#4ade80;font-weight:700;font-size:16px;border-top:1px solid var(--borda);padding-top:10px;margin-top:4px}
+.calc-line.destaque{color:#4ade80;font-weight:700;font-size:15px;border-top:1px solid var(--borda);padding-top:10px;margin-top:4px}
 .btn-fechar{background:transparent;color:var(--cinza);border:1px solid var(--borda);font-family:'Barlow',sans-serif;font-size:13px;padding:8px;border-radius:8px;cursor:pointer;width:100%;margin-top:8px}
 .sem-vagas{text-align:center;padding:48px 24px;color:var(--cinza)}
 .sem-vagas-icon{font-size:48px;margin-bottom:16px}
-.sem-vagas-titulo{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--branco);margin-bottom:8px;letter-spacing:1px}
+.sem-vagas-titulo{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--branco);margin-bottom:8px}
 .sem-vagas-texto{font-size:14px;line-height:1.6}
 footer{text-align:center;padding:28px;color:var(--cinza);font-size:12px;border-top:1px solid var(--borda);margin-top:28px}
 footer strong{color:var(--laranja)}
@@ -93,1434 +100,669 @@ footer strong{color:var(--laranja)}
   </select>
 </div>
 <div class="content">
-  <div class="update-bar"><div class="dot"></div>Apenas vagas de 2026 · Atualizado automaticamente · 16/04/2026 às 19:24</div>
-  <button class="calc-btn" onclick="document.getElementById('modal').classList.add('open')">🧮 CALCULADORA DE SALÁRIO LÍQUIDO</button>
-  <div class="grid" id="grid"><a class="card" href="https://www.vagas.com.br/vagas/v2801368/tecnico-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicomanutençãoelétrica">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoManutençãoElétrica</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+  <div class="update-bar"><div class="dot"></div>Apenas vagas de 2026 · Atualizado automaticamente · 16/04/2026 às 19:43</div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+  <!-- CALCULADORAS -->
+  <div class="calc-section">
+    <div class="calc-section-titulo">🧮 Calculadoras Trabalhistas</div>
+    <div class="calc-grid">
+      <button class="calc-card-btn" onclick="abrirModal('m-salario')"><div class="calc-card-icon">💰</div><div class="calc-card-nome">Salário Líquido</div><div class="calc-card-desc">INSS + IRRF</div></button>
+      <button class="calc-card-btn" onclick="abrirModal('m-ferias')"><div class="calc-card-icon">🏖️</div><div class="calc-card-nome">Férias</div><div class="calc-card-desc">+ 1/3 constitucional</div></button>
+      <button class="calc-card-btn" onclick="abrirModal('m-rescisao')"><div class="calc-card-icon">📦</div><div class="calc-card-nome">Rescisão</div><div class="calc-card-desc">Demissão ou pedido</div></button>
+      <button class="calc-card-btn" onclick="abrirModal('m-horaextra')"><div class="calc-card-icon">⏰</div><div class="calc-card-nome">Hora Extra</div><div class="calc-card-desc">50%, 100% e noturna</div></button>
+      <button class="calc-card-btn" onclick="abrirModal('m-noturno')"><div class="calc-card-icon">🌙</div><div class="calc-card-nome">Adicional Noturno</div><div class="calc-card-desc">20% sobre salário</div></button>
+      <button class="calc-card-btn" onclick="abrirModal('m-insalub')"><div class="calc-card-icon">⚠️</div><div class="calc-card-nome">Insalubridade</div><div class="calc-card-desc">e Periculosidade</div></button>
+      <button class="calc-card-btn" onclick="abrirModal('m-decimo')"><div class="calc-card-icon">🎄</div><div class="calc-card-nome">13º Salário</div><div class="calc-card-desc">Proporcional ou cheio</div></button>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"><a class="card" href="https://www.vagas.com.br/vagas/v2801368/tecnico-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicomanutençãoelétrica">
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoManutençãoElétrica</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
+
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2796786/tecnico-de-manutencao-eletrica-jr" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicodemanutençãoelétricajr">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeManutençãoElétricaJr</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeManutençãoElétricaJr</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2805598/tecnico-de-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicodemanutençãoeletrica">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeManutençãoEletrica</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeManutençãoEletrica</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2804509/mecanico-de-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutenção">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">MecânicodeManutenção</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">MecânicodeManutenção</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2805028/mecanico-de-manutencao-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutençãoi">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">MecânicodeManutençãoI</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">MecânicodeManutençãoI</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2807082/mecanico-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicomanutenção">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">MecânicoManutenção</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">MecânicoManutenção</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2786807/tecnico-de-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode manutenção">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicode Manutenção</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicode Manutenção</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2802756/tecnico-a-de-reparos-junior" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnico(a) de reparos júnior">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnico(a) de Reparos Júnior</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnico(a) de Reparos Júnior</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2808311/estagio-tecnico" target="_blank" data-area="mecanica" data-estado="BR" data-esp="estágiotécnico">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">EstágioTécnico</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">EstágioTécnico</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2808318/assistente-tecnico-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="assistentetécnicoi">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">AssistenteTécnicoI</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">AssistenteTécnicoI</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2807872/tecnica-automacao-especializada-ii-automacao-industrial-usina-vaga-afirmativa-para-mulheres" target="_blank" data-area="automacao" data-estado="BR" data-esp="técnicaautomaçãoespecializada ii -automaçãoindustrial- usina - vaga afirmativa p">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicaAutomaçãoEspecializada II -AutomaçãoIndustrial- Usina - Vaga Afirmativa p</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-au">AUTOMAÇÃO</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicaAutomaçãoEspecializada II -AutomaçãoIndustrial- Usina - Vaga Afirmativa p</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-au">AUTOMAÇÃO</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2807149/tecnico-em-manutencao-industrial" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoem manutençãoindustrial">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicoem ManutençãoIndustrial</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicoem ManutençãoIndustrial</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2804836/engenheiro-de-automacao" target="_blank" data-area="automacao" data-estado="BR" data-esp="engenheiro deautomação">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Engenheiro deAutomação</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-au">AUTOMAÇÃO</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Engenheiro deAutomação</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-au">AUTOMAÇÃO</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2806756/engenheiro-de-automacao-pl-027227" target="_blank" data-area="automacao" data-estado="BR" data-esp="engenheiro deautomaçãopl (027227)">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Engenheiro deAutomaçãoPl (027227)</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-au">AUTOMAÇÃO</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Engenheiro deAutomaçãoPl (027227)</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-au">AUTOMAÇÃO</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2793349/tecnico-eletromecanico-automacao-e-manutencao-mecanica-manutencao" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicoeletromecânico,automaçãoe manutenção mecânica | manutenção">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoEletromecânico,Automaçãoe Manutenção Mecânica | Manutenção</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoEletromecânico,Automaçãoe Manutenção Mecânica | Manutenção</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2807000/tecnico-de-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicodemanutençãoelétrica">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeManutençãoElétrica</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeManutençãoElétrica</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2806439/tecnico-de-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicodemanutençãoeletrica">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeManutençãoEletrica</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeManutençãoEletrica</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2807518/tecnico-de-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicodemanutençãoeletrica">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeManutençãoEletrica</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeManutençãoEletrica</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2807107/tecnico-a-de-manutencao-eletrica-jr-apiai-sp" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnico(a) demanutençãoelétricajr - apiaí / sp">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnico(a) deManutençãoElétricaJr - Apiaí / SP</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnico(a) deManutençãoElétricaJr - Apiaí / SP</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2799986/estagio-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="estágiomanutenção-elétrica">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">EstágioManutenção-Elétrica</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">EstágioManutenção-Elétrica</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2804745/coordenador-de-manutencao-eletrica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="coordenador demanutençãoelétrica">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Coordenador deManutençãoElétrica</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Coordenador deManutençãoElétrica</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2804828/tecnico-de-manutencao-eletrica-i-pedro-leopoldo-mg" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicodemanutençãoelétricai | pedro leopoldo/mg">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeManutençãoElétricaI | Pedro Leopoldo/MG</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeManutençãoElétricaI | Pedro Leopoldo/MG</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2803433/mecanico-de-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutenção">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">MecânicodeManutenção</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">MecânicodeManutenção</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2804261/mecanico-de-manutencao-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutençãoi">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">MecânicodeManutençãoI</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">MecânicodeManutençãoI</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2802397/mecanico-de-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutenção">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">MecânicodeManutenção</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">MecânicodeManutenção</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2807925/mecanico-de-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutenção">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">MecânicodeManutenção</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">MecânicodeManutenção</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2785570/mecanico-de-manutencao-jr" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutençãojr">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">MecânicodeManutençãoJr</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">MecânicodeManutençãoJr</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2798805/mecanico-de-manutencao-jr" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânicodemanutençãojr">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">MecânicodeManutençãoJr</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">MecânicodeManutençãoJr</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2808313/estagio-tecnico" target="_blank" data-area="mecanica" data-estado="BR" data-esp="estágiotécnico">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">EstágioTécnico</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">EstágioTécnico</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2794010/tecnico-em-eletronica" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoem eletrônica">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicoem Eletrônica</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicoem Eletrônica</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2807813/tecnico-eletronica" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoeletrônica">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoEletrônica</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoEletrônica</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2794014/tecnico-em-eletronica" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoem eletrônica">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicoem Eletrônica</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicoem Eletrônica</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2803355/tecnico-industrial-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoindustrial i">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoIndustrial I</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoIndustrial I</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2801702/tecnico-de-manutencao-jr" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode manutenção jr">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicode Manutenção Jr</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicode Manutenção Jr</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2796079/analista-de-automacao-e-controle-jr" target="_blank" data-area="automacao" data-estado="BR" data-esp="analista deautomaçãoe controle jr">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Analista deAutomaçãoe Controle Jr</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-au">AUTOMAÇÃO</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Analista deAutomaçãoe Controle Jr</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-au">AUTOMAÇÃO</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2808300/analista-de-projetos-industriais-sr" target="_blank" data-area="mecanica" data-estado="BR" data-esp="analista de projetos industriais sr">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Analista de Projetos Industriais Sr</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Analista de Projetos Industriais Sr</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2808335/especialista-processos-industriais" target="_blank" data-area="mecanica" data-estado="BR" data-esp="especialista processos industriais">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Especialista Processos Industriais</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Especialista Processos Industriais</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2799163/analista-de-produtos-clp-e-redes-industriais" target="_blank" data-area="mecanica" data-estado="BR" data-esp="analista de produtos (clp e redes industriais)">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Analista de Produtos (CLP e Redes Industriais)</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Analista de Produtos (CLP e Redes Industriais)</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2800505/estagio-em-engenharia-de-manutencao-industrial" target="_blank" data-area="mecanica" data-estado="BR" data-esp="estágio em engenharia de manutençãoindustrial">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Estágio em Engenharia de ManutençãoIndustrial</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Estágio em Engenharia de ManutençãoIndustrial</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2805576/eletricista-instrumentista-ii" target="_blank" data-area="eletrica" data-estado="BR" data-esp="eletricistainstrumentistaii">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">EletricistaInstrumentistaII</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">EletricistaInstrumentistaII</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2807954/eletricista-instrumentista-ii" target="_blank" data-area="eletrica" data-estado="BR" data-esp="eletricistainstrumentistaii">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">EletricistaInstrumentistaII</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">EletricistaInstrumentistaII</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2799789/eletricista-instrumentista-iii" target="_blank" data-area="eletrica" data-estado="BR" data-esp="eletricistainstrumentistaiii">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">EletricistaInstrumentistaIII</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">EletricistaInstrumentistaIII</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2793995/coordenador-de-automacao-e-instrumentacao" target="_blank" data-area="automacao" data-estado="BR" data-esp="coordenador de automação einstrumentação">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Coordenador de Automação eInstrumentação</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-au">AUTOMAÇÃO</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Coordenador de Automação eInstrumentação</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-au">AUTOMAÇÃO</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2806752/supervisor-de-eletrica-e-instrumentacao-vaga-extensiva-para-pessoas-com-deficiencia" target="_blank" data-area="eletrica" data-estado="BR" data-esp="supervisor de elétrica einstrumentação(vaga extensiva para pessoas com deficiênc">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Supervisor de Elétrica eInstrumentação(VAGA Extensiva para Pessoas com Deficiênc</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Supervisor de Elétrica eInstrumentação(VAGA Extensiva para Pessoas com Deficiênc</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2801801/responsavel-tecnico-rt" target="_blank" data-area="mecanica" data-estado="BR" data-esp="responsáveltécnico(rt)">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">ResponsávelTécnico(Rt)</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">ResponsávelTécnico(Rt)</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2804202/tecnico-de-engenharia-ii-b" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode engenharia ii b">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicode Engenharia II B</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicode Engenharia II B</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2793430/tecnico-de-laboratorio" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode laboratório">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicode Laboratório</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicode Laboratório</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2802037/tecnico-mecanico" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicomecânico">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoMecânico</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoMecânico</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2806629/tecnico-mecanico-v-027071" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicomecânico (v.027071)">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoMecânico (V.027071)</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoMecânico (V.027071)</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2801783/tecnico-a-de-eletronica-108492" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnico(a) de eletrônica - 108492">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnico(a) de Eletrônica - 108492</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnico(a) de Eletrônica - 108492</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2805817/tecnico-em-radiofrequencia-jr" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoem radiofrequência jr">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicoem Radiofrequência Jr</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicoem Radiofrequência Jr</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2790657/mecanico-industrial-comodoro-mt" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânico industrial | comodoro/mt">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Mecânico Industrial | Comodoro/MT</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Mecânico Industrial | Comodoro/MT</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2803944/soldador-especializado" target="_blank" data-area="mecanica" data-estado="BR" data-esp="soldador especializado">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Soldador Especializado</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Soldador Especializado</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2802451/eletromecanico" target="_blank" data-area="eletrica" data-estado="BR" data-esp="eletromecânico">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Eletromecânico</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Eletromecânico</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2794166/montador-de-blindagem" target="_blank" data-area="mecanica" data-estado="BR" data-esp="montador de blindagem">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Montador de Blindagem</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Montador de Blindagem</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2807476/coordenador-de-caldeiraria" target="_blank" data-area="mecanica" data-estado="BR" data-esp="coordenador decaldeiraria">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Coordenador deCaldeiraria</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Coordenador deCaldeiraria</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2791471/operador-utilidades-iii-caldeira" target="_blank" data-area="mecanica" data-estado="BR" data-esp="operador utilidades iii-caldeira">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Operador Utilidades III-Caldeira</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Operador Utilidades III-Caldeira</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2805523/supervisor-a-de-producao-moagem-candeias-ba" target="_blank" data-area="mecanica" data-estado="BR" data-esp="supervisor(a) de produção - moagem | candeias/ba">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Supervisor(a) de Produção - Moagem | Candeias/BA</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Supervisor(a) de Produção - Moagem | Candeias/BA</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2805875/tecnico-de-campo-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode campo i">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicode Campo I</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicode Campo I</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2805718/tecnico-a-de-manutencao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnico(a) de manutenção">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnico(a) de Manutenção</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnico(a) de Manutenção</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2807469/tecnico-de-qualidade-mecanica" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode qualidade mecânica">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicode Qualidade Mecânica</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicode Qualidade Mecânica</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2802132/analista-de-campo" target="_blank" data-area="mecanica" data-estado="BR" data-esp="analista de campo">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Analista de Campo</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Analista de Campo</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2804627/analista-de-campo" target="_blank" data-area="mecanica" data-estado="BR" data-esp="analista de campo">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Analista de Campo</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Analista de Campo</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2784571/tecnico-de-seguranca-do-trabalho-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho|segurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeSegurançadoTrabalho|SegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeSegurançadoTrabalho|SegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2795571/tecnico-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicosegurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoSegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoSegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2802724/tecnico-de-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeSegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeSegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2802890/tecnico-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicosegurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoSegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoSegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2803222/tecnico-de-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeSegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeSegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2797110/tecnico-de-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeSegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeSegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2801006/tecnico-em-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicoemsegurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoemSegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoemSegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2800735/tecnico-de-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeSegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeSegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2800057/tecnico-a-de-qualidade" target="_blank" data-area="qualidade" data-estado="BR" data-esp="técnico(a) dequalidade">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnico(a) deQualidade</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-qu">QUALIDADE</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnico(a) deQualidade</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-qu">QUALIDADE</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2803380/tecnico-qualidade" target="_blank" data-area="qualidade" data-estado="BR" data-esp="técnicoqualidade">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoQualidade</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-qu">QUALIDADE</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoQualidade</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-qu">QUALIDADE</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2808211/tecnico-qualidade-pleno" target="_blank" data-area="qualidade" data-estado="BR" data-esp="técnicoqualidadepleno">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoQualidadePleno</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-qu">QUALIDADE</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoQualidadePleno</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-qu">QUALIDADE</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2807249/tecnico-de-qualidade-m-f-indaiatuba-sp" target="_blank" data-area="qualidade" data-estado="BR" data-esp="técnicodequalidade(m/f) - indaiatuba/sp">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeQualidade(m/F) - Indaiatuba/SP</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-qu">QUALIDADE</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeQualidade(m/F) - Indaiatuba/SP</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-qu">QUALIDADE</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2802686/analista-de-qualidade-qualidade-balbino" target="_blank" data-area="qualidade" data-estado="BR" data-esp="analista dequalidade-qualidade- balbino">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Analista deQualidade-Qualidade- Balbino</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-qu">QUALIDADE</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Analista deQualidade-Qualidade- Balbino</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-qu">QUALIDADE</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2807295/enfermeiro-a-qualidade-qualidade-dedicada-balbino" target="_blank" data-area="qualidade" data-estado="BR" data-esp="enfermeiro(a)qualidade-qualidadededicada - balbino">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Enfermeiro(a)Qualidade-QualidadeDedicada - Balbino</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-qu">QUALIDADE</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Enfermeiro(a)Qualidade-QualidadeDedicada - Balbino</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-qu">QUALIDADE</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2801975/monitor-da-qualidade" target="_blank" data-area="qualidade" data-estado="BR" data-esp="monitor daqualidade">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Monitor daQualidade</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-qu">QUALIDADE</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Monitor daQualidade</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-qu">QUALIDADE</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2802830/tecnico-de-refrigeracao-comercial-pleno" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicoderefrigeraçãocomercial pleno">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeRefrigeraçãoComercial Pleno</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeRefrigeraçãoComercial Pleno</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2796058/mecanico-de-refrigeracao-jr" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânico derefrigeraçãojr">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Mecânico deRefrigeraçãoJr</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Mecânico deRefrigeraçãoJr</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2805099/mecanico-de-refrigeracao-vrf" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânico derefrigeração- vrf">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Mecânico deRefrigeração- Vrf</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Mecânico deRefrigeração- Vrf</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2806488/artifice-especializado-i-refrigeracao" target="_blank" data-area="mecanica" data-estado="BR" data-esp="artífice especializado i -refrigeração">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Artífice Especializado I -Refrigeração</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Artífice Especializado I -Refrigeração</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2805330/tecnico-de-manutencao-refrigeracao-climatizacao-manutencao-predial-hospital-sao-rafael" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode manutenção (refrigeração/climatização) - manutenção predial - hospital">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicode Manutenção (refrigeração/Climatização) - Manutenção Predial - Hospital</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicode Manutenção (refrigeração/Climatização) - Manutenção Predial - Hospital</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2797769/tecnico-de-manutencao-refrigeracao-manutencao-predial-hospital-sao-luiz-itaim" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode manutenção -refrigeração- manutenção predial - hospital são luiz itaim">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicode Manutenção -Refrigeração- Manutenção Predial - Hospital São Luiz Itaim</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicode Manutenção -Refrigeração- Manutenção Predial - Hospital São Luiz Itaim</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2802384/tecnico-de-manutencao-refrigeracao-climatizacao-manutencao-predial-hospital-sao-rafael" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicode manutenção (refrigeração/climatização) - manutenção predial - hospital">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicode Manutenção (refrigeração/Climatização) - Manutenção Predial - Hospital</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicode Manutenção (refrigeração/Climatização) - Manutenção Predial - Hospital</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2791904/mecanico-de-refrigeracao-manutencao-predial-copa-d-or" target="_blank" data-area="mecanica" data-estado="BR" data-esp="mecânico derefrigeração– manutenção predial - copa d'or">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Mecânico deRefrigeração– Manutenção Predial - Copa D'Or</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Mecânico deRefrigeração– Manutenção Predial - Copa D'Or</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2801191/tecnico-em-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicoemsegurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoemSegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoemSegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2802239/tecnico-em-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicoemsegurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoemSegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoemSegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2804516/tecnico-em-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicoemsegurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoemSegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoemSegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2804522/tecnico-a-de-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnico(a) desegurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnico(a) deSegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnico(a) deSegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2787836/tecnico-de-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeSegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeSegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2800359/tecnico-em-seguranca-do-trabalho" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicoemsegurançadotrabalho">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoemSegurançadoTrabalho</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoemSegurançadoTrabalho</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2808446/tecnico-de-manutencao-mecanica-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicodemanutençãomecânicai">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeManutençãoMecânicaI</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeManutençãoMecânicaI</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2808479/tecnico-manutencao-mecanica-i" target="_blank" data-area="mecanica" data-estado="BR" data-esp="técnicomanutençãomecânicai">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicoManutençãoMecânicaI</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicoManutençãoMecânicaI</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2808399/trainee-manutencao-industrial" target="_blank" data-area="mecanica" data-estado="BR" data-esp="trainee manutençãoindustrial">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Trainee ManutençãoIndustrial</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-me">MECÂNICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Trainee ManutençãoIndustrial</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-me">MECÂNICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2808503/tecnico-de-controle-de-qualidade" target="_blank" data-area="qualidade" data-estado="BR" data-esp="técnicode controle dequalidade">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicode Controle deQualidade</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-qu">QUALIDADE</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicode Controle deQualidade</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-qu">QUALIDADE</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2788646/tecnico-de-seguranca-do-trabalho-026733" target="_blank" data-area="seguranca" data-estado="BR" data-esp="técnicodesegurançadotrabalho(026733)">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">TécnicodeSegurançadoTrabalho(026733)</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-se">SEGURANÇA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">TécnicodeSegurançadoTrabalho(026733)</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-se">SEGURANÇA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a>
 <a class="card" href="https://www.vagas.com.br/vagas/v2801042/tecnico-de-planejamento-de-obras-montagem-eletromecanica" target="_blank" data-area="eletrica" data-estado="BR" data-esp="técnicode planejamento de obras – montagem eletromecânica">
-<div class="card-top">
-  <div class="card-info">
-    <div class="titulo">Técnicode Planejamento de Obras – Montagem Eletromecânica</div>
-    <div class="empresa">Empresa · Brasil</div>
-  </div>
-  <div class="badge b-el">ELÉTRICA</div>
-</div>
+<div class="card-top"><div class="card-info"><div class="titulo">Técnicode Planejamento de Obras – Montagem Eletromecânica</div><div class="empresa">Empresa · Brasil</div></div><div class="badge b-el">ELÉTRICA</div></div>
 
-<div class="card-footer">
-  <div class="fonte">🔗 vagas.com.br · 16/04/2026</div>
-  <div class="btn">VER VAGA →</div>
-</div>
+<div class="card-footer"><div class="fonte">🔗 vagas.com.br · 16/04/2026</div><div class="btn">VER VAGA →</div></div>
 </a></div>
   <div id="sem-vagas" style="display:none" class="sem-vagas">
     <div class="sem-vagas-icon">🔍</div>
     <div class="sem-vagas-titulo">Nenhuma vaga encontrada</div>
-    <div class="sem-vagas-texto">
-      Não encontramos vagas para o filtro selecionado no momento.<br><br>
-      <strong>O que você pode fazer:</strong><br>
-      • Selecione outra especialidade ou estado<br>
-      • Volte mais tarde — o robô atualiza 5x por dia<br>
-      • Clique em <strong>"Todas"</strong> para ver todas as vagas disponíveis
-    </div>
+    <div class="sem-vagas-texto">Não encontramos vagas para o filtro selecionado.<br><br>• Selecione outra especialidade ou estado<br>• Volte mais tarde — atualizamos 5x por dia<br>• Clique em <strong>"Todas"</strong> para ver todas as vagas</div>
   </div>
 </div>
-<div class="modal" id="modal">
+
+<!-- MODAIS -->
+<div class="modal" id="m-salario">
   <div class="modal-box">
-    <div class="modal-title">💰 Calculadora de Salário</div>
-    <div class="input-group"><label>Salário Bruto (R$)</label><input type="number" id="salario" placeholder="Ex: 3500" oninput="calcular()"></div>
-    <div class="input-group"><label>Número de dependentes (para IR)</label><input type="number" id="dependentes" placeholder="0" value="0" oninput="calcular()"></div>
-    <div class="calc-result" id="resultado" style="display:none">
-      <div class="calc-line"><span>Salário Bruto</span><span id="r-bruto"></span></div>
-      <div class="calc-line"><span>(-) INSS</span><span id="r-inss" style="color:#f87171"></span></div>
-      <div class="calc-line"><span>(-) IRRF</span><span id="r-ir" style="color:#f87171"></span></div>
-      <div class="calc-line destaque"><span>💵 Salário Líquido</span><span id="r-liquido"></span></div>
-      <div class="calc-line" style="margin-top:8px;font-size:11px"><span>FGTS depositado pelo empregador</span><span id="r-fgts" style="color:#4ade80"></span></div>
+    <div class="modal-title">💰 Salário Líquido</div>
+    <div class="input-group"><label>Salário Bruto (R$)</label><input type="number" id="sl-b" placeholder="Ex: 3500" oninput="calcSalario()"></div>
+    <div class="input-group"><label>Dependentes para IR</label><input type="number" id="sl-d" placeholder="0" value="0" oninput="calcSalario()"></div>
+    <div class="calc-result" id="sl-res" style="display:none">
+      <div class="calc-line"><span>Salário Bruto</span><span id="sl-1"></span></div>
+      <div class="calc-line"><span>(-) INSS</span><span id="sl-2" style="color:#f87171"></span></div>
+      <div class="calc-line"><span>(-) IRRF</span><span id="sl-3" style="color:#f87171"></span></div>
+      <div class="calc-line destaque"><span>💵 Líquido</span><span id="sl-4"></span></div>
+      <div class="calc-line" style="font-size:11px;margin-top:6px"><span>FGTS (empregador)</span><span id="sl-5" style="color:#4ade80"></span></div>
     </div>
-    <button class="btn-fechar" onclick="document.getElementById('modal').classList.remove('open')">✕ Fechar</button>
+    <button class="btn-fechar" onclick="fecharModal('m-salario')">✕ Fechar</button>
   </div>
 </div>
+
+<div class="modal" id="m-ferias">
+  <div class="modal-box">
+    <div class="modal-title">🏖️ Férias</div>
+    <div class="input-group"><label>Salário Bruto (R$)</label><input type="number" id="fe-b" placeholder="Ex: 3500" oninput="calcFerias()"></div>
+    <div class="input-group"><label>Meses trabalhados no período</label><input type="number" id="fe-m" placeholder="12" value="12" min="1" max="12" oninput="calcFerias()"></div>
+    <div class="calc-result" id="fe-res" style="display:none">
+      <div class="calc-line"><span>Férias proporcional</span><span id="fe-1"></span></div>
+      <div class="calc-line"><span>(+) 1/3 constitucional</span><span id="fe-2" style="color:#4ade80"></span></div>
+      <div class="calc-line"><span>Total bruto</span><span id="fe-3"></span></div>
+      <div class="calc-line"><span>(-) INSS</span><span id="fe-4" style="color:#f87171"></span></div>
+      <div class="calc-line"><span>(-) IR</span><span id="fe-5" style="color:#f87171"></span></div>
+      <div class="calc-line destaque"><span>🏖️ Férias Líquidas</span><span id="fe-6"></span></div>
+    </div>
+    <button class="btn-fechar" onclick="fecharModal('m-ferias')">✕ Fechar</button>
+  </div>
+</div>
+
+<div class="modal" id="m-rescisao">
+  <div class="modal-box">
+    <div class="modal-title">📦 Rescisão</div>
+    <div class="input-group"><label>Salário Bruto (R$)</label><input type="number" id="re-b" placeholder="Ex: 3500" oninput="calcRescisao()"></div>
+    <div class="input-group"><label>Meses trabalhados no ano</label><input type="number" id="re-m" placeholder="Ex: 6" min="1" max="12" oninput="calcRescisao()"></div>
+    <div class="input-group"><label>Tipo de rescisão</label>
+      <select id="re-t" onchange="calcRescisao()"><option value="sem_justa">Demissão sem justa causa</option><option value="pedido">Pedido de demissão</option><option value="acordo">Acordo (distrato)</option></select>
+    </div>
+    <div class="calc-result" id="re-res" style="display:none">
+      <div class="calc-line"><span>Saldo de salário</span><span id="re-1"></span></div>
+      <div class="calc-line"><span>13º proporcional</span><span id="re-2"></span></div>
+      <div class="calc-line"><span>Férias + 1/3</span><span id="re-3"></span></div>
+      <div class="calc-line" id="re-multa-linha"><span>Multa FGTS</span><span id="re-4" style="color:#4ade80"></span></div>
+      <div class="calc-line destaque"><span>📦 Total Rescisão</span><span id="re-5"></span></div>
+    </div>
+    <button class="btn-fechar" onclick="fecharModal('m-rescisao')">✕ Fechar</button>
+  </div>
+</div>
+
+<div class="modal" id="m-horaextra">
+  <div class="modal-box">
+    <div class="modal-title">⏰ Hora Extra</div>
+    <div class="input-group"><label>Salário Bruto (R$)</label><input type="number" id="he-b" placeholder="Ex: 3500" oninput="calcHoraExtra()"></div>
+    <div class="input-group"><label>Quantidade de horas extras</label><input type="number" id="he-h" placeholder="Ex: 10" oninput="calcHoraExtra()"></div>
+    <div class="input-group"><label>Tipo</label>
+      <select id="he-t" onchange="calcHoraExtra()"><option value="50">50% — Dias úteis</option><option value="100">100% — Domingos/Feriados</option><option value="70">70% — Noturna (50%+20%)</option></select>
+    </div>
+    <div class="calc-result" id="he-res" style="display:none">
+      <div class="calc-line"><span>Valor hora normal</span><span id="he-1"></span></div>
+      <div class="calc-line"><span>Valor hora extra</span><span id="he-2"></span></div>
+      <div class="calc-line destaque"><span>⏰ Total a receber</span><span id="he-3"></span></div>
+    </div>
+    <button class="btn-fechar" onclick="fecharModal('m-horaextra')">✕ Fechar</button>
+  </div>
+</div>
+
+<div class="modal" id="m-noturno">
+  <div class="modal-box">
+    <div class="modal-title">🌙 Adicional Noturno</div>
+    <div class="input-group"><label>Salário Bruto (R$)</label><input type="number" id="no-b" placeholder="Ex: 3500" oninput="calcNoturno()"></div>
+    <div class="input-group"><label>Horas noturnas por mês</label><input type="number" id="no-h" placeholder="Ex: 44" oninput="calcNoturno()"></div>
+    <div class="calc-result" id="no-res" style="display:none">
+      <div class="calc-line"><span>Salário base</span><span id="no-1"></span></div>
+      <div class="calc-line"><span>(+) Adicional noturno 20%</span><span id="no-2" style="color:#4ade80"></span></div>
+      <div class="calc-line destaque"><span>🌙 Total com adicional</span><span id="no-3"></span></div>
+      <div class="calc-line" style="font-size:11px;margin-top:6px;color:var(--cinza)"><span>Horário noturno: 22h às 5h</span><span></span></div>
+    </div>
+    <button class="btn-fechar" onclick="fecharModal('m-noturno')">✕ Fechar</button>
+  </div>
+</div>
+
+<div class="modal" id="m-insalub">
+  <div class="modal-box">
+    <div class="modal-title">⚠️ Insalubridade / Periculosidade</div>
+    <div class="input-group"><label>Salário Bruto (R$)</label><input type="number" id="in-b" placeholder="Ex: 3500" oninput="calcInsalub()"></div>
+    <div class="input-group"><label>Tipo de adicional</label>
+      <select id="in-t" onchange="calcInsalub()">
+        <option value="10">Insalubridade Mínima — 10% SM</option>
+        <option value="20">Insalubridade Média — 20% SM</option>
+        <option value="40">Insalubridade Máxima — 40% SM</option>
+        <option value="30p">Periculosidade — 30% salário</option>
+      </select>
+    </div>
+    <div class="calc-result" id="in-res" style="display:none">
+      <div class="calc-line"><span>Salário base</span><span id="in-1"></span></div>
+      <div class="calc-line"><span>(+) Adicional</span><span id="in-2" style="color:#4ade80"></span></div>
+      <div class="calc-line destaque"><span>⚠️ Total com adicional</span><span id="in-3"></span></div>
+      <div class="calc-line" style="font-size:11px;margin-top:6px;color:var(--cinza)"><span>Salário mínimo 2026: R$ 1.518,00</span><span></span></div>
+    </div>
+    <button class="btn-fechar" onclick="fecharModal('m-insalub')">✕ Fechar</button>
+  </div>
+</div>
+
+<div class="modal" id="m-decimo">
+  <div class="modal-box">
+    <div class="modal-title">🎄 13º Salário</div>
+    <div class="input-group"><label>Salário Bruto (R$)</label><input type="number" id="de-b" placeholder="Ex: 3500" oninput="calcDecimo()"></div>
+    <div class="input-group"><label>Meses trabalhados no ano</label><input type="number" id="de-m" placeholder="12" value="12" min="1" max="12" oninput="calcDecimo()"></div>
+    <div class="calc-result" id="de-res" style="display:none">
+      <div class="calc-line"><span>13º bruto proporcional</span><span id="de-1"></span></div>
+      <div class="calc-line"><span>(-) INSS</span><span id="de-2" style="color:#f87171"></span></div>
+      <div class="calc-line"><span>(-) IRRF</span><span id="de-3" style="color:#f87171"></span></div>
+      <div class="calc-line destaque"><span>🎄 13º Líquido</span><span id="de-4"></span></div>
+      <div class="calc-line" style="font-size:11px;margin-top:6px;color:var(--cinza)"><span>1ª parcela: nov · 2ª parcela: dez</span><span></span></div>
+    </div>
+    <button class="btn-fechar" onclick="fecharModal('m-decimo')">✕ Fechar</button>
+  </div>
+</div>
+
 <footer>
   <strong>TecSystem Brasil</strong> · 90+ especialidades · Apenas vagas de 2026<br>
   <span style="font-size:11px">Links redirecionam para os sites originais das vagas</span>
 </footer>
+
+<script data-goatcounter="https://tecsystembrasil.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script>
 function atualizarHorario(){const a=new Date();document.getElementById('horario').textContent=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}).format(a);}
 atualizarHorario();setInterval(atualizarHorario,60000);
-let areaAtiva='todas',estadoAtivo='todos',espAtiva='todas';
-function filtrarArea(a,b){areaAtiva=a;document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');aplicar();}
-function filtrarEstado(v){estadoAtivo=v;aplicar();}
-function filtrarEsp(v){espAtiva=v;aplicar();}
-function aplicar(){
-  let n=0;
-  document.querySelectorAll('#grid .card').forEach(c=>{
-    const ok=(areaAtiva==='todas'||c.dataset.area===areaAtiva)&&(estadoAtivo==='todos'||c.dataset.estado===estadoAtivo)&&(espAtiva==='todas'||c.dataset.esp.includes(espAtiva));
-    c.style.display=ok?'block':'none';
-    if(ok)n++;
-  });
-  document.getElementById('contador').textContent=n;
-  document.getElementById('sem-vagas').style.display=n===0?'block':'none';
-  document.getElementById('grid').style.display=n===0?'none':'flex';
-}
-function calcularINSS(b){const f=[[1518.00,0.075],[2793.88,0.09],[4190.83,0.12],[8157.41,0.14]];let i=0,a=0;for(const[t,q]of f){if(b<=t){i+=(b-a)*q;break;}i+=(t-a)*q;a=t;}return Math.min(i,908.86);}
-function calcularIR(b,d){const x=b-d*189.59;const f=[[2259.20,0,0],[2826.65,0.075,169.44],[3751.05,0.15,381.44],[4664.68,0.225,662.77],[Infinity,0.275,896.00]];for(const[t,a,e]of f){if(x<=t)return Math.max(0,x*a-e);}return 0;}
-function fmt(v){return'R$ '+v.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
-function calcular(){const b=parseFloat(document.getElementById('salario').value)||0;const d=parseInt(document.getElementById('dependentes').value)||0;if(b<=0){document.getElementById('resultado').style.display='none';return;}const i=calcularINSS(b);const r=calcularIR(b-i,d);const l=b-i-r;document.getElementById('r-bruto').textContent=fmt(b);document.getElementById('r-inss').textContent='- '+fmt(i);document.getElementById('r-ir').textContent='- '+fmt(r);document.getElementById('r-liquido').textContent=fmt(l);document.getElementById('r-fgts').textContent='+ '+fmt(b*0.08);document.getElementById('resultado').style.display='block';}
-</script> 
-<script data-goatcounter="https://tecsystembrasil.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+function abrirModal(id){document.getElementById(id).classList.add('open');}
+function fecharModal(id){document.getElementById(id).classList.remove('open');}
+document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',function(e){if(e.target===this)fecharModal(this.id);}));
+let aA='todas',eA='todos',xA='todas';
+function filtrarArea(a,b){aA=a;document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');aplicar();}
+function filtrarEstado(v){eA=v;aplicar();}
+function filtrarEsp(v){xA=v;aplicar();}
+function aplicar(){let n=0;document.querySelectorAll('#grid .card').forEach(c=>{const ok=(aA==='todas'||c.dataset.area===aA)&&(eA==='todos'||c.dataset.estado===eA)&&(xA==='todas'||c.dataset.esp.includes(xA));c.style.display=ok?'block':'none';if(ok)n++;});document.getElementById('contador').textContent=n;document.getElementById('sem-vagas').style.display=n===0?'block':'none';document.getElementById('grid').style.display=n===0?'none':'flex';}
+function iNSS(b){const f=[[1518,0.075],[2793.88,0.09],[4190.83,0.12],[8157.41,0.14]];let i=0,a=0;for(const[t,q]of f){if(b<=t){i+=(b-a)*q;break;}i+=(t-a)*q;a=t;}return Math.min(i,908.86);}
+function iR(b,d){const x=b-d*189.59;const f=[[2259.2,0,0],[2826.65,0.075,169.44],[3751.05,0.15,381.44],[4664.68,0.225,662.77],[Infinity,0.275,896]];for(const[t,a,e]of f){if(x<=t)return Math.max(0,x*a-e);}return 0;}
+function R(v){return'R$ '+v.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');}
+function calcSalario(){const b=parseFloat(document.getElementById('sl-b').value)||0,d=parseInt(document.getElementById('sl-d').value)||0;if(!b){document.getElementById('sl-res').style.display='none';return;}const i=iNSS(b),r=iR(b-i,d),l=b-i-r;document.getElementById('sl-1').textContent=R(b);document.getElementById('sl-2').textContent='- '+R(i);document.getElementById('sl-3').textContent='- '+R(r);document.getElementById('sl-4').textContent=R(l);document.getElementById('sl-5').textContent='+ '+R(b*0.08);document.getElementById('sl-res').style.display='block';}
+function calcFerias(){const s=parseFloat(document.getElementById('fe-b').value)||0,m=parseInt(document.getElementById('fe-m').value)||12;if(!s){document.getElementById('fe-res').style.display='none';return;}const p=s*(m/12),t=p/3,tot=p+t,i=iNSS(tot),r=iR(tot-i,0);document.getElementById('fe-1').textContent=R(p);document.getElementById('fe-2').textContent='+ '+R(t);document.getElementById('fe-3').textContent=R(tot);document.getElementById('fe-4').textContent='- '+R(i);document.getElementById('fe-5').textContent='- '+R(r);document.getElementById('fe-6').textContent=R(tot-i-r);document.getElementById('fe-res').style.display='block';}
+function calcRescisao(){const s=parseFloat(document.getElementById('re-b').value)||0,m=parseInt(document.getElementById('re-m').value)||1,tp=document.getElementById('re-t').value;if(!s){document.getElementById('re-res').style.display='none';return;}const dec=s*(m/12),fp=(s*(m/12))*(4/3),fg=s*0.08*m;let mu=tp==='sem_justa'?fg*0.4:tp==='acordo'?fg*0.2:0;const tot=s+dec+fp+mu;document.getElementById('re-1').textContent=R(s);document.getElementById('re-2').textContent=R(dec);document.getElementById('re-3').textContent=R(fp);document.getElementById('re-4').textContent='+ '+R(mu);document.getElementById('re-multa-linha').style.display=mu>0?'flex':'none';document.getElementById('re-5').textContent=R(tot);document.getElementById('re-res').style.display='block';}
+function calcHoraExtra(){const s=parseFloat(document.getElementById('he-b').value)||0,h=parseFloat(document.getElementById('he-h').value)||0,tp=parseFloat(document.getElementById('he-t').value);if(!s||!h){document.getElementById('he-res').style.display='none';return;}const hb=s/220,he=hb*(1+tp/100);document.getElementById('he-1').textContent=R(hb);document.getElementById('he-2').textContent=R(he);document.getElementById('he-3').textContent=R(he*h);document.getElementById('he-res').style.display='block';}
+function calcNoturno(){const s=parseFloat(document.getElementById('no-b').value)||0,h=parseFloat(document.getElementById('no-h').value)||0;if(!s){document.getElementById('no-res').style.display='none';return;}const ad=(s/220)*0.2*h;document.getElementById('no-1').textContent=R(s);document.getElementById('no-2').textContent='+ '+R(ad);document.getElementById('no-3').textContent=R(s+ad);document.getElementById('no-res').style.display='block';}
+function calcInsalub(){const s=parseFloat(document.getElementById('in-b').value)||0,tp=document.getElementById('in-t').value;if(!s){document.getElementById('in-res').style.display='none';return;}const sm=1518;let ad=tp==='30p'?s*0.3:sm*(parseFloat(tp)/100);document.getElementById('in-1').textContent=R(s);document.getElementById('in-2').textContent='+ '+R(ad);document.getElementById('in-3').textContent=R(s+ad);document.getElementById('in-res').style.display='block';}
+function calcDecimo(){const s=parseFloat(document.getElementById('de-b').value)||0,m=parseInt(document.getElementById('de-m').value)||12;if(!s){document.getElementById('de-res').style.display='none';return;}const b=s*(m/12),i=iNSS(b),r=iR(b-i,0);document.getElementById('de-1').textContent=R(b);document.getElementById('de-2').textContent='- '+R(i);document.getElementById('de-3').textContent='- '+R(r);document.getElementById('de-4').textContent=R(b-i-r);document.getElementById('de-res').style.display='block';}
+</script>
 </body>
 </html>
