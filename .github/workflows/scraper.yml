@@ -11,10 +11,15 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   scraper:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - uses: actions/checkout@v4
@@ -29,10 +34,11 @@ jobs:
       - name: Rodar o robô
         run: python scraper.py
 
-      - name: Publicar
-        run: |
-          git config user.name "TecSystem Bot"
-          git config user.email "bot@tecsystem.com"
-          git add -f index.html vagas_cache.json
-          git diff --staged --quiet || git commit -m "🤖 $(date +'%d/%m/%Y %H:%M')"
-          git push --force origin main
+      - name: Upload Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
