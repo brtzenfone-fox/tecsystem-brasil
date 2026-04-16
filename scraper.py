@@ -1,8 +1,10 @@
 """
-TecSystem Brasil - Robô de Vagas v2
+TecSystem Brasil - Robô de Vagas v3
 =====================================
-Busca vagas em fontes que não bloqueiam (4x/dia)
-e tenta o Google 1x/dia às 22h.
+- Busca vagas em fontes que não bloqueiam (4x/dia)
+- Tenta Google 1x/dia às 22h
+- Filtra apenas vagas de 2026
+- Remove vagas que sumiram ou foram preenchidas
 """
 
 import requests
@@ -11,7 +13,7 @@ from datetime import datetime
 import time
 import random
 import json
-import sys
+import re
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
@@ -27,21 +29,58 @@ TERMOS = [
     "técnico instrumentação",
 ]
 
+ANO_ATUAL = "2026"
+CACHE_FILE = "vagas_cache.json"
+
+# ─── VERIFICAR SE VAGA AINDA EXISTE ──────────────────────────────────────────
+
+def vaga_ainda_existe(url):
+    """Verifica se a vaga ainda está disponível."""
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=10, allow_redirects=True)
+        # Se retornar 404, 410 ou redirecionar para página de vagas encerradas
+        if resp.status_code in [404, 410, 403]:
+            return False
+        texto = resp.text.lower()
+        # Palavras que indicam vaga encerrada
+        encerrada = [
+            "vaga encerrada", "vaga expirada", "processo seletivo encerrado",
+            "this job is no longer available", "job expired", "vaga inativa",
+            "candidatura encerrada", "oportunidade encerrada", "não está mais disponível"
+        ]
+        for palavra in encerrada:
+            if palavra in texto:
+                return False
+        return True
+    except:
+        return False
+
+
+# ─── FILTRAR POR ANO ─────────────────────────────────────────────────────────
+
+def e_de_2026(texto):
+    """Verifica se o texto contém referência a 2026."""
+    return ANO_ATUAL in texto
+
+
 # ─── FONTE 1: GUPY ────────────────────────────────────────────────────────────
 
 def buscar_gupy():
-    """Busca vagas na API pública do Gupy."""
     vagas = []
     print("🔍 Buscando no Gupy...")
     for termo in TERMOS[:4]:
         try:
-            url = f"https://portal.api.gupy.io/api/v1/jobs?jobName={requests.utils.quote(termo)}&limit=5"
+            url = f"https://portal.api.gupy.io/api/v1/jobs?jobName={requests.utils.quote(termo)}&limit=10"
             resp = requests.get(url, headers=HEADERS, timeout=15)
             if resp.status_code != 200:
                 continue
             data = resp.json()
             jobs = data.get("data", [])
             for job in jobs:
+                # Filtra por ano 2026
+                publicado = job.get("publishedDate", "") or job.get("createdAt", "")
+                if ANO_ATUAL not in str(publicado):
+                    continue
                 vagas.append({
                     "titulo": job.get("name", "Vaga Técnica")[:80],
                     "empresa": job.get("careerPageName", "Empresa")[:50],
@@ -51,7 +90,7 @@ def buscar_gupy():
                     "data": datetime.now().strftime("%d/%m/%Y"),
                     "area": detectar_area(job.get("name", "")),
                 })
-            print(f"  ✅ Gupy '{termo}': {len(jobs)} vagas")
+            print(f"  ✅ Gupy '{termo}': {len([j for j in jobs if ANO_ATUAL in str(j.get('publishedDate',''))])} vagas de 2026")
             time.sleep(1.5)
         except Exception as e:
             print(f"  ⚠️ Gupy erro: {e}")
@@ -61,7 +100,6 @@ def buscar_gupy():
 # ─── FONTE 2: VAGAS.COM.BR ────────────────────────────────────────────────────
 
 def buscar_vagas_com_br():
-    """Busca vagas no vagas.com.br."""
     vagas = []
     print("🔍 Buscando no vagas.com.br...")
     termos_url = [
@@ -77,13 +115,22 @@ def buscar_vagas_com_br():
             if resp.status_code != 200:
                 continue
             soup = BeautifulSoup(resp.text, "html.parser")
-            cards = soup.find_all("li", class_="vaga")[:5]
+            cards = soup.find_all("li", class_="vaga")[:10]
+            count = 0
             for card in cards:
                 titulo_el = card.find("a", class_="link-detalhes-vaga")
                 empresa_el = card.find("span", class_="empr-name")
                 local_el = card.find("span", class_="local")
+                data_el = card.find("span", class_="data-publicacao") or card.find("time")
+
                 if not titulo_el:
                     continue
+
+                # Verifica se é de 2026
+                data_texto = data_el.get_text(strip=True) if data_el else ""
+                if data_texto and "2025" in data_texto:
+                    continue  # Pula vagas de 2025
+
                 link = "https://www.vagas.com.br" + titulo_el.get("href", "")
                 vagas.append({
                     "titulo": titulo_el.get_text(strip=True)[:80],
@@ -94,7 +141,8 @@ def buscar_vagas_com_br():
                     "data": datetime.now().strftime("%d/%m/%Y"),
                     "area": detectar_area(titulo_el.get_text(strip=True)),
                 })
-            print(f"  ✅ vagas.com.br '{termo}': {len(cards)} vagas")
+                count += 1
+            print(f"  ✅ vagas.com.br '{termo}': {count} vagas")
             time.sleep(2)
         except Exception as e:
             print(f"  ⚠️ vagas.com.br erro: {e}")
@@ -104,7 +152,6 @@ def buscar_vagas_com_br():
 # ─── FONTE 3: INFOJOBS ────────────────────────────────────────────────────────
 
 def buscar_infojobs():
-    """Busca vagas no InfoJobs."""
     vagas = []
     print("🔍 Buscando no InfoJobs...")
     termos_url = [
@@ -124,8 +171,16 @@ def buscar_infojobs():
                 titulo_el = card.find("a", class_="ij-offercard-title")
                 empresa_el = card.find("span", class_="ij-offercard-company")
                 local_el = card.find("span", class_="ij-offercard-location")
+                data_el = card.find("time") or card.find(class_=lambda c: c and "date" in c.lower())
+
                 if not titulo_el:
                     continue
+
+                # Verifica se é de 2026
+                data_texto = data_el.get("datetime", "") if data_el else ""
+                if "2025" in str(data_texto) or "2024" in str(data_texto):
+                    continue
+
                 vagas.append({
                     "titulo": titulo_el.get_text(strip=True)[:80],
                     "empresa": empresa_el.get_text(strip=True)[:50] if empresa_el else "Empresa",
@@ -142,17 +197,16 @@ def buscar_infojobs():
     return vagas
 
 
-# ─── FONTE 4: GOOGLE (1x/dia, pode bloquear) ─────────────────────────────────
+# ─── FONTE 4: GOOGLE ─────────────────────────────────────────────────────────
 
 def buscar_google():
-    """Tenta buscar no Google — pode ser bloqueado."""
     vagas = []
     print("🔍 Tentando Google...")
     try:
         from googlesearch import search
         termos = [
-            "vaga técnico manutenção elétrica site:gupy.io",
-            "vaga técnico mecânica manutenção site:vagas.com.br",
+            "vaga técnico manutenção elétrica 2026 site:gupy.io",
+            "vaga técnico mecânica manutenção 2026 site:vagas.com.br",
         ]
         for termo in termos:
             for url in search(termo, num_results=3, lang="pt"):
@@ -172,6 +226,27 @@ def buscar_google():
     return vagas
 
 
+# ─── VERIFICAR VAGAS DO CACHE ────────────────────────────────────────────────
+
+def verificar_cache(vagas_cache):
+    """Verifica quais vagas do cache ainda estão ativas."""
+    if not vagas_cache:
+        return []
+    print(f"\n🔎 Verificando {len(vagas_cache)} vagas do cache...")
+    vagas_ativas = []
+    for vaga in vagas_cache:
+        url = vaga.get("url", "")
+        if not url or url == "#":
+            continue
+        if vaga_ainda_existe(url):
+            vagas_ativas.append(vaga)
+        else:
+            print(f"  ❌ Removida: {vaga['titulo'][:50]}")
+        time.sleep(1)
+    print(f"  ✅ {len(vagas_ativas)} vagas ainda ativas")
+    return vagas_ativas
+
+
 # ─── UTILITÁRIOS ──────────────────────────────────────────────────────────────
 
 def detectar_area(texto):
@@ -189,11 +264,19 @@ def remover_duplicatas(vagas):
     vistas = set()
     unicas = []
     for v in vagas:
-        chave = v["titulo"][:25].lower().strip()
+        chave = v["url"]
         if chave not in vistas and len(v["titulo"]) > 5:
             vistas.add(chave)
             unicas.append(v)
     return unicas
+
+
+def carregar_cache():
+    try:
+        with open(CACHE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except:
+        return []
 
 
 # ─── GERADOR HTML ─────────────────────────────────────────────────────────────
@@ -273,17 +356,17 @@ footer strong{{color:var(--laranja)}}
 <h1>Vagas para <span>Técnicos</span></h1>
 <p>Elétrica · Mecânica · Mecatrônica · Automação · Instrumentação</p>
 <div class="stats">
-<div class="stat"><div class="stat-num">{total}</div><div class="stat-label">Vagas</div></div>
+<div class="stat"><div class="stat-num">{total}</div><div class="stat-label">Vagas 2026</div></div>
 <div class="stat"><div class="stat-num">BR</div><div class="stat-label">Todo Brasil</div></div>
 </div>
 </div>
 <div class="content">
-<div class="update-bar"><div class="dot"></div>Vagas atualizadas automaticamente em {agora}</div>
+<div class="update-bar"><div class="dot"></div>Vagas atualizadas automaticamente em {agora} · Apenas vagas de 2026</div>
 <div class="grid">
 {cards if cards else '<p style="color:var(--cinza);text-align:center;padding:32px">Nenhuma vaga encontrada agora. Tente mais tarde.</p>'}
 </div>
 </div>
-<footer><strong>TecSystem Brasil</strong> · Agregador automático de vagas técnicas<br><span style="font-size:11px">Links redirecionam para os sites originais</span></footer>
+<footer><strong>TecSystem Brasil</strong> · Apenas vagas de 2026 · Atualizado automaticamente<br><span style="font-size:11px">Links redirecionam para os sites originais</span></footer>
 </body>
 </html>"""
 
@@ -292,35 +375,39 @@ footer strong{{color:var(--laranja)}}
 
 def main():
     hora = datetime.now().hour
-    print(f"\n🤖 TecSystem Brasil v2 — {datetime.now().strftime('%d/%m/%Y %H:%M')}")
+    print(f"\n🤖 TecSystem Brasil v3 — {datetime.now().strftime('%d/%m/%Y %H:%M')}")
     print("=" * 50)
 
-    vagas = []
+    # Carrega cache e verifica quais ainda existem
+    cache = carregar_cache()
+    vagas_ativas = verificar_cache(cache)
 
-    # Sempre busca nas fontes principais
-    vagas += buscar_gupy()
-    vagas += buscar_vagas_com_br()
-    vagas += buscar_infojobs()
+    # Busca vagas novas
+    vagas_novas = []
+    vagas_novas += buscar_gupy()
+    vagas_novas += buscar_vagas_com_br()
+    vagas_novas += buscar_infojobs()
 
-    # Tenta Google apenas às 22h (UTC 01h)
+    # Tenta Google apenas à noite
     if hora in [0, 1, 2]:
-        vagas += buscar_google()
+        vagas_novas += buscar_google()
 
-    # Remove duplicatas
-    vagas = remover_duplicatas(vagas)
+    # Junta vagas ativas do cache com vagas novas
+    todas = vagas_ativas + vagas_novas
+    todas = remover_duplicatas(todas)
 
-    print(f"\n📊 Total: {len(vagas)} vagas únicas")
+    print(f"\n📊 Total: {len(todas)} vagas únicas de 2026")
 
     # Salva cache
-    with open("vagas_cache.json", "w", encoding="utf-8") as f:
-        json.dump(vagas, f, ensure_ascii=False, indent=2)
+    with open(CACHE_FILE, "w", encoding="utf-8") as f:
+        json.dump(todas, f, ensure_ascii=False, indent=2)
 
     # Gera site
     with open("index.html", "w", encoding="utf-8") as f:
-        f.write(gerar_html(vagas))
+        f.write(gerar_html(todas))
 
     print("✅ index.html gerado!")
-    print(f"🌐 Site atualizado com {len(vagas)} vagas")
+    print(f"🌐 Site atualizado com {len(todas)} vagas de 2026")
 
 
 if __name__ == "__main__":
