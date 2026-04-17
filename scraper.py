@@ -1,14 +1,13 @@
 """
-TecSystem Brasil - Robô de Vagas v8
+TecSystem Brasil - Robô de Vagas v9
 =====================================
-- Design premium industrial (cinza grafite + laranja elétrico + amarelo)
-- Hero forte com frase de impacto e botões de ação
-- Filtros separados em blocos (área, estado, especialidade, salário, escala)
-- Cards premium com mais informações
-- Prova social visual
+- Layout reorganizado: calculadoras e blog ANTES das vagas
+- Lê artigos do artigos.json gerado pelo robô de artigos
+- Design premium industrial
+- Hero forte
+- Prova social
 - Barra de busca
 - Newsletter
-- Blog
 - 7 calculadoras trabalhistas
 - GoatCounter
 """
@@ -41,10 +40,9 @@ TECNICOS = [
     "técnico em PLC","técnico em SCADA","técnico em robótica industrial",
     "técnico em instrumentação industrial","técnico em redes industriais",
     "técnico em refrigeração industrial","técnico em HVAC",
-    "técnico em climatização industrial","técnico em ar condicionado industrial",
-    "técnico em caldeiras industriais","técnico em vapor industrial",
-    "técnico em ar comprimido industrial","técnico em tratamento de água industrial",
-    "técnico em torres de resfriamento","técnico em utilidades industriais",
+    "técnico em climatização industrial","técnico em caldeiras industriais",
+    "técnico em vapor industrial","técnico em ar comprimido industrial",
+    "técnico em tratamento de água industrial","técnico em utilidades industriais",
     "técnico em manutenção preditiva","técnico em manutenção preventiva",
     "técnico em manutenção corretiva","técnico em vibração industrial",
     "técnico em análise de óleo","técnico em PCM",
@@ -52,11 +50,9 @@ TECNICOS = [
     "técnico em controle de qualidade industrial","técnico em inspeção de qualidade",
     "técnico em ensaios não destrutivos","técnico em metrologia industrial",
     "técnico em segurança do trabalho industrial","técnico em processos industriais",
-    "técnico em operação industrial","técnico em montagem industrial",
-    "técnico em comissionamento industrial","técnico em metalurgia",
+    "técnico em montagem industrial","técnico em metalurgia",
     "técnico em siderurgia","técnico em mineração","técnico em petroquímica",
-    "técnico em gás industrial","técnico em fornos industriais",
-    "técnico em instalações industriais",
+    "técnico em gás industrial","técnico em instalações industriais",
 ]
 
 PALAVRAS_DESCARTAR = [
@@ -68,6 +64,7 @@ PALAVRAS_DESCARTAR = [
 
 ANO_ATUAL = "2026"
 CACHE_FILE = "vagas_cache.json"
+ARTIGOS_FILE = "artigos.json"
 
 ESTADOS = {
     "AC":"Acre","AL":"Alagoas","AP":"Amapá","AM":"Amazonas",
@@ -89,13 +86,14 @@ ICONES_BENEFICIOS = {
     "auxílio educação":"📚","bolsa estudo":"📚",
 }
 
-ARTIGOS_BLOG = [
-    {"titulo":"Quanto ganha um Técnico Eletricista em 2026?","resumo":"Salários de R$ 2.500 a R$ 6.000. Veja o panorama completo do mercado.","icone":"⚡","tag":"Salários"},
-    {"titulo":"Como tirar o NR10 em 2026 — Guia completo","resumo":"Obrigatório para instalações elétricas. Saiba onde fazer e quanto custa.","icone":"📋","tag":"Certificações"},
-    {"titulo":"Técnico em Automação: a profissão que mais cresce","resumo":"Com a indústria 4.0, técnicos em PLC e SCADA são os mais disputados.","icone":"🤖","tag":"Carreira"},
-    {"titulo":"NR12, NR33 e NR35 — Quais certificações valem mais?","resumo":"Descubra quais normas regulamentadoras aumentam seu salário.","icone":"🦺","tag":"Certificações"},
-    {"titulo":"Melhores empresas para técnicos em 2026","resumo":"Petrobras, Vale, WEG e outras gigantes que mais contratam técnicos.","icone":"🏭","tag":"Empresas"},
-    {"titulo":"Como passar na entrevista técnica industrial","resumo":"Dicas de recrutadores sobre o que as empresas avaliam.","icone":"💼","tag":"Dicas"},
+# Artigos padrão caso o robô ainda não tenha rodado
+ARTIGOS_PADRAO = [
+    {"titulo":"Quanto ganha um Técnico em Manutenção Elétrica em 2026?","resumo":"Salários variam de R$ 2.800 a R$ 6.500 dependendo da região e experiência. Certificações como NR10 e NR35 podem aumentar o salário em até 30%.","categoria":"Salários","icone":"⚡","fonte":"TecSystem Brasil","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
+    {"titulo":"NR10: Guia Completo para Técnicos Elétricos em 2026","resumo":"A NR10 é obrigatória para todos os profissionais que trabalham com instalações elétricas. Curso básico tem 40 horas e validade de 2 anos.","categoria":"Certificações","icone":"📋","fonte":"TecSystem Brasil","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
+    {"titulo":"Técnico em Automação: a profissão que mais cresce no Brasil","resumo":"Com a Indústria 4.0, técnicos em PLC e SCADA são os mais disputados. Salários de R$ 3.500 a R$ 8.000 em 2026.","categoria":"Carreira","icone":"🤖","fonte":"TecSystem Brasil","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
+    {"titulo":"Melhores empresas para técnicos industriais em 2026","resumo":"Petrobras, Vale, WEG, Embraer e Bosch oferecem os melhores salários e benefícios para técnicos industriais.","categoria":"Empresas","icone":"🏭","fonte":"TecSystem Brasil","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
+    {"titulo":"NR12, NR33 e NR35: quais certificações valem mais?","resumo":"Cada certificação NR pode adicionar de R$ 200 a R$ 500 ao salário mensal. Descubra quais são essenciais para sua área.","categoria":"Certificações","icone":"🦺","fonte":"TecSystem Brasil","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
+    {"titulo":"Como passar na entrevista para técnico industrial","resumo":"Dicas práticas de recrutadores: prepare seus certificados NR, teste técnico, esquemas elétricos e situações reais de manutenção.","categoria":"Dicas","icone":"💼","fonte":"TecSystem Brasil","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
 ]
 
 
@@ -115,8 +113,7 @@ def detectar_estado(texto):
     return "BR"
 
 def titulo_valido(titulo):
-    tl=titulo.lower()
-    return not any(p in tl for p in PALAVRAS_DESCARTAR)
+    return not any(p in titulo.lower() for p in PALAVRAS_DESCARTAR)
 
 def icone_benef(b):
     bl=b.lower()
@@ -247,6 +244,18 @@ def carregar_cache():
     except:return []
 
 
+def carregar_artigos():
+    """Carrega artigos do robô de artigos. Se não existir, usa padrão."""
+    try:
+        with open(ARTIGOS_FILE,"r",encoding="utf-8") as f:
+            artigos = json.load(f)
+            if artigos:
+                return artigos[:8]  # máximo 8 artigos no site
+    except:
+        pass
+    return ARTIGOS_PADRAO
+
+
 CORES={
     "eletrica":("b-el","⚡","ELÉTRICA"),
     "mecanica":("b-me","🔩","MECÂNICA"),
@@ -263,7 +272,7 @@ def gerar_benef_html(benefs):
     return f'<div class="beneficios">{tags}</div>'
 
 
-def gerar_card(v):
+def gerar_card_vaga(v):
     area=v.get("area","mecanica")
     cls,ico,label=CORES.get(area,CORES["mecanica"])
     estado=v.get("estado","BR")
@@ -293,16 +302,20 @@ def gerar_card(v):
 </div>"""
 
 
-def gerar_card_blog(a):
-    return f"""<div class="blog-card">
+def gerar_card_artigo(a):
+    url = a.get('url','#')
+    target = 'target="_blank"' if url != '#' else ''
+    fonte = a.get('fonte','TecSystem Brasil')
+    data = a.get('data', datetime.now().strftime("%d/%m/%Y"))
+    return f"""<{'a href="'+url+'" '+target if url != '#' else 'div'} class="blog-card">
 <div class="blog-left"><div class="blog-icon">{a['icone']}</div></div>
 <div class="blog-right">
-  <div class="blog-tag">{a['tag']}</div>
+  <div class="blog-meta"><span class="blog-tag">{a['categoria']}</span><span class="blog-data">{data} · {fonte}</span></div>
   <div class="blog-titulo">{a['titulo']}</div>
-  <div class="blog-resumo">{a['resumo']}</div>
-  <div class="blog-link">Em breve →</div>
+  <div class="blog-resumo">{a['resumo'][:200]}...</div>
+  <div class="blog-link">{'Ler artigo →' if url != '#' else 'Em breve →'}</div>
 </div>
-</div>"""
+{'</a>' if url != '#' else '</div>'}"""
 
 
 def gerar_opts_estados(vagas):
@@ -312,10 +325,10 @@ def gerar_opts_estados(vagas):
     return opts
 
 
-def gerar_html(vagas):
+def gerar_html(vagas, artigos):
     agora=datetime.now().strftime("%d/%m/%Y às %H:%M")
-    cards="\n".join(gerar_card(v) for v in vagas)
-    blog_cards="\n".join(gerar_card_blog(a) for a in ARTIGOS_BLOG)
+    cards_vagas="\n".join(gerar_card_vaga(v) for v in vagas)
+    cards_artigos="\n".join(gerar_card_artigo(a) for a in artigos)
     total=len(vagas)
     opts_estados=gerar_opts_estados(vagas)
     tec_opts="".join(f'<option value="{t.replace("técnico em","").strip().lower()}">{t.replace("técnico em","").strip().title()}</option>' for t in sorted(TECNICOS))
@@ -329,174 +342,74 @@ def gerar_html(vagas):
 <meta name="description" content="As melhores vagas para técnicos industriais do Brasil, em um só lugar. Elétrica, Mecânica, Automação, Refrigeração e mais.">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{{
-  --bg:#141414;
-  --bg2:#1a1a1a;
-  --bg3:#222222;
-  --card:#1e1e1e;
-  --borda:#2e2e2e;
-  --borda2:#3a3a3a;
-  --laranja:#f97316;
-  --amarelo:#fbbf24;
-  --azul:#3b82f6;
-  --cinza:#888;
-  --cinza2:#aaa;
-  --branco:#f5f5f5;
-  --verde:#22c55e;
-}}
+:root{{--bg:#141414;--bg2:#1a1a1a;--bg3:#222;--card:#1e1e1e;--borda:#2e2e2e;--borda2:#3a3a3a;--laranja:#f97316;--amarelo:#fbbf24;--azul:#3b82f6;--cinza:#888;--cinza2:#aaa;--branco:#f5f5f5;--verde:#22c55e}}
 *{{margin:0;padding:0;box-sizing:border-box}}
 body{{background:var(--bg);color:var(--branco);font-family:'Barlow',sans-serif;line-height:1.5}}
-
-/* HEADER */
-header{{
-  background:rgba(20,20,20,0.95);
-  border-bottom:1px solid var(--borda);
-  padding:0 20px;height:60px;
-  display:flex;align-items:center;justify-content:space-between;
-  position:sticky;top:0;z-index:100;
-  backdrop-filter:blur(10px);
-}}
+header{{background:rgba(20,20,20,0.95);border-bottom:1px solid var(--borda);padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}}
 .logo{{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;letter-spacing:3px;text-transform:uppercase}}
 .logo span{{color:var(--laranja)}}
-.logo-sub{{font-size:10px;color:var(--cinza);letter-spacing:2px;font-weight:400}}
-
-/* HERO */
-.hero{{
-  background:var(--bg);
-  padding:48px 20px 40px;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}}
-.hero::before{{
-  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 50%, rgba(59,130,246,0.06) 0%, transparent 60%);
-  pointer-events:none;
-}}
-.hero-tag{{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(249,115,22,0.1);
-  border:1px solid rgba(249,115,22,0.3);
-  color:var(--laranja);font-size:11px;font-weight:700;
-  letter-spacing:2px;padding:5px 14px;border-radius:2px;
-  margin-bottom:20px;text-transform:uppercase;
-}}
-.hero h1{{
-  font-family:'Oswald',sans-serif;
-  font-size:clamp(28px,6vw,52px);
-  font-weight:700;line-height:1.1;
-  letter-spacing:1px;
-  margin-bottom:16px;
-  text-transform:uppercase;
-}}
+.logo-sub{{font-size:10px;color:var(--cinza);letter-spacing:2px}}
+.hero{{background:var(--bg);padding:48px 20px 40px;text-align:center;position:relative;overflow:hidden}}
+.hero::before{{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(249,115,22,0.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(59,130,246,0.06) 0%,transparent 60%);pointer-events:none}}
+.hero-tag{{display:inline-flex;align-items:center;gap:6px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);color:var(--laranja);font-size:11px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:2px;margin-bottom:20px;text-transform:uppercase}}
+.hero h1{{font-family:'Oswald',sans-serif;font-size:clamp(26px,5.5vw,48px);font-weight:700;line-height:1.1;letter-spacing:1px;margin-bottom:16px;text-transform:uppercase}}
 .hero h1 em{{color:var(--laranja);font-style:normal}}
-.hero-sub{{
-  color:var(--cinza2);font-size:15px;font-weight:300;
-  max-width:480px;margin:0 auto 28px;
-}}
+.hero-sub{{color:var(--cinza2);font-size:14px;font-weight:300;max-width:480px;margin:0 auto 28px}}
 .hero-btns{{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}}
-.btn-hero-primary{{
-  background:var(--laranja);color:white;
-  font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;
-  letter-spacing:2px;text-transform:uppercase;
-  padding:12px 28px;border-radius:2px;
-  text-decoration:none;border:none;cursor:pointer;
-  transition:all 0.2s;
-}}
-.btn-hero-primary:hover{{background:#ea6c0a;transform:translateY(-1px)}}
-.btn-hero-wpp{{
-  background:transparent;color:var(--verde);
-  font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;
-  letter-spacing:2px;text-transform:uppercase;
-  padding:12px 28px;border-radius:2px;
-  text-decoration:none;border:2px solid var(--verde);cursor:pointer;
-  transition:all 0.2s;
-}}
-.btn-hero-wpp:hover{{background:rgba(34,197,94,0.1)}}
-
-/* PROVA SOCIAL */
-.social-proof{{
-  background:var(--bg2);
-  border-top:1px solid var(--borda);
-  border-bottom:1px solid var(--borda);
-  padding:20px;
-  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
-  background:var(--borda);
-}}
-.proof-item{{
-  background:var(--bg2);
-  padding:16px 20px;text-align:center;
-}}
-.proof-num{{
-  font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;
-  color:var(--laranja);line-height:1;margin-bottom:4px;
-}}
-.proof-label{{font-size:11px;color:var(--cinza);letter-spacing:1px;text-transform:uppercase}}
-
-/* FILTROS */
+.btn-primary{{background:var(--laranja);color:white;font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;border-radius:2px;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s}}
+.btn-primary:hover{{background:#ea6c0a;transform:translateY(-1px)}}
+.btn-outline-green{{background:transparent;color:var(--verde);font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;border-radius:2px;text-decoration:none;border:2px solid var(--verde);cursor:pointer;transition:all 0.2s}}
+.btn-outline-green:hover{{background:rgba(34,197,94,0.1)}}
+.social-proof{{background:var(--borda);display:grid;grid-template-columns:repeat(2,1fr);gap:1px}}
+.proof-item{{background:var(--bg2);padding:16px 20px;text-align:center}}
+.proof-num{{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--laranja);line-height:1;margin-bottom:4px}}
+.proof-label{{font-size:10px;color:var(--cinza);letter-spacing:1px;text-transform:uppercase}}
 .filter-section{{background:var(--bg2);border-bottom:1px solid var(--borda);padding:16px 20px}}
+.filter-label{{font-size:10px;color:var(--cinza);letter-spacing:1px;text-transform:uppercase;font-weight:600;margin-bottom:8px}}
 .filter-row{{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}}
 .filter-row:last-child{{margin-bottom:0}}
-.filter-label{{font-size:10px;color:var(--cinza);letter-spacing:1px;text-transform:uppercase;font-weight:600;margin-bottom:6px}}
-.filter-btn{{
-  flex-shrink:0;background:transparent;
-  border:1px solid var(--borda2);color:var(--cinza2);
-  font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;
-  padding:6px 14px;border-radius:2px;cursor:pointer;
-  transition:all 0.2s;white-space:nowrap;
-}}
-.filter-btn:hover,.filter-btn.active{{
-  background:var(--laranja);border-color:var(--laranja);color:white;
-}}
-.filter-sel{{
-  background:var(--bg);border:1px solid var(--borda2);color:var(--branco);
-  font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;
-  padding:6px 14px;border-radius:2px;cursor:pointer;flex-shrink:0;
-}}
+.filter-btn{{flex-shrink:0;background:transparent;border:1px solid var(--borda2);color:var(--cinza2);font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:6px 14px;border-radius:2px;cursor:pointer;transition:all 0.2s;white-space:nowrap}}
+.filter-btn:hover,.filter-btn.active{{background:var(--laranja);border-color:var(--laranja);color:white}}
+.filter-sel{{background:var(--bg);border:1px solid var(--borda2);color:var(--branco);font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:6px 14px;border-radius:2px;cursor:pointer;flex-shrink:0}}
 .search-wrap{{padding:12px 20px;background:var(--bg2);border-bottom:1px solid var(--borda);position:relative}}
-.search-input{{
-  width:100%;background:var(--bg);
-  border:1px solid var(--borda2);color:var(--branco);
-  font-family:'Barlow',sans-serif;font-size:14px;
-  padding:10px 16px 10px 44px;border-radius:2px;outline:none;
-  transition:border 0.2s;
-}}
+.search-input{{width:100%;background:var(--bg);border:1px solid var(--borda2);color:var(--branco);font-family:'Barlow',sans-serif;font-size:14px;padding:10px 16px 10px 44px;border-radius:2px;outline:none;transition:border 0.2s}}
 .search-input:focus{{border-color:var(--laranja)}}
-.search-icon{{position:absolute;left:32px;top:50%;transform:translateY(-50%);color:var(--cinza);font-size:16px}}
-
-/* CONTENT */
+.search-icon{{position:absolute;left:32px;top:50%;transform:translateY(-50%);color:var(--cinza);font-size:16px;pointer-events:none}}
 .content{{padding:20px 16px;max-width:840px;margin:0 auto}}
-.update-bar{{
-  background:rgba(34,197,94,0.05);
-  border:1px solid rgba(34,197,94,0.2);
-  border-radius:2px;padding:8px 14px;
-  font-size:11px;color:var(--cinza2);
-  margin-bottom:20px;display:flex;align-items:center;gap:8px;
-  letter-spacing:0.5px;
-}}
+.update-bar{{background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.2);border-radius:2px;padding:8px 14px;font-size:11px;color:var(--cinza2);margin-bottom:20px;display:flex;align-items:center;gap:8px;letter-spacing:0.5px}}
 .dot{{width:7px;height:7px;background:var(--verde);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}}
 @keyframes pulse{{0%,100%{{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,0.4)}}50%{{opacity:0.8;box-shadow:0 0 0 4px rgba(34,197,94,0)}}}}
-
-/* SECTION TITLE */
-.sec-title{{
-  font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;
-  letter-spacing:2px;text-transform:uppercase;
-  color:var(--branco);margin:28px 0 16px;
-  display:flex;align-items:center;gap:12px;
-}}
+.sec-title{{font-family:'Oswald',sans-serif;font-size:19px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--branco);margin:28px 0 16px;display:flex;align-items:center;gap:12px}}
 .sec-title::after{{content:'';flex:1;height:1px;background:var(--borda)}}
-
-/* CARDS DE VAGA */
+.calc-grid{{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:8px}}
+.calc-btn{{background:var(--card);border:1px solid var(--borda);border-radius:2px;padding:14px;cursor:pointer;transition:all 0.2s;text-align:left;color:var(--branco);display:flex;align-items:center;gap:10px}}
+.calc-btn:hover{{border-color:var(--laranja);background:var(--bg3)}}
+.calc-icon{{font-size:20px;flex-shrink:0}}
+.calc-nome{{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.5px;margin-bottom:2px}}
+.calc-desc{{font-size:10px;color:var(--cinza)}}
+.blog-grid{{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}}
+.blog-card{{background:var(--card);border:1px solid var(--borda);border-radius:2px;padding:16px;display:flex;gap:14px;transition:all 0.2s;text-decoration:none;color:var(--branco)}}
+.blog-card:hover{{border-color:var(--borda2);background:var(--bg3)}}
+.blog-left{{flex-shrink:0}}
+.blog-icon{{font-size:26px}}
+.blog-right{{flex:1}}
+.blog-meta{{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap}}
+.blog-tag{{font-size:10px;font-weight:700;color:var(--laranja);letter-spacing:2px;text-transform:uppercase}}
+.blog-data{{font-size:10px;color:var(--cinza)}}
+.blog-titulo{{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--branco);margin-bottom:4px;letter-spacing:0.3px;line-height:1.3}}
+.blog-resumo{{font-size:12px;color:var(--cinza);line-height:1.5;margin-bottom:8px}}
+.blog-link{{font-size:12px;color:var(--laranja);font-weight:600}}
+.newsletter{{background:linear-gradient(135deg,var(--bg2),var(--bg3));border:1px solid var(--borda);border-top:2px solid var(--laranja);border-radius:2px;padding:24px;margin-bottom:8px}}
+.nl-titulo{{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}}
+.nl-titulo span{{color:var(--laranja)}}
+.nl-desc{{font-size:13px;color:var(--cinza2);margin-bottom:16px}}
+.nl-form{{display:flex;gap:8px;flex-wrap:wrap}}
+.nl-input{{flex:1;min-width:200px;background:var(--bg);border:1px solid var(--borda2);color:var(--branco);font-family:'Barlow',sans-serif;font-size:14px;padding:10px 14px;border-radius:2px;outline:none}}
+.nl-input:focus{{border-color:var(--laranja)}}
+.nl-btn{{background:var(--laranja);color:white;border:none;font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border-radius:2px;cursor:pointer;white-space:nowrap}}
+.nl-ok{{display:none;color:var(--verde);font-size:13px;margin-top:10px;font-weight:600}}
 .grid{{display:flex;flex-direction:column;gap:12px}}
-.card{{
-  background:var(--card);
-  border:1px solid var(--borda);
-  border-left:3px solid var(--laranja);
-  border-radius:2px;padding:18px;
-  transition:all 0.2s;
-}}
+.card{{background:var(--card);border:1px solid var(--borda);border-left:3px solid var(--laranja);border-radius:2px;padding:18px;transition:all 0.2s}}
 .card:hover{{border-color:var(--laranja);background:var(--bg3);transform:translateY(-1px);box-shadow:0 4px 20px rgba(249,115,22,0.1)}}
 .card-header{{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}}
 .card-area-icon{{font-size:22px;flex-shrink:0;margin-top:2px}}
@@ -519,55 +432,16 @@ header{{
 .btn-wpp:hover{{background:rgba(34,197,94,0.2)}}
 .btn-ver{{background:var(--laranja);color:white;font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;padding:7px 16px;border-radius:2px;text-decoration:none;transition:all 0.2s;margin-left:auto}}
 .btn-ver:hover{{background:#ea6c0a}}
-
-/* NEWSLETTER */
-.newsletter{{
-  background:linear-gradient(135deg,var(--bg2),var(--bg3));
-  border:1px solid var(--borda);
-  border-top:2px solid var(--laranja);
-  border-radius:2px;padding:24px;margin-bottom:28px;
-}}
-.nl-titulo{{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}}
-.nl-titulo span{{color:var(--laranja)}}
-.nl-desc{{font-size:13px;color:var(--cinza2);margin-bottom:16px}}
-.nl-form{{display:flex;gap:8px;flex-wrap:wrap}}
-.nl-input{{flex:1;min-width:200px;background:var(--bg);border:1px solid var(--borda2);color:var(--branco);font-family:'Barlow',sans-serif;font-size:14px;padding:10px 14px;border-radius:2px;outline:none}}
-.nl-input:focus{{border-color:var(--laranja)}}
-.nl-btn{{background:var(--laranja);color:white;border:none;font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border-radius:2px;cursor:pointer;white-space:nowrap}}
-.nl-ok{{display:none;color:var(--verde);font-size:13px;margin-top:10px;font-weight:600}}
-
-/* CALC GRID */
-.calc-grid{{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:28px}}
-.calc-btn{{
-  background:var(--card);border:1px solid var(--borda);
-  border-radius:2px;padding:16px;cursor:pointer;
-  transition:all 0.2s;text-align:left;color:var(--branco);
-  display:flex;align-items:center;gap:12px;
-}}
-.calc-btn:hover{{border-color:var(--laranja);background:var(--bg3)}}
-.calc-icon{{font-size:22px;flex-shrink:0}}
-.calc-nome{{font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;letter-spacing:0.5px;margin-bottom:2px}}
-.calc-desc{{font-size:11px;color:var(--cinza)}}
-
-/* BLOG */
-.blog-grid{{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}}
-.blog-card{{background:var(--card);border:1px solid var(--borda);border-radius:2px;padding:16px;display:flex;gap:14px;transition:all 0.2s;cursor:default}}
-.blog-card:hover{{border-color:var(--borda2);background:var(--bg3)}}
-.blog-left{{flex-shrink:0}}
-.blog-icon{{font-size:28px}}
-.blog-right{{flex:1}}
-.blog-tag{{font-size:10px;font-weight:700;color:var(--laranja);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}}
-.blog-titulo{{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--branco);margin-bottom:4px;letter-spacing:0.3px}}
-.blog-resumo{{font-size:12px;color:var(--cinza);line-height:1.5;margin-bottom:8px}}
-.blog-link{{font-size:12px;color:var(--laranja);font-weight:600}}
-
-/* MODAIS */
+.sem-vagas{{text-align:center;padding:48px 24px;color:var(--cinza)}}
+.sem-vagas-icon{{font-size:48px;margin-bottom:16px}}
+.sem-vagas-titulo{{font-family:'Oswald',sans-serif;font-size:22px;color:var(--branco);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase}}
+.sem-vagas-texto{{font-size:14px;line-height:1.6}}
 .modal{{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;padding:16px;overflow-y:auto}}
 .modal.open{{display:flex}}
 .modal-box{{background:var(--bg2);border:1px solid var(--borda);border-top:2px solid var(--laranja);border-radius:2px;padding:24px;width:100%;max-width:400px;margin:auto}}
-.modal-title{{font-family:'Oswald',sans-serif;font-size:22px;letter-spacing:2px;text-transform:uppercase;color:var(--laranja);margin-bottom:16px}}
+.modal-title{{font-family:'Oswald',sans-serif;font-size:20px;letter-spacing:2px;text-transform:uppercase;color:var(--laranja);margin-bottom:16px}}
 .input-group{{margin-bottom:14px}}
-.input-group label{{font-size:11px;color:var(--cinza);display:block;margin-bottom:6px;font-weight:600;letter-spacing:1px;text-transform:uppercase}}
+.input-group label{{font-size:10px;color:var(--cinza);display:block;margin-bottom:6px;font-weight:600;letter-spacing:1px;text-transform:uppercase}}
 .input-group input,.input-group select{{width:100%;background:var(--bg);border:1px solid var(--borda2);color:var(--branco);font-family:'Barlow',sans-serif;font-size:14px;padding:10px 14px;border-radius:2px;outline:none}}
 .input-group input:focus,.input-group select:focus{{border-color:var(--laranja)}}
 .calc-result{{background:var(--bg);border:1px solid var(--borda);border-radius:2px;padding:14px;margin-top:16px}}
@@ -575,15 +449,9 @@ header{{
 .calc-line.destaque{{color:#4ade80;font-weight:700;font-size:15px;border-top:1px solid var(--borda);padding-top:10px;margin-top:4px}}
 .btn-fechar{{background:transparent;color:var(--cinza);border:1px solid var(--borda);font-family:'Barlow',sans-serif;font-size:13px;padding:8px;border-radius:2px;cursor:pointer;width:100%;margin-top:8px;transition:all 0.2s}}
 .btn-fechar:hover{{border-color:var(--borda2);color:var(--branco)}}
-
-.sem-vagas{{text-align:center;padding:48px 24px;color:var(--cinza)}}
-.sem-vagas-icon{{font-size:48px;margin-bottom:16px}}
-.sem-vagas-titulo{{font-family:'Oswald',sans-serif;font-size:24px;color:var(--branco);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase}}
-.sem-vagas-texto{{font-size:14px;line-height:1.6}}
-
 footer{{text-align:center;padding:32px;color:var(--cinza);font-size:12px;border-top:1px solid var(--borda);margin-top:28px}}
 footer strong{{color:var(--laranja)}}
-footer .footer-logo{{font-family:'Oswald',sans-serif;font-size:18px;letter-spacing:3px;margin-bottom:8px}}
+.footer-logo{{font-family:'Oswald',sans-serif;font-size:18px;letter-spacing:3px;margin-bottom:8px}}
 </style>
 </head>
 <body>
@@ -596,26 +464,23 @@ footer .footer-logo{{font-family:'Oswald',sans-serif;font-size:18px;letter-spaci
   <span id="horario" style="font-size:11px;color:var(--cinza)"></span>
 </header>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-tag">⚙️ Atualizado diariamente · 2026</div>
   <h1>As melhores vagas<br>para <em>técnicos industriais</em><br>do Brasil, em um só lugar.</h1>
   <p class="hero-sub">Elétrica · Mecânica · Automação · Refrigeração · Manutenção Industrial</p>
   <div class="hero-btns">
-    <a class="btn-hero-primary" href="#vagas" onclick="document.getElementById('vagas').scrollIntoView({{behavior:'smooth'}})">🔧 BUSCAR VAGAS</a>
-    <a class="btn-hero-wpp" href="https://wa.me/?text=🔧 Encontrei vagas para técnicos industriais no TecSystem Brasil! Acesse: https://tecsystembrasil.netlify.app" target="_blank">📲 COMPARTILHAR</a>
+    <a class="btn-primary" href="#vagas">🔧 BUSCAR VAGAS</a>
+    <a class="btn-outline-green" href="https://wa.me/?text=🔧 Encontrei vagas para técnicos industriais no TecSystem Brasil!%0A👉 https://tecsystembrasil.netlify.app" target="_blank">📲 COMPARTILHAR</a>
   </div>
 </div>
 
-<!-- PROVA SOCIAL -->
 <div class="social-proof">
-  <div class="proof-item"><div class="proof-num" id="proof-vagas">{total}</div><div class="proof-label">Vagas publicadas</div></div>
+  <div class="proof-item"><div class="proof-num">{total}</div><div class="proof-label">Vagas publicadas</div></div>
   <div class="proof-item"><div class="proof-num">60+</div><div class="proof-label">Especialidades</div></div>
   <div class="proof-item"><div class="proof-num">5x</div><div class="proof-label">Atualizado por dia</div></div>
   <div class="proof-item"><div class="proof-num">27</div><div class="proof-label">Estados do Brasil</div></div>
 </div>
 
-<!-- FILTROS -->
 <div class="filter-section">
   <div class="filter-label">Área técnica</div>
   <div class="filter-row">
@@ -637,23 +502,29 @@ footer .footer-logo{{font-family:'Oswald',sans-serif;font-size:18px;letter-spaci
   </div>
 </div>
 
-<!-- BUSCA -->
 <div class="search-wrap">
   <span class="search-icon">🔍</span>
   <input class="search-input" type="text" placeholder="Buscar por cargo, empresa ou cidade..." oninput="buscar(this.value)">
 </div>
 
-<!-- CONTEÚDO -->
 <div class="content">
   <div class="update-bar"><div class="dot"></div>Apenas vagas de 2026 · Vagas encerradas removidas automaticamente · Atualizado em {agora}</div>
 
-  <div class="sec-title" id="vagas">🔧 Vagas Disponíveis</div>
-  <div class="grid" id="grid">{cards}</div>
-  <div id="sem-vagas" style="display:none" class="sem-vagas">
-    <div class="sem-vagas-icon">🔍</div>
-    <div class="sem-vagas-titulo">Nenhuma vaga encontrada</div>
-    <div class="sem-vagas-texto">Não encontramos vagas para esse filtro no momento.<br><br>• Tente outra especialidade ou estado<br>• Volte mais tarde — atualizamos 5x por dia<br>• Clique em <strong>"Todas"</strong> para ver todas as vagas</div>
+  <!-- CALCULADORAS PRIMEIRO -->
+  <div class="sec-title">🧮 Calculadoras Trabalhistas</div>
+  <div class="calc-grid">
+    <button class="calc-btn" onclick="abrirModal('m-salario')"><div class="calc-icon">💰</div><div><div class="calc-nome">Salário Líquido</div><div class="calc-desc">INSS + IRRF 2026</div></div></button>
+    <button class="calc-btn" onclick="abrirModal('m-ferias')"><div class="calc-icon">🏖️</div><div><div class="calc-nome">Férias</div><div class="calc-desc">+ 1/3 constitucional</div></div></button>
+    <button class="calc-btn" onclick="abrirModal('m-rescisao')"><div class="calc-icon">📦</div><div><div class="calc-nome">Rescisão</div><div class="calc-desc">Demissão ou pedido</div></div></button>
+    <button class="calc-btn" onclick="abrirModal('m-horaextra')"><div class="calc-icon">⏰</div><div><div class="calc-nome">Hora Extra</div><div class="calc-desc">50%, 100% e noturna</div></div></button>
+    <button class="calc-btn" onclick="abrirModal('m-noturno')"><div class="calc-icon">🌙</div><div><div class="calc-nome">Adicional Noturno</div><div class="calc-desc">20% sobre salário</div></div></button>
+    <button class="calc-btn" onclick="abrirModal('m-insalub')"><div class="calc-icon">⚠️</div><div><div class="calc-nome">Insalubridade</div><div class="calc-desc">e Periculosidade</div></div></button>
+    <button class="calc-btn" onclick="abrirModal('m-decimo')"><div class="calc-icon">🎄</div><div><div class="calc-nome">13º Salário</div><div class="calc-desc">Proporcional ou cheio</div></div></button>
   </div>
+
+  <!-- BLOG SEGUNDO -->
+  <div class="sec-title">📰 Para Técnicos</div>
+  <div class="blog-grid">{cards_artigos}</div>
 
   <!-- NEWSLETTER -->
   <div class="newsletter">
@@ -666,25 +537,18 @@ footer .footer-logo{{font-family:'Oswald',sans-serif;font-size:18px;letter-spaci
     <div class="nl-ok" id="nl-ok">✅ Cadastro realizado! Você receberá as vagas em breve.</div>
   </div>
 
-  <!-- CALCULADORAS -->
-  <div class="sec-title">🧮 Calculadoras Trabalhistas</div>
-  <div class="calc-grid">
-    <button class="calc-btn" onclick="abrirModal('m-salario')"><div class="calc-icon">💰</div><div><div class="calc-nome">Salário Líquido</div><div class="calc-desc">INSS + IRRF 2026</div></div></button>
-    <button class="calc-btn" onclick="abrirModal('m-ferias')"><div class="calc-icon">🏖️</div><div><div class="calc-nome">Férias</div><div class="calc-desc">+ 1/3 constitucional</div></div></button>
-    <button class="calc-btn" onclick="abrirModal('m-rescisao')"><div class="calc-icon">📦</div><div><div class="calc-nome">Rescisão</div><div class="calc-desc">Demissão ou pedido</div></div></button>
-    <button class="calc-btn" onclick="abrirModal('m-horaextra')"><div class="calc-icon">⏰</div><div><div class="calc-nome">Hora Extra</div><div class="calc-desc">50%, 100% e noturna</div></div></button>
-    <button class="calc-btn" onclick="abrirModal('m-noturno')"><div class="calc-icon">🌙</div><div><div class="calc-nome">Adicional Noturno</div><div class="calc-desc">20% sobre salário</div></div></button>
-    <button class="calc-btn" onclick="abrirModal('m-insalub')"><div class="calc-icon">⚠️</div><div><div class="calc-nome">Insalubridade</div><div class="calc-desc">e Periculosidade</div></div></button>
-    <button class="calc-btn" onclick="abrirModal('m-decimo')"><div class="calc-icon">🎄</div><div><div class="calc-nome">13º Salário</div><div class="calc-desc">Proporcional ou cheio</div></div></button>
+  <!-- VAGAS POR ÚLTIMO -->
+  <div class="sec-title" id="vagas">🔧 Vagas Disponíveis</div>
+  <div class="grid" id="grid">{cards_vagas}</div>
+  <div id="sem-vagas" style="display:none" class="sem-vagas">
+    <div class="sem-vagas-icon">🔍</div>
+    <div class="sem-vagas-titulo">Nenhuma vaga encontrada</div>
+    <div class="sem-vagas-texto">Não encontramos vagas para esse filtro no momento.<br><br>• Tente outra especialidade ou estado<br>• Volte mais tarde — atualizamos 5x por dia<br>• Clique em <strong>"Todas"</strong> para ver todas as vagas</div>
   </div>
-
-  <!-- BLOG -->
-  <div class="sec-title">📰 Para Técnicos</div>
-  <div class="blog-grid">{blog_cards}</div>
 
 </div>
 
-<!-- MODAIS -->
+<!-- MODAIS CALCULADORAS -->
 <div class="modal" id="m-salario"><div class="modal-box">
   <div class="modal-title">💰 Salário Líquido</div>
   <div class="input-group"><label>Salário Bruto (R$)</label><input type="number" id="sl-b" placeholder="Ex: 3500" oninput="calcSalario()"></div>
@@ -799,55 +663,21 @@ footer .footer-logo{{font-family:'Oswald',sans-serif;font-size:18px;letter-spaci
 
 <script data-goatcounter="https://tecsystembrasil.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script>
-// HORÁRIO
 function atualizarHorario(){{const a=new Date();document.getElementById('horario').textContent=new Intl.DateTimeFormat('pt-BR',{{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}}).format(a);}}
 atualizarHorario();setInterval(atualizarHorario,60000);
-
-// MODAIS
 function abrirModal(id){{document.getElementById(id).classList.add('open');}}
 function fecharModal(id){{document.getElementById(id).classList.remove('open');}}
 document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',function(e){{if(e.target===this)fecharModal(this.id);}}));
-
-// FILTROS
 let aA='todas',eA='todos',xA='todas',bA='';
 function filtrarArea(a,b){{aA=a;document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');aplicar();}}
 function filtrarEstado(v){{eA=v;aplicar();}}
 function filtrarEsp(v){{xA=v;aplicar();}}
 function buscar(v){{bA=v.toLowerCase().trim();aplicar();}}
-function aplicar(){{
-  let n=0;
-  document.querySelectorAll('#grid .card').forEach(c=>{{
-    const ok=(aA==='todas'||c.dataset.area===aA)&&
-             (eA==='todos'||c.dataset.estado===eA)&&
-             (xA==='todas'||c.dataset.esp.includes(xA))&&
-             (bA===''||c.dataset.busca.includes(bA));
-    c.style.display=ok?'block':'none';
-    if(ok)n++;
-  }});
-  document.getElementById('contador')&&(document.getElementById('contador').textContent=n);
-  document.getElementById('proof-vagas').textContent=n;
-  document.getElementById('sem-vagas').style.display=n===0?'block':'none';
-  document.getElementById('grid').style.display=n===0?'none':'flex';
-}}
-
-// NEWSLETTER
-function assinarNewsletter(){{
-  const email=document.getElementById('nl-email').value;
-  if(!email||!email.includes('@')){{alert('Digite um email válido!');return;}}
-  fetch('https://formsubmit.co/ajax/tecsystembrasil@gmail.com',{{method:'POST',
-    headers:{{'Content-Type':'application/json','Accept':'application/json'}},
-    body:JSON.stringify({{email:email,_subject:'Novo cadastro newsletter TecSystem Brasil'}})
-  }}).catch(()=>{{}});
-  document.getElementById('nl-ok').style.display='block';
-  document.getElementById('nl-email').value='';
-}}
-
-// MATEMÁTICA
+function aplicar(){{let n=0;document.querySelectorAll('#grid .card').forEach(c=>{{const ok=(aA==='todas'||c.dataset.area===aA)&&(eA==='todos'||c.dataset.estado===eA)&&(xA==='todas'||c.dataset.esp.includes(xA))&&(bA===''||c.dataset.busca.includes(bA));c.style.display=ok?'block':'none';if(ok)n++;}});document.getElementById('contador')&&(document.getElementById('contador').textContent=n);document.getElementById('sem-vagas').style.display=n===0?'block':'none';document.getElementById('grid').style.display=n===0?'none':'flex';}}
+function assinarNewsletter(){{const email=document.getElementById('nl-email').value;if(!email||!email.includes('@')){{alert('Digite um email válido!');return;}}fetch('https://formsubmit.co/ajax/tecsystembrasil@gmail.com',{{method:'POST',headers:{{'Content-Type':'application/json','Accept':'application/json'}},body:JSON.stringify({{email:email,_subject:'Novo cadastro newsletter TecSystem Brasil'}})}}).catch(()=>{{}});document.getElementById('nl-ok').style.display='block';document.getElementById('nl-email').value='';}}
 function iNSS(b){{const f=[[1518,0.075],[2793.88,0.09],[4190.83,0.12],[8157.41,0.14]];let i=0,a=0;for(const[t,q]of f){{if(b<=t){{i+=(b-a)*q;break;}}i+=(t-a)*q;a=t;}}return Math.min(i,908.86);}}
 function iR(b,d){{const x=b-d*189.59;const f=[[2259.2,0,0],[2826.65,0.075,169.44],[3751.05,0.15,381.44],[4664.68,0.225,662.77],[Infinity,0.275,896]];for(const[t,a,e]of f){{if(x<=t)return Math.max(0,x*a-e);}}return 0;}}
 function R(v){{return'R$ '+v.toFixed(2).replace('.',',').replace(/\B(?=(\d{{3}})+(?!\d))/g,'.');}}
-
-// CALCULADORAS
 function calcSalario(){{const b=parseFloat(document.getElementById('sl-b').value)||0,d=parseInt(document.getElementById('sl-d').value)||0;if(!b){{document.getElementById('sl-res').style.display='none';return;}}const i=iNSS(b),r=iR(b-i,d),l=b-i-r;document.getElementById('sl-1').textContent=R(b);document.getElementById('sl-2').textContent='- '+R(i);document.getElementById('sl-3').textContent='- '+R(r);document.getElementById('sl-4').textContent=R(l);document.getElementById('sl-5').textContent='+ '+R(b*0.08);document.getElementById('sl-res').style.display='block';}}
 function calcFerias(){{const s=parseFloat(document.getElementById('fe-b').value)||0,m=parseInt(document.getElementById('fe-m').value)||12;if(!s){{document.getElementById('fe-res').style.display='none';return;}}const p=s*(m/12),t=p/3,tot=p+t,i=iNSS(tot),r=iR(tot-i,0);document.getElementById('fe-1').textContent=R(p);document.getElementById('fe-2').textContent='+ '+R(t);document.getElementById('fe-3').textContent=R(tot);document.getElementById('fe-4').textContent='- '+R(i+r);document.getElementById('fe-5').textContent=R(tot-i-r);document.getElementById('fe-res').style.display='block';}}
 function calcRescisao(){{const s=parseFloat(document.getElementById('re-b').value)||0,m=parseInt(document.getElementById('re-m').value)||1,tp=document.getElementById('re-t').value;if(!s){{document.getElementById('re-res').style.display='none';return;}}const dec=s*(m/12),fp=(s*(m/12))*(4/3),fg=s*0.08*m;let mu=tp==='sem_justa'?fg*0.4:tp==='acordo'?fg*0.2:0;document.getElementById('re-1').textContent=R(s);document.getElementById('re-2').textContent=R(dec);document.getElementById('re-3').textContent=R(fp);document.getElementById('re-4').textContent='+ '+R(mu);document.getElementById('re-multa-linha').style.display=mu>0?'flex':'none';document.getElementById('re-5').textContent=R(s+dec+fp+mu);document.getElementById('re-res').style.display='block';}}
@@ -861,15 +691,16 @@ function calcDecimo(){{const s=parseFloat(document.getElementById('de-b').value)
 
 
 def main():
-    print(f"\n🤖 TecSystem Brasil v8 — {datetime.now().strftime('%d/%m/%Y %H:%M')}")
+    print(f"\n🤖 TecSystem Brasil v9 — {datetime.now().strftime('%d/%m/%Y %H:%M')}")
     print("="*50)
     cache=carregar_cache()
     vagas_ativas=verificar_cache(cache)
     vagas_novas=buscar_gupy()+buscar_vagas_com_br()+buscar_infojobs()
     todas=remover_duplicatas(vagas_ativas+vagas_novas)
-    print(f"\n📊 Total: {len(todas)} vagas")
+    artigos=carregar_artigos()
+    print(f"\n📊 {len(todas)} vagas · {len(artigos)} artigos")
     with open(CACHE_FILE,"w",encoding="utf-8") as f:json.dump(todas,f,ensure_ascii=False,indent=2)
-    with open("index.html","w",encoding="utf-8") as f:f.write(gerar_html(todas))
-    print(f"✅ Site atualizado com {len(todas)} vagas!")
+    with open("index.html","w",encoding="utf-8") as f:f.write(gerar_html(todas,artigos))
+    print(f"✅ Site atualizado!")
 
 if __name__=="__main__":main()
