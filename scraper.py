@@ -118,24 +118,19 @@ def detectar_estado(local_str):
     texto = local_str.strip()
     texto_norm = texto.lower()
     texto_norm = texto_norm.replace("a","a").replace("e","e").replace("i","i").replace("o","o").replace("u","u")
-    # Remove acentos basicos
     rep = {"a":"a","a":"a","a":"a","a":"a","e":"e","e":"e","i":"i","o":"o","o":"o","u":"u","c":"c"}
     for k,v in rep.items():
         texto_norm = texto_norm.replace(k,v)
-    # Sigla no final ", SP" ou "/SP" ou " - SP"
     m = re.search(r"[,/\-\s]\s*([A-Z]{2})\s*$", texto.upper())
     if m and m.group(1) in ESTADOS:
         return m.group(1)
-    # Sigla no meio "SP -" ou "(SP)"
     m = re.search(r"\b([A-Z]{2})\b", texto.upper())
     if m and m.group(1) in ESTADOS:
         return m.group(1)
-    # Nome do estado completo
     for sigla, nome in ESTADOS.items():
         nome_norm = nome.lower().replace("a","a").replace("e","e").replace("o","o").replace("c","c")
         if nome_norm in texto_norm:
             return sigla
-    # Cidade conhecida
     for cidade, sigla in CIDADES_ESTADO.items():
         if cidade in texto_norm:
             return sigla
@@ -146,7 +141,6 @@ def extrair_cidade(local_str):
     if not local_str:
         return ""
     texto = local_str.strip()
-    # Remove sigla do estado no final
     texto = re.sub(r"[,/\-\s]+[A-Z]{2}\s*$", "", texto)
     texto = texto.strip(" ,-/")
     return texto[:40]
@@ -159,12 +153,9 @@ def titulo_valido(t):
 def normalizar_titulo(titulo):
     if not titulo:
         return ""
-    # Insere espaco entre minuscula e maiuscula coladas
     titulo = re.sub(r"([a-zaaaaaaeeeiiooouuc])([A-ZAAAAAEEEIIOOOUUC])", r"\1 \2", titulo)
-    # Insere espaco entre letra e numero
     titulo = re.sub(r"([a-zA-Z])(\d)", r"\1 \2", titulo)
     titulo = re.sub(r"(\d)([a-zA-Z])", r"\1 \2", titulo)
-    # Sufixos
     for sufixo in ["Jr","Sr","Pleno","Junior","Senior","Trainee"]:
         titulo = re.sub(rf"(?<=[a-z])({sufixo})\b", rf" \1", titulo)
     titulo = re.sub(r"\s*-\s*", " - ", titulo)
@@ -305,9 +296,7 @@ def verificar_cache(cache):
     for v in cache:
         if not titulo_valido(v.get("titulo","")):
             continue
-        # Renormaliza titulo
         v["titulo"] = normalizar_titulo(v.get("titulo",""))
-        # Re-detecta estado se faltar
         if v.get("estado") in ["BR",""] and v.get("local"):
             novo = detectar_estado(v["local"])
             if novo:
@@ -437,7 +426,6 @@ def gerar_estados_opts(por_estado):
     return opts
 
 
-# Coordenadas SVG dos estados do Brasil (mapa simplificado)
 ESTADO_COORDS = {
     "AC":(85,235),"AM":(155,200),"RR":(180,140),"AP":(255,160),"PA":(255,210),
     "TO":(295,255),"MA":(335,200),"PI":(370,235),"CE":(405,205),"RN":(430,215),
@@ -501,7 +489,7 @@ def gerar_grafico_pizza(por_area):
 
 
 HTML_CSS = """*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
-:root{--bg:#0A0A0F;--bg1:#111118;--bg2:#16161F;--bg3:#1C1C28;--border:#ffffff0f;--border2:#ffffff18;--text:#F0F0F5;--muted:#7B7B8F;--muted2:#A0A0B0;--orange:#F97316;--orange2:#FB923C;--blue:#3B82F6;--blue2:#60A5FA;--green:#22C55E;--yellow:#FBBF24;--purple:#A855F7;--teal:#14B8A6;--r:4px;--r2:8px;--r3:12px}
+:root{--bg:#0A0A0F;--bg1:#111118;--bg2:#16161F;--bg3:#1C1C28;--border:#ffffff0f;--border2:#ffffff18;--text:#F0F0F5;--muted:#7B7B8F;--muted2:#A0A0B0;--orange:#F97316;--orange2:#FB923C;--blue:#3B82F6;--blue2:#60A5FA;--blue3:#93C5FD;--blue4:#DBEAFE;--green:#22C55E;--yellow:#FBBF24;--purple:#A855F7;--teal:#14B8A6;--r:4px;--r2:8px;--r3:12px}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden}
 ::-webkit-scrollbar{width:6px}
@@ -515,13 +503,19 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.92);backdrop-fi
 #nav-clock{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
 .nav-badge{font-size:11px;font-weight:600;background:rgba(249,115,22,.12);color:var(--orange);border:1px solid rgba(249,115,22,.2);padding:4px 11px;border-radius:20px;display:flex;align-items:center;gap:5px}
 .nav-badge::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;animation:blink 2s ease-in-out infinite}
-.hero{position:relative;overflow:hidden;padding:90px 24px 70px;text-align:center;background:var(--bg)}
+.hero{position:relative;overflow:hidden;padding:90px 24px 70px;text-align:center;background:
+radial-gradient(ellipse 52% 40% at 50% 6%, rgba(96,165,250,.18) 0%, rgba(96,165,250,.08) 28%, transparent 70%),
+radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255,255,255,.05) 0%, transparent 72%),
+linear-gradient(180deg,#090A0E 0%, #0A0A0F 42%, #0A0A0F 100%)}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 100% 80% at 50% 0%,black 0%,transparent 70%)}
-.hero-glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;height:400px;background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(249,115,22,.10) 0%,transparent 100%);pointer-events:none}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:.8px;color:var(--orange);margin-bottom:22px;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);padding:6px 14px;border-radius:30px}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(40px,9vw,76px);font-weight:800;line-height:1.04;letter-spacing:-2.5px;color:#fff;margin-bottom:22px;max-width:780px;margin-left:auto;margin-right:auto}
-.hero h1 .accent{background:linear-gradient(90deg,var(--orange),#ff9a3c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:17px;color:rgba(255,255,255,.55);font-weight:400;max-width:480px;margin:0 auto;line-height:1.65}
+.hero-glow{position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:100%;height:460px;background:
+radial-gradient(ellipse 38% 42% at 50% 16%, rgba(255,255,255,.16) 0%, rgba(219,234,254,.12) 16%, rgba(96,165,250,.12) 34%, rgba(59,130,246,.08) 50%, transparent 76%),
+radial-gradient(ellipse 60% 80% at 50% 0%, rgba(59,130,246,.10) 0%, transparent 72%);
+pointer-events:none;filter:blur(6px)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:1.4px;color:#eaf3ff;margin-bottom:22px;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(147,197,253,.05));border:1px solid rgba(147,197,253,.20);padding:7px 16px;border-radius:30px;box-shadow:0 10px 30px rgba(59,130,246,.10), inset 0 1px 0 rgba(255,255,255,.10);backdrop-filter:blur(14px)}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(40px,9vw,76px);font-weight:800;line-height:1.01;letter-spacing:-2.8px;color:#fff;margin-bottom:22px;max-width:880px;margin-left:auto;margin-right:auto;text-shadow:0 2px 0 rgba(255,255,255,.05),0 10px 34px rgba(59,130,246,.16),0 22px 70px rgba(255,255,255,.07)}
+.hero h1 .accent{background:linear-gradient(180deg,#ffffff 0%, #f8fbff 20%, #eaf3ff 42%, #cfe4ff 68%, #8fc5ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 10px 24px rgba(96,165,250,.16))}
+.hero-sub{font-size:17px;color:rgba(232,242,255,.68);font-weight:500;max-width:520px;margin:0 auto;line-height:1.7;text-shadow:0 4px 18px rgba(59,130,246,.08)}
 .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 @media(min-width:768px){.metrics{grid-template-columns:repeat(4,1fr)}}
 .metric{background:var(--bg1);padding:22px 16px;text-align:center;position:relative;overflow:hidden;transition:background .25s}
@@ -787,7 +781,6 @@ def gerar_html(vagas, artigos):
     out += '<div class="empty-text">Tente outra area, estado ou termo de busca.<br>Atualizamos 5x por dia.</div>'
     out += '<button class="empty-btn" onclick="resetF()">Ver todas as vagas</button></div>'
     out += '</div>'
-    # Modais calculadoras
     out += '<div class="modal" id="m-sal"><div class="modal-box"><div class="modal-title">Salario Liquido</div>'
     out += '<div class="modal-field"><label class="modal-label">Salario Bruto</label><input class="modal-input" type="number" id="s1" oninput="cS()"></div>'
     out += '<div class="modal-field"><label class="modal-label">Dependentes</label><input class="modal-input" type="number" id="s2" value="0" oninput="cS()"></div>'
@@ -851,14 +844,14 @@ def gerar_html(vagas, artigos):
 
 
 def main():
-    print("\nTecVagas v12 PREMIUM - " + datetime.now().strftime("%d/%m/%Y %H:%M"))
+    print("\\nTecVagas v12 PREMIUM - " + datetime.now().strftime("%d/%m/%Y %H:%M"))
     print("=" * 50)
     cache = carregar_cache()
     vagas_ativas = verificar_cache(cache)
     vagas_novas = buscar_gupy() + buscar_vagas_com_br()
     todas = remover_duplicatas(vagas_ativas + vagas_novas)
     artigos = carregar_artigos()
-    print(f"\n{len(todas)} vagas | {len(artigos)} artigos")
+    print(f"\\n{len(todas)} vagas | {len(artigos)} artigos")
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
         json.dump(todas, f, ensure_ascii=False, indent=2)
     with open("index.html", "w", encoding="utf-8") as f:
