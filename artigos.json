@@ -1,0 +1,32 @@
+[
+  {
+    "titulo": "Indústria 4.0: o que o técnico industrial precisa saber",
+    "resumo": "A transformação digital chegou às fábricas e os técnicos industriais precisam se atualizar. Em 2026, conhecimentos em IoT industrial, manutenção preditiva com sensores, análise de vibração e sistemas SCADA são diferenciais competitivos. Empresas como Siemens, ABB e Rockwell Automation oferecem treinamentos especializados. Técnicos que dominam programação de PLC Siemens S7 e Allen Bradley têm salários até 40% maiores. O SENAI possui cursos de indústria 4.0 em parceria com as principais fabricantes de automação. Invista em qualificação para se destacar.",
+    "categoria": "Tecnologia",
+    "icone": "🔬",
+    "fonte": "TecSystem Brasil",
+    "url": "#",
+    "data": "17/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "Salário de Técnico em Mecatrônica por estado em 2026",
+    "resumo": "O técnico em mecatrônica é um dos perfis mais versáteis da indústria, combinando conhecimentos de mecânica, elétrica e automação. Em São Paulo, o salário médio é de R$ 4.200. No Rio de Janeiro chega a R$ 3.900. Em Santa Catarina e Paraná, onde há forte presença do setor metal-mecânico, os valores chegam a R$ 4.800. Na Bahia, com as montadoras e o polo petroquímico, os salários variam de R$ 3.500 a R$ 5.500. O diferencial do mecatrônico é poder atuar em manutenção elétrica, mecânica e de sistemas automatizados simultaneamente.",
+    "categoria": "Salários",
+    "icone": "⚙️",
+    "fonte": "TecSystem Brasil",
+    "url": "#",
+    "data": "17/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "PCM: Planejamento e Controle de Manutenção — o que é e como funciona",
+    "resumo": "O PCM (Planejamento e Controle de Manutenção) é uma área estratégica nas indústrias modernas. O técnico em PCM é responsável por planejar, programar e controlar todas as atividades de manutenção da planta. Em 2026, a demanda por técnicos com conhecimento em SAP PM, Maximo e outros sistemas de gestão de manutenção cresceu 45%. Os salários variam de R$ 3.800 a R$ 7.500. Para atuar na área, além do curso técnico, é fundamental ter conhecimento em indicadores como MTBF, MTTR e disponibilidade de equipamentos. O SENAI e instituições privadas oferecem cursos específicos.",
+    "categoria": "Carreira",
+    "icone": "📊",
+    "fonte": "TecSystem Brasil",
+    "url": "#",
+    "data": "17/04/2026",
+    "origem": "reserva"
+  }
+]
