@@ -721,6 +721,20 @@ font-family:'DM Sans',sans-serif;white-space:nowrap
 }
 body.gears-on .gear-power-text{color:var(--green)}
 
+.install-btn{
+display:flex;align-items:center;gap:6px;
+font-size:11px;font-weight:800;letter-spacing:.4px;
+background:linear-gradient(180deg,#dbeafe,#4f8cff);
+color:#06111f;border:none;
+padding:9px 14px;border-radius:999px;cursor:pointer;
+font-family:'DM Sans',sans-serif;
+box-shadow:0 6px 18px rgba(79,140,255,.3);
+transition:all .2s;
+animation:pulse-install 2s ease-in-out infinite
+}
+.install-btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(79,140,255,.4)}
+@keyframes pulse-install{0%,100%{box-shadow:0 6px 18px rgba(79,140,255,.3)}50%{box-shadow:0 6px 24px rgba(79,140,255,.5)}}
+
 .hero{
 position:relative;overflow:hidden;padding:108px 24px 82px;text-align:center;
 background:
@@ -1057,6 +1071,35 @@ function cD(){var b=G('d1'),m=GI('d2')||12;if(!b){SH('d-r',0);return;}var br=b*(
     localStorage.setItem('tecvagas-gears', body.classList.contains('gears-on') ? 'on' : 'off');
   });
 })();
+
+// PWA - Service Worker
+if('serviceWorker' in navigator){
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('/service-worker.js').catch(function(err){
+      console.log('SW falhou:', err);
+    });
+  });
+}
+
+// Botao "Instalar app"
+var deferredPrompt;
+window.addEventListener('beforeinstallprompt',function(e){
+  e.preventDefault();
+  deferredPrompt=e;
+  var btn=document.getElementById('install-btn');
+  if(btn){btn.style.display='flex';}
+});
+function instalarApp(){
+  if(!deferredPrompt){
+    alert('Para instalar:\n\nNo iPhone (Safari): Toque em Compartilhar e depois "Adicionar a Tela de Inicio"\n\nNo Android: Toque no menu (3 pontinhos) e "Instalar app"');
+    return;
+  }
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(function(){
+    deferredPrompt=null;
+    document.getElementById('install-btn').style.display='none';
+  });
+}
 """
 
 def gear_svg(extra_class=""):
@@ -1101,6 +1144,13 @@ def gerar_html(vagas, artigos):
     out += '<meta name="description" content="As melhores vagas para tecnicos industriais do Brasil.">'
     out += '<link rel="preconnect" href="https://fonts.googleapis.com">'
     out += '<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700;1,9..144,800&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">'
+    out += '<link rel="manifest" href="manifest.json">'
+    out += '<meta name="theme-color" content="#06080d">'
+    out += '<meta name="apple-mobile-web-app-capable" content="yes">'
+    out += '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">'
+    out += '<meta name="apple-mobile-web-app-title" content="TecVagas">'
+    out += '<link rel="apple-touch-icon" href="icon-192.svg">'
+    out += '<link rel="icon" type="image/svg+xml" href="icon-192.svg">'
     out += '<style>' + HTML_CSS + '</style></head><body class="dark-mode gears-on">'
     
     # NAV com disjuntor 3D e botao 3D
@@ -1288,8 +1338,93 @@ def gerar_html(vagas, artigos):
     out += '</body></html>'
     return out
 
+MANIFEST_JSON = """{
+  "name": "TecVagas - Vagas para Tecnicos Industriais",
+  "short_name": "TecVagas",
+  "description": "As melhores vagas para tecnicos industriais do Brasil",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#06080d",
+  "theme_color": "#06080d",
+  "lang": "pt-BR",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}"""
+
+SERVICE_WORKER = """const CACHE_NAME = 'tecvagas-v1';
+const urlsToCache = ['/', '/index.html'];
+
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(function(cache) {
+      return cache.addAll(urlsToCache).catch(function(){});
+    })
+  );
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(names) {
+      return Promise.all(
+        names.map(function(name) {
+          if(name !== CACHE_NAME) return caches.delete(name);
+        })
+      );
+    })
+  );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    fetch(event.request).catch(function() {
+      return caches.match(event.request);
+    })
+  );
+});
+"""
+
+# Logo SVG do TecVagas para gerar icones PNG
+ICON_SVG = """<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+<rect width='512' height='512' rx='96' fill='#06080d'/>
+<defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'>
+<stop offset='0%' style='stop-color:#ffffff'/><stop offset='100%' style='stop-color:#84b6ff'/>
+</linearGradient></defs>
+<g transform='translate(256,256)'>
+<circle cx='0' cy='0' r='130' fill='none' stroke='url(#g)' stroke-width='32'/>
+<circle cx='0' cy='0' r='65' fill='#06080d' stroke='url(#g)' stroke-width='12'/>
+<circle cx='0' cy='-20' r='32' fill='url(#g)'/>
+<path d='M-25,-20 Q-25,30 0,75 Q25,30 25,-20 Z' fill='url(#g)'/>
+<circle cx='0' cy='-20' r='13' fill='#06080d'/>
+</g>
+</svg>"""
+
+def gerar_icones():
+    """Gera arquivos de icone PNG (na verdade SVG por simplicidade)"""
+    # Como nao temos PIL no GitHub Actions, usamos o SVG diretamente
+    # Os browsers aceitam SVG como icon
+    with open("icon-192.png", "w", encoding="utf-8") as f:
+        f.write(ICON_SVG)
+    with open("icon-512.png", "w", encoding="utf-8") as f:
+        f.write(ICON_SVG)
+
 def main():
-    print("\nTecVagas v14 PREMIUM 3D - " + datetime.now().strftime("%d/%m/%Y %H:%M"))
+    print("\nTecVagas v14 PREMIUM 3D + PWA - " + datetime.now().strftime("%d/%m/%Y %H:%M"))
     print("=" * 50)
     cache = carregar_cache()
     vagas_ativas = verificar_cache(cache)
@@ -1301,7 +1436,16 @@ def main():
         json.dump(todas, f, ensure_ascii=False, indent=2)
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(gerar_html(todas, artigos))
-    print("Site atualizado!")
+    # Gera arquivos PWA
+    with open("manifest.json", "w", encoding="utf-8") as f:
+        f.write(MANIFEST_JSON)
+    with open("service-worker.js", "w", encoding="utf-8") as f:
+        f.write(SERVICE_WORKER)
+    with open("icon-192.svg", "w", encoding="utf-8") as f:
+        f.write(ICON_SVG)
+    with open("icon-512.svg", "w", encoding="utf-8") as f:
+        f.write(ICON_SVG)
+    print("Site + PWA atualizados!")
 
 if __name__ == "__main__":
     main()
