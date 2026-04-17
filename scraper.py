@@ -1,4 +1,4 @@
-# “””
+"""“””
 TecVagas - Robô de Vagas v10.1
 
 - Artigos abrem em modal com texto completo
