@@ -1,9 +1,9 @@
-"""“””
+"""
 TecVagas - Robô de Vagas v10.1
-
+========================================
 - Artigos abrem em modal com texto completo
 - Todos os artigos são legíveis no site
-  “””
+"""
 
 import requests
 from bs4 import BeautifulSoup
@@ -13,80 +13,79 @@ import json
 import re
 
 HEADERS = {
-“User-Agent”: “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36”,
-“Accept-Language”: “pt-BR,pt;q=0.9”,
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
+    "Accept-Language": "pt-BR,pt;q=0.9",
 }
 
 TECNICOS = [
-“técnico em manutenção elétrica”,“técnico em elétrica industrial”,
-“técnico em eletrotécnica”,“técnico em eletromecânica”,
-“técnico em eletrônica industrial”,“técnico em painéis elétricos”,
-“técnico em comando elétrico”,“técnico em motores elétricos”,
-“técnico em subestações elétricas”,“técnico em geradores”,
-“técnico em manutenção mecânica”,“técnico em mecânica industrial”,
-“técnico em hidráulica industrial”,“técnico em pneumática industrial”,
-“técnico em bombas industriais”,“técnico em compressores industriais”,
-“técnico em válvulas industriais”,“técnico em lubrificação industrial”,
-“técnico em soldagem industrial”,“técnico em caldeiraria”,
-“técnico em tubulação industrial”,“técnico em usinagem”,“técnico em CNC”,
-“técnico em mecatrônica”,“técnico em manutenção eletromecânica”,
-“técnico em manutenção industrial”,“técnico em automação industrial”,
-“técnico em PLC”,“técnico em SCADA”,“técnico em robótica industrial”,
-“técnico em instrumentação industrial”,“técnico em redes industriais”,
-“técnico em refrigeração industrial”,“técnico em HVAC”,
-“técnico em climatização industrial”,“técnico em caldeiras industriais”,
-“técnico em vapor industrial”,“técnico em ar comprimido industrial”,
-“técnico em tratamento de água industrial”,“técnico em utilidades industriais”,
-“técnico em manutenção preditiva”,“técnico em manutenção preventiva”,
-“técnico em manutenção corretiva”,“técnico em vibração industrial”,
-“técnico em análise de óleo”,“técnico em PCM”,
-“técnico em confiabilidade industrial”,“técnico em planejamento de manutenção”,
-“técnico em controle de qualidade industrial”,“técnico em inspeção de qualidade”,
-“técnico em ensaios não destrutivos”,“técnico em metrologia industrial”,
-“técnico em segurança do trabalho industrial”,“técnico em processos industriais”,
-“técnico em montagem industrial”,“técnico em metalurgia”,
-“técnico em siderurgia”,“técnico em mineração”,“técnico em petroquímica”,
-“técnico em gás industrial”,“técnico em instalações industriais”,
+    "técnico em manutenção elétrica","técnico em elétrica industrial",
+    "técnico em eletrotécnica","técnico em eletromecânica",
+    "técnico em eletrônica industrial","técnico em painéis elétricos",
+    "técnico em comando elétrico","técnico em motores elétricos",
+    "técnico em subestações elétricas","técnico em geradores",
+    "técnico em manutenção mecânica","técnico em mecânica industrial",
+    "técnico em hidráulica industrial","técnico em pneumática industrial",
+    "técnico em bombas industriais","técnico em compressores industriais",
+    "técnico em válvulas industriais","técnico em lubrificação industrial",
+    "técnico em soldagem industrial","técnico em caldeiraria",
+    "técnico em tubulação industrial","técnico em usinagem","técnico em CNC",
+    "técnico em mecatrônica","técnico em manutenção eletromecânica",
+    "técnico em manutenção industrial","técnico em automação industrial",
+    "técnico em PLC","técnico em SCADA","técnico em robótica industrial",
+    "técnico em instrumentação industrial","técnico em redes industriais",
+    "técnico em refrigeração industrial","técnico em HVAC",
+    "técnico em climatização industrial","técnico em caldeiras industriais",
+    "técnico em vapor industrial","técnico em ar comprimido industrial",
+    "técnico em tratamento de água industrial","técnico em utilidades industriais",
+    "técnico em manutenção preditiva","técnico em manutenção preventiva",
+    "técnico em manutenção corretiva","técnico em vibração industrial",
+    "técnico em análise de óleo","técnico em PCM",
+    "técnico em confiabilidade industrial","técnico em planejamento de manutenção",
+    "técnico em controle de qualidade industrial","técnico em inspeção de qualidade",
+    "técnico em ensaios não destrutivos","técnico em metrologia industrial",
+    "técnico em segurança do trabalho industrial","técnico em processos industriais",
+    "técnico em montagem industrial","técnico em metalurgia",
+    "técnico em siderurgia","técnico em mineração","técnico em petroquímica",
+    "técnico em gás industrial","técnico em instalações industriais",
 ]
 
 PALAVRAS_DESCARTAR = [
-“banco de talentos”,“banco de talento”,“encerrad”,“finalizad”,
-“expirad”,“inativ”,“cancelad”,“processo seletivo encerrado”,
-“vaga encerrada”,“não está mais disponível”,“job expired”,
-“talentos 2024”,“talentos 2025”,“2023”,“2024”,
+    "banco de talentos","banco de talento","encerrad","finalizad",
+    "expirad","inativ","cancelad","processo seletivo encerrado",
+    "vaga encerrada","não está mais disponível","job expired",
+    "talentos 2024","talentos 2025","2023","2024",
 ]
 
-ANO_ATUAL = “2026”
-CACHE_FILE = “vagas_cache.json”
-ARTIGOS_FILE = “artigos.json”
+ANO_ATUAL = "2026"
+CACHE_FILE = "vagas_cache.json"
+ARTIGOS_FILE = "artigos.json"
 
 ESTADOS = {
-“AC”:“Acre”,“AL”:“Alagoas”,“AP”:“Amapá”,“AM”:“Amazonas”,
-“BA”:“Bahia”,“CE”:“Ceará”,“DF”:“Distrito Federal”,“ES”:“Espírito Santo”,
-“GO”:“Goiás”,“MA”:“Maranhão”,“MT”:“Mato Grosso”,“MS”:“Mato Grosso do Sul”,
-“MG”:“Minas Gerais”,“PA”:“Pará”,“PB”:“Paraíba”,“PR”:“Paraná”,
-“PE”:“Pernambuco”,“PI”:“Piauí”,“RJ”:“Rio de Janeiro”,“RN”:“Rio Grande do Norte”,
-“RS”:“Rio Grande do Sul”,“RO”:“Rondônia”,“RR”:“Roraima”,“SC”:“Santa Catarina”,
-“SP”:“São Paulo”,“SE”:“Sergipe”,“TO”:“Tocantins”,
+    "AC":"Acre","AL":"Alagoas","AP":"Amapá","AM":"Amazonas",
+    "BA":"Bahia","CE":"Ceará","DF":"Distrito Federal","ES":"Espírito Santo",
+    "GO":"Goiás","MA":"Maranhão","MT":"Mato Grosso","MS":"Mato Grosso do Sul",
+    "MG":"Minas Gerais","PA":"Pará","PB":"Paraíba","PR":"Paraná",
+    "PE":"Pernambuco","PI":"Piauí","RJ":"Rio de Janeiro","RN":"Rio Grande do Norte",
+    "RS":"Rio Grande do Sul","RO":"Rondônia","RR":"Roraima","SC":"Santa Catarina",
+    "SP":"São Paulo","SE":"Sergipe","TO":"Tocantins",
 }
 
 ICONES_BENEFICIOS = {
-“vale transporte”:“🚌”,“vale refeição”:“🍽️”,“vale alimentação”:“🛒”,
-“plano médico”:“🏥”,“plano de saúde”:“🏥”,“assistência médica”:“🏥”,
-“convênio médico”:“🏥”,“plano odontológico”:“🦷”,“convênio odontológico”:“🦷”,
-“seguro de vida”:“🛡️”,“previdência privada”:“💰”,“participação nos lucros”:“💵”,
-“gympass”:“💪”,“total pass”:“💪”,“academia”:“💪”,
-“home office”:“🏠”,“trabalho remoto”:“🏠”,“cesta básica”:“🧺”,
-“auxílio educação”:“📚”,“bolsa estudo”:“📚”,
+    "vale transporte":"🚌","vale refeição":"🍽️","vale alimentação":"🛒",
+    "plano médico":"🏥","plano de saúde":"🏥","assistência médica":"🏥",
+    "convênio médico":"🏥","plano odontológico":"🦷","convênio odontológico":"🦷",
+    "seguro de vida":"🛡️","previdência privada":"💰","participação nos lucros":"💵",
+    "gympass":"💪","total pass":"💪","academia":"💪",
+    "home office":"🏠","trabalho remoto":"🏠","cesta básica":"🧺",
+    "auxílio educação":"📚","bolsa estudo":"📚",
 }
 
 # Artigos completos do banco de reserva
-
 ARTIGOS_COMPLETOS = [
-{
-“titulo”: “Quanto ganha um Técnico em Manutenção Elétrica em 2026?”,
-“resumo”: “Salários variam de R$ 2.800 a R$ 6.500 dependendo da região e experiência.”,
-“conteudo”: “”“O técnico em manutenção elétrica é um dos profissionais mais requisitados na indústria brasileira em 2026.
+    {
+        "titulo": "Quanto ganha um Técnico em Manutenção Elétrica em 2026?",
+        "resumo": "Salários variam de R$ 2.800 a R$ 6.500 dependendo da região e experiência.",
+        "conteudo": """O técnico em manutenção elétrica é um dos profissionais mais requisitados na indústria brasileira em 2026.
 
 **Faixa salarial por nível:**
 • Júnior (0-2 anos): R$ 2.800 a R$ 3.500
@@ -110,24 +109,23 @@ ARTIGOS_COMPLETOS = [
 • Turno noturno: +20% adicional
 
 **Setores que pagam mais:**
-
 1. Petróleo e Gás (Petrobras, Shell, Equinor)
-1. Mineração (Vale, Anglo American)
-1. Automotivo (Toyota, Volkswagen, Fiat)
-1. Papel e Celulose (Suzano, Klabin)
-1. Alimentos e Bebidas (Ambev, JBS, BRF)
+2. Mineração (Vale, Anglo American)
+3. Automotivo (Toyota, Volkswagen, Fiat)
+4. Papel e Celulose (Suzano, Klabin)
+5. Alimentos e Bebidas (Ambev, JBS, BRF)
 
-**Dica:** Mantenha o NR10 sempre atualizado (validade 2 anos) e busque certificações em sistemas específicos como Siemens, ABB ou Schneider para se destacar no mercado.”””,
-“categoria”: “Salários”,
-“icone”: “⚡”,
-“fonte”: “TecVagas”,
-“url”: “#”,
-“data”: datetime.now().strftime(”%d/%m/%Y”),
-},
-{
-“titulo”: “NR10: Guia Completo para Técnicos Elétricos em 2026”,
-“resumo”: “A NR10 é obrigatória para todos os profissionais que trabalham com instalações elétricas.”,
-“conteudo”: “”“A NR10 (Segurança em Instalações e Serviços em Eletricidade) é obrigatória para qualquer profissional que trabalhe com sistemas elétricos no Brasil.
+**Dica:** Mantenha o NR10 sempre atualizado (validade 2 anos) e busque certificações em sistemas específicos como Siemens, ABB ou Schneider para se destacar no mercado.""",
+        "categoria": "Salários",
+        "icone": "⚡",
+        "fonte": "TecVagas",
+        "url": "#",
+        "data": datetime.now().strftime("%d/%m/%Y"),
+    },
+    {
+        "titulo": "NR10: Guia Completo para Técnicos Elétricos em 2026",
+        "resumo": "A NR10 é obrigatória para todos os profissionais que trabalham com instalações elétricas.",
+        "conteudo": """A NR10 (Segurança em Instalações e Serviços em Eletricidade) é obrigatória para qualquer profissional que trabalhe com sistemas elétricos no Brasil.
 
 **Quem precisa?**
 • Eletricistas industriais
@@ -161,17 +159,17 @@ ARTIGOS_COMPLETOS = [
 • Primeiros socorros para choque elétrico
 • Normas ABNT aplicáveis
 
-**Impacto no salário:** Técnicos com NR10 atualizado ganham em média 20-25% a mais que sem a certificação. Empresas grandes como Petrobras e Vale exigem NR10 como requisito mínimo para contratação.”””,
-“categoria”: “Certificações”,
-“icone”: “📋”,
-“fonte”: “TecVagas”,
-“url”: “#”,
-“data”: datetime.now().strftime(”%d/%m/%Y”),
-},
-{
-“titulo”: “Técnico em Automação: a profissão que mais cresce no Brasil”,
-“resumo”: “Com a Indústria 4.0, técnicos em PLC e SCADA são os mais disputados.”,
-“conteudo”: “”“A automação industrial está transformando as fábricas brasileiras e criando uma enorme demanda por técnicos qualificados.
+**Impacto no salário:** Técnicos com NR10 atualizado ganham em média 20-25% a mais que sem a certificação. Empresas grandes como Petrobras e Vale exigem NR10 como requisito mínimo para contratação.""",
+        "categoria": "Certificações",
+        "icone": "📋",
+        "fonte": "TecVagas",
+        "url": "#",
+        "data": datetime.now().strftime("%d/%m/%Y"),
+    },
+    {
+        "titulo": "Técnico em Automação: a profissão que mais cresce no Brasil",
+        "resumo": "Com a Indústria 4.0, técnicos em PLC e SCADA são os mais disputados.",
+        "conteudo": """A automação industrial está transformando as fábricas brasileiras e criando uma enorme demanda por técnicos qualificados.
 
 **Por que está crescendo tanto?**
 A Indústria 4.0 chegou ao Brasil. Empresas de todos os setores estão automatizando processos para reduzir custos e aumentar eficiência. Em 2026, a demanda por técnicos em automação cresceu 35% em relação ao ano anterior.
@@ -185,12 +183,11 @@ A Indústria 4.0 chegou ao Brasil. Empresas de todos os setores estão automatiz
 • Instrumentação e sensores
 
 **Plataformas mais valorizadas:**
-
 1. Siemens S7 (TIA Portal) — mais demandado no Brasil
-1. Allen Bradley (Studio 5000) — forte no setor automotivo
-1. Schneider (EcoStruxure) — energia e predial
-1. ABB — robótica e motion control
-1. Rockwell Automation — indústria pesada
+2. Allen Bradley (Studio 5000) — forte no setor automotivo
+3. Schneider (EcoStruxure) — energia e predial
+4. ABB — robótica e motion control
+5. Rockwell Automation — indústria pesada
 
 **Salários:**
 • Júnior: R$ 3.000 a R$ 4.500
@@ -204,17 +201,17 @@ A Indústria 4.0 chegou ao Brasil. Empresas de todos os setores estão automatiz
 • Udemy (PLCs e SCADA)
 • CEFET e IFs com graduação em Controle e Automação
 
-**Dica de ouro:** Dominar o TIA Portal da Siemens abre portas em praticamente qualquer indústria brasileira. É a plataforma mais usada no país.”””,
-“categoria”: “Carreira”,
-“icone”: “🤖”,
-“fonte”: “TecVagas”,
-“url”: “#”,
-“data”: datetime.now().strftime(”%d/%m/%Y”),
-},
-{
-“titulo”: “Melhores empresas para técnicos industriais em 2026”,
-“resumo”: “Petrobras, Vale, WEG, Embraer e Bosch oferecem os melhores pacotes.”,
-“conteudo”: “”“Algumas empresas se destacam pela remuneração, benefícios e oportunidades de crescimento para técnicos industriais.
+**Dica de ouro:** Dominar o TIA Portal da Siemens abre portas em praticamente qualquer indústria brasileira. É a plataforma mais usada no país.""",
+        "categoria": "Carreira",
+        "icone": "🤖",
+        "fonte": "TecVagas",
+        "url": "#",
+        "data": datetime.now().strftime("%d/%m/%Y"),
+    },
+    {
+        "titulo": "Melhores empresas para técnicos industriais em 2026",
+        "resumo": "Petrobras, Vale, WEG, Embraer e Bosch oferecem os melhores pacotes.",
+        "conteudo": """Algumas empresas se destacam pela remuneração, benefícios e oportunidades de crescimento para técnicos industriais.
 
 **🥇 Petrobras**
 • Salário: R$ 9.000 a R$ 15.000
@@ -255,17 +252,17 @@ A Indústria 4.0 chegou ao Brasil. Empresas de todos os setores estão automatiz
 **Como se candidatar:**
 • Petrobras: concurso via Cesgranrio
 • Vale, WEG, Embraer, Bosch: processo seletivo via Gupy, LinkedIn e sites próprios
-• Fique de olho nas vagas aqui no TecVagas!”””,
-“categoria”: “Empresas”,
-“icone”: “🏭”,
-“fonte”: “TecVagas”,
-“url”: “#”,
-“data”: datetime.now().strftime(”%d/%m/%Y”),
-},
-{
-“titulo”: “NR12, NR33 e NR35: quais certificações valem mais?”,
-“resumo”: “Cada NR pode adicionar R$ 200 a R$ 500 ao salário mensal.”,
-“conteudo”: “”“As Normas Regulamentadoras (NRs) são exigências legais para trabalhos com riscos específicos. Para técnicos industriais, algumas são mais importantes que outras.
+• Fique de olho nas vagas aqui no TecVagas!""",
+        "categoria": "Empresas",
+        "icone": "🏭",
+        "fonte": "TecVagas",
+        "url": "#",
+        "data": datetime.now().strftime("%d/%m/%Y"),
+    },
+    {
+        "titulo": "NR12, NR33 e NR35: quais certificações valem mais?",
+        "resumo": "Cada NR pode adicionar R$ 200 a R$ 500 ao salário mensal.",
+        "conteudo": """As Normas Regulamentadoras (NRs) são exigências legais para trabalhos com riscos específicos. Para técnicos industriais, algumas são mais importantes que outras.
 
 **NR12 — Segurança em Máquinas e Equipamentos**
 • Para quem: técnicos que trabalham com máquinas industriais
@@ -293,24 +290,23 @@ A Indústria 4.0 chegou ao Brasil. Empresas de todos os setores estão automatiz
 • Essencial para qualquer técnico elétrico
 
 **Ranking de valor para técnicos industriais:**
-
 1. NR10 (elétricos) — maior impacto salarial
-1. NR33 — rara, muito valorizada
-1. NR35 — muito comum, exigida em quase toda indústria
-1. NR12 — importante para manufatura
-1. NR13 (vasos de pressão) — específica para utilidades
+2. NR33 — rara, muito valorizada
+3. NR35 — muito comum, exigida em quase toda indústria
+4. NR12 — importante para manufatura
+5. NR13 (vasos de pressão) — específica para utilidades
 
-**Dica:** Ter NR10 + NR33 + NR35 juntas pode agregar até R$ 800/mês ao salário base e abre portas nas maiores empresas do Brasil.”””,
-“categoria”: “Certificações”,
-“icone”: “🦺”,
-“fonte”: “TecVagas”,
-“url”: “#”,
-“data”: datetime.now().strftime(”%d/%m/%Y”),
-},
-{
-“titulo”: “Como passar na entrevista para técnico industrial”,
-“resumo”: “Dicas práticas de recrutadores sobre o que as empresas avaliam.”,
-“conteudo”: “”“A entrevista para técnico industrial tem características específicas que todo candidato precisa conhecer para se sair bem.
+**Dica:** Ter NR10 + NR33 + NR35 juntas pode agregar até R$ 800/mês ao salário base e abre portas nas maiores empresas do Brasil.""",
+        "categoria": "Certificações",
+        "icone": "🦺",
+        "fonte": "TecVagas",
+        "url": "#",
+        "data": datetime.now().strftime("%d/%m/%Y"),
+    },
+    {
+        "titulo": "Como passar na entrevista para técnico industrial",
+        "resumo": "Dicas práticas de recrutadores sobre o que as empresas avaliam.",
+        "conteudo": """A entrevista para técnico industrial tem características específicas que todo candidato precisa conhecer para se sair bem.
 
 **Antes da entrevista:**
 
@@ -333,11 +329,11 @@ A Indústria 4.0 chegou ao Brasil. Empresas de todos os setores estão automatiz
 **Durante a entrevista:**
 
 🎯 Perguntas técnicas comuns:
-• “Como você realiza uma manutenção preventiva?”
-• “Já trabalhou com análise de falhas? Como faz?”
-• “Conhece o conceito de MTBF e MTTR?”
-• “Qual sua experiência com CLP/PLC?”
-• “Como procede ao encontrar um equipamento parado?”
+• "Como você realiza uma manutenção preventiva?"
+• "Já trabalhou com análise de falhas? Como faz?"
+• "Conhece o conceito de MTBF e MTTR?"
+• "Qual sua experiência com CLP/PLC?"
+• "Como procede ao encontrar um equipamento parado?"
 
 🎯 Como responder bem:
 Use a técnica STAR — Situação, Tarefa, Ação, Resultado. Dê exemplos reais de situações que você resolveu.
@@ -348,243 +344,252 @@ Use a técnica STAR — Situação, Tarefa, Ação, Resultado. Dê exemplos reai
 ❌ Chegar sem EPI (em algumas empresas pedem na visita à planta)
 ❌ Não saber ler um esquema elétrico básico
 
-**Dica final:** Vista roupas sóbrias, chegue 10 minutos antes, leve todos os documentos organizados e demonstre proatividade. No setor industrial, pontualidade e organização são muito valorizadas.”””,
-“categoria”: “Dicas”,
-“icone”: “💼”,
-“fonte”: “TecVagas”,
-“url”: “#”,
-“data”: datetime.now().strftime(”%d/%m/%Y”),
-},
+**Dica final:** Vista roupas sóbrias, chegue 10 minutos antes, leve todos os documentos organizados e demonstre proatividade. No setor industrial, pontualidade e organização são muito valorizadas.""",
+        "categoria": "Dicas",
+        "icone": "💼",
+        "fonte": "TecVagas",
+        "url": "#",
+        "data": datetime.now().strftime("%d/%m/%Y"),
+    },
 ]
 
+
 def detectar_area(texto):
-t=texto.lower()
-if any(p in t for p in [“elétric”,“eletric”,“eletrom”,“painel”,“subestac”,“motor”,“gerador”]):return “eletrica”
-if any(p in t for p in [“mecatrôn”,“mecatron”,“plc”,“scada”,“robotic”,“automac”,“automaç”,“cnc”,“instrumenta”]):return “automacao”
-if any(p in t for p in [“qualidad”,“inspeç”,“metrolog”,“ensaio”,“calibr”]):return “qualidade”
-if any(p in t for p in [“seguranç”,“meio ambient”]):return “seguranca”
-if any(p in t for p in [“refriger”,“hvac”,“climatiz”,“ar condiciona”]):return “refrigeracao”
-return “mecanica”
+    t=texto.lower()
+    if any(p in t for p in ["elétric","eletric","eletrom","painel","subestac","motor","gerador"]):return "eletrica"
+    if any(p in t for p in ["mecatrôn","mecatron","plc","scada","robotic","automac","automaç","cnc","instrumenta"]):return "automacao"
+    if any(p in t for p in ["qualidad","inspeç","metrolog","ensaio","calibr"]):return "qualidade"
+    if any(p in t for p in ["seguranç","meio ambient"]):return "seguranca"
+    if any(p in t for p in ["refriger","hvac","climatiz","ar condiciona"]):return "refrigeracao"
+    return "mecanica"
 
 def detectar_estado(texto):
-tu=texto.upper()
-for s,n in ESTADOS.items():
-if f”, {s}” in texto or n.upper() in tu:return s
-return “BR”
+    tu=texto.upper()
+    for s,n in ESTADOS.items():
+        if f", {s}" in texto or n.upper() in tu:return s
+    return "BR"
 
 def titulo_valido(titulo):
-return not any(p in titulo.lower() for p in PALAVRAS_DESCARTAR)
+    return not any(p in titulo.lower() for p in PALAVRAS_DESCARTAR)
+
 
 def normalizar_titulo(titulo):
-“”“Corrige títulos colados vindos das fontes (ex: TécnicoManutençãoElétrica).”””
-# Insere espaço entre minúscula e maiúscula coladas
-titulo = re.sub(r’([a-záéíóúàãõâêîôûç])([A-ZÁÉÍÓÚÀÃÕÂÊÎÔÛÇ])’, r’\1 \2’, titulo)
-# Insere espaço entre letra e número colados
-titulo = re.sub(r’([a-zA-ZáéíóúàãõâêîôûçÁÉÍÓÚÀÃÕÂÊÎÔÛÇ])(\d)’, r’\1 \2’, titulo)
-titulo = re.sub(r’(\d)([a-zA-ZáéíóúàãõâêîôûçÁÉÍÓÚÀÃÕÂÊÎÔÛÇ])’, r’\1 \2’, titulo)
-# Corrige sufixos de nível colados
-for sufixo in [‘Jr’, ‘Sr’, ‘Pleno’, ‘Junior’, ‘Senior’, ‘Sênior’, ‘Trainee’, ‘Júnior’]:
-titulo = re.sub(rf’(?<=[a-záéíóúàãõâêîôûç])({sufixo})\b’, rf’ \1’, titulo)
-# Normaliza hífens
-titulo = re.sub(r’\s*-\s*’, ’ - ‘, titulo)
-# Remove espaços duplos
-titulo = re.sub(r’\s+’, ’ ’, titulo)
-return titulo.strip()
+    """Corrige títulos colados vindos das fontes (ex: TécnicoManutençãoElétrica)."""
+    # Insere espaço entre minúscula e maiúscula coladas
+    titulo = re.sub(r'([a-záéíóúàãõâêîôûç])([A-ZÁÉÍÓÚÀÃÕÂÊÎÔÛÇ])', r'\1 \2', titulo)
+    # Insere espaço entre letra e número colados
+    titulo = re.sub(r'([a-zA-ZáéíóúàãõâêîôûçÁÉÍÓÚÀÃÕÂÊÎÔÛÇ])(\d)', r'\1 \2', titulo)
+    titulo = re.sub(r'(\d)([a-zA-ZáéíóúàãõâêîôûçÁÉÍÓÚÀÃÕÂÊÎÔÛÇ])', r'\1 \2', titulo)
+    # Corrige sufixos de nível colados
+    for sufixo in ['Jr', 'Sr', 'Pleno', 'Junior', 'Senior', 'Sênior', 'Trainee', 'Júnior']:
+        titulo = re.sub(rf'(?<=[a-záéíóúàãõâêîôûç])({sufixo})\b', rf' \1', titulo)
+    # Normaliza hífens
+    titulo = re.sub(r'\s*-\s*', ' - ', titulo)
+    # Remove espaços duplos
+    titulo = re.sub(r'\s+', ' ', titulo)
+    return titulo.strip()
+
 
 def icone_benef(b):
-bl=b.lower()
-for k,v in ICONES_BENEFICIOS.items():
-if k in bl:return v
-return “✅”
+    bl=b.lower()
+    for k,v in ICONES_BENEFICIOS.items():
+        if k in bl:return v
+    return "✅"
 
 def formatar_conteudo(texto):
-“”“Formata o conteúdo do artigo para HTML.”””
-linhas = texto.strip().split(’\n’)
-html = ‘’
-for linha in linhas:
-linha = linha.strip()
-if not linha:
-html += ‘<br>’
-continue
-# Negrito com **texto**
-linha = re.sub(r’**(.*?)**’, r’<strong>\1</strong>’, linha)
-# Títulos com #
-if linha.startswith(’**’) and linha.endswith(’**’):
-html += f’<p style="margin:12px 0 6px;font-weight:700;color:#f0f0f5">{linha[2:-2]}</p>’
-# Itens de lista
-elif linha.startswith(’•’) or linha.startswith(‘✅’) or linha.startswith(‘❌’) or linha.startswith(‘🎯’) or linha.startswith(‘🥇’) or linha.startswith(‘🥈’) or linha.startswith(‘🥉’):
-html += f’<p style="margin:4px 0;padding-left:4px">{linha}</p>’
-# Texto normal
-else:
-html += f’<p style="margin:8px 0">{linha}</p>’
-return html
+    """Formata o conteúdo do artigo para HTML."""
+    linhas = texto.strip().split('\n')
+    html = ''
+    for linha in linhas:
+        linha = linha.strip()
+        if not linha:
+            html += '<br>'
+            continue
+        # Negrito com **texto**
+        linha = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', linha)
+        # Títulos com #
+        if linha.startswith('**') and linha.endswith('**'):
+            html += f'<p style="margin:12px 0 6px;font-weight:700;color:#f0f0f5">{linha[2:-2]}</p>'
+        # Itens de lista
+        elif linha.startswith('•') or linha.startswith('✅') or linha.startswith('❌') or linha.startswith('🎯') or linha.startswith('🥇') or linha.startswith('🥈') or linha.startswith('🥉'):
+            html += f'<p style="margin:4px 0;padding-left:4px">{linha}</p>'
+        # Texto normal
+        else:
+            html += f'<p style="margin:8px 0">{linha}</p>'
+    return html
+
 
 def buscar_gupy():
-vagas=[]
-print(“🔍 Buscando no Gupy…”)
-for termo in TECNICOS[:25]:
-try:
-url=f”https://portal.api.gupy.io/api/v1/jobs?jobName={requests.utils.quote(termo)}&limit=5”
-resp=requests.get(url,headers=HEADERS,timeout=15)
-if resp.status_code!=200:continue
-for job in resp.json().get(“data”,[]):
-pub=str(job.get(“publishedDate”,””) or job.get(“createdAt”,””))
-if ANO_ATUAL not in pub:continue
-titulo=normalizar_titulo(job.get(“name”,””)[:80])
-if not titulo_valido(titulo):continue
-local=f”{job.get(‘city’,‘Brasil’)}, {job.get(‘state’,’’)}”
-benef=[]
-for b in job.get(“benefits”,[])[:5]:
-if isinstance(b,dict) and b.get(“name”):benef.append(b[“name”][:30])
-elif isinstance(b,str):benef.append(b[:30])
-vagas.append({“titulo”:titulo,“empresa”:job.get(“careerPageName”,“Empresa”)[:50],
-“local”:local,“estado”:detectar_estado(local),“url”:job.get(“jobUrl”,”#”),
-“fonte”:“gupy.io”,“data”:datetime.now().strftime(”%d/%m/%Y”),
-“area”:detectar_area(titulo),“beneficios”:benef,“salario”:“A combinar”,“escala”:“CLT”})
-time.sleep(1.0)
-except Exception as e:print(f”  ⚠️ Gupy: {e}”)
-print(f”  ✅ Gupy: {len(vagas)} vagas”)
-return vagas
+    vagas=[]
+    print("🔍 Buscando no Gupy...")
+    for termo in TECNICOS[:25]:
+        try:
+            url=f"https://portal.api.gupy.io/api/v1/jobs?jobName={requests.utils.quote(termo)}&limit=5"
+            resp=requests.get(url,headers=HEADERS,timeout=15)
+            if resp.status_code!=200:continue
+            for job in resp.json().get("data",[]):
+                pub=str(job.get("publishedDate","") or job.get("createdAt",""))
+                if ANO_ATUAL not in pub:continue
+                titulo=normalizar_titulo(job.get("name","")[:80])
+                if not titulo_valido(titulo):continue
+                local=f"{job.get('city','Brasil')}, {job.get('state','')}"
+                benef=[]
+                for b in job.get("benefits",[])[:5]:
+                    if isinstance(b,dict) and b.get("name"):benef.append(b["name"][:30])
+                    elif isinstance(b,str):benef.append(b[:30])
+                vagas.append({"titulo":titulo,"empresa":job.get("careerPageName","Empresa")[:50],
+                    "local":local,"estado":detectar_estado(local),"url":job.get("jobUrl","#"),
+                    "fonte":"gupy.io","data":datetime.now().strftime("%d/%m/%Y"),
+                    "area":detectar_area(titulo),"beneficios":benef,"salario":"A combinar","escala":"CLT"})
+            time.sleep(1.0)
+        except Exception as e:print(f"  ⚠️ Gupy: {e}")
+    print(f"  ✅ Gupy: {len(vagas)} vagas")
+    return vagas
+
 
 def buscar_vagas_com_br():
-vagas=[]
-print(“🔍 Buscando no vagas.com.br…”)
-termos=[“tecnico-manutencao-eletrica”,“tecnico-manutencao-mecanica”,
-“tecnico-mecatronica”,“tecnico-automacao-industrial”,
-“tecnico-instrumentacao”,“tecnico-soldagem”,“tecnico-caldeiraria”,
-“tecnico-seguranca-trabalho”,“tecnico-qualidade”,“tecnico-refrigeracao”]
-for termo in termos:
-try:
-resp=requests.get(f”https://www.vagas.com.br/vagas-de-{termo}”,headers=HEADERS,timeout=15)
-if resp.status_code!=200:continue
-soup=BeautifulSoup(resp.text,“html.parser”)
-for card in soup.find_all(“li”,class_=“vaga”)[:8]:
-te=card.find(“a”,class_=“link-detalhes-vaga”)
-ee=card.find(“span”,class_=“empr-name”)
-le=card.find(“span”,class_=“local”)
-de=card.find(“span”,class_=“data-publicacao”) or card.find(“time”)
-if not te:continue
-titulo=normalizar_titulo(te.get_text(strip=True)[:80])
-if not titulo_valido(titulo):continue
-dt=de.get_text(strip=True) if de else “”
-if “2025” in dt or “2024” in dt:continue
-local=le.get_text(strip=True)[:40] if le else “Brasil”
-vagas.append({“titulo”:titulo,“empresa”:ee.get_text(strip=True)[:50] if ee else “Empresa”,
-“local”:local,“estado”:detectar_estado(local),
-“url”:“https://www.vagas.com.br”+te.get(“href”,””),
-“fonte”:“vagas.com.br”,“data”:datetime.now().strftime(”%d/%m/%Y”),
-“area”:detectar_area(titulo),“beneficios”:[],“salario”:“A combinar”,“escala”:“CLT”})
-time.sleep(1.5)
-except Exception as e:print(f”  ⚠️ vagas.com.br: {e}”)
-print(f”  ✅ vagas.com.br: {len(vagas)} vagas”)
-return vagas
+    vagas=[]
+    print("🔍 Buscando no vagas.com.br...")
+    termos=["tecnico-manutencao-eletrica","tecnico-manutencao-mecanica",
+            "tecnico-mecatronica","tecnico-automacao-industrial",
+            "tecnico-instrumentacao","tecnico-soldagem","tecnico-caldeiraria",
+            "tecnico-seguranca-trabalho","tecnico-qualidade","tecnico-refrigeracao"]
+    for termo in termos:
+        try:
+            resp=requests.get(f"https://www.vagas.com.br/vagas-de-{termo}",headers=HEADERS,timeout=15)
+            if resp.status_code!=200:continue
+            soup=BeautifulSoup(resp.text,"html.parser")
+            for card in soup.find_all("li",class_="vaga")[:8]:
+                te=card.find("a",class_="link-detalhes-vaga")
+                ee=card.find("span",class_="empr-name")
+                le=card.find("span",class_="local")
+                de=card.find("span",class_="data-publicacao") or card.find("time")
+                if not te:continue
+                titulo=normalizar_titulo(te.get_text(strip=True)[:80])
+                if not titulo_valido(titulo):continue
+                dt=de.get_text(strip=True) if de else ""
+                if "2025" in dt or "2024" in dt:continue
+                local=le.get_text(strip=True)[:40] if le else "Brasil"
+                vagas.append({"titulo":titulo,"empresa":ee.get_text(strip=True)[:50] if ee else "Empresa",
+                    "local":local,"estado":detectar_estado(local),
+                    "url":"https://www.vagas.com.br"+te.get("href",""),
+                    "fonte":"vagas.com.br","data":datetime.now().strftime("%d/%m/%Y"),
+                    "area":detectar_area(titulo),"beneficios":[],"salario":"A combinar","escala":"CLT"})
+            time.sleep(1.5)
+        except Exception as e:print(f"  ⚠️ vagas.com.br: {e}")
+    print(f"  ✅ vagas.com.br: {len(vagas)} vagas")
+    return vagas
+
 
 def buscar_infojobs():
-vagas=[]
-print(“🔍 Buscando no InfoJobs…”)
-for termo in [“tecnico-de-manutencao-eletrica”,“tecnico-de-manutencao-mecanica”,“tecnico-mecatronica”,“tecnico-instrumentacao”]:
-try:
-resp=requests.get(f”https://www.infojobs.com.br/empregos/{termo}/”,headers=HEADERS,timeout=15)
-if resp.status_code!=200:continue
-soup=BeautifulSoup(resp.text,“html.parser”)
-for card in soup.find_all(“div”,class_=“ij-offercard”)[:5]:
-te=card.find(“a”,class_=“ij-offercard-title”)
-ee=card.find(“span”,class_=“ij-offercard-company”)
-le=card.find(“span”,class_=“ij-offercard-location”)
-if not te:continue
-titulo=normalizar_titulo(te.get_text(strip=True)[:80])
-if not titulo_valido(titulo):continue
-local=le.get_text(strip=True)[:40] if le else “Brasil”
-vagas.append({“titulo”:titulo,“empresa”:ee.get_text(strip=True)[:50] if ee else “Empresa”,
-“local”:local,“estado”:detectar_estado(local),“url”:te.get(“href”,”#”),
-“fonte”:“infojobs.com.br”,“data”:datetime.now().strftime(”%d/%m/%Y”),
-“area”:detectar_area(titulo),“beneficios”:[],“salario”:“A combinar”,“escala”:“CLT”})
-time.sleep(1.5)
-except Exception as e:print(f”  ⚠️ InfoJobs: {e}”)
-print(f”  ✅ InfoJobs: {len(vagas)} vagas”)
-return vagas
+    vagas=[]
+    print("🔍 Buscando no InfoJobs...")
+    for termo in ["tecnico-de-manutencao-eletrica","tecnico-de-manutencao-mecanica","tecnico-mecatronica","tecnico-instrumentacao"]:
+        try:
+            resp=requests.get(f"https://www.infojobs.com.br/empregos/{termo}/",headers=HEADERS,timeout=15)
+            if resp.status_code!=200:continue
+            soup=BeautifulSoup(resp.text,"html.parser")
+            for card in soup.find_all("div",class_="ij-offercard")[:5]:
+                te=card.find("a",class_="ij-offercard-title")
+                ee=card.find("span",class_="ij-offercard-company")
+                le=card.find("span",class_="ij-offercard-location")
+                if not te:continue
+                titulo=normalizar_titulo(te.get_text(strip=True)[:80])
+                if not titulo_valido(titulo):continue
+                local=le.get_text(strip=True)[:40] if le else "Brasil"
+                vagas.append({"titulo":titulo,"empresa":ee.get_text(strip=True)[:50] if ee else "Empresa",
+                    "local":local,"estado":detectar_estado(local),"url":te.get("href","#"),
+                    "fonte":"infojobs.com.br","data":datetime.now().strftime("%d/%m/%Y"),
+                    "area":detectar_area(titulo),"beneficios":[],"salario":"A combinar","escala":"CLT"})
+            time.sleep(1.5)
+        except Exception as e:print(f"  ⚠️ InfoJobs: {e}")
+    print(f"  ✅ InfoJobs: {len(vagas)} vagas")
+    return vagas
+
 
 def verificar_cache(cache):
-if not cache:return []
-print(f”\n🔎 Verificando {len(cache)} vagas…”)
-ativas=[]
-for v in cache:
-if not titulo_valido(v.get(“titulo”,””)):continue
-try:
-r=requests.get(v[“url”],headers=HEADERS,timeout=8)
-if r.status_code in[404,410]:continue
-if any(p in r.text.lower() for p in [“vaga encerrada”,“job expired”,“não está mais disponível”]):continue
-except:pass
-if “beneficios” not in v:v[“beneficios”]=[]
-if “salario” not in v:v[“salario”]=“A combinar”
-if “escala” not in v:v[“escala”]=“CLT”
-ativas.append(v)
-time.sleep(0.3)
-print(f”  ✅ {len(ativas)} vagas ativas”)
-return ativas
+    if not cache:return []
+    print(f"\n🔎 Verificando {len(cache)} vagas...")
+    ativas=[]
+    for v in cache:
+        if not titulo_valido(v.get("titulo","")):continue
+        try:
+            r=requests.get(v["url"],headers=HEADERS,timeout=8)
+            if r.status_code in[404,410]:continue
+            if any(p in r.text.lower() for p in ["vaga encerrada","job expired","não está mais disponível"]):continue
+        except:pass
+        if "beneficios" not in v:v["beneficios"]=[]
+        if "salario" not in v:v["salario"]="A combinar"
+        if "escala" not in v:v["escala"]="CLT"
+        ativas.append(v)
+        time.sleep(0.3)
+    print(f"  ✅ {len(ativas)} vagas ativas")
+    return ativas
+
 
 def remover_duplicatas(vagas):
-vistas=set();unicas=[]
-for v in vagas:
-if v[“url”] not in vistas and len(v[“titulo”])>5:
-vistas.add(v[“url”]);unicas.append(v)
-return unicas
+    vistas=set();unicas=[]
+    for v in vagas:
+        if v["url"] not in vistas and len(v["titulo"])>5:
+            vistas.add(v["url"]);unicas.append(v)
+    return unicas
+
 
 def carregar_cache():
-try:
-with open(CACHE_FILE,“r”,encoding=“utf-8”) as f:return json.load(f)
-except:return []
+    try:
+        with open(CACHE_FILE,"r",encoding="utf-8") as f:return json.load(f)
+    except:return []
+
 
 def carregar_artigos():
-“”“Carrega artigos. Se vier do RSS com URL real, usa. Senão, usa banco completo.”””
-artigos_finais = []
-try:
-with open(ARTIGOS_FILE,“r”,encoding=“utf-8”) as f:
-artigos_rss = json.load(f)
-# Usa artigos RSS que têm URL real
-for a in artigos_rss[:6]:
-if a.get(“url”,”#”) != “#”:
-artigos_finais.append(a)
-except:
-pass
+    """Carrega artigos. Se vier do RSS com URL real, usa. Senão, usa banco completo."""
+    artigos_finais = []
+    try:
+        with open(ARTIGOS_FILE,"r",encoding="utf-8") as f:
+            artigos_rss = json.load(f)
+            # Usa artigos RSS que têm URL real
+            for a in artigos_rss[:6]:
+                if a.get("url","#") != "#":
+                    artigos_finais.append(a)
+    except:
+        pass
 
-```
-# Completa com artigos do banco de reserva (com conteúdo completo)
-for a in ARTIGOS_COMPLETOS:
-    if len(artigos_finais) >= 6:
-        break
-    # Não duplica
-    titulos = [x["titulo"][:30] for x in artigos_finais]
-    if a["titulo"][:30] not in titulos:
-        artigos_finais.append(a)
+    # Completa com artigos do banco de reserva (com conteúdo completo)
+    for a in ARTIGOS_COMPLETOS:
+        if len(artigos_finais) >= 6:
+            break
+        # Não duplica
+        titulos = [x["titulo"][:30] for x in artigos_finais]
+        if a["titulo"][:30] not in titulos:
+            artigos_finais.append(a)
 
-return artigos_finais[:6]
-```
+    return artigos_finais[:6]
+
 
 AREA_CONFIG = {
-“eletrica”:     {“cls”:“tag-el”,“label”:“Elétrica”,“ico”:“⚡”,“cor”:”#3b82f6”},
-“mecanica”:     {“cls”:“tag-me”,“label”:“Mecânica”,“ico”:“🔩”,“cor”:”#22c55e”},
-“automacao”:    {“cls”:“tag-au”,“label”:“Automação”,“ico”:“🤖”,“cor”:”#f97316”},
-“qualidade”:    {“cls”:“tag-qu”,“label”:“Qualidade”,“ico”:“📊”,“cor”:”#a855f7”},
-“seguranca”:    {“cls”:“tag-se”,“label”:“Segurança”,“ico”:“🦺”,“cor”:”#14b8a6”},
-“refrigeracao”: {“cls”:“tag-rf”,“label”:“Refrigeração”,“ico”:“❄️”,“cor”:”#60a5fa”},
+    "eletrica":     {"cls":"tag-el","label":"Elétrica","ico":"⚡","cor":"#3b82f6"},
+    "mecanica":     {"cls":"tag-me","label":"Mecânica","ico":"🔩","cor":"#22c55e"},
+    "automacao":    {"cls":"tag-au","label":"Automação","ico":"🤖","cor":"#f97316"},
+    "qualidade":    {"cls":"tag-qu","label":"Qualidade","ico":"📊","cor":"#a855f7"},
+    "seguranca":    {"cls":"tag-se","label":"Segurança","ico":"🦺","cor":"#14b8a6"},
+    "refrigeracao": {"cls":"tag-rf","label":"Refrigeração","ico":"❄️","cor":"#60a5fa"},
 }
 
-def gerar_card_vaga(v, idx=0):
-area=v.get(“area”,“mecanica”)
-cfg=AREA_CONFIG.get(area,AREA_CONFIG[“mecanica”])
-estado=v.get(“estado”,“BR”)
-salario=v.get(“salario”,“A combinar”)
-escala=v.get(“escala”,“CLT”)
-benefs=v.get(“beneficios”,[])
-benef_html=””
-if benefs:
-tags=””.join(f’<span class="benef-chip">{icone_benef(b)} {b}</span>’ for b in benefs[:3])
-benef_html=f’<div class="card-benefits">{tags}</div>’
-wpp=f”https://wa.me/?text=🔧 *{v[‘titulo’]}*%0A🏭 {v[‘empresa’]}%0A📍 {v[‘local’]}%0A%0A👉 {v[‘url’]}%0A%0A_Via TecVagas_”
-delay=f”animation-delay:{idx*0.05}s”
-return f”””<article class="job-card" style="{delay}" data-area="{area}" data-estado="{estado}" data-esp="{v.get('titulo','').lower()}" data-busca="{v.get('titulo','').lower()} {v.get('empresa','').lower()} {v.get('local','').lower()}">
 
+def gerar_card_vaga(v, idx=0):
+    area=v.get("area","mecanica")
+    cfg=AREA_CONFIG.get(area,AREA_CONFIG["mecanica"])
+    estado=v.get("estado","BR")
+    salario=v.get("salario","A combinar")
+    escala=v.get("escala","CLT")
+    benefs=v.get("beneficios",[])
+    benef_html=""
+    if benefs:
+        tags="".join(f'<span class="benef-chip">{icone_benef(b)} {b}</span>' for b in benefs[:3])
+        benef_html=f'<div class="card-benefits">{tags}</div>'
+    wpp=f"https://wa.me/?text=🔧 *{v['titulo']}*%0A🏭 {v['empresa']}%0A📍 {v['local']}%0A%0A👉 {v['url']}%0A%0A_Via TecVagas_"
+    delay=f"animation-delay:{idx*0.05}s"
+    return f"""<article class="job-card" style="{delay}" data-area="{area}" data-estado="{estado}" data-esp="{v.get('titulo','').lower()}" data-busca="{v.get('titulo','').lower()} {v.get('empresa','').lower()} {v.get('local','').lower()}">
   <div class="card-accent" style="background:{cfg['cor']}"></div>
   <div class="card-body">
     <div class="card-top">
@@ -609,18 +614,16 @@ return f”””<article class="job-card" style="{delay}" data-area="{area}" da
   </div>
 </article>"""
 
+
 def gerar_card_artigo(a, idx=0):
-“”“Gera card de artigo que abre modal com conteúdo completo.”””
-has_url = a.get(“url”,”#”) != “#”
-conteudo = a.get(“conteudo”,””)
-conteudo_html = formatar_conteudo(conteudo) if conteudo else f’<p>{a.get(“resumo”,””)}</p>’
-# Escapa aspas para uso no JS
-titulo_safe = a[‘titulo’].replace(”’”,”'”).replace(’”’,’"’)
+    """Gera card de artigo que abre modal com conteúdo completo."""
+    has_url = a.get("url","#") != "#"
+    conteudo = a.get("conteudo","")
+    conteudo_html = formatar_conteudo(conteudo) if conteudo else f'<p>{a.get("resumo","")}</p>'
+    # Escapa aspas para uso no JS
+    titulo_safe = a['titulo'].replace("'","&#39;").replace('"','&quot;')
 
-```
-return f"""<div class="article-card" onclick="openArticle({idx})">
-```
-
+    return f"""<div class="article-card" onclick="openArticle({idx})">
   <div class="article-icon">{a['icone']}</div>
   <div class="article-content">
     <div class="article-cat">{a['categoria']}</div>
@@ -643,24 +646,23 @@ return f"""<div class="article-card" onclick="openArticle({idx})">
   </div>
 </div>"""
 
+
 def gerar_opts_estados(vagas):
-usados=sorted(set(v.get(“estado”,“BR”) for v in vagas if v.get(“estado”)!=“BR”))
-opts=’<option value="todos">Todos os estados</option>’
-for s in usados:opts+=f’<option value="{s}">{s} — {ESTADOS.get(s,s)}</option>’
-return opts
+    usados=sorted(set(v.get("estado","BR") for v in vagas if v.get("estado")!="BR"))
+    opts='<option value="todos">Todos os estados</option>'
+    for s in usados:opts+=f'<option value="{s}">{s} — {ESTADOS.get(s,s)}</option>'
+    return opts
+
 
 def gerar_html(vagas, artigos):
-agora=datetime.now().strftime(”%d/%m/%Y às %H:%M”)
-cards_vagas=”\n”.join(gerar_card_vaga(v,i) for i,v in enumerate(vagas))
-cards_artigos=”\n”.join(gerar_card_artigo(a,i) for i,a in enumerate(artigos))
-total=len(vagas)
-opts_estados=gerar_opts_estados(vagas)
-tec_opts=””.join(f’<option value=”{t.replace(“técnico em”,””).strip().lower()}”>{t.replace(“técnico em”,””).strip().title()}</option>’ for t in sorted(TECNICOS))
+    agora=datetime.now().strftime("%d/%m/%Y às %H:%M")
+    cards_vagas="\n".join(gerar_card_vaga(v,i) for i,v in enumerate(vagas))
+    cards_artigos="\n".join(gerar_card_artigo(a,i) for i,a in enumerate(artigos))
+    total=len(vagas)
+    opts_estados=gerar_opts_estados(vagas)
+    tec_opts="".join(f'<option value="{t.replace("técnico em","").strip().lower()}">{t.replace("técnico em","").strip().title()}</option>' for t in sorted(TECNICOS))
 
-```
-return f"""<!DOCTYPE html>
-```
-
+    return f"""<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -984,7 +986,6 @@ footer{{border-top:1px solid var(--border);padding:24px 20px;text-align:center}}
 </div>
 
 <!-- MODAIS CALCULADORAS -->
-
 <div class="modal" id="m-sal"><div class="modal-box">
   <div class="modal-title">💰 Salário Líquido</div>
   <div class="modal-field"><label class="modal-label">Salário Bruto (R$)</label><input class="modal-input" type="number" id="s1" placeholder="Ex: 3500" oninput="cS()"></div>
@@ -1089,7 +1090,6 @@ footer{{border-top:1px solid var(--border);padding:24px 20px;text-align:center}}
 </footer>
 
 <script data-goatcounter="https://tecvagas.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-
 <script>
 // RELÓGIO
 (function(){{const el=document.getElementById('nav-clock');function t(){{el.textContent=new Date().toLocaleTimeString('pt-BR',{{timeZone:'America/Sao_Paulo',hour:'2-digit',minute:'2-digit'}});}}t();setInterval(t,1000);}})();
@@ -1144,21 +1144,21 @@ function cN(){{const b=G('n1'),h=G('n2');if(!b){{SH('n-r',0);return;}}const ad=(
 function cI(){{const b=G('i1'),tp=GV('i2');if(!b){{SH('i-r',0);return;}}const ad=tp==='30p'?b*.3:1518*(parseFloat(tp)/100);S('i-a',R(b));S('i-b','+ '+R(ad));S('i-c',R(b+ad));SH('i-r',1);}}
 function cD(){{const b=G('d1'),m=GI('d2')||12;if(!b){{SH('d-r',0);return;}}const br=b*(m/12),i=IN(br),r=IR(br-i,0);S('d-a',R(br));S('d-b','- '+R(i+r));S('d-c',R(br-i-r));SH('d-r',1);}}
 </script>
-
 </body>
 </html>"""
 
-def main():
-print(f”\n🤖 TecVagas v10.1 — {datetime.now().strftime(’%d/%m/%Y %H:%M’)}”)
-print(”=”*50)
-cache=carregar_cache()
-vagas_ativas=verificar_cache(cache)
-vagas_novas=buscar_gupy()+buscar_vagas_com_br()+buscar_infojobs()
-todas=remover_duplicatas(vagas_ativas+vagas_novas)
-artigos=carregar_artigos()
-print(f”\n📊 {len(todas)} vagas · {len(artigos)} artigos”)
-with open(CACHE_FILE,“w”,encoding=“utf-8”) as f:json.dump(todas,f,ensure_ascii=False,indent=2)
-with open(“index.html”,“w”,encoding=“utf-8”) as f:f.write(gerar_html(todas,artigos))
-print(f”✅ Site atualizado!”)
 
-if **name**==”**main**”:main()
+def main():
+    print(f"\n🤖 TecVagas v10.1 — {datetime.now().strftime('%d/%m/%Y %H:%M')}")
+    print("="*50)
+    cache=carregar_cache()
+    vagas_ativas=verificar_cache(cache)
+    vagas_novas=buscar_gupy()+buscar_vagas_com_br()+buscar_infojobs()
+    todas=remover_duplicatas(vagas_ativas+vagas_novas)
+    artigos=carregar_artigos()
+    print(f"\n📊 {len(todas)} vagas · {len(artigos)} artigos")
+    with open(CACHE_FILE,"w",encoding="utf-8") as f:json.dump(todas,f,ensure_ascii=False,indent=2)
+    with open("index.html","w",encoding="utf-8") as f:f.write(gerar_html(todas,artigos))
+    print(f"✅ Site atualizado!")
+
+if __name__=="__main__":main()
