@@ -210,7 +210,7 @@
   {
     "titulo": "Técnico(a) de Manutenção Elétrica Jr - Apiaí / SP",
     "empresa": "Empresa",
-    "local": "Nao informado",
+    "local": "Sao Paulo",
     "url": "https://www.vagas.com.br/vagas/v2807107/tecnico-a-de-manutencao-eletrica-jr-apiai-sp",
     "fonte": "vagas.com.br",
     "data": "16/04/2026",
@@ -218,7 +218,8 @@
     "beneficios": [],
     "salario": "A combinar",
     "escala": "CLT",
-    "cidade": ""
+    "cidade": "",
+    "estado": "SP"
   },
   {
     "titulo": "Estágio Manutenção - Elétrica",
@@ -249,7 +250,7 @@
   {
     "titulo": "Técnicode Manutenção Elétrica I | Pedro Leopoldo/MG",
     "empresa": "Empresa",
-    "local": "Nao informado",
+    "local": "Minas Gerais",
     "url": "https://www.vagas.com.br/vagas/v2804828/tecnico-de-manutencao-eletrica-i-pedro-leopoldo-mg",
     "fonte": "vagas.com.br",
     "data": "16/04/2026",
@@ -257,7 +258,8 @@
     "beneficios": [],
     "salario": "A combinar",
     "escala": "CLT",
-    "cidade": ""
+    "cidade": "",
+    "estado": "MG"
   },
   {
     "titulo": "Mecânicode Manutenção Jr",
@@ -1543,9 +1545,9 @@
   {
     "titulo": "Técnico(a) de Manutenção Elétrica Jr - Apiaí / SP",
     "empresa": "InterCement Brasil S.A",
-    "local": "Nao informado",
+    "local": "Sao Paulo",
     "cidade": "",
-    "estado": "",
+    "estado": "SP",
     "url": "https://www.vagas.com.br/vagas/v2807107/tecnico-a-de-manutencao-eletrica-jr-apiai-sp",
     "fonte": "vagas.com.br",
     "data": "17/04/2026",
@@ -1881,9 +1883,9 @@
   {
     "titulo": "Supervisor de Elétrica e Instrumentação(VAGA Extensiva para Pessoas com Deficiênc",
     "empresa": "Concremat",
-    "local": "Nao informado",
+    "local": "Para",
     "cidade": "",
-    "estado": "",
+    "estado": "PA",
     "url": "https://www.vagas.com.br/vagas/v2806752/supervisor-de-eletrica-e-instrumentacao-vaga-extensiva-para-pessoas-com-deficiencia",
     "fonte": "vagas.com.br",
     "data": "17/04/2026",
@@ -1985,9 +1987,9 @@
   {
     "titulo": "Mecânico Industrial | Comodoro/MT",
     "empresa": "AMAGGI",
-    "local": "Nao informado",
+    "local": "Mato Grosso",
     "cidade": "",
-    "estado": "",
+    "estado": "MT",
     "url": "https://www.vagas.com.br/vagas/v2790657/mecanico-industrial-comodoro-mt",
     "fonte": "vagas.com.br",
     "data": "17/04/2026",
@@ -2050,9 +2052,9 @@
   {
     "titulo": "Supervisor(a) de Produção - Moagem | Candeias/BA",
     "empresa": "CSN CIMENTOS",
-    "local": "Nao informado",
+    "local": "Bahia",
     "cidade": "",
-    "estado": "",
+    "estado": "BA",
     "url": "https://www.vagas.com.br/vagas/v2805523/supervisor-a-de-producao-moagem-candeias-ba",
     "fonte": "vagas.com.br",
     "data": "17/04/2026",
@@ -2284,9 +2286,9 @@
   {
     "titulo": "Técnicode Qualidade(m/F) - Indaiatuba/SP",
     "empresa": "Teixeira Duarte",
-    "local": "Nao informado",
+    "local": "Sao Paulo",
     "cidade": "",
-    "estado": "",
+    "estado": "SP",
     "url": "https://www.vagas.com.br/vagas/v2807249/tecnico-de-qualidade-m-f-indaiatuba-sp",
     "fonte": "vagas.com.br",
     "data": "17/04/2026",
@@ -2408,6 +2410,45 @@
     "fonte": "vagas.com.br",
     "data": "17/04/2026",
     "area": "refrigeracao",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Mecânicode Manutenção",
+    "empresa": "Liotécnica Tecnologia em Alimentos SA",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2802397/mecanico-de-manutencao",
+    "fonte": "vagas.com.br",
+    "data": "17/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Especialista Processos Industriais",
+    "empresa": "bp bioenergy",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2808335/especialista-processos-industriais",
+    "fonte": "vagas.com.br",
+    "data": "17/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Líder PCM",
+    "empresa": "AMAGGI",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2808896/lider-pcm",
+    "fonte": "vagas.com.br",
+    "data": "17/04/2026",
+    "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
   }
