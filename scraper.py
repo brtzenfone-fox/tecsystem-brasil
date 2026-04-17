@@ -353,6 +353,7 @@ Use a técnica STAR — Situação, Tarefa, Ação, Resultado. Dê exemplos reai
     },
 ]
 
+
 def detectar_area(texto):
     t=texto.lower()
     if any(p in t for p in ["elétric","eletric","eletrom","painel","subestac","motor","gerador"]):return "eletrica"
@@ -370,6 +371,24 @@ def detectar_estado(texto):
 
 def titulo_valido(titulo):
     return not any(p in titulo.lower() for p in PALAVRAS_DESCARTAR)
+
+
+def normalizar_titulo(titulo):
+    """Corrige títulos colados vindos das fontes (ex: TécnicoManutençãoElétrica)."""
+    # Insere espaço entre minúscula e maiúscula coladas
+    titulo = re.sub(r'([a-záéíóúàãõâêîôûç])([A-ZÁÉÍÓÚÀÃÕÂÊÎÔÛÇ])', r'\1 \2', titulo)
+    # Insere espaço entre letra e número colados
+    titulo = re.sub(r'([a-zA-ZáéíóúàãõâêîôûçÁÉÍÓÚÀÃÕÂÊÎÔÛÇ])(\d)', r'\1 \2', titulo)
+    titulo = re.sub(r'(\d)([a-zA-ZáéíóúàãõâêîôûçÁÉÍÓÚÀÃÕÂÊÎÔÛÇ])', r'\1 \2', titulo)
+    # Corrige sufixos de nível colados
+    for sufixo in ['Jr', 'Sr', 'Pleno', 'Junior', 'Senior', 'Sênior', 'Trainee', 'Júnior']:
+        titulo = re.sub(rf'(?<=[a-záéíóúàãõâêîôûç])({sufixo})\b', rf' \1', titulo)
+    # Normaliza hífens
+    titulo = re.sub(r'\s*-\s*', ' - ', titulo)
+    # Remove espaços duplos
+    titulo = re.sub(r'\s+', ' ', titulo)
+    return titulo.strip()
+
 
 def icone_benef(b):
     bl=b.lower()
@@ -399,6 +418,7 @@ def formatar_conteudo(texto):
             html += f'<p style="margin:8px 0">{linha}</p>'
     return html
 
+
 def buscar_gupy():
     vagas=[]
     print("🔍 Buscando no Gupy...")
@@ -410,7 +430,7 @@ def buscar_gupy():
             for job in resp.json().get("data",[]):
                 pub=str(job.get("publishedDate","") or job.get("createdAt",""))
                 if ANO_ATUAL not in pub:continue
-                titulo=job.get("name","")[:80]
+                titulo=normalizar_titulo(job.get("name","")[:80])
                 if not titulo_valido(titulo):continue
                 local=f"{job.get('city','Brasil')}, {job.get('state','')}"
                 benef=[]
@@ -425,6 +445,7 @@ def buscar_gupy():
         except Exception as e:print(f"  ⚠️ Gupy: {e}")
     print(f"  ✅ Gupy: {len(vagas)} vagas")
     return vagas
+
 
 def buscar_vagas_com_br():
     vagas=[]
@@ -444,7 +465,7 @@ def buscar_vagas_com_br():
                 le=card.find("span",class_="local")
                 de=card.find("span",class_="data-publicacao") or card.find("time")
                 if not te:continue
-                titulo=te.get_text(strip=True)[:80]
+                titulo=normalizar_titulo(te.get_text(strip=True)[:80])
                 if not titulo_valido(titulo):continue
                 dt=de.get_text(strip=True) if de else ""
                 if "2025" in dt or "2024" in dt:continue
@@ -459,6 +480,7 @@ def buscar_vagas_com_br():
     print(f"  ✅ vagas.com.br: {len(vagas)} vagas")
     return vagas
 
+
 def buscar_infojobs():
     vagas=[]
     print("🔍 Buscando no InfoJobs...")
@@ -472,7 +494,7 @@ def buscar_infojobs():
                 ee=card.find("span",class_="ij-offercard-company")
                 le=card.find("span",class_="ij-offercard-location")
                 if not te:continue
-                titulo=te.get_text(strip=True)[:80]
+                titulo=normalizar_titulo(te.get_text(strip=True)[:80])
                 if not titulo_valido(titulo):continue
                 local=le.get_text(strip=True)[:40] if le else "Brasil"
                 vagas.append({"titulo":titulo,"empresa":ee.get_text(strip=True)[:50] if ee else "Empresa",
@@ -483,6 +505,7 @@ def buscar_infojobs():
         except Exception as e:print(f"  ⚠️ InfoJobs: {e}")
     print(f"  ✅ InfoJobs: {len(vagas)} vagas")
     return vagas
+
 
 def verificar_cache(cache):
     if not cache:return []
@@ -503,6 +526,7 @@ def verificar_cache(cache):
     print(f"  ✅ {len(ativas)} vagas ativas")
     return ativas
 
+
 def remover_duplicatas(vagas):
     vistas=set();unicas=[]
     for v in vagas:
@@ -510,10 +534,12 @@ def remover_duplicatas(vagas):
             vistas.add(v["url"]);unicas.append(v)
     return unicas
 
+
 def carregar_cache():
     try:
         with open(CACHE_FILE,"r",encoding="utf-8") as f:return json.load(f)
     except:return []
+
 
 def carregar_artigos():
     """Carrega artigos. Se vier do RSS com URL real, usa. Senão, usa banco completo."""
@@ -539,6 +565,7 @@ def carregar_artigos():
 
     return artigos_finais[:6]
 
+
 AREA_CONFIG = {
     "eletrica":     {"cls":"tag-el","label":"Elétrica","ico":"⚡","cor":"#3b82f6"},
     "mecanica":     {"cls":"tag-me","label":"Mecânica","ico":"🔩","cor":"#22c55e"},
@@ -547,6 +574,7 @@ AREA_CONFIG = {
     "seguranca":    {"cls":"tag-se","label":"Segurança","ico":"🦺","cor":"#14b8a6"},
     "refrigeracao": {"cls":"tag-rf","label":"Refrigeração","ico":"❄️","cor":"#60a5fa"},
 }
+
 
 def gerar_card_vaga(v, idx=0):
     area=v.get("area","mecanica")
@@ -570,7 +598,7 @@ def gerar_card_vaga(v, idx=0):
         <h3 class="card-title">{v['titulo']}</h3>
         <div class="card-company">{v['empresa']}</div>
       </div>
-      <div class="card-badge-verified">✓ Verificada</div>
+      <div class="card-badge-verified">🔗 Link ativo</div>
     </div>
     <div class="card-info-row">
       <span class="info-chip">📍 {v['local']}</span>
@@ -585,6 +613,7 @@ def gerar_card_vaga(v, idx=0):
     </div>
   </div>
 </article>"""
+
 
 def gerar_card_artigo(a, idx=0):
     """Gera card de artigo que abre modal com conteúdo completo."""
@@ -617,11 +646,13 @@ def gerar_card_artigo(a, idx=0):
   </div>
 </div>"""
 
+
 def gerar_opts_estados(vagas):
     usados=sorted(set(v.get("estado","BR") for v in vagas if v.get("estado")!="BR"))
     opts='<option value="todos">Todos os estados</option>'
     for s in usados:opts+=f'<option value="{s}">{s} — {ESTADOS.get(s,s)}</option>'
     return opts
+
 
 def gerar_html(vagas, artigos):
     agora=datetime.now().strftime("%d/%m/%Y às %H:%M")
@@ -663,13 +694,58 @@ nav{{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.9);backdrop-fi
 .nav-right{{display:flex;align-items:center;gap:10px}}
 #nav-clock{{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}}
 .nav-badge{{font-size:11px;font-weight:600;background:rgba(249,115,22,.12);color:var(--orange);border:1px solid rgba(249,115,22,.2);padding:3px 10px;border-radius:20px}}
-.hero{{position:relative;overflow:hidden;padding:64px 20px 48px;text-align:center}}
-.hero-grid{{position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.04) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 20%,transparent 100%)}}
-.hero-glow{{position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(249,115,22,.06) 0%,transparent 70%);pointer-events:none}}
-.hero-eyebrow{{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);padding:5px 14px;border-radius:20px;margin-bottom:20px}}
-.hero h1{{font-family:'Syne',sans-serif;font-size:clamp(26px,5.5vw,50px);font-weight:800;line-height:1.1;letter-spacing:-1px;margin-bottom:18px;max-width:600px;margin-left:auto;margin-right:auto}}
-.hero h1 .accent{{background:linear-gradient(135deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
-.hero-sub{{font-size:15px;color:var(--muted2);font-weight:300;max-width:460px;margin:0 auto 32px;line-height:1.7}}
+.hero{{
+  position:relative;overflow:hidden;
+  padding:96px 24px 80px;
+  text-align:center;
+  background:var(--bg);
+}}
+.hero-grid{{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 100% 80% at 50% 0%,black 0%,transparent 70%);
+}}
+.hero-glow{{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:100%;height:360px;
+  background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(249,115,22,.07) 0%,transparent 100%);
+  pointer-events:none;
+}}
+.hero-eyebrow{{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:500;letter-spacing:.5px;
+  color:var(--orange);
+  margin-bottom:20px;
+}}
+.hero h1{{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(36px,9vw,72px);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-2.5px;
+  color:#ffffff;
+  margin-bottom:20px;
+  max-width:700px;
+  margin-left:auto;margin-right:auto;
+}}
+.hero h1 .accent{{
+  background:linear-gradient(90deg,var(--orange),#ff9a3c);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}}
+.hero-sub{{
+  font-size:17px;
+  color:rgba(255,255,255,.45);
+  font-weight:400;
+  max-width:420px;
+  margin:0 auto;
+  line-height:1.65;
+  letter-spacing:-.1px;
+}}
 .hero-ctas{{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}}
 .btn-hero{{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;padding:11px 22px;border-radius:var(--r2);text-decoration:none;border:none;cursor:pointer;transition:all .2s}}
 .btn-primary{{background:var(--orange);color:white}}
@@ -757,6 +833,10 @@ nav{{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.9);backdrop-fi
 .btn-ver{{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:white;background:var(--orange);padding:6px 14px;border-radius:var(--r2);text-decoration:none;transition:all .2s;margin-left:auto}}
 .btn-ver:hover{{background:#ea6c0a}}
 .empty-state{{text-align:center;padding:48px 20px;display:none}}
+/* Modo busca: esconde calculadoras, artigos e newsletter */
+.page[data-searching] .calc-section,
+.page[data-searching] .articles-section,
+.page[data-searching] .newsletter{{display:none!important}}
 .empty-icon{{font-size:44px;margin-bottom:14px;opacity:.4}}
 .empty-title{{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:8px}}
 .empty-text{{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:18px}}
@@ -806,9 +886,9 @@ footer{{border-top:1px solid var(--border);padding:24px 20px;text-align:center}}
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
-  <div class="hero-eyebrow">🇧🇷 Plataforma de vagas técnicas industriais</div>
-  <h1>As melhores vagas para <span class="accent">técnicos industriais</span> do Brasil, em um só lugar.</h1>
-  <p class="hero-sub">Elétrica · Mecânica · Automação · Refrigeração · PLC · SCADA · HVAC · Instrumentação e mais. Vagas verificadas, atualizadas 5x por dia.</p>
+  <div class="hero-eyebrow">🇧🇷 Vagas para técnicos industriais · 2026</div>
+  <h1>As melhores vagas<br>para <span class="accent">técnicos industriais</span><br>do Brasil.</h1>
+  <p class="hero-sub">Elétrica · Mecânica · Automação · Refrigeração<br>Vagas verificadas, atualizadas 5× por dia.</p>
 </section>
 
 <div class="metrics">
@@ -846,6 +926,7 @@ footer{{border-top:1px solid var(--border);padding:24px 20px;text-align:center}}
 
 <div class="page">
 
+  <div class="calc-section">
   <div class="sec-hdr"><div class="sec-title">🧮 Calculadoras Trabalhistas</div></div>
   <div class="calc-grid">
     <button class="calc-item" onclick="openModal('m-sal')"><div class="calc-emoji">💰</div><div><div class="calc-name">Salário Líquido</div><div class="calc-hint">INSS + IRRF 2026</div></div></button>
@@ -857,8 +938,12 @@ footer{{border-top:1px solid var(--border);padding:24px 20px;text-align:center}}
     <button class="calc-item" onclick="openModal('m-dec')"><div class="calc-emoji">🎄</div><div><div class="calc-name">13º Salário</div><div class="calc-hint">Proporcional ou cheio</div></div></button>
   </div>
 
+  </div><!-- /calc-section -->
+
+  <div class="articles-section">
   <div class="sec-hdr"><div class="sec-title">📰 Para Técnicos</div><span class="sec-count">{len(artigos)} artigos</span></div>
   <div class="articles-grid">{cards_artigos}</div>
+  </div><!-- /articles-section -->
 
   <div class="newsletter">
     <div class="nl-title">📧 Receba <span>vagas</span> no seu email</div>
@@ -1005,19 +1090,16 @@ function fX(v){{_x=v;render();}}
 function buscar(v){{
   _b=v.toLowerCase().trim();
   const hasSearch=_b.length>0;
-  // Quando há busca, esconde tudo exceto as vagas
-  document.querySelector('.calc-grid').parentElement.style.display=hasSearch?'none':'block';
-  document.querySelector('.articles-grid').parentElement.style.display=hasSearch?'none':'block';
-  document.querySelector('.newsletter').style.display=hasSearch?'none':'block';
-  // Scroll para vagas se começou a digitar
-  if(hasSearch) document.getElementById('vagas').scrollIntoView({{behavior:'smooth',block:'start'}});
+  const page=document.querySelector('.page');
+  if(hasSearch){{
+    page.setAttribute('data-searching','1');
+  }} else {{
+    page.removeAttribute('data-searching');
+  }}
   render();
 }}
 function resetF(){{_a='todas';_e='todos';_x='todas';_b='';document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));document.querySelector('.chip').classList.add('active');document.getElementById('s-inp').value='';document.querySelectorAll('.f-sel').forEach(s=>s.selectedIndex=0);
-  // Mostra tudo de volta
-  document.querySelector('.calc-grid').parentElement.style.display='block';
-  document.querySelector('.articles-grid').parentElement.style.display='block';
-  document.querySelector('.newsletter').style.display='block';
+  document.querySelector('.page').removeAttribute('data-searching');
   render();
 }}
 function render(){{let n=0;document.querySelectorAll('#jl .job-card').forEach(c=>{{const ok=(_a==='todas'||c.dataset.area===_a)&&(_e==='todos'||c.dataset.estado===_e)&&(_x==='todas'||c.dataset.esp.includes(_x))&&(_b===''||c.dataset.busca.includes(_b));c.style.display=ok?'block':'none';if(ok)n++;}});document.getElementById('vc').textContent=n+' vagas';document.getElementById('m-vagas').textContent=n;document.getElementById('es').style.display=n===0?'block':'none';document.getElementById('jl').style.display=n===0?'none':'flex';}}
@@ -1045,6 +1127,7 @@ function cD(){{const b=G('d1'),m=GI('d2')||12;if(!b){{SH('d-r',0);return;}}const
 </script>
 </body>
 </html>"""
+
 
 def main():
     print(f"\n🤖 TecSystem Brasil v10.1 — {datetime.now().strftime('%d/%m/%Y %H:%M')}")
