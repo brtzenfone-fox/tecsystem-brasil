@@ -1,16 +1,5 @@
 [
   {
-    "titulo": "NR12, NR33 e NR35: quais certificações valem mais?",
-    "resumo": "Cada NR pode adicionar R$ 200 a R$ 500 ao salário. Descubra quais são essenciais para sua área.",
-    "conteudo": "As Normas Regulamentadoras são fundamentais para a carreira técnica industrial.\n\n**NR12 — Segurança em Máquinas**\n• Duração: 8 a 16 horas\n• Impacto salarial: +R$ 150 a R$ 300/mês\n• Muito exigida em: metalurgia, plásticos, alimentício\n\n**NR33 — Espaços Confinados**\n• Duração: 16 horas\n• Impacto salarial: +R$ 200 a R$ 400/mês\n• Validade: 1 ano\n• Exigida em: refinarias, usinas, química\n\n**NR35 — Trabalho em Altura**\n• Duração: 8 horas\n• Impacto salarial: +R$ 150 a R$ 300/mês\n• Validade: 2 anos\n• Exigida em quase toda indústria\n\n**Ranking de valor:**\n1. NR10 — maior impacto (+20%)\n2. NR33 — rara e valorizada\n3. NR35 — exigida em quase tudo\n4. NR12 — importante para manufatura",
-    "categoria": "Certificações",
-    "icone": "🦺",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "18/04/2026",
-    "origem": "reserva"
-  },
-  {
     "titulo": "Robótica industrial criou mais empregos do que eliminou no Brasil",
     "resumo": "Estudo da FGV mostra que para cada robô instalado na indústria brasileira, surgem 3,2 novos postos de trabalho técnico especializado.",
     "conteudo": "Um estudo inédito da FGV Ibre publicado em 2026 desafia o senso comum sobre automação e desemprego na indústria brasileira.\n\n**O que o estudo descobriu:**\nPara cada robô ou sistema automatizado instalado em uma fábrica brasileira, são criados em média 3,2 novos postos de trabalho técnico especializado.\n\n**Por que isso acontece?**\n• Cada robô precisa de técnico para programar, calibrar e manter\n• Sistemas automatizados geram mais produção, exigindo mais supervisão técnica\n• A complexidade dos equipamentos aumenta a necessidade de especialistas\n• Surgem novas funções que não existiam antes: técnico em cobot, analista de falhas preditivas\n\n**Os setores que mais geraram empregos técnicos com automação:**\n1. Automotivo: +12.000 técnicos em 5 anos\n2. Agronegócio industrial: +8.500 técnicos\n3. Alimentos e bebidas: +7.200 técnicos\n4. Papel e celulose: +4.800 técnicos\n5. Petroquímica: +4.200 técnicos\n\n**A mensagem para técnicos industriais:**\nNão tema a automação. Prepare-se para ela. O técnico que abraça as novas tecnologias se torna indispensável. O que resiste à mudança fica para trás.\n\nA Indústria 4.0 não está eliminando técnicos — está selecionando os melhores.",
@@ -18,7 +7,7 @@
     "icone": "🦾",
     "fonte": "TecVagas",
     "url": "#",
-    "data": "18/04/2026",
+    "data": "19/04/2026",
     "origem": "reserva"
   },
   {
@@ -29,7 +18,7 @@
     "icone": "🤖",
     "fonte": "TecVagas",
     "url": "#",
-    "data": "18/04/2026",
+    "data": "19/04/2026",
     "origem": "reserva"
   },
   {
@@ -38,6 +27,28 @@
     "conteudo": "A onda de automação e inteligência artificial que está transformando o mercado de trabalho global tem um ponto cego: o trabalho físico especializado.\n\n**O paradoxo da robótica:**\nRobôs são excelentes em tarefas repetitivas em ambientes controlados. Mas o ambiente industrial real é caótico, imprevisível e cheio de variáveis.\n\nUm técnico de manutenção enfrenta diariamente situações que nenhuma IA foi programada para resolver: um vazamento em um local de difícil acesso, um ruído estranho em um equipamento, uma vibração que indica desgaste antes que qualquer sensor detecte.\n\n**Profissões técnicas mais seguras segundo pesquisadores:**\n\n🔧 **Técnico em Manutenção Industrial**\nNível de risco de automação: 2% (McKinsey, 2024)\nMotivo: trabalho físico complexo, diagnóstico situacional, ambiente variável\n\n⚡ **Técnico Eletricista Industrial**\nNível de risco: 3%\nMotivo: alta variabilidade, risco elétrico exige julgamento humano\n\n❄️ **Técnico em Refrigeração/HVAC**\nNível de risco: 4%\nMotivo: instalações únicas, diagnóstico em campo, habilidade manual\n\n🤖 **Técnico em Automação/PLC**\nNível de risco: 1%\nMotivo: quem programa e mantém os robôs?\n\n🔩 **Soldador Industrial**\nNível de risco: 15%\nMotivo: soldagem em locais específicos ainda resiste; soldagem em linha de produção tem maior risco\n\n**O que fazer para se proteger:**\n1. Especialize-se em equipamentos de alta complexidade\n2. Aprenda a interpretar dados de sistemas de monitoramento\n3. Adicione certificações NR ao seu currículo\n4. Desenvolva habilidade em manutenção preditiva\n\nO técnico industrial do futuro não compete com a IA — ele a opera, a programa e a mantém funcionando.",
     "categoria": "IA & Futuro",
     "icone": "🛡️",
+    "fonte": "TecVagas",
+    "url": "#",
+    "data": "19/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "Indústria 4.0 criou 40% mais vagas para técnicos no Brasil",
+    "resumo": "Contra o senso comum, a digitalização das fábricas brasileiras está aumentando — não diminuindo — a demanda por técnicos industriais especializados.",
+    "conteudo": "Um levantamento do SENAI divulgado em 2026 revelou um dado que surpreende: nas empresas brasileiras que adotaram tecnologias da Indústria 4.0, a contratação de técnicos industriais cresceu 40% nos últimos 3 anos.\n\n**Por que isso acontece?**\n\nEquipamentos mais sofisticados precisam de manutenção mais especializada. Uma linha de produção com robôs, sensores IoT e sistemas SCADA gera muito mais demanda por técnicos qualificados do que uma linha manual.\n\n**Os novos perfis mais demandados:**\n\n📡 **Técnico em IIoT (Internet of Things Industrial)**\nSalário médio: R$ 5.500 a R$ 8.000\nFunção: instalar, configurar e manter sensores e dispositivos conectados\n\n🖥️ **Técnico em SCADA e Automação**\nSalário médio: R$ 5.000 a R$ 9.000\nFunção: programar e manter sistemas de supervisão e controle\n\n📊 **Técnico em Manutenção Preditiva**\nSalário médio: R$ 4.500 a R$ 7.500\nFunção: analisar dados de vibração, temperatura e análise de óleo\n\n🔌 **Técnico em Eficiência Energética**\nSalário médio: R$ 4.000 a R$ 6.500\nFunção: auditar e otimizar consumo energético industrial\n\n**Setores que mais crescem:**\n1. Montadoras automotivas (+55% de técnicos)\n2. Papel e celulose (+48%)\n3. Petroquímica (+43%)\n4. Alimentos e bebidas (+38%)\n5. Mineração (+35%)\n\n**O recado é claro:** técnicos que se atualizam com tecnologia têm mais oportunidades, não menos. A Indústria 4.0 é aliada do técnico qualificado.",
+    "categoria": "Mercado",
+    "icone": "📈",
+    "fonte": "TecVagas",
+    "url": "#",
+    "data": "19/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "NR12, NR33 e NR35: quais certificações valem mais?",
+    "resumo": "Cada NR pode adicionar R$ 200 a R$ 500 ao salário. Descubra quais são essenciais para sua área.",
+    "conteudo": "As Normas Regulamentadoras são fundamentais para a carreira técnica industrial.\n\n**NR12 — Segurança em Máquinas**\n• Duração: 8 a 16 horas\n• Impacto salarial: +R$ 150 a R$ 300/mês\n• Muito exigida em: metalurgia, plásticos, alimentício\n\n**NR33 — Espaços Confinados**\n• Duração: 16 horas\n• Impacto salarial: +R$ 200 a R$ 400/mês\n• Validade: 1 ano\n• Exigida em: refinarias, usinas, química\n\n**NR35 — Trabalho em Altura**\n• Duração: 8 horas\n• Impacto salarial: +R$ 150 a R$ 300/mês\n• Validade: 2 anos\n• Exigida em quase toda indústria\n\n**Ranking de valor:**\n1. NR10 — maior impacto (+20%)\n2. NR33 — rara e valorizada\n3. NR35 — exigida em quase tudo\n4. NR12 — importante para manufatura",
+    "categoria": "Certificações",
+    "icone": "🦺",
     "fonte": "TecVagas",
     "url": "#",
     "data": "18/04/2026",
