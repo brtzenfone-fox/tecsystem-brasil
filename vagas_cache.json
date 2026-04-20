@@ -2841,5 +2841,31 @@
     "area": "eletrica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Segurançado Trabalho",
+    "empresa": "JOBCENTER DO BRASIL LTDA",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2794778/tecnico-de-seguranca-do-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "20/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico(a) de Qualidade Mecânico(a)",
+    "empresa": "Grupo Nortearh",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2808998/tecnico-a-de-qualidade-mecanico-a",
+    "fonte": "vagas.com.br",
+    "data": "20/04/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
