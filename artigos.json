@@ -1,16 +1,5 @@
 [
   {
-    "titulo": "Robótica industrial criou mais empregos do que eliminou no Brasil",
-    "resumo": "Estudo da FGV mostra que para cada robô instalado na indústria brasileira, surgem 3,2 novos postos de trabalho técnico especializado.",
-    "conteudo": "Um estudo inédito da FGV Ibre publicado em 2026 desafia o senso comum sobre automação e desemprego na indústria brasileira.\n\n**O que o estudo descobriu:**\nPara cada robô ou sistema automatizado instalado em uma fábrica brasileira, são criados em média 3,2 novos postos de trabalho técnico especializado.\n\n**Por que isso acontece?**\n• Cada robô precisa de técnico para programar, calibrar e manter\n• Sistemas automatizados geram mais produção, exigindo mais supervisão técnica\n• A complexidade dos equipamentos aumenta a necessidade de especialistas\n• Surgem novas funções que não existiam antes: técnico em cobot, analista de falhas preditivas\n\n**Os setores que mais geraram empregos técnicos com automação:**\n1. Automotivo: +12.000 técnicos em 5 anos\n2. Agronegócio industrial: +8.500 técnicos\n3. Alimentos e bebidas: +7.200 técnicos\n4. Papel e celulose: +4.800 técnicos\n5. Petroquímica: +4.200 técnicos\n\n**A mensagem para técnicos industriais:**\nNão tema a automação. Prepare-se para ela. O técnico que abraça as novas tecnologias se torna indispensável. O que resiste à mudança fica para trás.\n\nA Indústria 4.0 não está eliminando técnicos — está selecionando os melhores.",
-    "categoria": "IA & Futuro",
-    "icone": "🦾",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "19/04/2026",
-    "origem": "reserva"
-  },
-  {
     "titulo": "A IA vai acabar com o emprego de técnicos industriais?",
     "resumo": "A inteligência artificial está transformando a indústria, mas os dados mostram que técnicos industriais são dos profissionais mais resistentes à automação.",
     "conteudo": "A pergunta que mais assusta trabalhadores da indústria em 2026: a inteligência artificial vai tirar meu emprego?\n\nA resposta curta é: não para técnicos industriais. E os dados comprovam isso.\n\n**Por que técnicos industriais são difíceis de substituir?**\n\nA automação e a IA funcionam muito bem para tarefas repetitivas, previsíveis e que podem ser digitalizadas. O trabalho de um técnico industrial é exatamente o oposto disso.\n\nQuando uma bomba quebra às 3h da manhã em uma refinaria, não é um algoritmo que vai lá trocar o selo mecânico. Quando um CLP apresenta falha intermitente, não é uma tela que vai rastrear o problema no campo. Isso requer um técnico experiente, com ferramentas na mão.\n\n**O que a indústria 4.0 realmente faz:**\n• Cria mais dados para técnicos analisarem\n• Exige técnicos que saibam operar sistemas de monitoramento\n• Aumenta a complexidade dos equipamentos — e a necessidade de manutenção especializada\n• Cria novas especialidades: técnico em IoT industrial, analista de vibração, especialista em manutenção preditiva\n\n**Os números:**\nSegundo o Fórum Econômico Mundial, 85 milhões de empregos serão substituídos pela automação até 2025, mas 97 milhões de novos empregos surgirão. Grande parte desses novos empregos será em manutenção e operação de sistemas automatizados.\n\nNo Brasil, o déficit de técnicos industriais qualificados já chega a 400 mil profissionais, segundo o SENAI. A automação está criando demanda, não reduzindo.\n\n**Conclusão:**\nO técnico que aprender a trabalhar com as novas tecnologias — PLC, sensores IoT, análise de dados de manutenção — não apenas manterá seu emprego, mas terá o salário multiplicado. A IA é ferramenta do técnico, não seu substituto.",
@@ -18,7 +7,7 @@
     "icone": "🤖",
     "fonte": "TecVagas",
     "url": "#",
-    "data": "19/04/2026",
+    "data": "20/04/2026",
     "origem": "reserva"
   },
   {
@@ -29,7 +18,7 @@
     "icone": "🛡️",
     "fonte": "TecVagas",
     "url": "#",
-    "data": "19/04/2026",
+    "data": "20/04/2026",
     "origem": "reserva"
   },
   {
@@ -38,6 +27,28 @@
     "conteudo": "Um levantamento do SENAI divulgado em 2026 revelou um dado que surpreende: nas empresas brasileiras que adotaram tecnologias da Indústria 4.0, a contratação de técnicos industriais cresceu 40% nos últimos 3 anos.\n\n**Por que isso acontece?**\n\nEquipamentos mais sofisticados precisam de manutenção mais especializada. Uma linha de produção com robôs, sensores IoT e sistemas SCADA gera muito mais demanda por técnicos qualificados do que uma linha manual.\n\n**Os novos perfis mais demandados:**\n\n📡 **Técnico em IIoT (Internet of Things Industrial)**\nSalário médio: R$ 5.500 a R$ 8.000\nFunção: instalar, configurar e manter sensores e dispositivos conectados\n\n🖥️ **Técnico em SCADA e Automação**\nSalário médio: R$ 5.000 a R$ 9.000\nFunção: programar e manter sistemas de supervisão e controle\n\n📊 **Técnico em Manutenção Preditiva**\nSalário médio: R$ 4.500 a R$ 7.500\nFunção: analisar dados de vibração, temperatura e análise de óleo\n\n🔌 **Técnico em Eficiência Energética**\nSalário médio: R$ 4.000 a R$ 6.500\nFunção: auditar e otimizar consumo energético industrial\n\n**Setores que mais crescem:**\n1. Montadoras automotivas (+55% de técnicos)\n2. Papel e celulose (+48%)\n3. Petroquímica (+43%)\n4. Alimentos e bebidas (+38%)\n5. Mineração (+35%)\n\n**O recado é claro:** técnicos que se atualizam com tecnologia têm mais oportunidades, não menos. A Indústria 4.0 é aliada do técnico qualificado.",
     "categoria": "Mercado",
     "icone": "📈",
+    "fonte": "TecVagas",
+    "url": "#",
+    "data": "20/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "Quanto ganha um Técnico em Manutenção Elétrica em 2026?",
+    "resumo": "Salários variam de R$ 2.800 a R$ 6.500. Certificações como NR10 e NR35 podem aumentar em até 30%.",
+    "conteudo": "O técnico em manutenção elétrica é um dos profissionais mais requisitados na indústria brasileira em 2026.\n\n**Faixa salarial por nível:**\n• Júnior (0-2 anos): R$ 2.800 a R$ 3.500\n• Pleno (2-5 anos): R$ 3.500 a R$ 5.000\n• Sênior (5+ anos): R$ 5.000 a R$ 6.500\n• Especialista: até R$ 8.000\n\n**Por estado:**\n• São Paulo: R$ 3.200 a R$ 6.500\n• Rio de Janeiro: R$ 3.000 a R$ 6.000\n• Minas Gerais: R$ 2.800 a R$ 5.500\n• Paraná / Santa Catarina: R$ 3.000 a R$ 5.800\n• Bahia (polo petroquímico): R$ 3.500 a R$ 7.000\n• Pará (mineração): R$ 3.800 a R$ 7.500\n\n**O que aumenta o salário:**\n• NR10 atualizado: +15 a 25%\n• NR35 (trabalho em altura): +10%\n• Periculosidade (eletricidade): +30% sobre o salário\n• Insalubridade: +10 a 40% sobre o salário mínimo\n• Turno noturno: +20% adicional\n\n**Setores que pagam mais:**\n1. Petróleo e Gás (Petrobras, Shell, Equinor)\n2. Mineração (Vale, Anglo American)\n3. Automotivo (Toyota, Volkswagen, Fiat)\n4. Papel e Celulose (Suzano, Klabin)\n5. Alimentos e Bebidas (Ambev, JBS, BRF)",
+    "categoria": "Salários",
+    "icone": "⚡",
+    "fonte": "TecVagas",
+    "url": "#",
+    "data": "20/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "Robótica industrial criou mais empregos do que eliminou no Brasil",
+    "resumo": "Estudo da FGV mostra que para cada robô instalado na indústria brasileira, surgem 3,2 novos postos de trabalho técnico especializado.",
+    "conteudo": "Um estudo inédito da FGV Ibre publicado em 2026 desafia o senso comum sobre automação e desemprego na indústria brasileira.\n\n**O que o estudo descobriu:**\nPara cada robô ou sistema automatizado instalado em uma fábrica brasileira, são criados em média 3,2 novos postos de trabalho técnico especializado.\n\n**Por que isso acontece?**\n• Cada robô precisa de técnico para programar, calibrar e manter\n• Sistemas automatizados geram mais produção, exigindo mais supervisão técnica\n• A complexidade dos equipamentos aumenta a necessidade de especialistas\n• Surgem novas funções que não existiam antes: técnico em cobot, analista de falhas preditivas\n\n**Os setores que mais geraram empregos técnicos com automação:**\n1. Automotivo: +12.000 técnicos em 5 anos\n2. Agronegócio industrial: +8.500 técnicos\n3. Alimentos e bebidas: +7.200 técnicos\n4. Papel e celulose: +4.800 técnicos\n5. Petroquímica: +4.200 técnicos\n\n**A mensagem para técnicos industriais:**\nNão tema a automação. Prepare-se para ela. O técnico que abraça as novas tecnologias se torna indispensável. O que resiste à mudança fica para trás.\n\nA Indústria 4.0 não está eliminando técnicos — está selecionando os melhores.",
+    "categoria": "IA & Futuro",
+    "icone": "🦾",
     "fonte": "TecVagas",
     "url": "#",
     "data": "19/04/2026",

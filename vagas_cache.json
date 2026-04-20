@@ -2867,5 +2867,57 @@
     "area": "qualidade",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Eletricista (Eletroténico)",
+    "empresa": "TIVIT",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2809111/eletricista-eletrotenico",
+    "fonte": "vagas.com.br",
+    "data": "20/04/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico Eletrotécnica Sênior (VAGA Extensiva para Pessoas com Deficiência)",
+    "empresa": "Concremat",
+    "local": "Para",
+    "cidade": "",
+    "estado": "PA",
+    "url": "https://www.vagas.com.br/vagas/v2790794/tecnico-eletrotecnica-senior-vaga-extensiva-para-pessoas-com-deficiencia",
+    "fonte": "vagas.com.br",
+    "data": "20/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicoem Manutenção Eletromecânica Pleno",
+    "empresa": "Grupo Nortearh",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2809082/tecnico-em-manutencao-eletromecanica-pleno",
+    "fonte": "vagas.com.br",
+    "data": "20/04/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Telecomunicações",
+    "empresa": "TIVIT",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2809114/tecnico-de-telecomunicacoes",
+    "fonte": "vagas.com.br",
+    "data": "20/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
