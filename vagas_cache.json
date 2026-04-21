@@ -2932,5 +2932,31 @@
     "area": "refrigeracao",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Segurançado Trabalho",
+    "empresa": "Chammas",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2803302/tecnico-de-seguranca-do-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "21/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Eletromecanico I",
+    "empresa": "Grupo Bimbo",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2809211/eletromecanico-i",
+    "fonte": "vagas.com.br",
+    "data": "21/04/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
