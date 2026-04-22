@@ -1,16 +1,5 @@
 [
   {
-    "titulo": "Empregos manuais que a IA nunca vai substituir",
-    "resumo": "Especialistas apontam que profissões com trabalho físico complexo, raciocínio situacional e adaptabilidade são as mais seguras diante da automação.",
-    "conteudo": "A onda de automação e inteligência artificial que está transformando o mercado de trabalho global tem um ponto cego: o trabalho físico especializado.\n\n**O paradoxo da robótica:**\nRobôs são excelentes em tarefas repetitivas em ambientes controlados. Mas o ambiente industrial real é caótico, imprevisível e cheio de variáveis.\n\nUm técnico de manutenção enfrenta diariamente situações que nenhuma IA foi programada para resolver: um vazamento em um local de difícil acesso, um ruído estranho em um equipamento, uma vibração que indica desgaste antes que qualquer sensor detecte.\n\n**Profissões técnicas mais seguras segundo pesquisadores:**\n\n🔧 **Técnico em Manutenção Industrial**\nNível de risco de automação: 2% (McKinsey, 2024)\nMotivo: trabalho físico complexo, diagnóstico situacional, ambiente variável\n\n⚡ **Técnico Eletricista Industrial**\nNível de risco: 3%\nMotivo: alta variabilidade, risco elétrico exige julgamento humano\n\n❄️ **Técnico em Refrigeração/HVAC**\nNível de risco: 4%\nMotivo: instalações únicas, diagnóstico em campo, habilidade manual\n\n🤖 **Técnico em Automação/PLC**\nNível de risco: 1%\nMotivo: quem programa e mantém os robôs?\n\n🔩 **Soldador Industrial**\nNível de risco: 15%\nMotivo: soldagem em locais específicos ainda resiste; soldagem em linha de produção tem maior risco\n\n**O que fazer para se proteger:**\n1. Especialize-se em equipamentos de alta complexidade\n2. Aprenda a interpretar dados de sistemas de monitoramento\n3. Adicione certificações NR ao seu currículo\n4. Desenvolva habilidade em manutenção preditiva\n\nO técnico industrial do futuro não compete com a IA — ele a opera, a programa e a mantém funcionando.",
-    "categoria": "IA & Futuro",
-    "icone": "🛡️",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "21/04/2026",
-    "origem": "reserva"
-  },
-  {
     "titulo": "Indústria 4.0 criou 40% mais vagas para técnicos no Brasil",
     "resumo": "Contra o senso comum, a digitalização das fábricas brasileiras está aumentando — não diminuindo — a demanda por técnicos industriais especializados.",
     "conteudo": "Um levantamento do SENAI divulgado em 2026 revelou um dado que surpreende: nas empresas brasileiras que adotaram tecnologias da Indústria 4.0, a contratação de técnicos industriais cresceu 40% nos últimos 3 anos.\n\n**Por que isso acontece?**\n\nEquipamentos mais sofisticados precisam de manutenção mais especializada. Uma linha de produção com robôs, sensores IoT e sistemas SCADA gera muito mais demanda por técnicos qualificados do que uma linha manual.\n\n**Os novos perfis mais demandados:**\n\n📡 **Técnico em IIoT (Internet of Things Industrial)**\nSalário médio: R$ 5.500 a R$ 8.000\nFunção: instalar, configurar e manter sensores e dispositivos conectados\n\n🖥️ **Técnico em SCADA e Automação**\nSalário médio: R$ 5.000 a R$ 9.000\nFunção: programar e manter sistemas de supervisão e controle\n\n📊 **Técnico em Manutenção Preditiva**\nSalário médio: R$ 4.500 a R$ 7.500\nFunção: analisar dados de vibração, temperatura e análise de óleo\n\n🔌 **Técnico em Eficiência Energética**\nSalário médio: R$ 4.000 a R$ 6.500\nFunção: auditar e otimizar consumo energético industrial\n\n**Setores que mais crescem:**\n1. Montadoras automotivas (+55% de técnicos)\n2. Papel e celulose (+48%)\n3. Petroquímica (+43%)\n4. Alimentos e bebidas (+38%)\n5. Mineração (+35%)\n\n**O recado é claro:** técnicos que se atualizam com tecnologia têm mais oportunidades, não menos. A Indústria 4.0 é aliada do técnico qualificado.",
@@ -18,7 +7,7 @@
     "icone": "📈",
     "fonte": "TecVagas",
     "url": "#",
-    "data": "21/04/2026",
+    "data": "22/04/2026",
     "origem": "reserva"
   },
   {
@@ -29,7 +18,7 @@
     "icone": "⚡",
     "fonte": "TecVagas",
     "url": "#",
-    "data": "21/04/2026",
+    "data": "22/04/2026",
     "origem": "reserva"
   },
   {
@@ -38,6 +27,28 @@
     "conteudo": "A NR10 é obrigatória para qualquer profissional que trabalhe com sistemas elétricos no Brasil.\n\n**Quem precisa?**\n• Eletricistas industriais\n• Técnicos em manutenção elétrica\n• Técnicos eletromecânicos\n• Instrumentistas que trabalham com elétrica\n\n**Tipos de curso:**\n• NR10 Básico: 40 horas\n• NR10 SEP: 40 horas adicionais (alta tensão)\n• Total: 80 horas para habilitação completa\n\n**Validade:** 2 anos — reciclagem obrigatória (8 horas mínimo)\n\n**Custo médio:**\n• SENAI: R$ 300 a R$ 600\n• Empresas privadas: R$ 600 a R$ 1.500\n• Reciclagem: R$ 150 a R$ 400\n\n**Impacto no salário:** +20 a 25% em média",
     "categoria": "Certificações",
     "icone": "📋",
+    "fonte": "TecVagas",
+    "url": "#",
+    "data": "22/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "Técnico em Automação: a profissão que mais cresce no Brasil",
+    "resumo": "Com a Indústria 4.0, técnicos em PLC e SCADA são os mais disputados. Salários de R$ 3.500 a R$ 8.000.",
+    "conteudo": "A automação industrial está criando uma enorme demanda por técnicos qualificados.\n\n**O que o técnico em automação faz:**\n• Programação e manutenção de CLPs\n• Configuração de sistemas SCADA e IHM\n• Manutenção de robôs industriais\n• Redes industriais (Profibus, Profinet)\n\n**Plataformas mais valorizadas:**\n1. Siemens S7 (TIA Portal) — mais demandado\n2. Allen Bradley (Studio 5000) — setor automotivo\n3. Schneider (EcoStruxure) — energia\n4. ABB — robótica\n5. Rockwell — indústria pesada\n\n**Salários:**\n• Júnior: R$ 3.000 a R$ 4.500\n• Pleno: R$ 4.500 a R$ 6.500\n• Sênior: R$ 6.500 a R$ 9.000\n• Especialista em robótica/SCADA: até R$ 12.000",
+    "categoria": "Carreira",
+    "icone": "🤖",
+    "fonte": "TecVagas",
+    "url": "#",
+    "data": "22/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "Empregos manuais que a IA nunca vai substituir",
+    "resumo": "Especialistas apontam que profissões com trabalho físico complexo, raciocínio situacional e adaptabilidade são as mais seguras diante da automação.",
+    "conteudo": "A onda de automação e inteligência artificial que está transformando o mercado de trabalho global tem um ponto cego: o trabalho físico especializado.\n\n**O paradoxo da robótica:**\nRobôs são excelentes em tarefas repetitivas em ambientes controlados. Mas o ambiente industrial real é caótico, imprevisível e cheio de variáveis.\n\nUm técnico de manutenção enfrenta diariamente situações que nenhuma IA foi programada para resolver: um vazamento em um local de difícil acesso, um ruído estranho em um equipamento, uma vibração que indica desgaste antes que qualquer sensor detecte.\n\n**Profissões técnicas mais seguras segundo pesquisadores:**\n\n🔧 **Técnico em Manutenção Industrial**\nNível de risco de automação: 2% (McKinsey, 2024)\nMotivo: trabalho físico complexo, diagnóstico situacional, ambiente variável\n\n⚡ **Técnico Eletricista Industrial**\nNível de risco: 3%\nMotivo: alta variabilidade, risco elétrico exige julgamento humano\n\n❄️ **Técnico em Refrigeração/HVAC**\nNível de risco: 4%\nMotivo: instalações únicas, diagnóstico em campo, habilidade manual\n\n🤖 **Técnico em Automação/PLC**\nNível de risco: 1%\nMotivo: quem programa e mantém os robôs?\n\n🔩 **Soldador Industrial**\nNível de risco: 15%\nMotivo: soldagem em locais específicos ainda resiste; soldagem em linha de produção tem maior risco\n\n**O que fazer para se proteger:**\n1. Especialize-se em equipamentos de alta complexidade\n2. Aprenda a interpretar dados de sistemas de monitoramento\n3. Adicione certificações NR ao seu currículo\n4. Desenvolva habilidade em manutenção preditiva\n\nO técnico industrial do futuro não compete com a IA — ele a opera, a programa e a mantém funcionando.",
+    "categoria": "IA & Futuro",
+    "icone": "🛡️",
     "fonte": "TecVagas",
     "url": "#",
     "data": "21/04/2026",
