@@ -1,16 +1,5 @@
 [
   {
-    "titulo": "Indústria 4.0 criou 40% mais vagas para técnicos no Brasil",
-    "resumo": "Contra o senso comum, a digitalização das fábricas brasileiras está aumentando — não diminuindo — a demanda por técnicos industriais especializados.",
-    "conteudo": "Um levantamento do SENAI divulgado em 2026 revelou um dado que surpreende: nas empresas brasileiras que adotaram tecnologias da Indústria 4.0, a contratação de técnicos industriais cresceu 40% nos últimos 3 anos.\n\n**Por que isso acontece?**\n\nEquipamentos mais sofisticados precisam de manutenção mais especializada. Uma linha de produção com robôs, sensores IoT e sistemas SCADA gera muito mais demanda por técnicos qualificados do que uma linha manual.\n\n**Os novos perfis mais demandados:**\n\n📡 **Técnico em IIoT (Internet of Things Industrial)**\nSalário médio: R$ 5.500 a R$ 8.000\nFunção: instalar, configurar e manter sensores e dispositivos conectados\n\n🖥️ **Técnico em SCADA e Automação**\nSalário médio: R$ 5.000 a R$ 9.000\nFunção: programar e manter sistemas de supervisão e controle\n\n📊 **Técnico em Manutenção Preditiva**\nSalário médio: R$ 4.500 a R$ 7.500\nFunção: analisar dados de vibração, temperatura e análise de óleo\n\n🔌 **Técnico em Eficiência Energética**\nSalário médio: R$ 4.000 a R$ 6.500\nFunção: auditar e otimizar consumo energético industrial\n\n**Setores que mais crescem:**\n1. Montadoras automotivas (+55% de técnicos)\n2. Papel e celulose (+48%)\n3. Petroquímica (+43%)\n4. Alimentos e bebidas (+38%)\n5. Mineração (+35%)\n\n**O recado é claro:** técnicos que se atualizam com tecnologia têm mais oportunidades, não menos. A Indústria 4.0 é aliada do técnico qualificado.",
-    "categoria": "Mercado",
-    "icone": "📈",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "22/04/2026",
-    "origem": "reserva"
-  },
-  {
     "titulo": "Quanto ganha um Técnico em Manutenção Elétrica em 2026?",
     "resumo": "Salários variam de R$ 2.800 a R$ 6.500. Certificações como NR10 e NR35 podem aumentar em até 30%.",
     "conteudo": "O técnico em manutenção elétrica é um dos profissionais mais requisitados na indústria brasileira em 2026.\n\n**Faixa salarial por nível:**\n• Júnior (0-2 anos): R$ 2.800 a R$ 3.500\n• Pleno (2-5 anos): R$ 3.500 a R$ 5.000\n• Sênior (5+ anos): R$ 5.000 a R$ 6.500\n• Especialista: até R$ 8.000\n\n**Por estado:**\n• São Paulo: R$ 3.200 a R$ 6.500\n• Rio de Janeiro: R$ 3.000 a R$ 6.000\n• Minas Gerais: R$ 2.800 a R$ 5.500\n• Paraná / Santa Catarina: R$ 3.000 a R$ 5.800\n• Bahia (polo petroquímico): R$ 3.500 a R$ 7.000\n• Pará (mineração): R$ 3.800 a R$ 7.500\n\n**O que aumenta o salário:**\n• NR10 atualizado: +15 a 25%\n• NR35 (trabalho em altura): +10%\n• Periculosidade (eletricidade): +30% sobre o salário\n• Insalubridade: +10 a 40% sobre o salário mínimo\n• Turno noturno: +20% adicional\n\n**Setores que pagam mais:**\n1. Petróleo e Gás (Petrobras, Shell, Equinor)\n2. Mineração (Vale, Anglo American)\n3. Automotivo (Toyota, Volkswagen, Fiat)\n4. Papel e Celulose (Suzano, Klabin)\n5. Alimentos e Bebidas (Ambev, JBS, BRF)",
@@ -18,7 +7,7 @@
     "icone": "⚡",
     "fonte": "TecVagas",
     "url": "#",
-    "data": "22/04/2026",
+    "data": "23/04/2026",
     "origem": "reserva"
   },
   {
@@ -29,7 +18,7 @@
     "icone": "📋",
     "fonte": "TecVagas",
     "url": "#",
-    "data": "22/04/2026",
+    "data": "23/04/2026",
     "origem": "reserva"
   },
   {
@@ -38,6 +27,28 @@
     "conteudo": "A automação industrial está criando uma enorme demanda por técnicos qualificados.\n\n**O que o técnico em automação faz:**\n• Programação e manutenção de CLPs\n• Configuração de sistemas SCADA e IHM\n• Manutenção de robôs industriais\n• Redes industriais (Profibus, Profinet)\n\n**Plataformas mais valorizadas:**\n1. Siemens S7 (TIA Portal) — mais demandado\n2. Allen Bradley (Studio 5000) — setor automotivo\n3. Schneider (EcoStruxure) — energia\n4. ABB — robótica\n5. Rockwell — indústria pesada\n\n**Salários:**\n• Júnior: R$ 3.000 a R$ 4.500\n• Pleno: R$ 4.500 a R$ 6.500\n• Sênior: R$ 6.500 a R$ 9.000\n• Especialista em robótica/SCADA: até R$ 12.000",
     "categoria": "Carreira",
     "icone": "🤖",
+    "fonte": "TecVagas",
+    "url": "#",
+    "data": "23/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "O técnico industrial que aprender IA vai ganhar o dobro",
+    "resumo": "Profissionais que combinam habilidades técnicas tradicionais com conhecimento em automação e dados estão recebendo propostas 80% acima da média.",
+    "conteudo": "Existe um novo perfil de técnico industrial emergindo no Brasil em 2026: o técnico-analítico. E ele está sendo disputado a peso de ouro.\n\n**O que é o técnico-analítico?**\nÉ o profissional que mantém equipamentos industriais E sabe interpretar os dados gerados por sensores e sistemas de monitoramento para antecipar falhas.\n\n**A diferença salarial é brutal:**\n• Técnico em manutenção tradicional: R$ 3.500 a R$ 5.000\n• Técnico com habilidades em análise preditiva: R$ 6.000 a R$ 9.500\n• Técnico com certificação em vibração e análise de óleo: R$ 7.000 a R$ 12.000\n\n**Como se tornar um técnico-analítico:**\n\n1. **Certificação em Análise de Vibração (ISO Cat I)**\n   Custo: R$ 2.000 a R$ 4.000\n   Retorno: +40% no salário\n\n2. **Curso de Análise de Óleo Lubrificante**\n   Custo: R$ 800 a R$ 2.000\n   Retorno: +25% no salário\n\n3. **Fundamentos de IIoT e Sensores**\n   Plataformas: Coursera, Udemy (gratuito a R$ 500)\n   Retorno: +30% no salário\n\n4. **SAP PM ou Maximo (gestão de manutenção)**\n   Custo: R$ 500 a R$ 2.000\n   Retorno: +20% no salário\n\n**O técnico do futuro não compete com a IA — ele é o operador dela.**\n\nEmpresas como Petrobras, Vale e Embraer já exigem esse perfil para novas contratações. Invista agora para colher em 2026 e além.",
+    "categoria": "IA & Futuro",
+    "icone": "🚀",
+    "fonte": "TecVagas",
+    "url": "#",
+    "data": "23/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "Indústria 4.0 criou 40% mais vagas para técnicos no Brasil",
+    "resumo": "Contra o senso comum, a digitalização das fábricas brasileiras está aumentando — não diminuindo — a demanda por técnicos industriais especializados.",
+    "conteudo": "Um levantamento do SENAI divulgado em 2026 revelou um dado que surpreende: nas empresas brasileiras que adotaram tecnologias da Indústria 4.0, a contratação de técnicos industriais cresceu 40% nos últimos 3 anos.\n\n**Por que isso acontece?**\n\nEquipamentos mais sofisticados precisam de manutenção mais especializada. Uma linha de produção com robôs, sensores IoT e sistemas SCADA gera muito mais demanda por técnicos qualificados do que uma linha manual.\n\n**Os novos perfis mais demandados:**\n\n📡 **Técnico em IIoT (Internet of Things Industrial)**\nSalário médio: R$ 5.500 a R$ 8.000\nFunção: instalar, configurar e manter sensores e dispositivos conectados\n\n🖥️ **Técnico em SCADA e Automação**\nSalário médio: R$ 5.000 a R$ 9.000\nFunção: programar e manter sistemas de supervisão e controle\n\n📊 **Técnico em Manutenção Preditiva**\nSalário médio: R$ 4.500 a R$ 7.500\nFunção: analisar dados de vibração, temperatura e análise de óleo\n\n🔌 **Técnico em Eficiência Energética**\nSalário médio: R$ 4.000 a R$ 6.500\nFunção: auditar e otimizar consumo energético industrial\n\n**Setores que mais crescem:**\n1. Montadoras automotivas (+55% de técnicos)\n2. Papel e celulose (+48%)\n3. Petroquímica (+43%)\n4. Alimentos e bebidas (+38%)\n5. Mineração (+35%)\n\n**O recado é claro:** técnicos que se atualizam com tecnologia têm mais oportunidades, não menos. A Indústria 4.0 é aliada do técnico qualificado.",
+    "categoria": "Mercado",
+    "icone": "📈",
     "fonte": "TecVagas",
     "url": "#",
     "data": "22/04/2026",
