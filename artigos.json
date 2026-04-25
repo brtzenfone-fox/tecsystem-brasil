@@ -1,16 +1,5 @@
 [
   {
-    "titulo": "NR10: Guia Completo para Técnicos Elétricos em 2026",
-    "resumo": "A NR10 é obrigatória para trabalhos com instalações elétricas. Curso básico tem 40 horas e validade de 2 anos.",
-    "conteudo": "A NR10 é obrigatória para qualquer profissional que trabalhe com sistemas elétricos no Brasil.\n\n**Quem precisa?**\n• Eletricistas industriais\n• Técnicos em manutenção elétrica\n• Técnicos eletromecânicos\n• Instrumentistas que trabalham com elétrica\n\n**Tipos de curso:**\n• NR10 Básico: 40 horas\n• NR10 SEP: 40 horas adicionais (alta tensão)\n• Total: 80 horas para habilitação completa\n\n**Validade:** 2 anos — reciclagem obrigatória (8 horas mínimo)\n\n**Custo médio:**\n• SENAI: R$ 300 a R$ 600\n• Empresas privadas: R$ 600 a R$ 1.500\n• Reciclagem: R$ 150 a R$ 400\n\n**Impacto no salário:** +20 a 25% em média",
-    "categoria": "Certificações",
-    "icone": "📋",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "24/04/2026",
-    "origem": "reserva"
-  },
-  {
     "titulo": "Técnico em Automação: a profissão que mais cresce no Brasil",
     "resumo": "Com a Indústria 4.0, técnicos em PLC e SCADA são os mais disputados. Salários de R$ 3.500 a R$ 8.000.",
     "conteudo": "A automação industrial está criando uma enorme demanda por técnicos qualificados.\n\n**O que o técnico em automação faz:**\n• Programação e manutenção de CLPs\n• Configuração de sistemas SCADA e IHM\n• Manutenção de robôs industriais\n• Redes industriais (Profibus, Profinet)\n\n**Plataformas mais valorizadas:**\n1. Siemens S7 (TIA Portal) — mais demandado\n2. Allen Bradley (Studio 5000) — setor automotivo\n3. Schneider (EcoStruxure) — energia\n4. ABB — robótica\n5. Rockwell — indústria pesada\n\n**Salários:**\n• Júnior: R$ 3.000 a R$ 4.500\n• Pleno: R$ 4.500 a R$ 6.500\n• Sênior: R$ 6.500 a R$ 9.000\n• Especialista em robótica/SCADA: até R$ 12.000",
@@ -18,7 +7,7 @@
     "icone": "🤖",
     "fonte": "TecVagas",
     "url": "#",
-    "data": "24/04/2026",
+    "data": "25/04/2026",
     "origem": "reserva"
   },
   {
@@ -29,7 +18,7 @@
     "icone": "🚀",
     "fonte": "TecVagas",
     "url": "#",
-    "data": "24/04/2026",
+    "data": "25/04/2026",
     "origem": "reserva"
   },
   {
@@ -38,6 +27,28 @@
     "conteudo": "Algumas empresas se destacam pela remuneração e benefícios para técnicos industriais.\n\n**🥇 Petrobras**\n• Salário: R$ 9.000 a R$ 15.000\n• Acesso via concurso público\n• Benefícios: saúde premium, previdência, PLR\n\n**🥈 Vale**\n• Salário: R$ 5.000 a R$ 10.000\n• Forte em MG, PA e ES\n\n**🥉 WEG**\n• Salário: R$ 3.500 a R$ 7.000\n• Base em Jaraguá do Sul (SC)\n• Excelente plano de carreira\n\n**4. Embraer**\n• Salário: R$ 4.000 a R$ 8.000\n• São José dos Campos (SP)\n• Exige inglês técnico\n\n**5. Bosch**\n• Salário: R$ 4.000 a R$ 7.500\n• Campinas e Curitiba\n• Padrões alemães de qualidade",
     "categoria": "Empresas",
     "icone": "🏭",
+    "fonte": "TecVagas",
+    "url": "#",
+    "data": "25/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "NR12, NR33 e NR35: quais certificações valem mais?",
+    "resumo": "Cada NR pode adicionar R$ 200 a R$ 500 ao salário. Descubra quais são essenciais para sua área.",
+    "conteudo": "As Normas Regulamentadoras são fundamentais para a carreira técnica industrial.\n\n**NR12 — Segurança em Máquinas**\n• Duração: 8 a 16 horas\n• Impacto salarial: +R$ 150 a R$ 300/mês\n• Muito exigida em: metalurgia, plásticos, alimentício\n\n**NR33 — Espaços Confinados**\n• Duração: 16 horas\n• Impacto salarial: +R$ 200 a R$ 400/mês\n• Validade: 1 ano\n• Exigida em: refinarias, usinas, química\n\n**NR35 — Trabalho em Altura**\n• Duração: 8 horas\n• Impacto salarial: +R$ 150 a R$ 300/mês\n• Validade: 2 anos\n• Exigida em quase toda indústria\n\n**Ranking de valor:**\n1. NR10 — maior impacto (+20%)\n2. NR33 — rara e valorizada\n3. NR35 — exigida em quase tudo\n4. NR12 — importante para manufatura",
+    "categoria": "Certificações",
+    "icone": "🦺",
+    "fonte": "TecVagas",
+    "url": "#",
+    "data": "25/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "NR10: Guia Completo para Técnicos Elétricos em 2026",
+    "resumo": "A NR10 é obrigatória para trabalhos com instalações elétricas. Curso básico tem 40 horas e validade de 2 anos.",
+    "conteudo": "A NR10 é obrigatória para qualquer profissional que trabalhe com sistemas elétricos no Brasil.\n\n**Quem precisa?**\n• Eletricistas industriais\n• Técnicos em manutenção elétrica\n• Técnicos eletromecânicos\n• Instrumentistas que trabalham com elétrica\n\n**Tipos de curso:**\n• NR10 Básico: 40 horas\n• NR10 SEP: 40 horas adicionais (alta tensão)\n• Total: 80 horas para habilitação completa\n\n**Validade:** 2 anos — reciclagem obrigatória (8 horas mínimo)\n\n**Custo médio:**\n• SENAI: R$ 300 a R$ 600\n• Empresas privadas: R$ 600 a R$ 1.500\n• Reciclagem: R$ 150 a R$ 400\n\n**Impacto no salário:** +20 a 25% em média",
+    "categoria": "Certificações",
+    "icone": "📋",
     "fonte": "TecVagas",
     "url": "#",
     "data": "24/04/2026",
@@ -96,17 +107,6 @@
     "fonte": "TecVagas",
     "url": "#",
     "data": "19/04/2026",
-    "origem": "reserva"
-  },
-  {
-    "titulo": "NR12, NR33 e NR35: quais certificações valem mais?",
-    "resumo": "Cada NR pode adicionar R$ 200 a R$ 500 ao salário. Descubra quais são essenciais para sua área.",
-    "conteudo": "As Normas Regulamentadoras são fundamentais para a carreira técnica industrial.\n\n**NR12 — Segurança em Máquinas**\n• Duração: 8 a 16 horas\n• Impacto salarial: +R$ 150 a R$ 300/mês\n• Muito exigida em: metalurgia, plásticos, alimentício\n\n**NR33 — Espaços Confinados**\n• Duração: 16 horas\n• Impacto salarial: +R$ 200 a R$ 400/mês\n• Validade: 1 ano\n• Exigida em: refinarias, usinas, química\n\n**NR35 — Trabalho em Altura**\n• Duração: 8 horas\n• Impacto salarial: +R$ 150 a R$ 300/mês\n• Validade: 2 anos\n• Exigida em quase toda indústria\n\n**Ranking de valor:**\n1. NR10 — maior impacto (+20%)\n2. NR33 — rara e valorizada\n3. NR35 — exigida em quase tudo\n4. NR12 — importante para manufatura",
-    "categoria": "Certificações",
-    "icone": "🦺",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "18/04/2026",
     "origem": "reserva"
   },
   {
