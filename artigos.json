@@ -1,16 +1,5 @@
 [
   {
-    "titulo": "Técnico em Automação: a profissão que mais cresce no Brasil",
-    "resumo": "Com a Indústria 4.0, técnicos em PLC e SCADA são os mais disputados. Salários de R$ 3.500 a R$ 8.000.",
-    "conteudo": "A automação industrial está criando uma enorme demanda por técnicos qualificados.\n\n**O que o técnico em automação faz:**\n• Programação e manutenção de CLPs\n• Configuração de sistemas SCADA e IHM\n• Manutenção de robôs industriais\n• Redes industriais (Profibus, Profinet)\n\n**Plataformas mais valorizadas:**\n1. Siemens S7 (TIA Portal) — mais demandado\n2. Allen Bradley (Studio 5000) — setor automotivo\n3. Schneider (EcoStruxure) — energia\n4. ABB — robótica\n5. Rockwell — indústria pesada\n\n**Salários:**\n• Júnior: R$ 3.000 a R$ 4.500\n• Pleno: R$ 4.500 a R$ 6.500\n• Sênior: R$ 6.500 a R$ 9.000\n• Especialista em robótica/SCADA: até R$ 12.000",
-    "categoria": "Carreira",
-    "icone": "🤖",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "25/04/2026",
-    "origem": "reserva"
-  },
-  {
     "titulo": "O técnico industrial que aprender IA vai ganhar o dobro",
     "resumo": "Profissionais que combinam habilidades técnicas tradicionais com conhecimento em automação e dados estão recebendo propostas 80% acima da média.",
     "conteudo": "Existe um novo perfil de técnico industrial emergindo no Brasil em 2026: o técnico-analítico. E ele está sendo disputado a peso de ouro.\n\n**O que é o técnico-analítico?**\nÉ o profissional que mantém equipamentos industriais E sabe interpretar os dados gerados por sensores e sistemas de monitoramento para antecipar falhas.\n\n**A diferença salarial é brutal:**\n• Técnico em manutenção tradicional: R$ 3.500 a R$ 5.000\n• Técnico com habilidades em análise preditiva: R$ 6.000 a R$ 9.500\n• Técnico com certificação em vibração e análise de óleo: R$ 7.000 a R$ 12.000\n\n**Como se tornar um técnico-analítico:**\n\n1. **Certificação em Análise de Vibração (ISO Cat I)**\n   Custo: R$ 2.000 a R$ 4.000\n   Retorno: +40% no salário\n\n2. **Curso de Análise de Óleo Lubrificante**\n   Custo: R$ 800 a R$ 2.000\n   Retorno: +25% no salário\n\n3. **Fundamentos de IIoT e Sensores**\n   Plataformas: Coursera, Udemy (gratuito a R$ 500)\n   Retorno: +30% no salário\n\n4. **SAP PM ou Maximo (gestão de manutenção)**\n   Custo: R$ 500 a R$ 2.000\n   Retorno: +20% no salário\n\n**O técnico do futuro não compete com a IA — ele é o operador dela.**\n\nEmpresas como Petrobras, Vale e Embraer já exigem esse perfil para novas contratações. Invista agora para colher em 2026 e além.",
@@ -18,7 +7,7 @@
     "icone": "🚀",
     "fonte": "TecVagas",
     "url": "#",
-    "data": "25/04/2026",
+    "data": "26/04/2026",
     "origem": "reserva"
   },
   {
@@ -29,7 +18,7 @@
     "icone": "🏭",
     "fonte": "TecVagas",
     "url": "#",
-    "data": "25/04/2026",
+    "data": "26/04/2026",
     "origem": "reserva"
   },
   {
@@ -38,6 +27,28 @@
     "conteudo": "As Normas Regulamentadoras são fundamentais para a carreira técnica industrial.\n\n**NR12 — Segurança em Máquinas**\n• Duração: 8 a 16 horas\n• Impacto salarial: +R$ 150 a R$ 300/mês\n• Muito exigida em: metalurgia, plásticos, alimentício\n\n**NR33 — Espaços Confinados**\n• Duração: 16 horas\n• Impacto salarial: +R$ 200 a R$ 400/mês\n• Validade: 1 ano\n• Exigida em: refinarias, usinas, química\n\n**NR35 — Trabalho em Altura**\n• Duração: 8 horas\n• Impacto salarial: +R$ 150 a R$ 300/mês\n• Validade: 2 anos\n• Exigida em quase toda indústria\n\n**Ranking de valor:**\n1. NR10 — maior impacto (+20%)\n2. NR33 — rara e valorizada\n3. NR35 — exigida em quase tudo\n4. NR12 — importante para manufatura",
     "categoria": "Certificações",
     "icone": "🦺",
+    "fonte": "TecVagas",
+    "url": "#",
+    "data": "26/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "Robótica industrial criou mais empregos do que eliminou no Brasil",
+    "resumo": "Estudo da FGV mostra que para cada robô instalado na indústria brasileira, surgem 3,2 novos postos de trabalho técnico especializado.",
+    "conteudo": "Um estudo inédito da FGV Ibre publicado em 2026 desafia o senso comum sobre automação e desemprego na indústria brasileira.\n\n**O que o estudo descobriu:**\nPara cada robô ou sistema automatizado instalado em uma fábrica brasileira, são criados em média 3,2 novos postos de trabalho técnico especializado.\n\n**Por que isso acontece?**\n• Cada robô precisa de técnico para programar, calibrar e manter\n• Sistemas automatizados geram mais produção, exigindo mais supervisão técnica\n• A complexidade dos equipamentos aumenta a necessidade de especialistas\n• Surgem novas funções que não existiam antes: técnico em cobot, analista de falhas preditivas\n\n**Os setores que mais geraram empregos técnicos com automação:**\n1. Automotivo: +12.000 técnicos em 5 anos\n2. Agronegócio industrial: +8.500 técnicos\n3. Alimentos e bebidas: +7.200 técnicos\n4. Papel e celulose: +4.800 técnicos\n5. Petroquímica: +4.200 técnicos\n\n**A mensagem para técnicos industriais:**\nNão tema a automação. Prepare-se para ela. O técnico que abraça as novas tecnologias se torna indispensável. O que resiste à mudança fica para trás.\n\nA Indústria 4.0 não está eliminando técnicos — está selecionando os melhores.",
+    "categoria": "IA & Futuro",
+    "icone": "🦾",
+    "fonte": "TecVagas",
+    "url": "#",
+    "data": "26/04/2026",
+    "origem": "reserva"
+  },
+  {
+    "titulo": "Técnico em Automação: a profissão que mais cresce no Brasil",
+    "resumo": "Com a Indústria 4.0, técnicos em PLC e SCADA são os mais disputados. Salários de R$ 3.500 a R$ 8.000.",
+    "conteudo": "A automação industrial está criando uma enorme demanda por técnicos qualificados.\n\n**O que o técnico em automação faz:**\n• Programação e manutenção de CLPs\n• Configuração de sistemas SCADA e IHM\n• Manutenção de robôs industriais\n• Redes industriais (Profibus, Profinet)\n\n**Plataformas mais valorizadas:**\n1. Siemens S7 (TIA Portal) — mais demandado\n2. Allen Bradley (Studio 5000) — setor automotivo\n3. Schneider (EcoStruxure) — energia\n4. ABB — robótica\n5. Rockwell — indústria pesada\n\n**Salários:**\n• Júnior: R$ 3.000 a R$ 4.500\n• Pleno: R$ 4.500 a R$ 6.500\n• Sênior: R$ 6.500 a R$ 9.000\n• Especialista em robótica/SCADA: até R$ 12.000",
+    "categoria": "Carreira",
+    "icone": "🤖",
     "fonte": "TecVagas",
     "url": "#",
     "data": "25/04/2026",
@@ -96,17 +107,6 @@
     "fonte": "TecVagas",
     "url": "#",
     "data": "20/04/2026",
-    "origem": "reserva"
-  },
-  {
-    "titulo": "Robótica industrial criou mais empregos do que eliminou no Brasil",
-    "resumo": "Estudo da FGV mostra que para cada robô instalado na indústria brasileira, surgem 3,2 novos postos de trabalho técnico especializado.",
-    "conteudo": "Um estudo inédito da FGV Ibre publicado em 2026 desafia o senso comum sobre automação e desemprego na indústria brasileira.\n\n**O que o estudo descobriu:**\nPara cada robô ou sistema automatizado instalado em uma fábrica brasileira, são criados em média 3,2 novos postos de trabalho técnico especializado.\n\n**Por que isso acontece?**\n• Cada robô precisa de técnico para programar, calibrar e manter\n• Sistemas automatizados geram mais produção, exigindo mais supervisão técnica\n• A complexidade dos equipamentos aumenta a necessidade de especialistas\n• Surgem novas funções que não existiam antes: técnico em cobot, analista de falhas preditivas\n\n**Os setores que mais geraram empregos técnicos com automação:**\n1. Automotivo: +12.000 técnicos em 5 anos\n2. Agronegócio industrial: +8.500 técnicos\n3. Alimentos e bebidas: +7.200 técnicos\n4. Papel e celulose: +4.800 técnicos\n5. Petroquímica: +4.200 técnicos\n\n**A mensagem para técnicos industriais:**\nNão tema a automação. Prepare-se para ela. O técnico que abraça as novas tecnologias se torna indispensável. O que resiste à mudança fica para trás.\n\nA Indústria 4.0 não está eliminando técnicos — está selecionando os melhores.",
-    "categoria": "IA & Futuro",
-    "icone": "🦾",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "19/04/2026",
     "origem": "reserva"
   },
   {
