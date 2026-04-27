@@ -1,7 +1,8 @@
-name: TecSystem Brasil - Atualizar Artigos
+name: Conteudo - Turno Manha
 
 on:
   schedule:
+    - cron: '0 7 * * *'
     - cron: '0 11 * * *'
   workflow_dispatch:
 
@@ -11,32 +12,21 @@ permissions:
 jobs:
   artigos:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Baixar repositório
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Configurar Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
-      - name: Instalar dependências
-        run: pip install requests beautifulsoup4
-
-      - name: Rodar robô de artigos
-        run: python artigos.py
-
-      - name: Rodar scraper principal
-        run: python scraper.py
-
-      - name: Salvar e publicar
+      - run: pip install requests beautifulsoup4
+      - run: python artigos.py
+      - run: python scraper.py
+      - name: Publicar
         run: |
           git config user.name "TecSystem Bot"
           git config user.email "bot@tecsystem.com"
           git pull --rebase origin main || true
           git add artigos.json index.html vagas_cache.json
-          git diff --staged --quiet || git commit -m "📰 Artigos atualizados $(date +'%d/%m/%Y %H:%M')"
+          git diff --staged --quiet || git commit -m "Conteudo $(date +'%d/%m %H:%M')"
           git push --force origin main
