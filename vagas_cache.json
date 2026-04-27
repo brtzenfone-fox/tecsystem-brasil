@@ -3244,5 +3244,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Consultor Técnico Jr - Industrial",
+    "empresa": "FI GROUP",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2810762/consultor-tecnico-jr-industrial",
+    "fonte": "vagas.com.br",
+    "data": "27/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Responsável Técnico - Regulatório &Qualidade",
+    "empresa": "MDR",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2810815/responsavel-tecnico-regulatorio-qualidade",
+    "fonte": "vagas.com.br",
+    "data": "27/04/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
