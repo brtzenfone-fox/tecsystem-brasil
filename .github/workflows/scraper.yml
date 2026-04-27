@@ -1,12 +1,10 @@
-name: TecSystem Brasil - Atualizar Vagas
+name: Vagas - Turno Manha
 
 on:
   schedule:
-    - cron: '0 9 * * *'
-    - cron: '0 13 * * *'
-    - cron: '0 17 * * *'
-    - cron: '0 21 * * *'
-    - cron: '0 1 * * *'
+    - cron: '0 8 * * *'
+    - cron: '0 10 * * *'
+    - cron: '0 12 * * *'
   workflow_dispatch:
 
 permissions:
@@ -15,24 +13,19 @@ permissions:
 jobs:
   scraper:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
-      - name: Instalar dependências
+      - name: Instalar dependencias
         run: pip install requests beautifulsoup4 googlesearch-python
-
-      - name: Rodar o robô
+      - name: Rodar robo de vagas
         run: python scraper.py
-
       - name: Publicar
         run: |
           git config user.name "TecSystem Bot"
           git config user.email "bot@tecsystem.com"
           git add -f index.html vagas_cache.json
-          git diff --staged --quiet || git commit -m "🤖 $(date +'%d/%m/%Y %H:%M')"
+          git diff --staged --quiet || git commit -m "Vagas manha $(date +'%d/%m %H:%M')"
           git push --force origin main
