@@ -1,0 +1,27 @@
+name: Artigos - Turno Tarde
+on:
+  schedule:
+    - cron: '0 15 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  artigos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests beautifulsoup4
+      - run: python artigos.py
+      - run: python scraper.py
+      - run: |
+          git config user.name "TecSystem Bot"
+          git config user.email "bot@tecsystem.com"
+          git pull --rebase origin main || true
+          git add artigos.json index.html vagas_cache.json
+          git diff --staged --quiet || git commit -m "Artigos tarde"
+          git push --force origin main
