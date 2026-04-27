@@ -1,142 +1,227 @@
 [
   {
-    "titulo": "Melhores empresas para técnicos industriais em 2026",
-    "resumo": "Petrobras, Vale, WEG, Embraer e Bosch oferecem os melhores salários e pacotes de benefícios.",
-    "conteudo": "Algumas empresas se destacam pela remuneração e benefícios para técnicos industriais.\n\n**🥇 Petrobras**\n• Salário: R$ 9.000 a R$ 15.000\n• Acesso via concurso público\n• Benefícios: saúde premium, previdência, PLR\n\n**🥈 Vale**\n• Salário: R$ 5.000 a R$ 10.000\n• Forte em MG, PA e ES\n\n**🥉 WEG**\n• Salário: R$ 3.500 a R$ 7.000\n• Base em Jaraguá do Sul (SC)\n• Excelente plano de carreira\n\n**4. Embraer**\n• Salário: R$ 4.000 a R$ 8.000\n• São José dos Campos (SP)\n• Exige inglês técnico\n\n**5. Bosch**\n• Salário: R$ 4.000 a R$ 7.500\n• Campinas e Curitiba\n• Padrões alemães de qualidade",
-    "categoria": "Empresas",
-    "icone": "🏭",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "27/04/2026",
-    "origem": "reserva"
+    "titulo": "Data centers geram boom de vagas tecnicas no Brasil",
+    "resumo": "Chegada de Google, Amazon e Microsoft ao Brasil impulsiona demanda por tecnicos de infraestrutura, refrigeracao e sistemas eletricos.",
+    "url": "https://canaltech.com.br",
+    "fonte": "Canaltech",
+    "categoria": "mercado",
+    "tags": [
+      "data center",
+      "infraestrutura",
+      "empregos"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_00"
   },
   {
-    "titulo": "NR12, NR33 e NR35: quais certificações valem mais?",
-    "resumo": "Cada NR pode adicionar R$ 200 a R$ 500 ao salário. Descubra quais são essenciais para sua área.",
-    "conteudo": "As Normas Regulamentadoras são fundamentais para a carreira técnica industrial.\n\n**NR12 — Segurança em Máquinas**\n• Duração: 8 a 16 horas\n• Impacto salarial: +R$ 150 a R$ 300/mês\n• Muito exigida em: metalurgia, plásticos, alimentício\n\n**NR33 — Espaços Confinados**\n• Duração: 16 horas\n• Impacto salarial: +R$ 200 a R$ 400/mês\n• Validade: 1 ano\n• Exigida em: refinarias, usinas, química\n\n**NR35 — Trabalho em Altura**\n• Duração: 8 horas\n• Impacto salarial: +R$ 150 a R$ 300/mês\n• Validade: 2 anos\n• Exigida em quase toda indústria\n\n**Ranking de valor:**\n1. NR10 — maior impacto (+20%)\n2. NR33 — rara e valorizada\n3. NR35 — exigida em quase tudo\n4. NR12 — importante para manufatura",
-    "categoria": "Certificações",
-    "icone": "🦺",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "27/04/2026",
-    "origem": "reserva"
+    "titulo": "Instrumentacao industrial: salarios chegam a R$ 12 mil",
+    "resumo": "Profissionais de calibracao e manutencao de instrumentos de medicao sao altamente valorizados na industria quimica e farmaceutica.",
+    "url": "https://www.infomoney.com.br",
+    "fonte": "InfoMoney",
+    "categoria": "carreira",
+    "tags": [
+      "instrumentacao",
+      "salarios",
+      "industria"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1559523161-0fc0d8b814f2?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_01"
   },
   {
-    "titulo": "Robótica industrial criou mais empregos do que eliminou no Brasil",
-    "resumo": "Estudo da FGV mostra que para cada robô instalado na indústria brasileira, surgem 3,2 novos postos de trabalho técnico especializado.",
-    "conteudo": "Um estudo inédito da FGV Ibre publicado em 2026 desafia o senso comum sobre automação e desemprego na indústria brasileira.\n\n**O que o estudo descobriu:**\nPara cada robô ou sistema automatizado instalado em uma fábrica brasileira, são criados em média 3,2 novos postos de trabalho técnico especializado.\n\n**Por que isso acontece?**\n• Cada robô precisa de técnico para programar, calibrar e manter\n• Sistemas automatizados geram mais produção, exigindo mais supervisão técnica\n• A complexidade dos equipamentos aumenta a necessidade de especialistas\n• Surgem novas funções que não existiam antes: técnico em cobot, analista de falhas preditivas\n\n**Os setores que mais geraram empregos técnicos com automação:**\n1. Automotivo: +12.000 técnicos em 5 anos\n2. Agronegócio industrial: +8.500 técnicos\n3. Alimentos e bebidas: +7.200 técnicos\n4. Papel e celulose: +4.800 técnicos\n5. Petroquímica: +4.200 técnicos\n\n**A mensagem para técnicos industriais:**\nNão tema a automação. Prepare-se para ela. O técnico que abraça as novas tecnologias se torna indispensável. O que resiste à mudança fica para trás.\n\nA Indústria 4.0 não está eliminando técnicos — está selecionando os melhores.",
-    "categoria": "IA & Futuro",
-    "icone": "🦾",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "27/04/2026",
-    "origem": "reserva"
+    "titulo": "Veiculos eletricos: nova fronteira para mecanicos no Brasil",
+    "resumo": "Com chegada de veiculos eletricos ao mercado, mecanicos precisam se capacitar em sistemas de alta tensao e baterias de ion-litio.",
+    "url": "https://olhardigital.com.br",
+    "fonte": "Olhar Digital",
+    "categoria": "tecnologia",
+    "tags": [
+      "eletrico",
+      "mecanica",
+      "capacitacao"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_02"
   },
   {
-    "titulo": "A IA vai acabar com o emprego de técnicos industriais?",
-    "resumo": "A inteligência artificial está transformando a indústria, mas os dados mostram que técnicos industriais são dos profissionais mais resistentes à automação.",
-    "conteudo": "A pergunta que mais assusta trabalhadores da indústria em 2026: a inteligência artificial vai tirar meu emprego?\n\nA resposta curta é: não para técnicos industriais. E os dados comprovam isso.\n\n**Por que técnicos industriais são difíceis de substituir?**\n\nA automação e a IA funcionam muito bem para tarefas repetitivas, previsíveis e que podem ser digitalizadas. O trabalho de um técnico industrial é exatamente o oposto disso.\n\nQuando uma bomba quebra às 3h da manhã em uma refinaria, não é um algoritmo que vai lá trocar o selo mecânico. Quando um CLP apresenta falha intermitente, não é uma tela que vai rastrear o problema no campo. Isso requer um técnico experiente, com ferramentas na mão.\n\n**O que a indústria 4.0 realmente faz:**\n• Cria mais dados para técnicos analisarem\n• Exige técnicos que saibam operar sistemas de monitoramento\n• Aumenta a complexidade dos equipamentos — e a necessidade de manutenção especializada\n• Cria novas especialidades: técnico em IoT industrial, analista de vibração, especialista em manutenção preditiva\n\n**Os números:**\nSegundo o Fórum Econômico Mundial, 85 milhões de empregos serão substituídos pela automação até 2025, mas 97 milhões de novos empregos surgirão. Grande parte desses novos empregos será em manutenção e operação de sistemas automatizados.\n\nNo Brasil, o déficit de técnicos industriais qualificados já chega a 400 mil profissionais, segundo o SENAI. A automação está criando demanda, não reduzindo.\n\n**Conclusão:**\nO técnico que aprender a trabalhar com as novas tecnologias — PLC, sensores IoT, análise de dados de manutenção — não apenas manterá seu emprego, mas terá o salário multiplicado. A IA é ferramenta do técnico, não seu substituto.",
-    "categoria": "IA & Futuro",
-    "icone": "🤖",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "27/04/2026",
-    "origem": "reserva"
+    "titulo": "IA generativa transforma manutencao industrial em 2025",
+    "resumo": "Empresas adotam inteligencia artificial para diagnostico preditivo, reduzindo paradas nao programadas em ate 40%. Tecnicos precisam se adaptar as novas tecnologias para manter empregabilidade.",
+    "url": "https://tiinside.com.br",
+    "fonte": "TI Inside",
+    "categoria": "tecnologia",
+    "tags": [
+      "IA",
+      "manutencao",
+      "industria"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_03"
   },
   {
-    "titulo": "O técnico industrial que aprender IA vai ganhar o dobro",
-    "resumo": "Profissionais que combinam habilidades técnicas tradicionais com conhecimento em automação e dados estão recebendo propostas 80% acima da média.",
-    "conteudo": "Existe um novo perfil de técnico industrial emergindo no Brasil em 2026: o técnico-analítico. E ele está sendo disputado a peso de ouro.\n\n**O que é o técnico-analítico?**\nÉ o profissional que mantém equipamentos industriais E sabe interpretar os dados gerados por sensores e sistemas de monitoramento para antecipar falhas.\n\n**A diferença salarial é brutal:**\n• Técnico em manutenção tradicional: R$ 3.500 a R$ 5.000\n• Técnico com habilidades em análise preditiva: R$ 6.000 a R$ 9.500\n• Técnico com certificação em vibração e análise de óleo: R$ 7.000 a R$ 12.000\n\n**Como se tornar um técnico-analítico:**\n\n1. **Certificação em Análise de Vibração (ISO Cat I)**\n   Custo: R$ 2.000 a R$ 4.000\n   Retorno: +40% no salário\n\n2. **Curso de Análise de Óleo Lubrificante**\n   Custo: R$ 800 a R$ 2.000\n   Retorno: +25% no salário\n\n3. **Fundamentos de IIoT e Sensores**\n   Plataformas: Coursera, Udemy (gratuito a R$ 500)\n   Retorno: +30% no salário\n\n4. **SAP PM ou Maximo (gestão de manutenção)**\n   Custo: R$ 500 a R$ 2.000\n   Retorno: +20% no salário\n\n**O técnico do futuro não compete com a IA — ele é o operador dela.**\n\nEmpresas como Petrobras, Vale e Embraer já exigem esse perfil para novas contratações. Invista agora para colher em 2026 e além.",
-    "categoria": "IA & Futuro",
-    "icone": "🚀",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "26/04/2026",
-    "origem": "reserva"
+    "titulo": "Tecnicos de refrigeracao sao os mais buscados em 2025",
+    "resumo": "Com o aumento das temperaturas e expansao de data centers, profissionais de HVAC e refrigeracao industrial estao em alta demanda no mercado brasileiro.",
+    "url": "https://www.tecmundo.com.br",
+    "fonte": "Tecmundo",
+    "categoria": "mercado",
+    "tags": [
+      "HVAC",
+      "refrigeracao",
+      "empregos"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_04"
   },
   {
-    "titulo": "Técnico em Automação: a profissão que mais cresce no Brasil",
-    "resumo": "Com a Indústria 4.0, técnicos em PLC e SCADA são os mais disputados. Salários de R$ 3.500 a R$ 8.000.",
-    "conteudo": "A automação industrial está criando uma enorme demanda por técnicos qualificados.\n\n**O que o técnico em automação faz:**\n• Programação e manutenção de CLPs\n• Configuração de sistemas SCADA e IHM\n• Manutenção de robôs industriais\n• Redes industriais (Profibus, Profinet)\n\n**Plataformas mais valorizadas:**\n1. Siemens S7 (TIA Portal) — mais demandado\n2. Allen Bradley (Studio 5000) — setor automotivo\n3. Schneider (EcoStruxure) — energia\n4. ABB — robótica\n5. Rockwell — indústria pesada\n\n**Salários:**\n• Júnior: R$ 3.000 a R$ 4.500\n• Pleno: R$ 4.500 a R$ 6.500\n• Sênior: R$ 6.500 a R$ 9.000\n• Especialista em robótica/SCADA: até R$ 12.000",
-    "categoria": "Carreira",
-    "icone": "🤖",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "25/04/2026",
-    "origem": "reserva"
+    "titulo": "NR-10 e NR-12: novas exigencias para eletricistas industriais",
+    "resumo": "O Ministerio do Trabalho atualiza normas regulamentadoras, aumentando exigencias de qualificacao e abrindo oportunidades para profissionais certificados.",
+    "url": "https://tiinside.com.br",
+    "fonte": "TI Inside",
+    "categoria": "normas",
+    "tags": [
+      "NR-10",
+      "NR-12",
+      "eletricista"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_05"
   },
   {
-    "titulo": "NR10: Guia Completo para Técnicos Elétricos em 2026",
-    "resumo": "A NR10 é obrigatória para trabalhos com instalações elétricas. Curso básico tem 40 horas e validade de 2 anos.",
-    "conteudo": "A NR10 é obrigatória para qualquer profissional que trabalhe com sistemas elétricos no Brasil.\n\n**Quem precisa?**\n• Eletricistas industriais\n• Técnicos em manutenção elétrica\n• Técnicos eletromecânicos\n• Instrumentistas que trabalham com elétrica\n\n**Tipos de curso:**\n• NR10 Básico: 40 horas\n• NR10 SEP: 40 horas adicionais (alta tensão)\n• Total: 80 horas para habilitação completa\n\n**Validade:** 2 anos — reciclagem obrigatória (8 horas mínimo)\n\n**Custo médio:**\n• SENAI: R$ 300 a R$ 600\n• Empresas privadas: R$ 600 a R$ 1.500\n• Reciclagem: R$ 150 a R$ 400\n\n**Impacto no salário:** +20 a 25% em média",
-    "categoria": "Certificações",
-    "icone": "📋",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "24/04/2026",
-    "origem": "reserva"
+    "titulo": "Automacao cria novas vagas para tecnicos especializados",
+    "resumo": "Estudo aponta que automacao elimina funcoes repetitivas mas cria demanda por tecnicos capazes de programar e manter equipamentos automatizados.",
+    "url": "https://computerworld.com.br",
+    "fonte": "Computerworld Brasil",
+    "categoria": "mercado",
+    "tags": [
+      "automacao",
+      "empregos",
+      "tecnicos"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_06"
   },
   {
-    "titulo": "Quanto ganha um Técnico em Manutenção Elétrica em 2026?",
-    "resumo": "Salários variam de R$ 2.800 a R$ 6.500. Certificações como NR10 e NR35 podem aumentar em até 30%.",
-    "conteudo": "O técnico em manutenção elétrica é um dos profissionais mais requisitados na indústria brasileira em 2026.\n\n**Faixa salarial por nível:**\n• Júnior (0-2 anos): R$ 2.800 a R$ 3.500\n• Pleno (2-5 anos): R$ 3.500 a R$ 5.000\n• Sênior (5+ anos): R$ 5.000 a R$ 6.500\n• Especialista: até R$ 8.000\n\n**Por estado:**\n• São Paulo: R$ 3.200 a R$ 6.500\n• Rio de Janeiro: R$ 3.000 a R$ 6.000\n• Minas Gerais: R$ 2.800 a R$ 5.500\n• Paraná / Santa Catarina: R$ 3.000 a R$ 5.800\n• Bahia (polo petroquímico): R$ 3.500 a R$ 7.000\n• Pará (mineração): R$ 3.800 a R$ 7.500\n\n**O que aumenta o salário:**\n• NR10 atualizado: +15 a 25%\n• NR35 (trabalho em altura): +10%\n• Periculosidade (eletricidade): +30% sobre o salário\n• Insalubridade: +10 a 40% sobre o salário mínimo\n• Turno noturno: +20% adicional\n\n**Setores que pagam mais:**\n1. Petróleo e Gás (Petrobras, Shell, Equinor)\n2. Mineração (Vale, Anglo American)\n3. Automotivo (Toyota, Volkswagen, Fiat)\n4. Papel e Celulose (Suzano, Klabin)\n5. Alimentos e Bebidas (Ambev, JBS, BRF)",
-    "categoria": "Salários",
-    "icone": "⚡",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "23/04/2026",
-    "origem": "reserva"
+    "titulo": "Industria 4.0: tecnicos precisam dominar IoT e sensores",
+    "resumo": "Com digitalizacao das fabricas, profissionais de manutencao precisam conhecer sensores IoT, PLCs e sistemas SCADA.",
+    "url": "https://olhardigital.com.br",
+    "fonte": "Olhar Digital",
+    "categoria": "tecnologia",
+    "tags": [
+      "IoT",
+      "industria 4.0",
+      "PLC"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_07"
   },
   {
-    "titulo": "Indústria 4.0 criou 40% mais vagas para técnicos no Brasil",
-    "resumo": "Contra o senso comum, a digitalização das fábricas brasileiras está aumentando — não diminuindo — a demanda por técnicos industriais especializados.",
-    "conteudo": "Um levantamento do SENAI divulgado em 2026 revelou um dado que surpreende: nas empresas brasileiras que adotaram tecnologias da Indústria 4.0, a contratação de técnicos industriais cresceu 40% nos últimos 3 anos.\n\n**Por que isso acontece?**\n\nEquipamentos mais sofisticados precisam de manutenção mais especializada. Uma linha de produção com robôs, sensores IoT e sistemas SCADA gera muito mais demanda por técnicos qualificados do que uma linha manual.\n\n**Os novos perfis mais demandados:**\n\n📡 **Técnico em IIoT (Internet of Things Industrial)**\nSalário médio: R$ 5.500 a R$ 8.000\nFunção: instalar, configurar e manter sensores e dispositivos conectados\n\n🖥️ **Técnico em SCADA e Automação**\nSalário médio: R$ 5.000 a R$ 9.000\nFunção: programar e manter sistemas de supervisão e controle\n\n📊 **Técnico em Manutenção Preditiva**\nSalário médio: R$ 4.500 a R$ 7.500\nFunção: analisar dados de vibração, temperatura e análise de óleo\n\n🔌 **Técnico em Eficiência Energética**\nSalário médio: R$ 4.000 a R$ 6.500\nFunção: auditar e otimizar consumo energético industrial\n\n**Setores que mais crescem:**\n1. Montadoras automotivas (+55% de técnicos)\n2. Papel e celulose (+48%)\n3. Petroquímica (+43%)\n4. Alimentos e bebidas (+38%)\n5. Mineração (+35%)\n\n**O recado é claro:** técnicos que se atualizam com tecnologia têm mais oportunidades, não menos. A Indústria 4.0 é aliada do técnico qualificado.",
-    "categoria": "Mercado",
-    "icone": "📈",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "22/04/2026",
-    "origem": "reserva"
+    "titulo": "Petroleo e gas abre 15 mil vagas para tecnicos no Brasil",
+    "resumo": "Expansao do setor de energia preve abertura de milhares de postos para tecnicos de manutencao, instrumentacao e seguranca industrial.",
+    "url": "https://www.infomoney.com.br",
+    "fonte": "InfoMoney",
+    "categoria": "mercado",
+    "tags": [
+      "petroleo",
+      "gas",
+      "empregos"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1570615470447-7c4db8e16f80?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_08"
   },
   {
-    "titulo": "Empregos manuais que a IA nunca vai substituir",
-    "resumo": "Especialistas apontam que profissões com trabalho físico complexo, raciocínio situacional e adaptabilidade são as mais seguras diante da automação.",
-    "conteudo": "A onda de automação e inteligência artificial que está transformando o mercado de trabalho global tem um ponto cego: o trabalho físico especializado.\n\n**O paradoxo da robótica:**\nRobôs são excelentes em tarefas repetitivas em ambientes controlados. Mas o ambiente industrial real é caótico, imprevisível e cheio de variáveis.\n\nUm técnico de manutenção enfrenta diariamente situações que nenhuma IA foi programada para resolver: um vazamento em um local de difícil acesso, um ruído estranho em um equipamento, uma vibração que indica desgaste antes que qualquer sensor detecte.\n\n**Profissões técnicas mais seguras segundo pesquisadores:**\n\n🔧 **Técnico em Manutenção Industrial**\nNível de risco de automação: 2% (McKinsey, 2024)\nMotivo: trabalho físico complexo, diagnóstico situacional, ambiente variável\n\n⚡ **Técnico Eletricista Industrial**\nNível de risco: 3%\nMotivo: alta variabilidade, risco elétrico exige julgamento humano\n\n❄️ **Técnico em Refrigeração/HVAC**\nNível de risco: 4%\nMotivo: instalações únicas, diagnóstico em campo, habilidade manual\n\n🤖 **Técnico em Automação/PLC**\nNível de risco: 1%\nMotivo: quem programa e mantém os robôs?\n\n🔩 **Soldador Industrial**\nNível de risco: 15%\nMotivo: soldagem em locais específicos ainda resiste; soldagem em linha de produção tem maior risco\n\n**O que fazer para se proteger:**\n1. Especialize-se em equipamentos de alta complexidade\n2. Aprenda a interpretar dados de sistemas de monitoramento\n3. Adicione certificações NR ao seu currículo\n4. Desenvolva habilidade em manutenção preditiva\n\nO técnico industrial do futuro não compete com a IA — ele a opera, a programa e a mantém funcionando.",
-    "categoria": "IA & Futuro",
-    "icone": "🛡️",
-    "fonte": "TecVagas",
-    "url": "#",
-    "data": "21/04/2026",
-    "origem": "reserva"
+    "titulo": "Soldadores qualificados escassos no setor naval brasileiro",
+    "resumo": "Retomada da industria naval cria escassez de soldadores, com salarios chegando a R$ 8.000 para profissionais com certificacao AWS.",
+    "url": "https://canaltech.com.br",
+    "fonte": "Canaltech",
+    "categoria": "mercado",
+    "tags": [
+      "soldagem",
+      "naval",
+      "empregos"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_09"
   },
   {
-    "titulo": "Indústria 4.0: o que o técnico industrial precisa saber",
-    "resumo": "A transformação digital chegou às fábricas e os técnicos industriais precisam se atualizar. Em 2026, conhecimentos em IoT industrial, manutenção preditiva com sensores, análise de vibração e sistemas SCADA são diferenciais competitivos. Empresas como Siemens, ABB e Rockwell Automation oferecem treinamentos especializados. Técnicos que dominam programação de PLC Siemens S7 e Allen Bradley têm salários até 40% maiores. O SENAI possui cursos de indústria 4.0 em parceria com as principais fabricantes de automação. Invista em qualificação para se destacar.",
-    "categoria": "Tecnologia",
-    "icone": "🔬",
-    "fonte": "TecSystem Brasil",
-    "url": "#",
-    "data": "17/04/2026",
-    "origem": "reserva"
+    "titulo": "Manutencao preditiva com IA muda as fabricas brasileiras",
+    "resumo": "Sensores inteligentes e machine learning permitem prever falhas antes que ocorram, reduzindo custos de manutencao em ate 30%.",
+    "url": "https://tiinside.com.br",
+    "fonte": "TI Inside",
+    "categoria": "tecnologia",
+    "tags": [
+      "manutencao preditiva",
+      "IA",
+      "fabrica"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_10"
   },
   {
-    "titulo": "Salário de Técnico em Mecatrônica por estado em 2026",
-    "resumo": "O técnico em mecatrônica é um dos perfis mais versáteis da indústria, combinando conhecimentos de mecânica, elétrica e automação. Em São Paulo, o salário médio é de R$ 4.200. No Rio de Janeiro chega a R$ 3.900. Em Santa Catarina e Paraná, onde há forte presença do setor metal-mecânico, os valores chegam a R$ 4.800. Na Bahia, com as montadoras e o polo petroquímico, os salários variam de R$ 3.500 a R$ 5.500. O diferencial do mecatrônico é poder atuar em manutenção elétrica, mecânica e de sistemas automatizados simultaneamente.",
-    "categoria": "Salários",
-    "icone": "⚙️",
-    "fonte": "TecSystem Brasil",
-    "url": "#",
-    "data": "17/04/2026",
-    "origem": "reserva"
+    "titulo": "Tecnicos de TI industrial: perfil mais procurado pelas industrias",
+    "resumo": "Convergencia entre TI e tecnologia operacional cria demanda por profissionais hibridos que entendam redes industriais e manutencao de equipamentos.",
+    "url": "https://computerworld.com.br",
+    "fonte": "Computerworld Brasil",
+    "categoria": "carreira",
+    "tags": [
+      "TI industrial",
+      "IT/OT",
+      "carreira"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_11"
   },
   {
-    "titulo": "PCM: Planejamento e Controle de Manutenção — o que é e como funciona",
-    "resumo": "O PCM (Planejamento e Controle de Manutenção) é uma área estratégica nas indústrias modernas. O técnico em PCM é responsável por planejar, programar e controlar todas as atividades de manutenção da planta. Em 2026, a demanda por técnicos com conhecimento em SAP PM, Maximo e outros sistemas de gestão de manutenção cresceu 45%. Os salários variam de R$ 3.800 a R$ 7.500. Para atuar na área, além do curso técnico, é fundamental ter conhecimento em indicadores como MTBF, MTTR e disponibilidade de equipamentos. O SENAI e instituições privadas oferecem cursos específicos.",
-    "categoria": "Carreira",
-    "icone": "📊",
-    "fonte": "TecSystem Brasil",
-    "url": "#",
-    "data": "17/04/2026",
-    "origem": "reserva"
+    "titulo": "Energia solar impulsiona demanda por tecnicos fotovoltaicos",
+    "resumo": "Com crescimento de 45% em 2024, mercado de energia solar cria demanda recorde por instaladores e tecnicos de manutencao de sistemas fotovoltaicos.",
+    "url": "https://olhardigital.com.br",
+    "fonte": "Olhar Digital",
+    "categoria": "mercado",
+    "tags": [
+      "energia solar",
+      "fotovoltaico",
+      "empregos"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_12"
+  },
+  {
+    "titulo": "Robotica colaborativa: tecnicos aprendem a trabalhar com cobots",
+    "resumo": "Robos colaborativos chegam as medias e pequenas industrias. Tecnicos que programarem e mantiverem esses equipamentos terao vantagem no mercado.",
+    "url": "https://www.tecmundo.com.br",
+    "fonte": "Tecmundo",
+    "categoria": "tecnologia",
+    "tags": [
+      "robotica",
+      "cobots",
+      "automacao"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_13"
+  },
+  {
+    "titulo": "SENAI abre 50 mil vagas em cursos tecnicos de automacao",
+    "resumo": "Programa nacional de qualificacao com foco em automacao industrial, manutencao eletromecanica e mecatronica, com bolsas integrais.",
+    "url": "https://tiinside.com.br",
+    "fonte": "TI Inside",
+    "categoria": "educacao",
+    "tags": [
+      "SENAI",
+      "qualificacao",
+      "automacao"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
+    "data": "2026-04-27",
+    "id": "res_117_14"
   }
 ]

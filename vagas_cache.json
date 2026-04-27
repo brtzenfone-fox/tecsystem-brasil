@@ -3348,5 +3348,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Manutenção Elétrica",
+    "empresa": "Adecco",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2810909/tecnico-de-manutencao-eletrica",
+    "fonte": "vagas.com.br",
+    "data": "27/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Manutenção Mecânica",
+    "empresa": "Adecco",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2810904/tecnico-de-manutencao-mecanica",
+    "fonte": "vagas.com.br",
+    "data": "27/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
