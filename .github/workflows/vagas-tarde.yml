@@ -1,0 +1,29 @@
+name: Vagas - Turno Tarde
+
+on:
+  schedule:
+    - cron: '0 14 * * *'
+    - cron: '0 16 * * *'
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scraper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests beautifulsoup4 googlesearch-python
+      - run: python scraper.py
+      - name: Publicar
+        run: |
+          git config user.name "TecSystem Bot"
+          git config user.email "bot@tecsystem.com"
+          git add -f index.html vagas_cache.json
+          git diff --staged --quiet || git commit -m "Vagas $(date +'%d/%m %H:%M')"
+          git push --force origin main
