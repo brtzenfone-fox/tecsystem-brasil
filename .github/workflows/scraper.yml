@@ -1,15 +1,11 @@
 name: Vagas - Turno Manha
-
 on:
   schedule:
-    - cron: '0 8 * * *'
-    - cron: '0 10 * * *'
-    - cron: '0 12 * * *'
+    - cron: '0 9 * * *'
+    - cron: '0 11 * * *'
   workflow_dispatch:
-
 permissions:
   contents: write
-
 jobs:
   scraper:
     runs-on: ubuntu-latest
@@ -18,14 +14,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Instalar dependencias
-        run: pip install requests beautifulsoup4 googlesearch-python
-      - name: Rodar robo de vagas
-        run: python scraper.py
-      - name: Publicar
-        run: |
+      - run: pip install requests beautifulsoup4 googlesearch-python
+      - run: python scraper.py
+      - run: |
           git config user.name "TecSystem Bot"
           git config user.email "bot@tecsystem.com"
           git add -f index.html vagas_cache.json
-          git diff --staged --quiet || git commit -m "Vagas manha $(date +'%d/%m %H:%M')"
+          git diff --staged --quiet || git commit -m "Vagas manha"
           git push --force origin main
