@@ -3387,5 +3387,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico Mantenedor Elétrica",
+    "empresa": "Michelin",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2800558/tecnico-mantenedor-eletrica",
+    "fonte": "vagas.com.br",
+    "data": "28/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Soldador I",
+    "empresa": "Komatsu",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2807948/soldador-i",
+    "fonte": "vagas.com.br",
+    "data": "28/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
