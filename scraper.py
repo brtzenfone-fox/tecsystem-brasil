@@ -75,12 +75,12 @@ CIDADES_ESTADO = {
     "nova iguacu":"RJ","sao goncalo":"RJ","petropolis":"RJ","volta redonda":"RJ",
     "campos":"RJ","resende":"RJ","angra dos reis":"RJ","cabo frio":"RJ",
     "nova friburgo":"RJ","teresopolis":"RJ","barra mansa":"RJ","itaguai":"RJ",
-    "magÃÂ©":"RJ","belford roxo":"RJ","queimados":"RJ","mesquita":"RJ",
+    "magÃÂÃÂ©":"RJ","belford roxo":"RJ","queimados":"RJ","mesquita":"RJ",
     # MG
     "belo horizonte":"MG","contagem":"MG","betim":"MG","uberlandia":"MG",
     "juiz de fora":"MG","montes claros":"MG","ipatinga":"MG","sete lagoas":"MG",
     "pedro leopoldo":"MG","divinopolis":"MG","governador valadares":"MG",
-    "uberaba":"MG","santa luzia":"MG","ribeirao das neves":"MG","poÃÂ§os de caldas":"MG",
+    "uberaba":"MG","santa luzia":"MG","ribeirao das neves":"MG","poÃÂÃÂ§os de caldas":"MG",
     "varginha":"MG","ouro preto":"MG","mariana":"MG","itabira":"MG","conselheiro lafaiete":"MG",
     # PR
     "curitiba":"PR","londrina":"PR","maringa":"PR","cascavel":"PR",
@@ -134,7 +134,7 @@ CIDADES_ESTADO = {
     "cuiaba":"MT","varzea grande":"MT","rondonopolis":"MT","sinop":"MT","tangara":"MT",
     "comodoro":"MT","caceres":"MT","sorriso":"MT","lucas do rio verde":"MT",
     "campo grande":"MS","dourados":"MS","tres lagoas":"MS","corumba":"MS",
-    "ponta pora":"MS","naviraÃÂ­":"MS",
+    "ponta pora":"MS","naviraÃÂÃÂ­":"MS",
     # SE, TO, AC
     "aracaju":"SE","nossa senhora do socorro":"SE","lagarto":"SE","itabaiana":"SE",
     "palmas":"TO","araguaina":"TO","gurupi":"TO","porto nacional":"TO",
@@ -142,21 +142,21 @@ CIDADES_ESTADO = {
 }
 
 ARTIGOS_PADRAO = [
-    {"titulo":"A IA vai acabar com o emprego de tecnicos industriais?","resumo":"A inteligencia artificial esta transformando a industria, mas dados mostram que tecnicos sao dos profissionais mais resistentes a automacao.","conteudo":"A pergunta que mais assusta trabalhadores da industria em 2026: a IA vai tirar meu emprego?\n\nA resposta curta e: nao para tecnicos industriais. E os dados comprovam.\n\n**Por que tecnicos sao dificeis de substituir?**\n\nA automacao funciona bem para tarefas repetitivas. O trabalho de um tecnico industrial e exatamente o oposto.\n\nQuando uma bomba quebra as 3h da manha, nao e um algoritmo que vai trocar o selo. Quando um CLP apresenta falha intermitente, nao e uma tela que vai resolver no campo.\n\n**Os numeros:**\nSegundo o Forum Economico Mundial, 85 milhoes de empregos serao substituidos pela automacao ate 2025, mas 97 milhoes de novos empregos surgirao.\n\nNo Brasil, o deficit de tecnicos qualificados ja chega a 400 mil profissionais, segundo o SENAI.","categoria":"IA & Futuro","icone":"Ã°ÂÂ¤Â","fonte":"TecVagas","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
-    {"titulo":"Quanto ganha um Tecnico em Manutencao Eletrica em 2026?","resumo":"Salarios variam de R$ 2.800 a R$ 6.500 dependendo da regiao e experiencia.","conteudo":"O tecnico em manutencao eletrica e um dos profissionais mais requisitados na industria brasileira em 2026.\n\n**Faixa salarial por nivel:**\nÃ¢ÂÂ¢ Junior (0-2 anos): R$ 2.800 a R$ 3.500\nÃ¢ÂÂ¢ Pleno (2-5 anos): R$ 3.500 a R$ 5.000\nÃ¢ÂÂ¢ Senior (5+ anos): R$ 5.000 a R$ 6.500\nÃ¢ÂÂ¢ Especialista: ate R$ 8.000\n\n**O que aumenta o salario:**\nÃ¢ÂÂ¢ NR10 atualizado: +15 a 25%\nÃ¢ÂÂ¢ NR35 (trabalho em altura): +10%\nÃ¢ÂÂ¢ Periculosidade: +30%\nÃ¢ÂÂ¢ Insalubridade: +10 a 40%\nÃ¢ÂÂ¢ Turno noturno: +20% adicional","categoria":"Salarios","icone":"Ã¢ÂÂ¡","fonte":"TecVagas","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
-    {"titulo":"NR10: Guia Completo para Tecnicos Eletricos em 2026","resumo":"A NR10 e obrigatoria para profissionais que trabalham com instalacoes eletricas.","conteudo":"A NR10 e obrigatoria para qualquer profissional que trabalhe com sistemas eletricos no Brasil.\n\n**Tipos de curso:**\nÃ¢ÂÂ¢ NR10 Basico: 40 horas\nÃ¢ÂÂ¢ NR10 SEP: 40 horas adicionais (alta tensao)\nÃ¢ÂÂ¢ Total: 80 horas para habilitacao completa\n\n**Validade:** 2 anos\n\n**Custo medio:**\nÃ¢ÂÂ¢ SENAI: R$ 300 a R$ 600\nÃ¢ÂÂ¢ Empresas privadas: R$ 600 a R$ 1.500\nÃ¢ÂÂ¢ Reciclagem: R$ 150 a R$ 400\n\n**Impacto no salario:** +20 a 25% em media","categoria":"Certificacoes","icone":"Ã°ÂÂÂ","fonte":"TecVagas","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
-    {"titulo":"Tecnico em Automacao: a profissao que mais cresce no Brasil","resumo":"Com a Industria 4.0, tecnicos em PLC e SCADA sao os mais disputados.","conteudo":"A automacao industrial esta criando enorme demanda por tecnicos qualificados.\n\n**O que o tecnico em automacao faz:**\nÃ¢ÂÂ¢ Programacao e manutencao de CLPs\nÃ¢ÂÂ¢ Configuracao de sistemas SCADA\nÃ¢ÂÂ¢ Manutencao de robos industriais\nÃ¢ÂÂ¢ Redes industriais (Profibus, Profinet)\n\n**Plataformas valorizadas:**\nÃ¢ÂÂ¢ Siemens S7 (TIA Portal)\nÃ¢ÂÂ¢ Allen Bradley (Studio 5000)\nÃ¢ÂÂ¢ Schneider (EcoStruxure)\nÃ¢ÂÂ¢ ABB - robotica\n\n**Salarios:**\nÃ¢ÂÂ¢ Junior: R$ 3.000 a R$ 4.500\nÃ¢ÂÂ¢ Pleno: R$ 4.500 a R$ 6.500\nÃ¢ÂÂ¢ Senior: R$ 6.500 a R$ 9.000\nÃ¢ÂÂ¢ Especialista: ate R$ 12.000","categoria":"Carreira","icone":"Ã°ÂÂ¤Â","fonte":"TecVagas","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
-    {"titulo":"Melhores empresas para tecnicos industriais em 2026","resumo":"Petrobras, Vale, WEG, Embraer e Bosch oferecem os melhores pacotes.","conteudo":"Algumas empresas se destacam pela remuneracao e beneficios.\n\n**Petrobras**\nÃ¢ÂÂ¢ Salario: R$ 9.000 a R$ 15.000\nÃ¢ÂÂ¢ Acesso via concurso publico\n\n**Vale**\nÃ¢ÂÂ¢ Salario: R$ 5.000 a R$ 10.000\nÃ¢ÂÂ¢ Forte em MG, PA e ES\n\n**WEG**\nÃ¢ÂÂ¢ Salario: R$ 3.500 a R$ 7.000\nÃ¢ÂÂ¢ Base em Jaragua do Sul (SC)\n\n**Embraer**\nÃ¢ÂÂ¢ Salario: R$ 4.000 a R$ 8.000\nÃ¢ÂÂ¢ Sao Jose dos Campos (SP)\n\n**Bosch**\nÃ¢ÂÂ¢ Salario: R$ 4.000 a R$ 7.500\nÃ¢ÂÂ¢ Campinas e Curitiba","categoria":"Empresas","icone":"Ã°ÂÂÂ­","fonte":"TecVagas","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
-    {"titulo":"Empregos manuais que a IA nunca vai substituir","resumo":"Profissoes com trabalho fisico complexo e raciocinio situacional sao as mais seguras.","conteudo":"A onda de automacao tem um ponto cego: o trabalho fisico especializado.\n\n**Profissoes mais seguras:**\n\nÃ¢ÂÂ¢ Tecnico em Manutencao Industrial - risco 2%\nÃ¢ÂÂ¢ Tecnico Eletricista Industrial - risco 3%\nÃ¢ÂÂ¢ Tecnico em Refrigeracao/HVAC - risco 4%\nÃ¢ÂÂ¢ Tecnico em Automacao/PLC - risco 1%\n\n**O que fazer para se proteger:**\nÃ¢ÂÂ¢ Especialize-se em equipamentos complexos\nÃ¢ÂÂ¢ Aprenda a interpretar dados de monitoramento\nÃ¢ÂÂ¢ Adicione certificacoes NR\nÃ¢ÂÂ¢ Desenvolva habilidade em manutencao preditiva","categoria":"IA & Futuro","icone":"Ã°ÂÂÂ¡Ã¯Â¸Â","fonte":"TecVagas","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
+    {"titulo":"A IA vai acabar com o emprego de tecnicos industriais?","resumo":"A inteligencia artificial esta transformando a industria, mas dados mostram que tecnicos sao dos profissionais mais resistentes a automacao.","conteudo":"A pergunta que mais assusta trabalhadores da industria em 2026: a IA vai tirar meu emprego?\n\nA resposta curta e: nao para tecnicos industriais. E os dados comprovam.\n\n**Por que tecnicos sao dificeis de substituir?**\n\nA automacao funciona bem para tarefas repetitivas. O trabalho de um tecnico industrial e exatamente o oposto.\n\nQuando uma bomba quebra as 3h da manha, nao e um algoritmo que vai trocar o selo. Quando um CLP apresenta falha intermitente, nao e uma tela que vai resolver no campo.\n\n**Os numeros:**\nSegundo o Forum Economico Mundial, 85 milhoes de empregos serao substituidos pela automacao ate 2025, mas 97 milhoes de novos empregos surgirao.\n\nNo Brasil, o deficit de tecnicos qualificados ja chega a 400 mil profissionais, segundo o SENAI.","categoria":"IA & Futuro","icone":"ÃÂ°ÃÂÃÂ¤ÃÂ","fonte":"TecVagas","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
+    {"titulo":"Quanto ganha um Tecnico em Manutencao Eletrica em 2026?","resumo":"Salarios variam de R$ 2.800 a R$ 6.500 dependendo da regiao e experiencia.","conteudo":"O tecnico em manutencao eletrica e um dos profissionais mais requisitados na industria brasileira em 2026.\n\n**Faixa salarial por nivel:**\nÃÂ¢ÃÂÃÂ¢ Junior (0-2 anos): R$ 2.800 a R$ 3.500\nÃÂ¢ÃÂÃÂ¢ Pleno (2-5 anos): R$ 3.500 a R$ 5.000\nÃÂ¢ÃÂÃÂ¢ Senior (5+ anos): R$ 5.000 a R$ 6.500\nÃÂ¢ÃÂÃÂ¢ Especialista: ate R$ 8.000\n\n**O que aumenta o salario:**\nÃÂ¢ÃÂÃÂ¢ NR10 atualizado: +15 a 25%\nÃÂ¢ÃÂÃÂ¢ NR35 (trabalho em altura): +10%\nÃÂ¢ÃÂÃÂ¢ Periculosidade: +30%\nÃÂ¢ÃÂÃÂ¢ Insalubridade: +10 a 40%\nÃÂ¢ÃÂÃÂ¢ Turno noturno: +20% adicional","categoria":"Salarios","icone":"ÃÂ¢ÃÂÃÂ¡","fonte":"TecVagas","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
+    {"titulo":"NR10: Guia Completo para Tecnicos Eletricos em 2026","resumo":"A NR10 e obrigatoria para profissionais que trabalham com instalacoes eletricas.","conteudo":"A NR10 e obrigatoria para qualquer profissional que trabalhe com sistemas eletricos no Brasil.\n\n**Tipos de curso:**\nÃÂ¢ÃÂÃÂ¢ NR10 Basico: 40 horas\nÃÂ¢ÃÂÃÂ¢ NR10 SEP: 40 horas adicionais (alta tensao)\nÃÂ¢ÃÂÃÂ¢ Total: 80 horas para habilitacao completa\n\n**Validade:** 2 anos\n\n**Custo medio:**\nÃÂ¢ÃÂÃÂ¢ SENAI: R$ 300 a R$ 600\nÃÂ¢ÃÂÃÂ¢ Empresas privadas: R$ 600 a R$ 1.500\nÃÂ¢ÃÂÃÂ¢ Reciclagem: R$ 150 a R$ 400\n\n**Impacto no salario:** +20 a 25% em media","categoria":"Certificacoes","icone":"ÃÂ°ÃÂÃÂÃÂ","fonte":"TecVagas","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
+    {"titulo":"Tecnico em Automacao: a profissao que mais cresce no Brasil","resumo":"Com a Industria 4.0, tecnicos em PLC e SCADA sao os mais disputados.","conteudo":"A automacao industrial esta criando enorme demanda por tecnicos qualificados.\n\n**O que o tecnico em automacao faz:**\nÃÂ¢ÃÂÃÂ¢ Programacao e manutencao de CLPs\nÃÂ¢ÃÂÃÂ¢ Configuracao de sistemas SCADA\nÃÂ¢ÃÂÃÂ¢ Manutencao de robos industriais\nÃÂ¢ÃÂÃÂ¢ Redes industriais (Profibus, Profinet)\n\n**Plataformas valorizadas:**\nÃÂ¢ÃÂÃÂ¢ Siemens S7 (TIA Portal)\nÃÂ¢ÃÂÃÂ¢ Allen Bradley (Studio 5000)\nÃÂ¢ÃÂÃÂ¢ Schneider (EcoStruxure)\nÃÂ¢ÃÂÃÂ¢ ABB - robotica\n\n**Salarios:**\nÃÂ¢ÃÂÃÂ¢ Junior: R$ 3.000 a R$ 4.500\nÃÂ¢ÃÂÃÂ¢ Pleno: R$ 4.500 a R$ 6.500\nÃÂ¢ÃÂÃÂ¢ Senior: R$ 6.500 a R$ 9.000\nÃÂ¢ÃÂÃÂ¢ Especialista: ate R$ 12.000","categoria":"Carreira","icone":"ÃÂ°ÃÂÃÂ¤ÃÂ","fonte":"TecVagas","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
+    {"titulo":"Melhores empresas para tecnicos industriais em 2026","resumo":"Petrobras, Vale, WEG, Embraer e Bosch oferecem os melhores pacotes.","conteudo":"Algumas empresas se destacam pela remuneracao e beneficios.\n\n**Petrobras**\nÃÂ¢ÃÂÃÂ¢ Salario: R$ 9.000 a R$ 15.000\nÃÂ¢ÃÂÃÂ¢ Acesso via concurso publico\n\n**Vale**\nÃÂ¢ÃÂÃÂ¢ Salario: R$ 5.000 a R$ 10.000\nÃÂ¢ÃÂÃÂ¢ Forte em MG, PA e ES\n\n**WEG**\nÃÂ¢ÃÂÃÂ¢ Salario: R$ 3.500 a R$ 7.000\nÃÂ¢ÃÂÃÂ¢ Base em Jaragua do Sul (SC)\n\n**Embraer**\nÃÂ¢ÃÂÃÂ¢ Salario: R$ 4.000 a R$ 8.000\nÃÂ¢ÃÂÃÂ¢ Sao Jose dos Campos (SP)\n\n**Bosch**\nÃÂ¢ÃÂÃÂ¢ Salario: R$ 4.000 a R$ 7.500\nÃÂ¢ÃÂÃÂ¢ Campinas e Curitiba","categoria":"Empresas","icone":"ÃÂ°ÃÂÃÂÃÂ­","fonte":"TecVagas","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
+    {"titulo":"Empregos manuais que a IA nunca vai substituir","resumo":"Profissoes com trabalho fisico complexo e raciocinio situacional sao as mais seguras.","conteudo":"A onda de automacao tem um ponto cego: o trabalho fisico especializado.\n\n**Profissoes mais seguras:**\n\nÃÂ¢ÃÂÃÂ¢ Tecnico em Manutencao Industrial - risco 2%\nÃÂ¢ÃÂÃÂ¢ Tecnico Eletricista Industrial - risco 3%\nÃÂ¢ÃÂÃÂ¢ Tecnico em Refrigeracao/HVAC - risco 4%\nÃÂ¢ÃÂÃÂ¢ Tecnico em Automacao/PLC - risco 1%\n\n**O que fazer para se proteger:**\nÃÂ¢ÃÂÃÂ¢ Especialize-se em equipamentos complexos\nÃÂ¢ÃÂÃÂ¢ Aprenda a interpretar dados de monitoramento\nÃÂ¢ÃÂÃÂ¢ Adicione certificacoes NR\nÃÂ¢ÃÂÃÂ¢ Desenvolva habilidade em manutencao preditiva","categoria":"IA & Futuro","icone":"ÃÂ°ÃÂÃÂÃÂ¡ÃÂ¯ÃÂ¸ÃÂ","fonte":"TecVagas","url":"#","data":datetime.now().strftime("%d/%m/%Y")},
 ]
 
 AREA_CONFIG = {
-    "eletrica":     {"cls":"tag-el","label":"Eletrica","ico":"Ã¢ÂÂ¡","cor":"#4f8cff"},
-    "mecanica":     {"cls":"tag-me","label":"Mecanica","ico":"Ã°ÂÂÂ©","cor":"#29c48a"},
-    "automacao":    {"cls":"tag-au","label":"Automacao","ico":"Ã°ÂÂ¤Â","cor":"#ff9f43"},
-    "qualidade":    {"cls":"tag-qu","label":"Qualidade","ico":"Ã°ÂÂÂ","cor":"#b079ff"},
-    "seguranca":    {"cls":"tag-se","label":"Seguranca","ico":"Ã°ÂÂ¦Âº","cor":"#23c9c8"},
-    "refrigeracao": {"cls":"tag-rf","label":"Refrigeracao","ico":"Ã¢ÂÂÃ¯Â¸Â","cor":"#84b6ff"},
+    "eletrica":     {"cls":"tag-el","label":"Eletrica","ico":"ÃÂ¢ÃÂÃÂ¡","cor":"#4f8cff"},
+    "mecanica":     {"cls":"tag-me","label":"Mecanica","ico":"ÃÂ°ÃÂÃÂÃÂ©","cor":"#29c48a"},
+    "automacao":    {"cls":"tag-au","label":"Automacao","ico":"ÃÂ°ÃÂÃÂ¤ÃÂ","cor":"#ff9f43"},
+    "qualidade":    {"cls":"tag-qu","label":"Qualidade","ico":"ÃÂ°ÃÂÃÂÃÂ","cor":"#b079ff"},
+    "seguranca":    {"cls":"tag-se","label":"Seguranca","ico":"ÃÂ°ÃÂÃÂ¦ÃÂº","cor":"#23c9c8"},
+    "refrigeracao": {"cls":"tag-rf","label":"Refrigeracao","ico":"ÃÂ¢ÃÂÃÂÃÂ¯ÃÂ¸ÃÂ","cor":"#84b6ff"},
 }
 
 ESTADO_COORDS = {
@@ -261,7 +261,7 @@ def formatar_conteudo(texto):
             html += '<div style="height:8px"></div>'
             continue
         linha = re.sub(r"\*\*(.*?)\*\*", r"<strong>\1</strong>", linha)
-        if linha.startswith("Ã¢ÂÂ¢") or linha.startswith("Ã¢ÂÂ") or linha.startswith("Ã¢ÂÂ"):
+        if linha.startswith("ÃÂ¢ÃÂÃÂ¢") or linha.startswith("ÃÂ¢ÃÂÃÂ") or linha.startswith("ÃÂ¢ÃÂÃÂ"):
             html += f'<p style="margin:5px 0;padding-left:6px">{linha}</p>'
         else:
             html += f'<p style="margin:10px 0">{linha}</p>'
@@ -456,17 +456,17 @@ def gerar_card_vaga(v, idx=0):
         <h3 class="card-title">{v['titulo']}</h3>
         <div class="card-company">{v['empresa']}</div>
       </div>
-      <div class="card-badge-verified">Ã°ÂÂÂ Link ativo</div>
+      <div class="card-badge-verified">ÃÂ°ÃÂÃÂÃÂ Link ativo</div>
     </div>
     <div class="card-info-row">
-      <span class="info-chip info-chip-loc">Ã°ÂÂÂ {local}</span>
-      <span class="info-chip">Ã°ÂÂÂ° {salario}</span>
-      <span class="info-chip">Ã°ÂÂÂ {escala}</span>
-      <span class="info-chip">Ã°ÂÂÂ {v['data']}</span>
+      <span class="info-chip info-chip-loc">ÃÂ°ÃÂÃÂÃÂ {local}</span>
+      <span class="info-chip">ÃÂ°ÃÂÃÂÃÂ° {salario}</span>
+      <span class="info-chip">ÃÂ°ÃÂÃÂÃÂ {escala}</span>
+      <span class="info-chip">ÃÂ°ÃÂÃÂÃÂ {v['data']}</span>
     </div>
     <div class="card-actions">
-      <a class="btn-wpp" href="{wpp}" target="_blank" onclick="event.stopPropagation()">Ã°ÂÂÂ² WhatsApp</a>
-      <a class="btn-ver" href="{v['url']}" target="_blank">Ver vaga Ã¢ÂÂ</a>
+      <a class="btn-wpp" href="{wpp}" target="_blank" onclick="event.stopPropagation()">ÃÂ°ÃÂÃÂÃÂ² WhatsApp</a>
+      <a class="btn-ver" href="{v['url']}" target="_blank">Ver vaga ÃÂ¢ÃÂÃÂ</a>
     </div>
   </div>
 </article>'''
@@ -480,8 +480,8 @@ def gerar_card_artigo(a, idx=0):
     <div class="article-title">{a.get('titulo','')}</div>
     <div class="article-excerpt">{a.get('resumo','')}</div>
     <div class="article-footer">
-      <span class="article-source">{a.get('fonte','TecVagas')} ÃÂ· {a.get('data','')}</span>
-      <span class="article-cta">Ler artigo Ã¢ÂÂ</span>
+      <span class="article-source">{a.get('fonte','TecVagas')} ÃÂÃÂ· {a.get('data','')}</span>
+      <span class="article-cta">Ler artigo ÃÂ¢ÃÂÃÂ</span>
     </div>
   </div>
 </div>
@@ -489,7 +489,7 @@ def gerar_card_artigo(a, idx=0):
   <div class="modal-box modal-article">
     <div class="modal-article-cat">{a.get('icone','&#x1F4F0;')} {a.get('categoria','geral')}</div>
     <h2 class="modal-article-title">{a.get('titulo','')}</h2>
-    <div class="modal-article-meta">{a.get('fonte','TecVagas')} ÃÂ· {a.get('data','')}</div>
+    <div class="modal-article-meta">{a.get('fonte','TecVagas')} ÃÂÃÂ· {a.get('data','')}</div>
     <div class="modal-article-body">{conteudo_html}</div>
     <button class="btn-close" onclick="closeModal('article-{idx}')">Fechar</button>
   </div>
@@ -1189,9 +1189,9 @@ def gerar_html(vagas, artigos):
 
     # HERO
     out += '<section class="hero"><div class="hero-grid"></div><div class="hero-glow"></div>' + gear_svg("hero-gear")
-    out += '<div class="hero-eyebrow">BR ÃÂ· VAGAS PARA TECNICOS INDUSTRIAIS ÃÂ· 2026</div>'
+    out += '<div class="hero-eyebrow">BR ÃÂÃÂ· VAGAS PARA TECNICOS INDUSTRIAIS ÃÂÃÂ· 2026</div>'
     out += '<h1>As melhores vagas<br>para <span class="accent">tecnicos industriais</span><br>do Brasil.</h1>'
-    out += '<p class="hero-sub">Eletrica ÃÂ· Mecanica ÃÂ· Automacao ÃÂ· Refrigeracao<br>Vagas verificadas, atualizadas 5x por dia.</p></section>'
+    out += '<p class="hero-sub">Eletrica ÃÂÃÂ· Mecanica ÃÂÃÂ· Automacao ÃÂÃÂ· Refrigeracao<br>Vagas verificadas, atualizadas 5x por dia.</p></section>'
 
     # METRICS
     out += '<div class="metrics">'
@@ -1203,7 +1203,7 @@ def gerar_html(vagas, artigos):
 
     # FILTROS
     out += '<div class="filters-section">'
-    out += '<div class="filters-search"><span class="s-ico">Ã°ÂÂÂ</span>'
+    out += '<div class="filters-search"><span class="s-ico">ÃÂ°ÃÂÃÂÃÂ</span>'
     out += '<input type="text" id="s-inp" placeholder="Buscar por cargo, empresa ou cidade..." oninput="buscar(this.value)"></div>'
     out += '<span class="f-lbl">Area tecnica</span><div class="f-row">'
     out += '<button class="chip active" onclick="fA(\'todas\',this)">Todas</button>'
@@ -1218,7 +1218,7 @@ def gerar_html(vagas, artigos):
     out += '<select class="f-sel" onchange="fE(this.value)">' + estados_opts + '</select>'
     out += '</div></div>'
 
-    out += f'<div class="trust-bar"><div class="trust-dot"></div>Vagas verificadas ÃÂ· Apenas 2026 ÃÂ· Encerradas removidas ÃÂ· Atualizado em {agora}</div>'
+    out += f'<div class="trust-bar"><div class="trust-dot"></div>Vagas verificadas ÃÂÃÂ· Apenas 2026 ÃÂÃÂ· Encerradas removidas ÃÂÃÂ· Atualizado em {agora}</div>'
 
     out += '<div class="page">'
     out += gear_svg("section-gear one")
@@ -1226,7 +1226,7 @@ def gerar_html(vagas, artigos):
 
     # DASHBOARD
     out += '<div class="dashboard-section">'
-    out += '<div class="sec-hdr"><div class="sec-title">Panorama do Mercado <span class="dash-sub">ÃÂ· premium</span></div></div>'
+    out += '<div class="sec-hdr"><div class="sec-title">Panorama do Mercado <span class="dash-sub">ÃÂÃÂ· premium</span></div></div>'
     out += '<div class="dashboard">'
     out += '<div class="dash-card"><div class="dash-title">Vagas por Estado</div>' + mapa_html + '</div>'
     out += '<div class="dash-card"><div class="dash-title">Distribuicao por Area</div>' + pizza_html + '</div>'
@@ -1236,13 +1236,13 @@ def gerar_html(vagas, artigos):
     out += '<div class="calc-section">'
     out += '<div class="sec-hdr"><div class="sec-title">Calculadoras Trabalhistas</div></div>'
     out += '<div class="calc-grid">'
-    out += '<button class="calc-item" onclick="openModal(\'m-sal\')"><div class="calc-emoji">Ã°ÂÂÂ°</div><div><div class="calc-name">Salario Liquido</div><div class="calc-hint">INSS + IRRF 2026</div></div></button>'
-    out += '<button class="calc-item" onclick="openModal(\'m-fer\')"><div class="calc-emoji">Ã°ÂÂÂÃ¯Â¸Â</div><div><div class="calc-name">Ferias</div><div class="calc-hint">+ 1/3 constitucional</div></div></button>'
-    out += '<button class="calc-item" onclick="openModal(\'m-res\')"><div class="calc-emoji">Ã°ÂÂÂ¦</div><div><div class="calc-name">Rescisao</div><div class="calc-hint">Demissao ou pedido</div></div></button>'
-    out += '<button class="calc-item" onclick="openModal(\'m-he\')"><div class="calc-emoji">Ã¢ÂÂ°</div><div><div class="calc-name">Hora Extra</div><div class="calc-hint">50%, 100% e noturna</div></div></button>'
-    out += '<button class="calc-item" onclick="openModal(\'m-not\')"><div class="calc-emoji">Ã°ÂÂÂ</div><div><div class="calc-name">Adicional Noturno</div><div class="calc-hint">20% sobre salario</div></div></button>'
-    out += '<button class="calc-item" onclick="openModal(\'m-ins\')"><div class="calc-emoji">Ã¢ÂÂ Ã¯Â¸Â</div><div><div class="calc-name">Insalubridade</div><div class="calc-hint">e Periculosidade</div></div></button>'
-    out += '<button class="calc-item" onclick="openModal(\'m-dec\')"><div class="calc-emoji">Ã°ÂÂÂ</div><div><div class="calc-name">13o Salario</div><div class="calc-hint">Proporcional ou cheio</div></div></button>'
+    out += '<button class="calc-item" onclick="openModal(\'m-sal\')"><div class="calc-emoji">&#x1F4B0;</div><div><div class="calc-name">Salario Liquido</div><div class="calc-hint">INSS + IRRF 2026</div></div></button>'
+    out += '<button class="calc-item" onclick="openModal(\'m-fer\')"><div class="calc-emoji">&#x1F3D6;</div><div><div class="calc-name">Ferias</div><div class="calc-hint">+ 1/3 constitucional</div></div></button>'
+    out += '<button class="calc-item" onclick="openModal(\'m-res\')"><div class="calc-emoji">&#x1F4CB;</div><div><div class="calc-name">Rescisao</div><div class="calc-hint">Demissao ou pedido</div></div></button>'
+    out += '<button class="calc-item" onclick="openModal(\'m-he\')"><div class="calc-emoji">&#x26A1;</div><div><div class="calc-name">Hora Extra</div><div class="calc-hint">50%, 100% e noturna</div></div></button>'
+    out += '<button class="calc-item" onclick="openModal(\'m-not\')"><div class="calc-emoji">&#x1F319;</div><div><div class="calc-name">Adicional Noturno</div><div class="calc-hint">20% sobre salario</div></div></button>'
+    out += '<button class="calc-item" onclick="openModal(\'m-ins\')"><div class="calc-emoji">&#x26A0;</div><div><div class="calc-name">Insalubridade</div><div class="calc-hint">e Periculosidade</div></div></button>'
+    out += '<button class="calc-item" onclick="openModal(\'m-dec\')"><div class="calc-emoji">ÃÂ°ÃÂÃÂÃÂ</div><div><div class="calc-name">13o Salario</div><div class="calc-hint">Proporcional ou cheio</div></div></button>'
     out += '</div></div>'
 
     # ARTIGOS
@@ -1261,7 +1261,7 @@ def gerar_html(vagas, artigos):
     # VAGAS
     out += f'<div class="sec-hdr" id="vagas"><div class="sec-title">Vagas Disponiveis</div><span class="sec-count" id="vc">{total} vagas</span></div>'
     out += '<div class="jobs-list" id="jl">' + cards_vagas + '</div>'
-    out += '<div class="empty-state" id="es"><div class="empty-icon">Ã°ÂÂÂ</div>'
+    out += '<div class="empty-state" id="es"><div class="empty-icon">ÃÂ°ÃÂÃÂÃÂ</div>'
     out += '<div class="empty-title">Nenhuma vaga encontrada</div>'
     out += '<div class="empty-text">Tente outra area, estado ou termo de busca.<br>Atualizamos 5x por dia.</div>'
     out += '<button class="empty-btn" onclick="resetF()">Ver todas as vagas</button></div>'
@@ -1330,7 +1330,7 @@ def gerar_html(vagas, artigos):
     out += '<button class="btn-close" onclick="closeModal(\'m-dec\')">Fechar</button></div></div>'
 
     out += '<footer><div class="footer-logo">Tec<span>Vagas</span></div>'
-    out += '<div class="footer-text">Vagas tecnicas industriais verificadas ÃÂ· Apenas 2026 ÃÂ· Todo o Brasil<br>Atualizado automaticamente 5x por dia</div>'
+    out += '<div class="footer-text">Vagas tecnicas industriais verificadas ÃÂÃÂ· Apenas 2026 ÃÂÃÂ· Todo o Brasil<br>Atualizado automaticamente 5x por dia</div>'
     out += gear_svg("footer-gear")
     out += '</footer>'
 
