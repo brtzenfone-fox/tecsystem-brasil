@@ -1,20 +1,5 @@
 [
   {
-    "titulo": "Data centers geram boom de vagas tecnicas no Brasil",
-    "resumo": "Chegada de Google, Amazon e Microsoft ao Brasil impulsiona demanda por tecnicos de infraestrutura, refrigeracao e sistemas eletricos.",
-    "url": "https://canaltech.com.br",
-    "fonte": "Canaltech",
-    "categoria": "mercado",
-    "tags": [
-      "data center",
-      "infraestrutura",
-      "empregos"
-    ],
-    "imagem": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_00"
-  },
-  {
     "titulo": "Instrumentacao industrial: salarios chegam a R$ 12 mil",
     "resumo": "Profissionais de calibracao e manutencao de instrumentos de medicao sao altamente valorizados na industria quimica e farmaceutica.",
     "url": "https://www.infomoney.com.br",
@@ -26,8 +11,8 @@
       "industria"
     ],
     "imagem": "https://images.unsplash.com/photo-1559523161-0fc0d8b814f2?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_01"
+    "data": "2026-04-28",
+    "id": "res_118_00"
   },
   {
     "titulo": "Veiculos eletricos: nova fronteira para mecanicos no Brasil",
@@ -41,8 +26,8 @@
       "capacitacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_02"
+    "data": "2026-04-28",
+    "id": "res_118_01"
   },
   {
     "titulo": "IA generativa transforma manutencao industrial em 2025",
@@ -56,8 +41,8 @@
       "industria"
     ],
     "imagem": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_03"
+    "data": "2026-04-28",
+    "id": "res_118_02"
   },
   {
     "titulo": "Tecnicos de refrigeracao sao os mais buscados em 2025",
@@ -71,8 +56,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_04"
+    "data": "2026-04-28",
+    "id": "res_118_03"
   },
   {
     "titulo": "NR-10 e NR-12: novas exigencias para eletricistas industriais",
@@ -86,8 +71,8 @@
       "eletricista"
     ],
     "imagem": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_05"
+    "data": "2026-04-28",
+    "id": "res_118_04"
   },
   {
     "titulo": "Automacao cria novas vagas para tecnicos especializados",
@@ -101,8 +86,8 @@
       "tecnicos"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_06"
+    "data": "2026-04-28",
+    "id": "res_118_05"
   },
   {
     "titulo": "Industria 4.0: tecnicos precisam dominar IoT e sensores",
@@ -116,8 +101,8 @@
       "PLC"
     ],
     "imagem": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_07"
+    "data": "2026-04-28",
+    "id": "res_118_06"
   },
   {
     "titulo": "Petroleo e gas abre 15 mil vagas para tecnicos no Brasil",
@@ -131,8 +116,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1570615470447-7c4db8e16f80?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_08"
+    "data": "2026-04-28",
+    "id": "res_118_07"
   },
   {
     "titulo": "Soldadores qualificados escassos no setor naval brasileiro",
@@ -146,8 +131,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_09"
+    "data": "2026-04-28",
+    "id": "res_118_08"
   },
   {
     "titulo": "Manutencao preditiva com IA muda as fabricas brasileiras",
@@ -161,8 +146,8 @@
       "fabrica"
     ],
     "imagem": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_10"
+    "data": "2026-04-28",
+    "id": "res_118_09"
   },
   {
     "titulo": "Tecnicos de TI industrial: perfil mais procurado pelas industrias",
@@ -176,8 +161,8 @@
       "carreira"
     ],
     "imagem": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_11"
+    "data": "2026-04-28",
+    "id": "res_118_10"
   },
   {
     "titulo": "Energia solar impulsiona demanda por tecnicos fotovoltaicos",
@@ -191,8 +176,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_12"
+    "data": "2026-04-28",
+    "id": "res_118_11"
   },
   {
     "titulo": "Robotica colaborativa: tecnicos aprendem a trabalhar com cobots",
@@ -206,8 +191,8 @@
       "automacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_13"
+    "data": "2026-04-28",
+    "id": "res_118_12"
   },
   {
     "titulo": "SENAI abre 50 mil vagas em cursos tecnicos de automacao",
@@ -221,7 +206,22 @@
       "automacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-04-27",
-    "id": "res_117_14"
+    "data": "2026-04-28",
+    "id": "res_118_13"
+  },
+  {
+    "titulo": "Data centers geram boom de vagas tecnicas no Brasil",
+    "resumo": "Chegada de Google, Amazon e Microsoft ao Brasil impulsiona demanda por tecnicos de infraestrutura, refrigeracao e sistemas eletricos.",
+    "url": "https://canaltech.com.br",
+    "fonte": "Canaltech",
+    "categoria": "mercado",
+    "tags": [
+      "data center",
+      "infraestrutura",
+      "empregos"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800",
+    "data": "2026-04-28",
+    "id": "res_118_14"
   }
 ]
