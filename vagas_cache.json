@@ -3413,5 +3413,44 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Engenheiro de Automação V 027273",
+    "empresa": "Lyon Engenharia",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2811153/engenheiro-de-automacao-v027273",
+    "fonte": "vagas.com.br",
+    "data": "28/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Mecânico de Manutenção I",
+    "empresa": "Paranapanema",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2811301/mecanico-de-manutencao-i",
+    "fonte": "vagas.com.br",
+    "data": "28/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Controle de Qualidade",
+    "empresa": "Eternit",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2811129/tecnico-de-controle-de-qualidade",
+    "fonte": "vagas.com.br",
+    "data": "28/04/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
