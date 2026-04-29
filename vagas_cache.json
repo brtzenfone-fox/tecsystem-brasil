@@ -3608,5 +3608,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Engenheiro de Produção Júnior",
+    "empresa": "Confidencial",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2809915/engenheiro-de-producao-junior",
+    "fonte": "vagas.com.br",
+    "data": "29/04/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Inspetor de Qualidade I - Junior",
+    "empresa": "Dormer Pramet",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2806886/inspetor-de-qualidade-i-junior",
+    "fonte": "vagas.com.br",
+    "data": "29/04/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
