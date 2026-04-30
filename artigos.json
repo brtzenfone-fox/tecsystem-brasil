@@ -1,20 +1,5 @@
 [
   {
-    "titulo": "Veiculos eletricos: nova fronteira para mecanicos no Brasil",
-    "resumo": "Com chegada de veiculos eletricos ao mercado, mecanicos precisam se capacitar em sistemas de alta tensao e baterias de ion-litio.",
-    "url": "https://olhardigital.com.br",
-    "fonte": "Olhar Digital",
-    "categoria": "tecnologia",
-    "tags": [
-      "eletrico",
-      "mecanica",
-      "capacitacao"
-    ],
-    "imagem": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_00"
-  },
-  {
     "titulo": "IA generativa transforma manutencao industrial em 2025",
     "resumo": "Empresas adotam inteligencia artificial para diagnostico preditivo, reduzindo paradas nao programadas em ate 40%. Tecnicos precisam se adaptar as novas tecnologias para manter empregabilidade.",
     "url": "https://tiinside.com.br",
@@ -26,8 +11,8 @@
       "industria"
     ],
     "imagem": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_01"
+    "data": "2026-04-30",
+    "id": "res_120_00"
   },
   {
     "titulo": "Tecnicos de refrigeracao sao os mais buscados em 2025",
@@ -41,8 +26,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_02"
+    "data": "2026-04-30",
+    "id": "res_120_01"
   },
   {
     "titulo": "NR-10 e NR-12: novas exigencias para eletricistas industriais",
@@ -56,8 +41,8 @@
       "eletricista"
     ],
     "imagem": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_03"
+    "data": "2026-04-30",
+    "id": "res_120_02"
   },
   {
     "titulo": "Automacao cria novas vagas para tecnicos especializados",
@@ -71,8 +56,8 @@
       "tecnicos"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_04"
+    "data": "2026-04-30",
+    "id": "res_120_03"
   },
   {
     "titulo": "Industria 4.0: tecnicos precisam dominar IoT e sensores",
@@ -86,8 +71,8 @@
       "PLC"
     ],
     "imagem": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_05"
+    "data": "2026-04-30",
+    "id": "res_120_04"
   },
   {
     "titulo": "Petroleo e gas abre 15 mil vagas para tecnicos no Brasil",
@@ -101,8 +86,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1570615470447-7c4db8e16f80?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_06"
+    "data": "2026-04-30",
+    "id": "res_120_05"
   },
   {
     "titulo": "Soldadores qualificados escassos no setor naval brasileiro",
@@ -116,8 +101,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_07"
+    "data": "2026-04-30",
+    "id": "res_120_06"
   },
   {
     "titulo": "Manutencao preditiva com IA muda as fabricas brasileiras",
@@ -131,8 +116,8 @@
       "fabrica"
     ],
     "imagem": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_08"
+    "data": "2026-04-30",
+    "id": "res_120_07"
   },
   {
     "titulo": "Tecnicos de TI industrial: perfil mais procurado pelas industrias",
@@ -146,8 +131,8 @@
       "carreira"
     ],
     "imagem": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_09"
+    "data": "2026-04-30",
+    "id": "res_120_08"
   },
   {
     "titulo": "Energia solar impulsiona demanda por tecnicos fotovoltaicos",
@@ -161,8 +146,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_10"
+    "data": "2026-04-30",
+    "id": "res_120_09"
   },
   {
     "titulo": "Robotica colaborativa: tecnicos aprendem a trabalhar com cobots",
@@ -176,8 +161,8 @@
       "automacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_11"
+    "data": "2026-04-30",
+    "id": "res_120_10"
   },
   {
     "titulo": "SENAI abre 50 mil vagas em cursos tecnicos de automacao",
@@ -191,8 +176,8 @@
       "automacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_12"
+    "data": "2026-04-30",
+    "id": "res_120_11"
   },
   {
     "titulo": "Data centers geram boom de vagas tecnicas no Brasil",
@@ -206,8 +191,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_13"
+    "data": "2026-04-30",
+    "id": "res_120_12"
   },
   {
     "titulo": "Instrumentacao industrial: salarios chegam a R$ 12 mil",
@@ -221,7 +206,22 @@
       "industria"
     ],
     "imagem": "https://images.unsplash.com/photo-1559523161-0fc0d8b814f2?w=800",
-    "data": "2026-04-29",
-    "id": "res_119_14"
+    "data": "2026-04-30",
+    "id": "res_120_13"
+  },
+  {
+    "titulo": "Veiculos eletricos: nova fronteira para mecanicos no Brasil",
+    "resumo": "Com chegada de veiculos eletricos ao mercado, mecanicos precisam se capacitar em sistemas de alta tensao e baterias de ion-litio.",
+    "url": "https://olhardigital.com.br",
+    "fonte": "Olhar Digital",
+    "categoria": "tecnologia",
+    "tags": [
+      "eletrico",
+      "mecanica",
+      "capacitacao"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800",
+    "data": "2026-04-30",
+    "id": "res_120_14"
   }
 ]
