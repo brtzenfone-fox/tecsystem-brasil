@@ -3738,5 +3738,70 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Mecânica (o) III",
+    "empresa": "Klabin",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2811902/mecanica-o-iii",
+    "fonte": "vagas.com.br",
+    "data": "01/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicoem Segurançado Trabalho",
+    "empresa": "CIE Piracicaba",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2806216/tecnico-em-seguranca-do-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "01/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico Segurança Trabalho",
+    "empresa": "DP World Santos",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2806737/tecnico-seguranca-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "01/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico Segurança Trabalho",
+    "empresa": "Confidencial",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2807135/tecnico-seguranca-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "01/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Ar Condicionado Jr.",
+    "empresa": "Trane Tecnhnologies",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2807789/tecnico-de-ar-condicionado-jr",
+    "fonte": "vagas.com.br",
+    "data": "01/05/2026",
+    "area": "refrigeracao",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
