@@ -1,20 +1,5 @@
 [
   {
-    "titulo": "NR-10 e NR-12: novas exigencias para eletricistas industriais",
-    "resumo": "O Ministerio do Trabalho atualiza normas regulamentadoras, aumentando exigencias de qualificacao e abrindo oportunidades para profissionais certificados.",
-    "url": "https://tiinside.com.br",
-    "fonte": "TI Inside",
-    "categoria": "normas",
-    "tags": [
-      "NR-10",
-      "NR-12",
-      "eletricista"
-    ],
-    "imagem": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_00"
-  },
-  {
     "titulo": "Automacao cria novas vagas para tecnicos especializados",
     "resumo": "Estudo aponta que automacao elimina funcoes repetitivas mas cria demanda por tecnicos capazes de programar e manter equipamentos automatizados.",
     "url": "https://computerworld.com.br",
@@ -26,8 +11,8 @@
       "tecnicos"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_01"
+    "data": "2026-05-03",
+    "id": "res_123_00"
   },
   {
     "titulo": "Industria 4.0: tecnicos precisam dominar IoT e sensores",
@@ -41,8 +26,8 @@
       "PLC"
     ],
     "imagem": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_02"
+    "data": "2026-05-03",
+    "id": "res_123_01"
   },
   {
     "titulo": "Petroleo e gas abre 15 mil vagas para tecnicos no Brasil",
@@ -56,8 +41,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1570615470447-7c4db8e16f80?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_03"
+    "data": "2026-05-03",
+    "id": "res_123_02"
   },
   {
     "titulo": "Soldadores qualificados escassos no setor naval brasileiro",
@@ -71,8 +56,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_04"
+    "data": "2026-05-03",
+    "id": "res_123_03"
   },
   {
     "titulo": "Manutencao preditiva com IA muda as fabricas brasileiras",
@@ -86,8 +71,8 @@
       "fabrica"
     ],
     "imagem": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_05"
+    "data": "2026-05-03",
+    "id": "res_123_04"
   },
   {
     "titulo": "Tecnicos de TI industrial: perfil mais procurado pelas industrias",
@@ -101,8 +86,8 @@
       "carreira"
     ],
     "imagem": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_06"
+    "data": "2026-05-03",
+    "id": "res_123_05"
   },
   {
     "titulo": "Energia solar impulsiona demanda por tecnicos fotovoltaicos",
@@ -116,8 +101,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_07"
+    "data": "2026-05-03",
+    "id": "res_123_06"
   },
   {
     "titulo": "Robotica colaborativa: tecnicos aprendem a trabalhar com cobots",
@@ -131,8 +116,8 @@
       "automacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_08"
+    "data": "2026-05-03",
+    "id": "res_123_07"
   },
   {
     "titulo": "SENAI abre 50 mil vagas em cursos tecnicos de automacao",
@@ -146,8 +131,8 @@
       "automacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_09"
+    "data": "2026-05-03",
+    "id": "res_123_08"
   },
   {
     "titulo": "Data centers geram boom de vagas tecnicas no Brasil",
@@ -161,8 +146,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_10"
+    "data": "2026-05-03",
+    "id": "res_123_09"
   },
   {
     "titulo": "Instrumentacao industrial: salarios chegam a R$ 12 mil",
@@ -176,8 +161,8 @@
       "industria"
     ],
     "imagem": "https://images.unsplash.com/photo-1559523161-0fc0d8b814f2?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_11"
+    "data": "2026-05-03",
+    "id": "res_123_10"
   },
   {
     "titulo": "Veiculos eletricos: nova fronteira para mecanicos no Brasil",
@@ -191,8 +176,8 @@
       "capacitacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_12"
+    "data": "2026-05-03",
+    "id": "res_123_11"
   },
   {
     "titulo": "IA generativa transforma manutencao industrial em 2025",
@@ -206,8 +191,8 @@
       "industria"
     ],
     "imagem": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_13"
+    "data": "2026-05-03",
+    "id": "res_123_12"
   },
   {
     "titulo": "Tecnicos de refrigeracao sao os mais buscados em 2025",
@@ -221,7 +206,22 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800",
-    "data": "2026-05-02",
-    "id": "res_122_14"
+    "data": "2026-05-03",
+    "id": "res_123_13"
+  },
+  {
+    "titulo": "NR-10 e NR-12: novas exigencias para eletricistas industriais",
+    "resumo": "O Ministerio do Trabalho atualiza normas regulamentadoras, aumentando exigencias de qualificacao e abrindo oportunidades para profissionais certificados.",
+    "url": "https://tiinside.com.br",
+    "fonte": "TI Inside",
+    "categoria": "normas",
+    "tags": [
+      "NR-10",
+      "NR-12",
+      "eletricista"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800",
+    "data": "2026-05-03",
+    "id": "res_123_14"
   }
 ]
