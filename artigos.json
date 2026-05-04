@@ -1,20 +1,5 @@
 [
   {
-    "titulo": "Automacao cria novas vagas para tecnicos especializados",
-    "resumo": "Estudo aponta que automacao elimina funcoes repetitivas mas cria demanda por tecnicos capazes de programar e manter equipamentos automatizados.",
-    "url": "https://computerworld.com.br",
-    "fonte": "Computerworld Brasil",
-    "categoria": "mercado",
-    "tags": [
-      "automacao",
-      "empregos",
-      "tecnicos"
-    ],
-    "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_00"
-  },
-  {
     "titulo": "Industria 4.0: tecnicos precisam dominar IoT e sensores",
     "resumo": "Com digitalizacao das fabricas, profissionais de manutencao precisam conhecer sensores IoT, PLCs e sistemas SCADA.",
     "url": "https://olhardigital.com.br",
@@ -26,8 +11,8 @@
       "PLC"
     ],
     "imagem": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_01"
+    "data": "2026-05-04",
+    "id": "res_124_00"
   },
   {
     "titulo": "Petroleo e gas abre 15 mil vagas para tecnicos no Brasil",
@@ -41,8 +26,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1570615470447-7c4db8e16f80?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_02"
+    "data": "2026-05-04",
+    "id": "res_124_01"
   },
   {
     "titulo": "Soldadores qualificados escassos no setor naval brasileiro",
@@ -56,8 +41,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_03"
+    "data": "2026-05-04",
+    "id": "res_124_02"
   },
   {
     "titulo": "Manutencao preditiva com IA muda as fabricas brasileiras",
@@ -71,8 +56,8 @@
       "fabrica"
     ],
     "imagem": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_04"
+    "data": "2026-05-04",
+    "id": "res_124_03"
   },
   {
     "titulo": "Tecnicos de TI industrial: perfil mais procurado pelas industrias",
@@ -86,8 +71,8 @@
       "carreira"
     ],
     "imagem": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_05"
+    "data": "2026-05-04",
+    "id": "res_124_04"
   },
   {
     "titulo": "Energia solar impulsiona demanda por tecnicos fotovoltaicos",
@@ -101,8 +86,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_06"
+    "data": "2026-05-04",
+    "id": "res_124_05"
   },
   {
     "titulo": "Robotica colaborativa: tecnicos aprendem a trabalhar com cobots",
@@ -116,8 +101,8 @@
       "automacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_07"
+    "data": "2026-05-04",
+    "id": "res_124_06"
   },
   {
     "titulo": "SENAI abre 50 mil vagas em cursos tecnicos de automacao",
@@ -131,8 +116,8 @@
       "automacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_08"
+    "data": "2026-05-04",
+    "id": "res_124_07"
   },
   {
     "titulo": "Data centers geram boom de vagas tecnicas no Brasil",
@@ -146,8 +131,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_09"
+    "data": "2026-05-04",
+    "id": "res_124_08"
   },
   {
     "titulo": "Instrumentacao industrial: salarios chegam a R$ 12 mil",
@@ -161,8 +146,8 @@
       "industria"
     ],
     "imagem": "https://images.unsplash.com/photo-1559523161-0fc0d8b814f2?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_10"
+    "data": "2026-05-04",
+    "id": "res_124_09"
   },
   {
     "titulo": "Veiculos eletricos: nova fronteira para mecanicos no Brasil",
@@ -176,8 +161,8 @@
       "capacitacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_11"
+    "data": "2026-05-04",
+    "id": "res_124_10"
   },
   {
     "titulo": "IA generativa transforma manutencao industrial em 2025",
@@ -191,8 +176,8 @@
       "industria"
     ],
     "imagem": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_12"
+    "data": "2026-05-04",
+    "id": "res_124_11"
   },
   {
     "titulo": "Tecnicos de refrigeracao sao os mais buscados em 2025",
@@ -206,8 +191,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_13"
+    "data": "2026-05-04",
+    "id": "res_124_12"
   },
   {
     "titulo": "NR-10 e NR-12: novas exigencias para eletricistas industriais",
@@ -221,7 +206,22 @@
       "eletricista"
     ],
     "imagem": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800",
-    "data": "2026-05-03",
-    "id": "res_123_14"
+    "data": "2026-05-04",
+    "id": "res_124_13"
+  },
+  {
+    "titulo": "Automacao cria novas vagas para tecnicos especializados",
+    "resumo": "Estudo aponta que automacao elimina funcoes repetitivas mas cria demanda por tecnicos capazes de programar e manter equipamentos automatizados.",
+    "url": "https://computerworld.com.br",
+    "fonte": "Computerworld Brasil",
+    "categoria": "mercado",
+    "tags": [
+      "automacao",
+      "empregos",
+      "tecnicos"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
+    "data": "2026-05-04",
+    "id": "res_124_14"
   }
 ]
