@@ -5402,5 +5402,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Segurançado Trabalho",
+    "empresa": "Grupo Bimbo",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2808525/tecnico-de-seguranca-do-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "11/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Mecânico de Refrigeração - Manutenção - Copa D'Or",
+    "empresa": "Rede D'Or",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2813666/mecanico-de-refrigeracao-manutencao-copa-d-or",
+    "fonte": "vagas.com.br",
+    "data": "11/05/2026",
+    "area": "refrigeracao",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
