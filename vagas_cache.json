@@ -5480,5 +5480,44 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Assistente Financeiro",
+    "empresa": "Inspirali",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2811971/assistente-financeiro",
+    "fonte": "vagas.com.br",
+    "data": "12/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Analista / Técnico de Suporte (Fiscale Contábil)",
+    "empresa": "Thomson Reuters",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2806024/analista-tecnico-de-suporte-fiscal-e-contabil",
+    "fonte": "vagas.com.br",
+    "data": "12/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Mecânico de Equipamentos (Refrigeradores) _ Sumaré/SP",
+    "empresa": "RANDSTAD BRASIL",
+    "local": "Sao Paulo",
+    "cidade": "",
+    "estado": "SP",
+    "url": "https://www.vagas.com.br/vagas/v2813942/tec-mecanico-de-equipamentos-refrigeradores-_-sumare-sp",
+    "fonte": "vagas.com.br",
+    "data": "12/05/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
