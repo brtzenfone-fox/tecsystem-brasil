@@ -5545,5 +5545,31 @@
     "area": "refrigeracao",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Suporte Jr",
+    "empresa": "Indra Company",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2814184/tecnico-de-suporte-jr",
+    "fonte": "vagas.com.br",
+    "data": "13/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Assistente de PCM(Planejamento e Controle de Manutenção)",
+    "empresa": "Grupo Nortearh",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2814179/assistente-de-pcm-planejamento-e-controle-de-manutencao",
+    "fonte": "vagas.com.br",
+    "data": "13/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
