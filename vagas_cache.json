@@ -5597,5 +5597,31 @@
     "area": "refrigeracao",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Laboratório Júnior",
+    "empresa": "SEGULA TECHNOLOGIES",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2814366/tecnico-de-laboratorio-junior",
+    "fonte": "vagas.com.br",
+    "data": "13/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Engenheiro de Automação IV V 027330",
+    "empresa": "Lyon Engenharia",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2814357/engenheiro-de-automacao-iv-v-027330",
+    "fonte": "vagas.com.br",
+    "data": "13/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
