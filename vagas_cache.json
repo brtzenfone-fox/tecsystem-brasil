@@ -5571,5 +5571,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Segurançado Trabalho",
+    "empresa": "Confidential",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2811202/tecnico-de-seguranca-do-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "13/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Refrigeração Pleno | Jhsf - Shopping Cidade Jardim",
+    "empresa": "JHSF",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2813008/tecnico-de-refrigeracao-pleno-jhsf-shopping-cidade-jardim",
+    "fonte": "vagas.com.br",
+    "data": "13/05/2026",
+    "area": "refrigeracao",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
