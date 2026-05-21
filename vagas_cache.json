@@ -6715,5 +6715,44 @@
     "area": "eletrica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Agente Técnicode Saúde (Instrumentador Cirúrgico)",
+    "empresa": "FFM",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2815783/agente-tecnico-de-saude-instrumentador-cirurgico",
+    "fonte": "vagas.com.br",
+    "data": "21/05/2026",
+    "area": "automacao",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Segurançado Trabalho",
+    "empresa": "Vetnil",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2813796/tecnico-de-seguranca-do-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "21/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Assistente Técnico/Qualidade",
+    "empresa": "Ribeiro Caram",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2814880/assistente-tecnico-qualidade",
+    "fonte": "vagas.com.br",
+    "data": "21/05/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
