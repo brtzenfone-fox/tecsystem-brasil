@@ -7326,5 +7326,18 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Eletricista Industrial",
+    "empresa": "Porto Sudeste Brasil",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2812568/eletricista-industrial",
+    "fonte": "vagas.com.br",
+    "data": "24/05/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
