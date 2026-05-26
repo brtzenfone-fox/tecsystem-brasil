@@ -7521,5 +7521,44 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Mecânicode Manutenção",
+    "empresa": "JCTManutençãoIndustrial e Comercial LTDA",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2814198/mecanico-de-manutencao",
+    "fonte": "vagas.com.br",
+    "data": "26/05/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Eletricista Industrial",
+    "empresa": "Granol Agrícola",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2816777/eletricista-industrial",
+    "fonte": "vagas.com.br",
+    "data": "26/05/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico(a) Sr Instrumentação - Usina Santa Bárbara/MG",
+    "empresa": "White Martins",
+    "local": "Minas Gerais",
+    "cidade": "",
+    "estado": "MG",
+    "url": "https://www.vagas.com.br/vagas/v2816800/tecnico-a-sr-instrumentacao-usina-santa-barbara-mg",
+    "fonte": "vagas.com.br",
+    "data": "26/05/2026",
+    "area": "automacao",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
