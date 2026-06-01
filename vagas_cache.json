@@ -8353,5 +8353,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico Mecânico I - Prazo Determinado",
+    "empresa": "Mineração Morro do Ipê",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2818074/tecnico-mecanico-i-prazo-determinado",
+    "fonte": "vagas.com.br",
+    "data": "01/06/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico Eletromecânico II",
+    "empresa": "Soulan Recursos Humanos",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2818056/tecnico-eletromecanico-ii",
+    "fonte": "vagas.com.br",
+    "data": "01/06/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
