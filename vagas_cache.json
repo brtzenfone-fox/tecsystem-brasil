@@ -8600,5 +8600,44 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Segurançado Trabalho",
+    "empresa": "CODEME Engenharia",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2816658/tecnico-de-seguranca-do-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "05/06/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicoem Segurançado Trabalho",
+    "empresa": "SulAmérica",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2816099/tecnico-em-seguranca-do-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "05/06/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Eletromecânicode Manutenção",
+    "empresa": "Vesuvius Refratários",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2813505/eletromecanico-de-manutencao",
+    "fonte": "vagas.com.br",
+    "data": "05/06/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
