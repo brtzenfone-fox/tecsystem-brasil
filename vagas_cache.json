@@ -8873,5 +8873,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Mec. de Refrigeração",
+    "empresa": "União Química Farmacêutica Nacional S/A",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2819564/mec-de-refrigeracao",
+    "fonte": "vagas.com.br",
+    "data": "10/06/2026",
+    "area": "refrigeracao",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicoem Eletrotécnica",
+    "empresa": "The Adecco Group",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2819559/tecnico-em-eletrotecnica",
+    "fonte": "vagas.com.br",
+    "data": "10/06/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
