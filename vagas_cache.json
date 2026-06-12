@@ -9068,5 +9068,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Mecânico de Refrigeração I (Pcd) - Cascavel, PR",
+    "empresa": "The Adecco Group",
+    "local": "Parana",
+    "cidade": "",
+    "estado": "PR",
+    "url": "https://www.vagas.com.br/vagas/v2818541/mecanico-de-refrigeracao-i-pcd-cascavel-pr",
+    "fonte": "vagas.com.br",
+    "data": "12/06/2026",
+    "area": "refrigeracao",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico Eletromecânicode Aeronaves - Sorocaba/SP",
+    "empresa": "Confidencial",
+    "local": "Sao Paulo",
+    "cidade": "",
+    "estado": "SP",
+    "url": "https://www.vagas.com.br/vagas/v2814203/tecnico-eletromecanico-de-aeronaves-sorocaba-sp",
+    "fonte": "vagas.com.br",
+    "data": "12/06/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
