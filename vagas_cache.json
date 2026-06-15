@@ -9341,5 +9341,44 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Manutenção Elétrica",
+    "empresa": "CARESE CARROCERIA E PINTURA",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2820266/tecnico-de-manutencao-eletrica",
+    "fonte": "vagas.com.br",
+    "data": "15/06/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Manutenção Mecânica I",
+    "empresa": "CSN CIMENTOS",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2820255/tecnico-de-manutencao-mecanica-i",
+    "fonte": "vagas.com.br",
+    "data": "15/06/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Qualidadee Segurança do Produto",
+    "empresa": "Elevadores Atlas Schidler",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2817747/tecnico-de-qualidade-e-seguranca-do-produto",
+    "fonte": "vagas.com.br",
+    "data": "15/06/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
