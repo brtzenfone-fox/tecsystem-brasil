@@ -10251,5 +10251,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Laboratório",
+    "empresa": "IMPA",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2822357/tecnico-de-laboratorio",
+    "fonte": "vagas.com.br",
+    "data": "24/06/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Operador de Utilidades",
+    "empresa": "Paranapanema",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2821279/operador-de-utilidades",
+    "fonte": "vagas.com.br",
+    "data": "24/06/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
