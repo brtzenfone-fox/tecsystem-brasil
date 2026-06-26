@@ -10394,5 +10394,44 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Soldador",
+    "empresa": "CODEME Engenharia",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2817046/soldador",
+    "fonte": "vagas.com.br",
+    "data": "26/06/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Operador Logístico",
+    "empresa": "Soulan Recursos Humanos",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2818324/operador-logistico",
+    "fonte": "vagas.com.br",
+    "data": "26/06/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Auxiliar de Logística",
+    "empresa": "The Adecco Group",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2820570/auxiliar-de-logistica",
+    "fonte": "vagas.com.br",
+    "data": "26/06/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
