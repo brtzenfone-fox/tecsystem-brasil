@@ -10498,5 +10498,44 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Manutenção Pleno",
+    "empresa": "Selpe",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2817931/tecnico-de-manutencao-pleno",
+    "fonte": "vagas.com.br",
+    "data": "27/06/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Engenheiro de Produção Elétrica e Instrumentação(VAGA Extensiva para Pessoas com",
+    "empresa": "Concremat",
+    "local": "Para",
+    "cidade": "",
+    "estado": "PA",
+    "url": "https://www.vagas.com.br/vagas/v2818226/engenheiro-de-producao-eletrica-e-instrumentacao-vaga-extensiva-para-pessoas-com-deficiencia",
+    "fonte": "vagas.com.br",
+    "data": "27/06/2026",
+    "area": "automacao",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Segurançado Trabalho",
+    "empresa": "Belgo Arames",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2818736/tecnico-de-seguranca-do-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "27/06/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
