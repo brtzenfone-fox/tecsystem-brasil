@@ -10836,5 +10836,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Processo e Qualidade Sênior",
+    "empresa": "Komatsu",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2823157/tecnico-de-processo-e-qualidade-senior",
+    "fonte": "vagas.com.br",
+    "data": "30/06/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Refrigeração",
+    "empresa": "Confidencial",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2823128/tecnico-de-refrigeracao",
+    "fonte": "vagas.com.br",
+    "data": "30/06/2026",
+    "area": "refrigeracao",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
