@@ -11083,5 +11083,44 @@
     "area": "refrigeracao",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Segurançado Trabalho",
+    "empresa": "PH Intralogística",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2823095/tecnico-de-seguranca-do-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "03/07/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Segurançado Trabalho Pleno",
+    "empresa": "Confidencial",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2822793/tecnico-de-seguranca-do-trabalho-pleno",
+    "fonte": "vagas.com.br",
+    "data": "03/07/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicoem Segurançado Trabalho Pleno",
+    "empresa": "Klabin",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2823530/tecnico-em-seguranca-do-trabalho-pleno",
+    "fonte": "vagas.com.br",
+    "data": "03/07/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
