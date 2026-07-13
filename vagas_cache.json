@@ -11694,5 +11694,44 @@
     "area": "eletrica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico(a) Sr Instrumentação - Iguatama/MG",
+    "empresa": "White Martins",
+    "local": "Minas Gerais",
+    "cidade": "",
+    "estado": "MG",
+    "url": "https://www.vagas.com.br/vagas/v2822988/tecnico-a-sr-instrumentacao-iguatama-mg",
+    "fonte": "vagas.com.br",
+    "data": "13/07/2026",
+    "area": "automacao",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Supervisor Elétrica,Instrumentaçãoe Automação",
+    "empresa": "bp bioenergy",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2825095/supervisor-eletrica-instrumentacao-e-automacao",
+    "fonte": "vagas.com.br",
+    "data": "13/07/2026",
+    "area": "automacao",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Tecnicode Qualidade",
+    "empresa": "FBS Construtora",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2825145/tecnico-de-qualidade",
+    "fonte": "vagas.com.br",
+    "data": "13/07/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
