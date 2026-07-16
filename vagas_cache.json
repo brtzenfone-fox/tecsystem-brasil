@@ -11850,5 +11850,57 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Tecnico Confiabilidade Eletrica I",
+    "empresa": "Porto Sudeste Brasil",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2824975/tecnico-confiabilidade-eletrica-i",
+    "fonte": "vagas.com.br",
+    "data": "16/07/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico Mantenedor de Elétrica",
+    "empresa": "Michelin",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2815100/tecnico-mantenedor-de-eletrica",
+    "fonte": "vagas.com.br",
+    "data": "16/07/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Auxiliar Mantenedor",
+    "empresa": "Melitta South America",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2823810/auxiliar-mantenedor",
+    "fonte": "vagas.com.br",
+    "data": "16/07/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Operador Mantenedor",
+    "empresa": "Biometano",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2823769/operador-mantenedor",
+    "fonte": "vagas.com.br",
+    "data": "16/07/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
