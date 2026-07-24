@@ -1,20 +1,5 @@
 [
   {
-    "titulo": "Energia solar impulsiona demanda por tecnicos fotovoltaicos",
-    "resumo": "Com crescimento de 45% em 2024, mercado de energia solar cria demanda recorde por instaladores e tecnicos de manutencao de sistemas fotovoltaicos.",
-    "url": "https://olhardigital.com.br",
-    "fonte": "Olhar Digital",
-    "categoria": "mercado",
-    "tags": [
-      "energia solar",
-      "fotovoltaico",
-      "empregos"
-    ],
-    "imagem": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_00"
-  },
-  {
     "titulo": "Robotica colaborativa: tecnicos aprendem a trabalhar com cobots",
     "resumo": "Robos colaborativos chegam as medias e pequenas industrias. Tecnicos que programarem e mantiverem esses equipamentos terao vantagem no mercado.",
     "url": "https://www.tecmundo.com.br",
@@ -26,8 +11,8 @@
       "automacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_01"
+    "data": "2026-07-24",
+    "id": "res_205_00"
   },
   {
     "titulo": "SENAI abre 50 mil vagas em cursos tecnicos de automacao",
@@ -41,8 +26,8 @@
       "automacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_02"
+    "data": "2026-07-24",
+    "id": "res_205_01"
   },
   {
     "titulo": "Data centers geram boom de vagas tecnicas no Brasil",
@@ -56,8 +41,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_03"
+    "data": "2026-07-24",
+    "id": "res_205_02"
   },
   {
     "titulo": "Instrumentacao industrial: salarios chegam a R$ 12 mil",
@@ -71,8 +56,8 @@
       "industria"
     ],
     "imagem": "https://images.unsplash.com/photo-1559523161-0fc0d8b814f2?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_04"
+    "data": "2026-07-24",
+    "id": "res_205_03"
   },
   {
     "titulo": "Veiculos eletricos: nova fronteira para mecanicos no Brasil",
@@ -86,8 +71,8 @@
       "capacitacao"
     ],
     "imagem": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_05"
+    "data": "2026-07-24",
+    "id": "res_205_04"
   },
   {
     "titulo": "IA generativa transforma manutencao industrial em 2025",
@@ -101,8 +86,8 @@
       "industria"
     ],
     "imagem": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_06"
+    "data": "2026-07-24",
+    "id": "res_205_05"
   },
   {
     "titulo": "Tecnicos de refrigeracao sao os mais buscados em 2025",
@@ -116,8 +101,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_07"
+    "data": "2026-07-24",
+    "id": "res_205_06"
   },
   {
     "titulo": "NR-10 e NR-12: novas exigencias para eletricistas industriais",
@@ -131,8 +116,8 @@
       "eletricista"
     ],
     "imagem": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_08"
+    "data": "2026-07-24",
+    "id": "res_205_07"
   },
   {
     "titulo": "Automacao cria novas vagas para tecnicos especializados",
@@ -146,8 +131,8 @@
       "tecnicos"
     ],
     "imagem": "https://images.unsplash.com/photo-1581092921461-39b7a5d6f4a4?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_09"
+    "data": "2026-07-24",
+    "id": "res_205_08"
   },
   {
     "titulo": "Industria 4.0: tecnicos precisam dominar IoT e sensores",
@@ -161,8 +146,8 @@
       "PLC"
     ],
     "imagem": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_10"
+    "data": "2026-07-24",
+    "id": "res_205_09"
   },
   {
     "titulo": "Petroleo e gas abre 15 mil vagas para tecnicos no Brasil",
@@ -176,8 +161,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1570615470447-7c4db8e16f80?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_11"
+    "data": "2026-07-24",
+    "id": "res_205_10"
   },
   {
     "titulo": "Soldadores qualificados escassos no setor naval brasileiro",
@@ -191,8 +176,8 @@
       "empregos"
     ],
     "imagem": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_12"
+    "data": "2026-07-24",
+    "id": "res_205_11"
   },
   {
     "titulo": "Manutencao preditiva com IA muda as fabricas brasileiras",
@@ -206,8 +191,8 @@
       "fabrica"
     ],
     "imagem": "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_13"
+    "data": "2026-07-24",
+    "id": "res_205_12"
   },
   {
     "titulo": "Tecnicos de TI industrial: perfil mais procurado pelas industrias",
@@ -221,7 +206,22 @@
       "carreira"
     ],
     "imagem": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-    "data": "2026-07-23",
-    "id": "res_204_14"
+    "data": "2026-07-24",
+    "id": "res_205_13"
+  },
+  {
+    "titulo": "Energia solar impulsiona demanda por tecnicos fotovoltaicos",
+    "resumo": "Com crescimento de 45% em 2024, mercado de energia solar cria demanda recorde por instaladores e tecnicos de manutencao de sistemas fotovoltaicos.",
+    "url": "https://olhardigital.com.br",
+    "fonte": "Olhar Digital",
+    "categoria": "mercado",
+    "tags": [
+      "energia solar",
+      "fotovoltaico",
+      "empregos"
+    ],
+    "imagem": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800",
+    "data": "2026-07-24",
+    "id": "res_205_14"
   }
 ]
