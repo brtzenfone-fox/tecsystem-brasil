@@ -13852,5 +13852,44 @@
     "area": "eletrica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Mecânicode Manutenção",
+    "empresa": "Confidencial",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2829625/mecanico-de-manutencao",
+    "fonte": "vagas.com.br",
+    "data": "10/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico Mecatrônico Pleno",
+    "empresa": "UNIÃO QUÍMICA",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2829578/tecnico-mecatronico-pleno",
+    "fonte": "vagas.com.br",
+    "data": "10/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Serralheiro Soldador",
+    "empresa": "Confidencial",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2829622/serralheiro-soldador",
+    "fonte": "vagas.com.br",
+    "data": "10/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
