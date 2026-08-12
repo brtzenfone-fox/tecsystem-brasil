@@ -14021,5 +14021,31 @@
     "area": "eletrica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico(a) de Enfermagem",
+    "empresa": "Fundação São Francisco Xavier",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2830094/tecnico-a-de-enfermagem",
+    "fonte": "vagas.com.br",
+    "data": "12/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Operador Caldeira II",
+    "empresa": "MBRF",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2830093/operador-caldeira-ii",
+    "fonte": "vagas.com.br",
+    "data": "12/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
