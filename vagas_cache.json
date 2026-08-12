@@ -14073,5 +14073,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Aprendiz de Ferramentaria",
+    "empresa": "CIE Piracicaba",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2825699/aprendiz-de-ferramentaria",
+    "fonte": "vagas.com.br",
+    "data": "12/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Aprendiz Fábrica de Pintura Automatizada",
+    "empresa": "CIE Piracicaba",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2825693/aprendiz-fabrica-de-pintura-automatizada",
+    "fonte": "vagas.com.br",
+    "data": "12/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
