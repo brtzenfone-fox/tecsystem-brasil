@@ -14333,5 +14333,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Aprendiz de Manutenção Elétrica",
+    "empresa": "RUD CORRENTES INDUSTRIAIS LTDA",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2830445/aprendiz-de-manutencao-eletrica",
+    "fonte": "vagas.com.br",
+    "data": "13/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Qualidade",
+    "empresa": "FEMSA - Coca Cola",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2830454/tecnico-de-qualidade",
+    "fonte": "vagas.com.br",
+    "data": "13/08/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
