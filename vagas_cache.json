@@ -14138,5 +14138,70 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Recepcionista",
+    "empresa": "Confidencial",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2825415/recepcionista",
+    "fonte": "vagas.com.br",
+    "data": "13/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico de Laboratório - Análises Clínicas",
+    "empresa": "HOSPITAL PEQUENO PRÍNCIPE",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2828838/tecnico-de-laboratorio-analises-clinicas",
+    "fonte": "vagas.com.br",
+    "data": "13/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Analista de Laboratório II",
+    "empresa": "Vetnil",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2815500/analista-de-laboratorio-ii",
+    "fonte": "vagas.com.br",
+    "data": "13/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Analista de Pesquisa Clínica Pl",
+    "empresa": "Vetnil",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2830155/analista-de-pesquisa-clinica-pl",
+    "fonte": "vagas.com.br",
+    "data": "13/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Eletromecânico",
+    "empresa": "MINASMAQUINAS",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2830303/eletromecanico",
+    "fonte": "vagas.com.br",
+    "data": "13/08/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
