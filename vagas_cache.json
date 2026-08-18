@@ -15126,5 +15126,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Assistente Administrativo - Qualidade",
+    "empresa": "ERG Engenharia",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2829333/assistente-administrativo-qualidade",
+    "fonte": "vagas.com.br",
+    "data": "18/08/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Farmácia - Região Sul (Vagas por Prazo Determinado)",
+    "empresa": "Associação Saúde da Família",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2830143/tecnico-de-farmacia-regiao-sul-vagas-por-prazo-determinado",
+    "fonte": "vagas.com.br",
+    "data": "18/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
