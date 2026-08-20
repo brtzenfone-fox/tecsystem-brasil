@@ -15438,5 +15438,57 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Manutenção - Elétrica",
+    "empresa": "Tate & Lyle",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2831361/tecnico-de-manutencao-eletrica",
+    "fonte": "vagas.com.br",
+    "data": "20/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Manutenção - Mecânica",
+    "empresa": "Tate & Lyle",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2831374/tecnico-de-manutencao-mecanica",
+    "fonte": "vagas.com.br",
+    "data": "20/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Manutenção - Instrumentação",
+    "empresa": "Tate & Lyle",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2831379/tecnico-de-manutencao-instrumentacao",
+    "fonte": "vagas.com.br",
+    "data": "20/08/2026",
+    "area": "automacao",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicoem Recebimento de Materiais (Qualidade)",
+    "empresa": "Maurizio & Cia",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2831375/tecnico-em-recebimento-de-materiais-qualidade",
+    "fonte": "vagas.com.br",
+    "data": "20/08/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
