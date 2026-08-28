@@ -16322,5 +16322,44 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Automação",
+    "empresa": "Proativa RH",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2832588/tecnico-de-automacao",
+    "fonte": "vagas.com.br",
+    "data": "28/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Instrumentista I",
+    "empresa": "Kraft Heinz",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2832696/instrumentista-i",
+    "fonte": "vagas.com.br",
+    "data": "28/08/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Qualidade Pleno",
+    "empresa": "Colgate-Palmolive",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2832658/tecnico-de-qualidade-pleno",
+    "fonte": "vagas.com.br",
+    "data": "28/08/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
