@@ -16842,5 +16842,31 @@
     "area": "eletrica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Mecânicode Manutenção Sênior",
+    "empresa": "Grupo SERES",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2833148/mecanico-de-manutencao-senior",
+    "fonte": "vagas.com.br",
+    "data": "04/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Manutenção - Refrigeração",
+    "empresa": "Confidencial",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2833655/tecnico-de-manutencao-refrigeracao",
+    "fonte": "vagas.com.br",
+    "data": "04/09/2026",
+    "area": "refrigeracao",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
