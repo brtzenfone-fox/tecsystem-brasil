@@ -16946,5 +16946,44 @@
     "area": "eletrica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Estágio Nível Técnico Elétrica",
+    "empresa": "Michelin",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2825298/estagio-nivel-tecnico-eletrica",
+    "fonte": "vagas.com.br",
+    "data": "05/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicaem Instrumentação - Afirmativa para Mulheres",
+    "empresa": "Samarco",
+    "local": "Para",
+    "cidade": "",
+    "estado": "PA",
+    "url": "https://www.vagas.com.br/vagas/v2833843/tecnica-em-instrumentacao-afirmativa-para-mulheres",
+    "fonte": "vagas.com.br",
+    "data": "05/09/2026",
+    "area": "automacao",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Analista de Planejamento de Manutenção",
+    "empresa": "ArcelorMittal Gonvarri",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2832027/analista-de-planejamento-de-manutencao",
+    "fonte": "vagas.com.br",
+    "data": "05/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
