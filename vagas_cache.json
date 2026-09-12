@@ -17739,5 +17739,31 @@
     "area": "refrigeracao",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Tecnicode Manutenção",
+    "empresa": "J&T Express",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2833154/tecnico-de-manutencao",
+    "fonte": "vagas.com.br",
+    "data": "12/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Eletromecanico Industrial",
+    "empresa": "Grupo Bimbo",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2834640/eletromecanico-industrial",
+    "fonte": "vagas.com.br",
+    "data": "12/09/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
