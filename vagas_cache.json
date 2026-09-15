@@ -18168,5 +18168,57 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Tecnico Mecatrônico",
+    "empresa": "EssilorLuxotica",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2834993/tecnico-mecatronico",
+    "fonte": "vagas.com.br",
+    "data": "15/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Segurançado Trabalho Pleno",
+    "empresa": "Cobrecom",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2834574/tecnico-de-seguranca-do-trabalho-pleno",
+    "fonte": "vagas.com.br",
+    "data": "15/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Estágio Técnico(Eletrotécnica, Elétrica, Mecânica, Automação) - Igrejinha/RS",
+    "empresa": "Confidencial",
+    "local": "Rio Grande do Sul",
+    "cidade": "",
+    "estado": "RS",
+    "url": "https://www.vagas.com.br/vagas/v2835001/estagio-tecnico-eletrotecnica-eletrica-mecanica-automacao-igrejinha-rs",
+    "fonte": "vagas.com.br",
+    "data": "15/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico Elétrico /EletromecânicoÁgua e Esgoto",
+    "empresa": "GI GROUP",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2833841/tecnico-eletrico-eletromecanico-agua-e-esgoto",
+    "fonte": "vagas.com.br",
+    "data": "15/09/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
