@@ -18428,5 +18428,57 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Diretor Industrial",
+    "empresa": "Confidencial",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2834244/diretor-industrial",
+    "fonte": "vagas.com.br",
+    "data": "16/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico Segurançado Trabalho Sr.",
+    "empresa": "ArcelorMittal Gonvarri",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2834767/tecnico-seguranca-do-trabalho-sr",
+    "fonte": "vagas.com.br",
+    "data": "16/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Segurançado Trabalho",
+    "empresa": "ArcelorMittal Gonvarri",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2834769/tecnico-de-seguranca-do-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "16/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Estágio Engenharia Manutenção Industrial",
+    "empresa": "Suvinil",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2835014/estagio-engenharia-manutencao-industrial",
+    "fonte": "vagas.com.br",
+    "data": "16/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
