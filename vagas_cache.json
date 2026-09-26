@@ -20430,5 +20430,57 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Mecânicode Manutenção",
+    "empresa": "Tecfil Filtros",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2834940/mecanico-de-manutencao",
+    "fonte": "vagas.com.br",
+    "data": "26/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Caldeireiro Soldador",
+    "empresa": "DOME Serviços Integrados",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2836336/caldeireiro-soldador",
+    "fonte": "vagas.com.br",
+    "data": "26/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Consultor(a) de Qualidade",
+    "empresa": "Paraná Clínicas",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2835116/consultor-a-de-qualidade",
+    "fonte": "vagas.com.br",
+    "data": "26/09/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Ar Condicionado Pl.",
+    "empresa": "Trane Tecnhnologies",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2835138/tecnico-de-ar-condicionado-pl",
+    "fonte": "vagas.com.br",
+    "data": "26/09/2026",
+    "area": "refrigeracao",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
