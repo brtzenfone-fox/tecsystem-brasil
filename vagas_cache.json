@@ -20690,5 +20690,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Analista de Qualidade Júnior",
+    "empresa": "Confidencial",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2836608/analista-de-qualidade-junior",
+    "fonte": "vagas.com.br",
+    "data": "28/09/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Tecnicode Celular",
+    "empresa": "Futuro Brasil Reversa",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2836098/tecnico-de-celular",
+    "fonte": "vagas.com.br",
+    "data": "28/09/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
