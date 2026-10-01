@@ -21080,5 +21080,83 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Auxiliar Administrativo",
+    "empresa": "Oncoclínicas&Co",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2836464/auxiliar-administrativo",
+    "fonte": "vagas.com.br",
+    "data": "01/10/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Assistente Administrativo - Cuiabá",
+    "empresa": "BDO",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2835407/assistente-administrativo-cuiaba",
+    "fonte": "vagas.com.br",
+    "data": "01/10/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Assistente Administrativo - Pcd",
+    "empresa": "Etex",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2836730/assistente-administrativo-pcd",
+    "fonte": "vagas.com.br",
+    "data": "01/10/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Operador de Atendimento - Saúde (Vaga Exclusiva para Pessoa com Deficiência)",
+    "empresa": "SulAmérica",
+    "local": "Para",
+    "cidade": "",
+    "estado": "PA",
+    "url": "https://www.vagas.com.br/vagas/v2834534/operador-de-atendimento-saude-vaga-exclusiva-para-pessoa-com-deficiencia",
+    "fonte": "vagas.com.br",
+    "data": "01/10/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Operador de Atendimento - Saúde",
+    "empresa": "SulAmérica",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2830928/operador-de-atendimento-saude",
+    "fonte": "vagas.com.br",
+    "data": "01/10/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Operador de Atendimento - Vendas",
+    "empresa": "SulAmérica",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2835012/operador-de-atendimento-vendas",
+    "fonte": "vagas.com.br",
+    "data": "01/10/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
