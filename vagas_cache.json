@@ -22276,5 +22276,31 @@
     "area": "qualidade",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Mecânico Industrial I",
+    "empresa": "Grupo SERES",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2838308/mecanico-industrial-i",
+    "fonte": "vagas.com.br",
+    "data": "06/10/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Analista da Qualidade Pleno",
+    "empresa": "Confidencial",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2838309/analista-da-qualidade-pleno",
+    "fonte": "vagas.com.br",
+    "data": "06/10/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
