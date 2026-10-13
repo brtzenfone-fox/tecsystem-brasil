@@ -23225,5 +23225,44 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico(a) Produção",
+    "empresa": "Manpower",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2839077/tecnico-a-producao",
+    "fonte": "vagas.com.br",
+    "data": "13/10/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico(a) de Manutenção Jr - Apiaí/SP",
+    "empresa": "InterCement Brasil S.A",
+    "local": "Sao Paulo",
+    "cidade": "",
+    "estado": "SP",
+    "url": "https://www.vagas.com.br/vagas/v2839081/tecnico-a-de-manutencao-jr-apiai-sp",
+    "fonte": "vagas.com.br",
+    "data": "13/10/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico(a) Manutenção Mecânica Jr - Bodoquena / MS",
+    "empresa": "InterCement Brasil S.A",
+    "local": "Mato Grosso do Sul",
+    "cidade": "",
+    "estado": "MS",
+    "url": "https://www.vagas.com.br/vagas/v2839066/tecnico-a-manutencao-mecanica-jr-bodoquena-ms",
+    "fonte": "vagas.com.br",
+    "data": "13/10/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
