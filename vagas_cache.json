@@ -24655,5 +24655,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Eletromecânico III",
+    "empresa": "Grupo Bimbo",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2839908/eletromecanico-iii",
+    "fonte": "vagas.com.br",
+    "data": "21/10/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Programador de PCP &PCM",
+    "empresa": "LUKSCOLOR TINTAS",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2840230/programador-de-pcp-pcm",
+    "fonte": "vagas.com.br",
+    "data": "21/10/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
