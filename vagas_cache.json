@@ -24837,5 +24837,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Auxiliar Técnicode Qualidade I",
+    "empresa": "Alfa Tennant",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2840387/auxiliar-tecnico-de-qualidade-i",
+    "fonte": "vagas.com.br",
+    "data": "21/10/2026",
+    "area": "qualidade",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Eletromecânico",
+    "empresa": "Grupo SERES",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2840208/eletromecanico",
+    "fonte": "vagas.com.br",
+    "data": "21/10/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
