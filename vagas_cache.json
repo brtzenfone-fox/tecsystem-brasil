@@ -25487,5 +25487,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico(a)Manutenção I",
+    "empresa": "Vallourec Soluções Tubulares",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2840008/tecnico-a-manutencao-i",
+    "fonte": "vagas.com.br",
+    "data": "24/10/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico(a) Instrumentação - Campo Bom/RS",
+    "empresa": "White Martins",
+    "local": "Rio Grande do Sul",
+    "cidade": "",
+    "estado": "RS",
+    "url": "https://www.vagas.com.br/vagas/v2833980/tecnico-a-instrumentacao-campo-bom-rs",
+    "fonte": "vagas.com.br",
+    "data": "24/10/2026",
+    "area": "automacao",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
