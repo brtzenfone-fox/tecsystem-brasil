@@ -27619,5 +27619,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Engenheiro de Automação Especialista",
+    "empresa": "Samarco",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2841915/engenheiro-de-automacao-especialista",
+    "fonte": "vagas.com.br",
+    "data": "04/11/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico(a) Instrumentação - Matriz - Wm Pecém Gases Industriais/CE",
+    "empresa": "White Martins",
+    "local": "Ceara",
+    "cidade": "",
+    "estado": "CE",
+    "url": "https://www.vagas.com.br/vagas/v2838013/tecnico-a-instrumentacao-matriz-wm-pecem-gases-industriais-ce",
+    "fonte": "vagas.com.br",
+    "data": "04/11/2026",
+    "area": "automacao",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
