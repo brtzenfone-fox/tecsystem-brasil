@@ -27723,5 +27723,31 @@
     "area": "qualidade",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Eletricista",
+    "empresa": "Klabin",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2839505/eletricista",
+    "fonte": "vagas.com.br",
+    "data": "06/11/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Mecanico Manutencao Agricola III",
+    "empresa": "bp bioenergy",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2835088/mecanico-manutencao-agricola-iii",
+    "fonte": "vagas.com.br",
+    "data": "06/11/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
