@@ -28555,5 +28555,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Segurançado Trabalho",
+    "empresa": "The Adecco Group",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2840542/tecnico-de-seguranca-do-trabalho",
+    "fonte": "vagas.com.br",
+    "data": "10/11/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnico Segurancado Trabalho Jr",
+    "empresa": "EPPO Cidades Inteligentes",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2840535/tecnico-seguranca-do-trabalho-jr",
+    "fonte": "vagas.com.br",
+    "data": "10/11/2026",
+    "area": "seguranca",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
