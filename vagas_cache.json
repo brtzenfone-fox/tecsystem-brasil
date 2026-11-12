@@ -28711,5 +28711,31 @@
     "area": "eletrica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Encanador",
+    "empresa": "UNIÃO QUÍMICA",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2842979/encanador",
+    "fonte": "vagas.com.br",
+    "data": "12/11/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Pessoa Supervisora de Manutenção Mecânica",
+    "empresa": "AGEO Terminais e Armazéns Gerais",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2835699/pessoa-supervisora-de-manutencao-mecanica",
+    "fonte": "vagas.com.br",
+    "data": "12/11/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
