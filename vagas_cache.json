@@ -28685,5 +28685,31 @@
     "area": "mecanica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Laboratório",
+    "empresa": "Grupo Fleury",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2839442/tecnico-de-laboratorio",
+    "fonte": "vagas.com.br",
+    "data": "12/11/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Eletromecânico Industrial",
+    "empresa": "Selpe",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2839984/eletromecanico-industrial",
+    "fonte": "vagas.com.br",
+    "data": "12/11/2026",
+    "area": "eletrica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
