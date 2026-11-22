@@ -30531,5 +30531,31 @@
     "area": "eletrica",
     "salario": "A combinar",
     "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Manutenção",
+    "empresa": "Expert Consultoria",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2844027/tecnico-de-manutencao",
+    "fonte": "vagas.com.br",
+    "data": "22/11/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
+  },
+  {
+    "titulo": "Técnicode Serviços Jr.",
+    "empresa": "The Adecco Group",
+    "local": "Nao informado",
+    "cidade": "",
+    "estado": "",
+    "url": "https://www.vagas.com.br/vagas/v2842928/tecnico-de-servicos-jr",
+    "fonte": "vagas.com.br",
+    "data": "22/11/2026",
+    "area": "mecanica",
+    "salario": "A combinar",
+    "escala": "CLT"
   }
 ]
